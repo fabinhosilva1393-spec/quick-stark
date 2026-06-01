@@ -98,9 +98,10 @@ export function Hero() {
           </ul>
           </div>
 
-          <div className="lg:col-span-5 min-w-0">
-            <Demo />
+          <div className="min-w-0 w-full max-w-[620px] mx-auto lg:mx-0 lg:ml-auto">
+            <Demo compact />
           </div>
+
 
         </div>
       </div>
