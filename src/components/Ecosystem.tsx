@@ -43,9 +43,6 @@ export function Ecosystem() {
           </div>
         </div>
 
-        <p className="mt-4 text-center text-xs text-ink-muted">
-          Names shown for ecosystem context. Not endorsements or partnerships.
-        </p>
       </div>
     </section>
   );
