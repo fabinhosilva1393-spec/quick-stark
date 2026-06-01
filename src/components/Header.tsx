@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { GITHUB_REPO_URL } from "@/data/downloads";
+import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
 const NAV = [
   { label: "Demo", hash: "demo" },
@@ -25,11 +26,13 @@ export function Header() {
         >
           <span
             aria-hidden="true"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-brand-foreground"
+            className="inline-flex h-9 w-9 items-center justify-center"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2.5l2.4 6.6 6.6 2.4-6.6 2.4L12 20.5 9.6 13.9 3 11.5l6.6-2.4L12 2.5z" fill="currentColor" />
-            </svg>
+            <img
+              src={logoAsset.url}
+              alt=""
+              className="h-9 w-9 object-contain"
+            />
           </span>
           <span className="font-bold tracking-tight text-ink">
             Starknet<span className="text-brand">Wallet</span>
