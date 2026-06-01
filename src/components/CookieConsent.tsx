@@ -50,11 +50,12 @@ export function CookieConsent() {
   const [optional, setOptional] = useState<OptionalState>(DEFAULT_OPTIONAL);
   const acceptAllRef = useRef<HTMLButtonElement | null>(null);
 
-  // Initial mount: read existing consent
+  // Initial mount: decide whether to auto-show the banner
   useEffect(() => {
     setMounted(true);
     const existing = readConsent();
     if (!existing) {
+      // No saved consent → show the small box automatically
       setBannerOpen(true);
     } else {
       setOptional({
@@ -75,6 +76,9 @@ export function CookieConsent() {
           marketing: existing.marketing,
           preferences: existing.preferences,
         });
+      } else {
+        // No consent yet → also surface the banner so a choice can be made
+        setBannerOpen(true);
       }
       setModalOpen(true);
     }
