@@ -17,11 +17,12 @@ type Item = {
 const ITEMS: Item[] = [
   { title: "Demo", category: "Section", target: { kind: "hash", hash: "demo" } },
   { title: "Features", category: "Section", target: { kind: "hash", hash: "features" } },
-  { title: "Security", category: "Section", target: { kind: "hash", hash: "security" } },
-  { title: "Developers", category: "Section", target: { kind: "hash", hash: "developers" } },
-  { title: "FAQ", category: "Section", target: { kind: "hash", hash: "faq" } },
-  { title: "Download", category: "Section", target: { kind: "hash", hash: "download" } },
+  { title: "Downloads", category: "Section", target: { kind: "hash", hash: "download" } },
   { title: "Ecosystem", category: "Section", target: { kind: "hash", hash: "ecosystem" } },
+  { title: "FAQ", category: "Section", target: { kind: "hash", hash: "faq" } },
+  { title: "Security", category: "Page", target: { kind: "route", to: "/security" } },
+  { title: "Documentation", category: "Page", target: { kind: "route", to: "/documentation" } },
+  { title: "Releases", category: "Page", target: { kind: "route", to: "/releases" } },
   { title: "Roadmap", category: "Page", target: { kind: "route", to: "/roadmap" } },
   { title: "Audits", category: "Page", target: { kind: "route", to: "/audits" } },
   { title: "Changelog", category: "Page", target: { kind: "route", to: "/changelog" } },
@@ -31,6 +32,12 @@ const ITEMS: Item[] = [
   { title: "Privacy", category: "Legal", target: { kind: "route", to: "/privacy" } },
   { title: "Terms", category: "Legal", target: { kind: "route", to: "/terms" } },
   { title: "Cookies", category: "Settings", target: { kind: "cookies" } },
+  { title: "Cairo preview", category: "Topic", target: { kind: "route", to: "/documentation" } },
+  { title: "Smart-account permissions", category: "Topic", target: { kind: "route", to: "/documentation" } },
+  { title: "STRK", category: "Topic", target: { kind: "route", to: "/documentation" } },
+  { title: "Starknet Mainnet", category: "Topic", target: { kind: "route", to: "/documentation" } },
+  { title: "Sepolia", category: "Topic", target: { kind: "route", to: "/documentation" } },
+  { title: "Verify releases", category: "Topic", target: { kind: "route", to: "/releases" } },
 ];
 
 export function SiteSearch({ variant = "desktop" }: { variant?: "desktop" | "mobile" }) {

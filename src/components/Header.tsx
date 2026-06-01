@@ -5,11 +5,15 @@ import { GITHUB_REPO_URL } from "@/data/downloads";
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 import { SiteSearch } from "./SiteSearch";
 
-const NAV = [
+type NavItem =
+  | { label: string; hash: string }
+  | { label: string; to: string };
+
+const NAV: NavItem[] = [
   { label: "Demo", hash: "demo" },
   { label: "Features", hash: "features" },
-  { label: "Security", hash: "security" },
-  { label: "Developers", hash: "developers" },
+  { label: "Security", to: "/security" },
+  { label: "Developers", to: "/documentation" },
   { label: "FAQ", hash: "faq" },
 ];
 
@@ -41,16 +45,17 @@ export function Header() {
         </Link>
 
         <nav aria-label="Primary" className="hidden md:flex items-center gap-7 text-sm">
-          {NAV.map((n) => (
-            <Link
-              key={n.hash}
-              to="/"
-              hash={n.hash}
-              className="nav-link text-ink-muted font-medium"
-            >
-              {n.label}
-            </Link>
-          ))}
+          {NAV.map((n) =>
+            "to" in n ? (
+              <Link key={n.label} to={n.to} className="nav-link text-ink-muted font-medium">
+                {n.label}
+              </Link>
+            ) : (
+              <Link key={n.label} to="/" hash={n.hash} className="nav-link text-ink-muted font-medium">
+                {n.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -94,17 +99,28 @@ export function Header() {
             <div className="px-1 pb-2">
               <SiteSearch variant="mobile" />
             </div>
-            {NAV.map((n) => (
-              <Link
-                key={n.hash}
-                to="/"
-                hash={n.hash}
-                onClick={() => setOpen(false)}
-                className="px-3 py-3 rounded-lg text-ink hover:bg-muted font-medium"
-              >
-                {n.label}
-              </Link>
-            ))}
+            {NAV.map((n) =>
+              "to" in n ? (
+                <Link
+                  key={n.label}
+                  to={n.to}
+                  onClick={() => setOpen(false)}
+                  className="px-3 py-3 rounded-lg text-ink hover:bg-muted font-medium"
+                >
+                  {n.label}
+                </Link>
+              ) : (
+                <Link
+                  key={n.label}
+                  to="/"
+                  hash={n.hash}
+                  onClick={() => setOpen(false)}
+                  className="px-3 py-3 rounded-lg text-ink hover:bg-muted font-medium"
+                >
+                  {n.label}
+                </Link>
+              ),
+            )}
             <a
               href={GITHUB_REPO_URL}
               target="_blank"
