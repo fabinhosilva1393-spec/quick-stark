@@ -120,7 +120,20 @@ export function Hero() {
             <span className="hero-particle hero-particle-h" aria-hidden="true" />
             <div className="demo-tilt">
               <div className="demo-drift">
-                <Demo compact />
+                <div className="laptop-frame">
+                  <div className="laptop-frame__screen">
+                    <div className="laptop-frame__bezel">
+                      <span className="laptop-frame__camera" aria-hidden="true" />
+                      <div className="laptop-frame__content">
+                        <Demo compact />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="laptop-frame__hinge" aria-hidden="true" />
+                  <div className="laptop-frame__base" aria-hidden="true">
+                    <span className="laptop-frame__notch" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
