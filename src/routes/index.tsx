@@ -58,6 +58,7 @@ function Index() {
         <Hero />
         <Ecosystem />
         <DownloadSection id="download" />
+        <Demo />
         <Features />
         <Security />
         <Compare />
