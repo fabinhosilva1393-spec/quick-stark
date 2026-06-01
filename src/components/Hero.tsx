@@ -1,67 +1,58 @@
-import { Download, ShieldCheck, Github } from "lucide-react";
-import { useDetectedOS } from "@/hooks/useDetectedOS";
-import { getRecommendedDownload, GITHUB_REPO_URL } from "@/data/downloads";
+import {
+  ShieldCheck,
+  Lock,
+  EyeOff,
+  Github,
+  Cpu,
+  Monitor,
+  Apple,
+  AppWindow,
+} from "lucide-react";
+import { GITHUB_REPO_URL, anyReleaseAvailable } from "@/data/downloads";
+
+const TRUST = [
+  { icon: Github, label: "Open source" },
+  { icon: ShieldCheck, label: "Signed releases" },
+  { icon: Lock, label: "Local-first keys" },
+  { icon: EyeOff, label: "No telemetry by default" },
+];
 
 export function Hero() {
-  const detectedOS = useDetectedOS();
-  const recommended = getRecommendedDownload(detectedOS);
-
-  const primaryLabel = recommended
-    ? `Download for ${recommended.os}`
-    : "Choose your operating system";
-  const primaryHref = recommended ? recommended.downloadUrl : "#download";
-  const isExternal = !!recommended;
-
   return (
-    <section className="relative overflow-hidden pt-20 pb-28">
-      <div className="bg-aurora" />
-      <div className="absolute inset-0 bg-grid opacity-40" />
-
+    <section className="relative overflow-hidden pt-20 pb-24">
+      <div className="absolute inset-0 bg-grid-soft" aria-hidden="true" />
       <div className="container-page relative">
         <div className="max-w-3xl">
           <span className="eyebrow">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Desktop wallet · Available now
+            <span className="h-1.5 w-1.5 rounded-full bg-brand" />
+            Desktop wallet · Open source · Signed releases
           </span>
 
-          <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.02]">
+          <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink leading-[1.02]">
             The desktop wallet
             <br />
             built for{" "}
-            <span
-              style={{
-                background:
-                  "linear-gradient(90deg, #EC796B, #C99ABF, #A9A7FF)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              Starknet
-            </span>
-            .
+            <span className="text-brand">Starknet</span>.
           </h1>
 
-          <p className="mt-6 text-lg sm:text-xl text-white/70 leading-relaxed max-w-2xl">
+          <p className="mt-6 text-lg sm:text-xl text-ink-muted leading-relaxed max-w-2xl">
             Manage STRK, preview Cairo calls, and review smart-account
-            permissions with a wallet engineered for serious users. Native on
-            macOS, Windows, and Linux.
+            permissions with a local-first desktop wallet for macOS, Windows,
+            and Linux.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
-              href={primaryHref}
+              href="#download"
               className="btn-primary"
-              target={isExternal ? "_blank" : undefined}
-              rel={isExternal ? "noopener noreferrer" : undefined}
               aria-label={
-                recommended
-                  ? `Download StarknetWallet for ${recommended.os}`
-                  : "Choose your operating system"
+                anyReleaseAvailable
+                  ? "Jump to download options"
+                  : "View release status"
               }
             >
-              {primaryLabel}
-              <Download size={16} aria-hidden="true" />
+              <Monitor size={16} aria-hidden="true" />
+              {anyReleaseAvailable ? "Download" : "View release status"}
             </a>
 
             <a href="#verify" className="btn-ghost">
@@ -73,19 +64,31 @@ export function Hero() {
               href={GITHUB_REPO_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-white/70 hover:text-white inline-flex items-center gap-1.5 px-3 py-2"
+              className="text-sm font-semibold text-ink-muted hover:text-ink inline-flex items-center gap-1.5 px-3 py-2"
             >
               <Github size={14} aria-hidden="true" />
-              View on GitHub
+              View source
             </a>
           </div>
 
-          {recommended && (
-            <p className="mt-4 text-xs text-white/45">
-              Detected {recommended.os} · {recommended.version} ·{" "}
-              {recommended.fileSize}
-            </p>
-          )}
+          <ul className="mt-8 flex flex-wrap gap-2" aria-label="Trust signals">
+            {TRUST.map(({ icon: Icon, label }) => (
+              <li key={label}>
+                <span className="trust-chip">
+                  <Icon size={13} aria-hidden="true" />
+                  {label}
+                </span>
+              </li>
+            ))}
+            <li>
+              <span className="trust-chip">
+                <Apple size={13} aria-hidden="true" />
+                <AppWindow size={13} aria-hidden="true" />
+                <Cpu size={13} aria-hidden="true" />
+                macOS · Windows · Linux
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
