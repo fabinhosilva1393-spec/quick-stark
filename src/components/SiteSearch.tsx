@@ -17,8 +17,9 @@ type Item = {
 const ITEMS: Item[] = [
   { title: "Demo", category: "Section", target: { kind: "hash", hash: "demo" } },
   { title: "Features", category: "Section", target: { kind: "hash", hash: "features" } },
+  { title: "Download", category: "Section", target: { kind: "hash", hash: "download" } },
   { title: "Downloads", category: "Section", target: { kind: "hash", hash: "download" } },
-  { title: "Ecosystem", category: "Section", target: { kind: "hash", hash: "ecosystem" } },
+  { title: "Ecosystem", category: "Page", target: { kind: "route", to: "/ecosystem" } },
   { title: "FAQ", category: "Section", target: { kind: "hash", hash: "faq" } },
   { title: "Security", category: "Page", target: { kind: "route", to: "/security" } },
   { title: "Documentation", category: "Page", target: { kind: "route", to: "/documentation" } },

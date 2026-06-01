@@ -101,7 +101,7 @@ const COLUMNS: FooterColumn[] = [
   {
     title: "Project",
     items: [
-      { label: "Ecosystem", href: "/#ecosystem" },
+      { label: "Ecosystem", href: "/ecosystem" },
       { label: "About", href: "/about" },
       { label: "Contact", href: "/contact" },
     ],

@@ -15,7 +15,7 @@ import { Route as SecurityRouteImport } from './routes/security'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as ReleasesRouteImport } from './routes/releases'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as DownloadRouteImport } from './routes/download'
+import { Route as EcosystemRouteImport } from './routes/ecosystem'
 import { Route as DocumentationRouteImport } from './routes/documentation'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -55,9 +55,9 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DownloadRoute = DownloadRouteImport.update({
-  id: '/download',
-  path: '/download',
+const EcosystemRoute = EcosystemRouteImport.update({
+  id: '/ecosystem',
+  path: '/ecosystem',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocumentationRoute = DocumentationRouteImport.update({
@@ -110,7 +110,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/documentation': typeof DocumentationRoute
-  '/download': typeof DownloadRoute
+  '/ecosystem': typeof EcosystemRoute
   '/privacy': typeof PrivacyRoute
   '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
@@ -127,7 +127,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/documentation': typeof DocumentationRoute
-  '/download': typeof DownloadRoute
+  '/ecosystem': typeof EcosystemRoute
   '/privacy': typeof PrivacyRoute
   '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
@@ -145,7 +145,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/documentation': typeof DocumentationRoute
-  '/download': typeof DownloadRoute
+  '/ecosystem': typeof EcosystemRoute
   '/privacy': typeof PrivacyRoute
   '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
@@ -164,7 +164,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/documentation'
-    | '/download'
+    | '/ecosystem'
     | '/privacy'
     | '/releases'
     | '/roadmap'
@@ -181,7 +181,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/documentation'
-    | '/download'
+    | '/ecosystem'
     | '/privacy'
     | '/releases'
     | '/roadmap'
@@ -198,7 +198,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/documentation'
-    | '/download'
+    | '/ecosystem'
     | '/privacy'
     | '/releases'
     | '/roadmap'
@@ -216,7 +216,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DocumentationRoute: typeof DocumentationRoute
-  DownloadRoute: typeof DownloadRoute
+  EcosystemRoute: typeof EcosystemRoute
   PrivacyRoute: typeof PrivacyRoute
   ReleasesRoute: typeof ReleasesRoute
   RoadmapRoute: typeof RoadmapRoute
@@ -269,11 +269,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/download': {
-      id: '/download'
-      path: '/download'
-      fullPath: '/download'
-      preLoaderRoute: typeof DownloadRouteImport
+    '/ecosystem': {
+      id: '/ecosystem'
+      path: '/ecosystem'
+      fullPath: '/ecosystem'
+      preLoaderRoute: typeof EcosystemRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/documentation': {
@@ -344,7 +344,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DocumentationRoute: DocumentationRoute,
-  DownloadRoute: DownloadRoute,
+  EcosystemRoute: EcosystemRoute,
   PrivacyRoute: PrivacyRoute,
   ReleasesRoute: ReleasesRoute,
   RoadmapRoute: RoadmapRoute,
