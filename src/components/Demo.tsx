@@ -175,7 +175,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
                       <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
                         Example transaction
                       </p>
-                      <h3 className="mt-1 text-lg font-bold text-ink demo-shimmer">
+                      <h3 className="mt-1 text-lg font-bold text-ink">
                         Review transaction
                       </h3>
                     </div>
