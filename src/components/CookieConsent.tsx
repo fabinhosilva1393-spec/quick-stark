@@ -118,7 +118,17 @@ export function CookieConsent() {
         <div
           role="region"
           aria-label="Cookie preferences"
-          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-24px)] max-w-[720px]"
+          style={{
+            position: "fixed",
+            left: 0,
+            right: 0,
+            bottom: 16,
+            marginLeft: "auto",
+            marginRight: "auto",
+            width: "calc(100% - 24px)",
+            maxWidth: 720,
+            zIndex: 9999,
+          }}
         >
           <div className="rounded-lg border border-hairline bg-surface/95 backdrop-blur-md px-3.5 py-3 shadow-[0_6px_24px_-10px_rgba(80,90,255,0.45)] ring-1 ring-brand/10">
             <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
