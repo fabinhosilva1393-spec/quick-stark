@@ -1,16 +1,16 @@
 import { GITHUB_REPO_URL } from "@/data/downloads";
 import { Terminal, Github } from "lucide-react";
-import { AnimatedIsoIcon } from "./AnimatedIsoIcon";
+import { StarknetIsoIllustration } from "./StarknetIsoIllustration";
 
 export function Developers() {
   return (
-    <section id="developers" className="py-24 bg-surface-2 border-y border-hairline">
+    <section id="developers" className="py-24 border-y border-hairline">
       <div className="container-page">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <div>
             <span className="eyebrow">Developers</span>
-            <div className="mt-4 flex items-center gap-4">
-              <AnimatedIsoIcon variant="developer-tools" size={64} />
+            <div className="mt-4 flex items-start gap-5">
+              <StarknetIsoIllustration variant="developer-tools" size={200} />
               <h2 className="section-title">
                 First-class tooling for Cairo builders.
               </h2>

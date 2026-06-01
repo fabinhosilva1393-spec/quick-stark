@@ -42,7 +42,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
 
   const windowEl = (
     <div
-      className="overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
+      className="demo-window overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
       role="img"
       aria-label="StarknetWallet desktop UI demo preview"
     >
@@ -119,7 +119,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
                       }}
                       className={`flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-medium transition ${
                         isActive
-                          ? "bg-brand/10 text-brand"
+                          ? "bg-brand/10 text-brand demo-active-pulse"
                           : "text-ink-muted hover:bg-muted hover:text-ink"
                       }`}
                     >
@@ -175,12 +175,12 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
                       <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
                         Example transaction
                       </p>
-                      <h3 className="mt-1 text-lg font-bold text-ink">
+                      <h3 className="mt-1 text-lg font-bold text-ink demo-shimmer">
                         Review transaction
                       </h3>
                     </div>
 
-                    <dl className="grid gap-2 rounded-lg border border-hairline bg-surface-2 p-4 text-sm">
+                    <dl className="grid gap-2 rounded-lg border border-hairline bg-surface-2 p-4 text-sm demo-fade-rows">
                       <div className="flex items-center justify-between">
                         <dt className="text-ink-muted">dApp</dt>
                         <dd className="font-medium text-ink">Example AMM</dd>
