@@ -79,10 +79,6 @@ const COLUMNS: FooterColumn[] = [
   {
     title: "Developers",
     items: [
-      { label: "Developers Hub" },
-      { label: "SN Stack" },
-      { label: "Build with AI" },
-      { label: "Modular Ecosystem" },
       { label: "Documentation", href: "https://docs.starknet.io/", external: true },
       { label: "Cairo Book", href: "https://book.cairo-lang.org/", external: true },
       { label: "Tutorials", href: "https://www.starknet.io/tutorials/", external: true },
@@ -105,7 +101,6 @@ const COLUMNS: FooterColumn[] = [
     title: "Community",
     items: [
       { label: "Events", href: "https://www.starknet.io/events/", external: true },
-      { label: "Ambassadors Program" },
       { label: "Jobs", href: "https://www.starknet.io/jobs/", external: true },
       { label: "Governance", href: "https://community.starknet.io/c/governance/", external: true },
       { label: "Roadmap", href: "https://www.starknet.io/roadmap/", external: true },
