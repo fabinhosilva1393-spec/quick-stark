@@ -525,26 +525,37 @@ body > * { position: relative; z-index: 1; }
 .demo-stage {
   perspective: 1400px;
 }
-.demo-tilt {
-  transform-style: preserve-3d;
-  will-change: transform;
-  animation: demo-tilt 9s ease-in-out infinite;
-}
-.demo-drift {
-  will-change: transform;
-  animation: demo-drift 8s ease-in-out infinite;
+/* Demo frame wrappers: NO animation — animating containers that wrap text
+   causes subpixel flicker. Movement lives on decorative siblings only. */
+.demo-tilt,
+.demo-drift,
+.demo-window {
+  animation: none !important;
+  transform: none !important;
+  will-change: auto !important;
 }
 .demo-window {
-  will-change: transform;
-  animation: demo-float 10s ease-in-out infinite;
   box-shadow:
     0 30px 80px -40px rgba(20, 30, 80, 0.30),
     0 0 0 1px var(--hairline);
 }
 .demo-active-pulse {
   position: relative;
-  animation: demo-pulse 3.6s ease-in-out infinite;
 }
+
+/* Protect all text inside the demo from any inherited animation/transform */
+.demo-static-text,
+.demo-static-text * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  text-shadow: none !important;
+  will-change: auto !important;
+  backface-visibility: visible !important;
+}
+
 
 /* Soft glow behind demo */
 .demo-glow {
