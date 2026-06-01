@@ -132,7 +132,8 @@ export function Header() {
               GitHub
             </a>
             <Link
-              to="/download"
+              to="/"
+              hash="download"
               onClick={() => setOpen(false)}
               className="mt-2 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-lg bg-brand text-brand-foreground font-semibold"
             >
