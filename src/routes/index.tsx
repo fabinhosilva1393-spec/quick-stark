@@ -9,6 +9,7 @@ import { Features } from "@/components/Features";
 import { Security } from "@/components/Security";
 import { Compare } from "@/components/Compare";
 import { Developers } from "@/components/Developers";
+import { Workflow } from "@/components/Workflow";
 import { FAQ } from "@/components/FAQ";
 
 const TITLE = "StarknetWallet — Desktop Wallet for Starknet";
