@@ -53,8 +53,15 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.7_0.18_27)]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.82_0.15_85)]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.74_0.16_145)]" />
-            <span className="ml-3 text-xs font-medium text-ink-muted">
+            <span className="ml-3 inline-flex items-center gap-1.5 text-xs font-medium text-ink-muted">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2.5l2.4 6.6 6.6 2.4-6.6 2.4L12 20.5 9.6 13.9 3 11.5l6.6-2.4L12 2.5z" fill="currentColor" className="text-brand" />
+              </svg>
               StarknetWallet — Demo
+            </span>
+            <span className="ml-auto inline-flex items-center gap-1 rounded-md border border-hairline bg-surface px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-ink-muted">
+              <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.66_0.17_150)]" />
+              L2 · Cairo
             </span>
           </div>
 
