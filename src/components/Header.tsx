@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { GITHUB_REPO_URL } from "@/data/downloads";
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
+import { SiteSearch } from "./SiteSearch";
 
 const NAV = [
   { label: "Demo", hash: "demo" },
@@ -53,6 +54,9 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <div className="hidden md:block">
+            <SiteSearch />
+          </div>
           <a
             href={GITHUB_REPO_URL}
             target="_blank"
@@ -87,6 +91,9 @@ export function Header() {
           className="md:hidden border-t border-hairline bg-background"
         >
           <nav aria-label="Mobile" className="container-page py-4 flex flex-col gap-1">
+            <div className="px-1 pb-2">
+              <SiteSearch variant="mobile" />
+            </div>
             {NAV.map((n) => (
               <Link
                 key={n.hash}
