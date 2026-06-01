@@ -528,11 +528,15 @@ body > * { position: relative; z-index: 1; }
 .demo-tilt {
   transform-style: preserve-3d;
   will-change: transform;
-  animation: demo-tilt 11s ease-in-out infinite;
+  animation: demo-tilt 9s ease-in-out infinite;
+}
+.demo-drift {
+  will-change: transform;
+  animation: demo-drift 8s ease-in-out infinite;
 }
 .demo-window {
   will-change: transform;
-  animation: demo-float 8s ease-in-out infinite;
+  animation: demo-float 10s ease-in-out infinite;
   box-shadow:
     0 30px 80px -40px rgba(20, 30, 80, 0.30),
     0 0 0 1px var(--hairline);
@@ -542,41 +546,73 @@ body > * { position: relative; z-index: 1; }
   animation: demo-pulse 3.6s ease-in-out infinite;
 }
 
+/* Soft glow behind demo */
+.demo-glow {
+  position: absolute;
+  inset: -80px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    color-mix(in oklab, var(--iso-blue) 35%, transparent) 0%,
+    color-mix(in oklab, var(--iso-purple) 20%, transparent) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: demo-glow 10s ease-in-out infinite;
+  z-index: 0;
+}
+
 /* Orbit decorations around the demo */
 .demo-orbit {
   position: absolute;
   inset: -28px;
   border-radius: 28px;
-  border: 1px dashed color-mix(in oklab, var(--iso-purple) 35%, transparent);
+  border: 1px dashed color-mix(in oklab, var(--iso-purple) 38%, transparent);
   pointer-events: none;
-  animation: demo-orbit-spin 22s linear infinite;
-  opacity: 0.55;
+  animation: demo-orbit-spin 18s linear infinite;
+  opacity: 0.6;
+  z-index: 0;
 }
 .demo-orbit-2 {
   inset: -56px;
-  border-color: color-mix(in oklab, var(--iso-blue) 25%, transparent);
-  animation-duration: 34s;
+  border-color: color-mix(in oklab, var(--iso-blue) 28%, transparent);
+  animation-duration: 28s;
   animation-direction: reverse;
-  opacity: 0.4;
+  opacity: 0.45;
 }
 
+/* Bring the demo above its decorations */
+.demo-stage .demo-tilt { position: relative; z-index: 1; }
+
+@keyframes demo-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  25%      { transform: translate3d(6px, -8px, 0); }
+  50%      { transform: translate3d(-4px, -14px, 0); }
+  75%      { transform: translate3d(-7px, -6px, 0); }
+}
 @keyframes demo-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-9px); }
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(0, -6px, 0) scale(1.012); }
 }
 @keyframes demo-tilt {
-  0%, 100% { transform: rotateX(0deg) rotateY(0deg); }
-  25% { transform: rotateX(0.6deg) rotateY(-1.1deg); }
-  50% { transform: rotateX(-0.4deg) rotateY(0.4deg); }
-  75% { transform: rotateX(0.3deg) rotateY(1deg); }
+  0%, 100% { transform: rotateX(0deg) rotateY(0deg) rotate(0deg); }
+  25%      { transform: rotateX(1deg) rotateY(-1.4deg) rotate(-0.6deg); }
+  50%      { transform: rotateX(-0.6deg) rotateY(0.8deg) rotate(0.4deg); }
+  75%      { transform: rotateX(0.5deg) rotateY(1.3deg) rotate(0.8deg); }
 }
 @keyframes demo-orbit-spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes demo-glow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50%      { opacity: 0.75; transform: scale(1.08); }
 }
 @keyframes demo-pulse {
   0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand) 30%, transparent); }
-  50% { box-shadow: 0 0 0 5px color-mix(in oklab, var(--brand) 14%, transparent); }
+  50%      { box-shadow: 0 0 0 6px color-mix(in oklab, var(--brand) 16%, transparent); }
 }
 
 /* ============= Reduced motion ============= */
