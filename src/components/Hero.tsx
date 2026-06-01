@@ -88,16 +88,15 @@ export function Hero() {
     <section className="relative overflow-hidden pt-20 pb-24">
       <div className="absolute inset-0 bg-grid-soft" aria-hidden="true" />
       <div className="container-page relative">
-        <div className="max-w-3xl">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+          <div className="lg:col-span-7 min-w-0">
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Desktop wallet · Open source · Signed releases
           </span>
 
-          <h1 className="mt-6 text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-ink leading-[1.02]">
-            The desktop wallet
-            <br />
-            built for{" "}
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink leading-[1.05] uppercase">
+            The desktop wallet built for{" "}
             <span className="text-brand">Starknet</span>.
           </h1>
 
@@ -160,6 +159,11 @@ export function Hero() {
               </span>
             </li>
           </ul>
+          </div>
+
+          <div className="lg:col-span-5 min-w-0">
+            <HeroMockup />
+          </div>
         </div>
       </div>
     </section>
