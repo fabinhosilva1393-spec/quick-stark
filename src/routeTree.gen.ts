@@ -13,6 +13,7 @@ import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as DownloadRouteImport } from './routes/download'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TermsRoute = TermsRouteImport.update({
@@ -35,6 +36,11 @@ const DownloadRoute = DownloadRouteImport.update({
   path: '/download',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,6 +49,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -65,14 +74,28 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/download' | '/privacy' | '/sitemap.xml' | '/terms'
+  fullPaths:
+    | '/'
+    | '/cookies'
+    | '/download'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/download' | '/privacy' | '/sitemap.xml' | '/terms'
-  id: '__root__' | '/' | '/download' | '/privacy' | '/sitemap.xml' | '/terms'
+  to: '/' | '/cookies' | '/download' | '/privacy' | '/sitemap.xml' | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/cookies'
+    | '/download'
+    | '/privacy'
+    | '/sitemap.xml'
+    | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CookiesRoute: typeof CookiesRoute
   DownloadRoute: typeof DownloadRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -109,6 +132,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DownloadRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -121,6 +151,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CookiesRoute: CookiesRoute,
   DownloadRoute: DownloadRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
