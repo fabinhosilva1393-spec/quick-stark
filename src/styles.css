@@ -727,3 +727,22 @@ body > * { position: relative; z-index: 1; }
 .nav-link:focus-visible::after {
   transform: scaleX(1);
 }
+
+/* ============= Platform icon polish ============= */
+.platform-icon-mark {
+  color: var(--ink);
+  filter:
+    drop-shadow(0 6px 14px color-mix(in oklab, var(--brand) 28%, transparent))
+    drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+  transition: transform 220ms ease, filter 220ms ease;
+}
+.platform-download-card:hover .platform-icon-mark {
+  transform: translateY(-3px) scale(1.03);
+  filter:
+    drop-shadow(0 10px 22px color-mix(in oklab, var(--iso-purple) 40%, transparent))
+    drop-shadow(0 4px 10px color-mix(in oklab, var(--brand) 30%, transparent));
+}
+@media (prefers-reduced-motion: reduce) {
+  .platform-icon-mark { transition: none; }
+  .platform-download-card:hover .platform-icon-mark { transform: none; }
+}

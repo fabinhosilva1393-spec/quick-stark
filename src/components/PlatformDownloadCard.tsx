@@ -33,23 +33,25 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
         <PlatformIcon os={item.key} />
       </div>
 
-      <div className="mt-4 text-left">
-        <h3 className="text-xl font-bold text-ink tracking-tight">
+      <div className="mt-5 text-left">
+        <h3 className="text-lg font-bold text-ink tracking-tight leading-tight">
           {item.os}
         </h3>
-        <p className="mt-1 text-sm text-ink-muted">{item.fileType}</p>
+        <p className="mt-0.5 text-xs text-ink-muted leading-tight">
+          {item.fileType}
+        </p>
       </div>
 
-      <p className="mt-4 text-sm font-semibold text-ink text-left">
+      <p className="mt-3 text-xs font-semibold text-ink text-left leading-tight">
         Latest release · {item.version}
       </p>
 
-      <dl className="mt-2 flex items-baseline justify-between gap-4 text-sm text-left">
+      <dl className="mt-1 flex items-baseline justify-between gap-4 text-xs text-left leading-tight">
         <dt className="text-ink-muted">File size</dt>
         <dd className="text-ink font-medium">{item.fileSize}</dd>
       </dl>
 
-      <p className="mt-3 text-xs text-ink-muted leading-relaxed text-left">
+      <p className="mt-2 text-[11px] text-ink-muted leading-snug text-left">
         {item.requirements}
       </p>
 
