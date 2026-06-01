@@ -36,11 +36,12 @@ const DEMO_PERMISSIONS = [
   { dapp: "Example NFT", scope: "Sign messages", status: "Revoked" },
 ];
 
-export function Demo() {
+export function Demo({ compact = false }: { compact?: boolean } = {}) {
   const [tab, setTab] = useState<Tab>("transaction");
   const [network, setNetwork] = useState<"Mainnet" | "Sepolia">("Mainnet");
 
-  return (
+  const windowEl = (
+
     <section
       id="demo"
       className="relative py-24 border-b border-hairline"
