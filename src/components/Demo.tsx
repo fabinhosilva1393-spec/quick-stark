@@ -42,7 +42,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
 
   const windowEl = (
     <div
-      className="overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
+      className="demo-window overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
       role="img"
       aria-label="StarknetWallet desktop UI demo preview"
     >
