@@ -16,16 +16,33 @@ export function Ecosystem() {
         <p className="text-center text-xs uppercase tracking-[0.18em] text-ink-muted font-semibold">
           Built for the Starknet ecosystem
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
-          {ECOSYSTEM.map((name) => (
-            <span
-              key={name}
-              className="text-base sm:text-lg font-semibold text-ink-muted"
-            >
-              {name}
-            </span>
-          ))}
+
+        <div
+          className="ecosystem-marquee mt-6"
+          role="list"
+          aria-label="Starknet ecosystem"
+        >
+          <div className="ecosystem-marquee__track">
+            {[0, 1].map((dup) => (
+              <ul
+                key={dup}
+                className="ecosystem-marquee__row"
+                aria-hidden={dup === 1}
+              >
+                {ECOSYSTEM.map((name) => (
+                  <li
+                    key={`${dup}-${name}`}
+                    className="text-base sm:text-lg font-semibold text-ink-muted whitespace-nowrap"
+                    role={dup === 0 ? "listitem" : undefined}
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            ))}
+          </div>
         </div>
+
         <p className="mt-4 text-center text-xs text-ink-muted">
           Names shown for ecosystem context. Not endorsements or partnerships.
         </p>
