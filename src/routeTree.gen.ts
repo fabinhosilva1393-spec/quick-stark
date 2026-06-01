@@ -11,9 +11,15 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as DownloadRouteImport } from './routes/download'
 import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ChangelogRouteImport } from './routes/changelog'
+import { Route as BrandGuidelinesRouteImport } from './routes/brand-guidelines'
+import { Route as AuditsRouteImport } from './routes/audits'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TermsRoute = TermsRouteImport.update({
@@ -24,6 +30,11 @@ const TermsRoute = TermsRouteImport.update({
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -41,6 +52,31 @@ const CookiesRoute = CookiesRouteImport.update({
   path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChangelogRoute = ChangelogRouteImport.update({
+  id: '/changelog',
+  path: '/changelog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandGuidelinesRoute = BrandGuidelinesRouteImport.update({
+  id: '/brand-guidelines',
+  path: '/brand-guidelines',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditsRoute = AuditsRouteImport.update({
+  id: '/audits',
+  path: '/audits',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,26 +85,44 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/audits': typeof AuditsRoute
+  '/brand-guidelines': typeof BrandGuidelinesRoute
+  '/changelog': typeof ChangelogRoute
+  '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
+  '/roadmap': typeof RoadmapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/audits': typeof AuditsRoute
+  '/brand-guidelines': typeof BrandGuidelinesRoute
+  '/changelog': typeof ChangelogRoute
+  '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
+  '/roadmap': typeof RoadmapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/audits': typeof AuditsRoute
+  '/brand-guidelines': typeof BrandGuidelinesRoute
+  '/changelog': typeof ChangelogRoute
+  '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
+  '/roadmap': typeof RoadmapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
 }
@@ -76,28 +130,58 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/audits'
+    | '/brand-guidelines'
+    | '/changelog'
+    | '/contact'
     | '/cookies'
     | '/download'
     | '/privacy'
+    | '/roadmap'
     | '/sitemap.xml'
     | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cookies' | '/download' | '/privacy' | '/sitemap.xml' | '/terms'
-  id:
-    | '__root__'
+  to:
     | '/'
+    | '/about'
+    | '/audits'
+    | '/brand-guidelines'
+    | '/changelog'
+    | '/contact'
     | '/cookies'
     | '/download'
     | '/privacy'
+    | '/roadmap'
+    | '/sitemap.xml'
+    | '/terms'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/audits'
+    | '/brand-guidelines'
+    | '/changelog'
+    | '/contact'
+    | '/cookies'
+    | '/download'
+    | '/privacy'
+    | '/roadmap'
     | '/sitemap.xml'
     | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AuditsRoute: typeof AuditsRoute
+  BrandGuidelinesRoute: typeof BrandGuidelinesRoute
+  ChangelogRoute: typeof ChangelogRoute
+  ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DownloadRoute: typeof DownloadRoute
   PrivacyRoute: typeof PrivacyRoute
+  RoadmapRoute: typeof RoadmapRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
 }
@@ -116,6 +200,13 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -139,6 +230,41 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/changelog': {
+      id: '/changelog'
+      path: '/changelog'
+      fullPath: '/changelog'
+      preLoaderRoute: typeof ChangelogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand-guidelines': {
+      id: '/brand-guidelines'
+      path: '/brand-guidelines'
+      fullPath: '/brand-guidelines'
+      preLoaderRoute: typeof BrandGuidelinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audits': {
+      id: '/audits'
+      path: '/audits'
+      fullPath: '/audits'
+      preLoaderRoute: typeof AuditsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -151,9 +277,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AuditsRoute: AuditsRoute,
+  BrandGuidelinesRoute: BrandGuidelinesRoute,
+  ChangelogRoute: ChangelogRoute,
+  ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DownloadRoute: DownloadRoute,
   PrivacyRoute: PrivacyRoute,
+  RoadmapRoute: RoadmapRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
 }

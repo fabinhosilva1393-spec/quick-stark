@@ -85,23 +85,23 @@ const COLUMNS: FooterColumn[] = [
       { label: "Documentation", href: "/#developers" },
       { label: "Download", href: "/#download" },
       { label: "Releases", href: "/#download" },
-      { label: "Roadmap", href: "/#roadmap" },
+      { label: "Roadmap", href: "/roadmap" },
     ],
   },
   {
     title: "Resources",
     items: [
-      { label: "Audits", href: "/#security" },
-      { label: "Changelog", href: "/#download" },
-      { label: "Brand guidelines", href: "https://www.starknet.io/media-kit/", external: true },
+      { label: "Audits", href: "/audits" },
+      { label: "Changelog", href: "/changelog" },
+      { label: "Brand guidelines", href: "/brand-guidelines" },
     ],
   },
   {
     title: "Project",
     items: [
       { label: "Ecosystem", href: "/#ecosystem" },
-      { label: "About", href: "/#about" },
-      { label: "Contact", href: "/#footer" },
+      { label: "About", href: "/about" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
@@ -113,6 +113,7 @@ const COLUMNS: FooterColumn[] = [
     ],
   },
 ];
+
 
 
 
