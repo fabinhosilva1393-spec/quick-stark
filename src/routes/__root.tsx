@@ -77,14 +77,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { name: "color-scheme", content: "dark" },
+      { name: "theme-color", content: "#0c0c0f" },
+      { title: "StarknetWallet — Desktop Wallet for Starknet" },
+      {
+        name: "description",
+        content:
+          "Download a desktop wallet for Starknet. Manage STRK, preview Cairo calls, review smart-account permissions, and sign on macOS, Windows, and Linux.",
+      },
+      { property: "og:site_name", content: "StarknetWallet" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       {
