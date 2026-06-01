@@ -4,7 +4,7 @@ import {
   StarknetIsoIllustration,
   type IsoIllustrationVariant,
 } from "./StarknetIsoIllustration";
-import { CryptoWalletHero } from "./CryptoWalletHero";
+import cryptoWalletAsset from "@/assets/crypto-wallet-rewards.png.asset.json";
 
 type Slide = {
   variant: IsoIllustrationVariant;
