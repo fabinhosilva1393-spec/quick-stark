@@ -967,3 +967,9 @@ body > * { position: relative; z-index: 1; }
   .sf-twinkle { opacity: 0.85; }
 }
 
+
+.footer-social-icon:hover {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--brand) 40%, transparent),
+    0 6px 18px color-mix(in oklab, var(--brand) 22%, transparent);
+}
