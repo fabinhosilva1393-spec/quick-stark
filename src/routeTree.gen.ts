@@ -15,6 +15,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as DownloadRouteImport } from './routes/download'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ChangelogRouteImport } from './routes/changelog'
+import { Route as BrandGuidelinesRouteImport } from './routes/brand-guidelines'
 import { Route as AuditsRouteImport } from './routes/audits'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -48,6 +49,11 @@ const ChangelogRoute = ChangelogRouteImport.update({
   path: '/changelog',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandGuidelinesRoute = BrandGuidelinesRouteImport.update({
+  id: '/brand-guidelines',
+  path: '/brand-guidelines',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuditsRoute = AuditsRouteImport.update({
   id: '/audits',
   path: '/audits',
@@ -62,6 +68,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/audits': typeof AuditsRoute
+  '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
   '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/audits': typeof AuditsRoute
+  '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
   '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/audits': typeof AuditsRoute
+  '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
   '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/audits'
+    | '/brand-guidelines'
     | '/changelog'
     | '/cookies'
     | '/download'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/audits'
+    | '/brand-guidelines'
     | '/changelog'
     | '/cookies'
     | '/download'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/audits'
+    | '/brand-guidelines'
     | '/changelog'
     | '/cookies'
     | '/download'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuditsRoute: typeof AuditsRoute
+  BrandGuidelinesRoute: typeof BrandGuidelinesRoute
   ChangelogRoute: typeof ChangelogRoute
   CookiesRoute: typeof CookiesRoute
   DownloadRoute: typeof DownloadRoute
@@ -178,6 +191,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ChangelogRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brand-guidelines': {
+      id: '/brand-guidelines'
+      path: '/brand-guidelines'
+      fullPath: '/brand-guidelines'
+      preLoaderRoute: typeof BrandGuidelinesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/audits': {
       id: '/audits'
       path: '/audits'
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuditsRoute: AuditsRoute,
+  BrandGuidelinesRoute: BrandGuidelinesRoute,
   ChangelogRoute: ChangelogRoute,
   CookiesRoute: CookiesRoute,
   DownloadRoute: DownloadRoute,
