@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { GITHUB_REPO_URL } from "@/data/downloads";
+
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
 import type { ReactNode } from "react";
@@ -134,16 +134,6 @@ export function Footer() {
               Resources
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
-              <li>
-                <a
-                  href={GITHUB_REPO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-ink hover:text-brand"
-                >
-                  GitHub
-                </a>
-              </li>
               <li>
                 <Link to="/download" hash="verify" className="text-ink hover:text-brand">
                   Verify a release
