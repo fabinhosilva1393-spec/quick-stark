@@ -4,6 +4,7 @@ import {
   StarknetIsoIllustration,
   type IsoIllustrationVariant,
 } from "./StarknetIsoIllustration";
+import { CryptoWalletHero } from "./CryptoWalletHero";
 
 type Slide = {
   variant: IsoIllustrationVariant;
@@ -70,7 +71,13 @@ export function Workflow() {
               key={s.title}
               className="surface-card flex flex-col items-start"
             >
-              <StarknetIsoIllustration variant={s.variant} size={200} delay={i * 0.4} />
+              {i === 0 ? (
+                <div className="w-full" style={{ maxWidth: 240 }}>
+                  <CryptoWalletHero />
+                </div>
+              ) : (
+                <StarknetIsoIllustration variant={s.variant} size={200} delay={i * 0.4} />
+              )}
               <span className="eyebrow mt-4">{s.eyebrow}</span>
               <h3 className="mt-3 text-lg font-bold text-ink tracking-tight">
                 {s.title}
