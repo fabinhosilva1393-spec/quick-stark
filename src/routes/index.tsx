@@ -12,6 +12,13 @@ import { Compare } from "@/components/Compare";
 import { Developers } from "@/components/Developers";
 import { Workflow } from "@/components/Workflow";
 import { FAQ } from "@/components/FAQ";
+import {
+  WhyDesktop,
+  Migration,
+  DocumentationPreview,
+  ReleasesPreview,
+  CtaFinal,
+} from "@/components/HomeSections";
 
 const TITLE = "StarknetWallet — Desktop Wallet for Starknet";
 const DESC =
@@ -60,14 +67,17 @@ function Index() {
         <Hero />
         <Ecosystem />
         <DownloadSection id="download" />
-
-        
         <Features />
-        <Workflow />
         <Security />
+        <WhyDesktop />
+        <Migration />
         <Compare />
+        <DocumentationPreview />
+        <ReleasesPreview />
+        <Workflow />
         <Developers />
         <FAQ />
+        <CtaFinal />
       </main>
       <Footer />
     </div>
