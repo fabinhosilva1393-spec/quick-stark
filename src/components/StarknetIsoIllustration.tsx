@@ -25,21 +25,21 @@ type Props = {
 
 /**
  * Large illustrated isometric-style scenes inspired by crypto-infrastructure
- * artwork. Original SVG compositions on a dark inner panel with floating
- * geometric layers, tokens, orbits, and neon gradients.
+ * artwork. Transparent SVG background — no card or panel wrapping the icon.
+ * Soft shadows/glows are attached only to the objects themselves.
  * Decorative only. Always aria-hidden.
  */
 export function StarknetIsoIllustration({
   variant,
-  size = 180,
+  size = 240,
   className = "",
   delay = 0,
 }: Props) {
   const style: CSSProperties = {
     width: size,
     height: size,
-    animationDelay: `${delay}s`,
-  };
+    "--iso-delay": `${delay}s`,
+  } as CSSProperties;
 
   const id = `iso-${variant}`;
 
@@ -51,10 +51,6 @@ export function StarknetIsoIllustration({
     >
       <svg viewBox="0 0 200 200" width="100%" height="100%" fill="none">
         <defs>
-          <linearGradient id={`${id}-panel`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0E1230" />
-            <stop offset="100%" stopColor="#060818" />
-          </linearGradient>
           <linearGradient id={`${id}-blue`} x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="var(--iso-blue)" />
             <stop offset="100%" stopColor="var(--iso-purple)" />
@@ -67,49 +63,35 @@ export function StarknetIsoIllustration({
             <stop offset="0%" stopColor="var(--iso-mint)" />
             <stop offset="100%" stopColor="var(--iso-blue)" />
           </linearGradient>
-          <radialGradient id={`${id}-glow`} cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="var(--iso-blue)" stopOpacity="0.55" />
+          <radialGradient id={`${id}-soft`} cx="50%" cy="60%" r="50%">
+            <stop offset="0%" stopColor="var(--iso-blue)" stopOpacity="0.18" />
             <stop offset="100%" stopColor="var(--iso-blue)" stopOpacity="0" />
           </radialGradient>
         </defs>
 
-        {/* dark panel */}
-        <rect
-          x="14"
-          y="14"
-          width="172"
-          height="172"
-          rx="22"
-          fill={`url(#${id}-panel)`}
-        />
-        {/* inner glow */}
-        <circle cx="100" cy="108" r="78" fill={`url(#${id}-glow)`} />
+        {/* soft floor glow (no panel) */}
+        <ellipse cx="100" cy="160" rx="78" ry="14" fill={`url(#${id}-soft)`} />
+
         {/* dotted orbit */}
         <ellipse
           className="iso-orbit"
           cx="100"
-          cy="138"
-          rx="68"
-          ry="18"
-          stroke="var(--iso-lavender)"
+          cy="148"
+          rx="74"
+          ry="16"
+          stroke="var(--iso-purple)"
           strokeOpacity="0.45"
-          strokeDasharray="2 4"
-          strokeWidth="1"
+          strokeDasharray="2 5"
+          strokeWidth="1.2"
         />
-        {/* faint horizon grid */}
-        <g stroke="var(--iso-blue)" strokeOpacity="0.12" strokeWidth="1">
-          <line x1="22" y1="150" x2="178" y2="150" />
-          <line x1="22" y1="160" x2="178" y2="160" />
-          <line x1="22" y1="140" x2="178" y2="140" />
-        </g>
 
         {renderScene(variant, id)}
 
-        {/* shared floating particles */}
-        <circle className="iso-dot iso-dot-a" cx="36" cy="40" r="2" fill="var(--iso-coral)" />
-        <circle className="iso-dot iso-dot-b" cx="168" cy="46" r="1.8" fill="var(--iso-mint)" />
-        <circle className="iso-dot iso-dot-c" cx="160" cy="160" r="1.6" fill="var(--iso-lavender)" />
-        <circle className="iso-dot iso-dot-a" cx="44" cy="170" r="1.4" fill="var(--iso-purple)" />
+        {/* floating particles */}
+        <circle className="iso-dot iso-dot-a" cx="26" cy="40" r="2.4" fill="var(--iso-coral)" />
+        <circle className="iso-dot iso-dot-b" cx="176" cy="48" r="2" fill="var(--iso-mint)" />
+        <circle className="iso-dot iso-dot-c" cx="172" cy="160" r="1.8" fill="var(--iso-lavender)" />
+        <circle className="iso-dot iso-dot-a" cx="32" cy="172" r="1.6" fill="var(--iso-purple)" />
       </svg>
     </span>
   );
@@ -122,12 +104,12 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
   const navy = "#0B0E26";
   const ink = "#E6E8FF";
 
-  // reusable iso pedestal
+  // reusable iso pedestal (now a free-floating geometric block, not a panel)
   const pedestal = (
-    <g opacity="0.95">
-      <path d="M60 130 L100 110 L140 130 L100 150 Z" fill={blue} />
-      <path d="M60 130 L60 138 L100 158 L100 150 Z" fill={navy} />
-      <path d="M140 130 L140 138 L100 158 L100 150 Z" fill="#1A1F4A" />
+    <g opacity="0.95" className="iso-float-slow">
+      <path d="M52 132 L100 108 L148 132 L100 156 Z" fill={blue} />
+      <path d="M52 132 L52 142 L100 166 L100 156 Z" fill="#1A1F4A" />
+      <path d="M148 132 L148 142 L100 166 L100 156 Z" fill="#272D66" />
     </g>
   );
 
@@ -137,17 +119,16 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            {/* token stack */}
-            <ellipse cx="100" cy="98" rx="26" ry="9" fill={coral} />
-            <rect x="74" y="92" width="52" height="10" fill="#FF5C46" />
-            <ellipse cx="100" cy="92" rx="26" ry="9" fill={coral} />
-            <text x="100" y="96" textAnchor="middle" fontSize="11" fontWeight="800" fill={navy}>
+            <ellipse cx="100" cy="96" rx="32" ry="11" fill={coral} />
+            <rect x="68" y="88" width="64" height="12" fill="#FF5C46" />
+            <ellipse cx="100" cy="88" rx="32" ry="11" fill={coral} />
+            <text x="100" y="92" textAnchor="middle" fontSize="12" fontWeight="800" fill={navy}>
               STRK
             </text>
           </g>
           <g className="iso-float-slow">
-            <ellipse cx="64" cy="78" rx="14" ry="5" fill={mint} opacity="0.95" />
-            <ellipse cx="138" cy="70" rx="12" ry="4.5" fill={blue} opacity="0.95" />
+            <ellipse cx="56" cy="72" rx="16" ry="6" fill={mint} />
+            <ellipse cx="146" cy="64" rx="14" ry="5" fill={blue} />
           </g>
         </>
       );
@@ -156,16 +137,17 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <rect x="60" y="62" width="80" height="56" rx="6" fill="#10143A" stroke="var(--iso-blue)" strokeOpacity="0.6" />
-            <rect x="66" y="70" width="50" height="4" rx="2" fill={mint} />
-            <rect x="66" y="80" width="68" height="4" rx="2" fill="#3A3F8A" />
-            <rect x="66" y="90" width="40" height="4" rx="2" fill="#3A3F8A" />
-            <rect x="66" y="100" width="56" height="4" rx="2" fill={coral} />
-            <circle cx="135" cy="72" r="2" fill={coral} />
+            <path d="M56 54 L144 54 L144 116 L56 116 Z" fill={blue} opacity="0.95" />
+            <path d="M56 54 L144 54 L138 60 L62 60 Z" fill="#1A1F4A" opacity="0.8" />
+            <rect x="68" y="68" width="50" height="5" rx="2" fill={mint} />
+            <rect x="68" y="80" width="64" height="5" rx="2" fill={ink} opacity="0.7" />
+            <rect x="68" y="92" width="40" height="5" rx="2" fill={ink} opacity="0.5" />
+            <rect x="68" y="104" width="56" height="5" rx="2" fill={coral} />
+            <circle cx="134" cy="70" r="2.4" fill={coral} />
           </g>
           <g className="iso-float-slow">
-            <path d="M48 124 L60 118 L60 126 L48 132 Z" fill={blue} />
-            <path d="M140 118 L152 124 L152 132 L140 126 Z" fill={coral} />
+            <path d="M36 122 L52 114 L52 124 L36 132 Z" fill={blue} />
+            <path d="M148 114 L164 122 L164 132 L148 124 Z" fill={coral} />
           </g>
         </>
       );
@@ -175,18 +157,21 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
           {pedestal}
           <g className="iso-float">
             <path
-              d="M100 56 L128 68 L128 100 C128 116 100 124 100 124 C100 124 72 116 72 100 L72 68 Z"
+              d="M100 42 L138 58 L138 100 C138 118 100 130 100 130 C100 130 62 118 62 100 L62 58 Z"
               fill={blue}
-              stroke={ink}
-              strokeOpacity="0.6"
             />
-            <path d="M88 92 L96 100 L114 80" stroke={ink} strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <path
+              d="M100 50 L130 64 L130 98 C130 112 100 122 100 122 C100 122 70 112 70 98 L70 64 Z"
+              fill={coral}
+              opacity="0.85"
+            />
+            <path d="M86 92 L96 102 L116 78" stroke={ink} strokeWidth="4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </g>
           <g className="iso-float-slow">
-            <circle cx="52" cy="80" r="6" fill={mint} />
-            <circle cx="148" cy="84" r="5" fill={coral} />
-            <line x1="58" y1="80" x2="72" y2="80" stroke={mint} strokeOpacity="0.5" strokeDasharray="2 2" />
-            <line x1="143" y1="84" x2="128" y2="84" stroke={coral} strokeOpacity="0.5" strokeDasharray="2 2" />
+            <circle cx="40" cy="78" r="7" fill={mint} />
+            <circle cx="160" cy="84" r="6" fill={coral} />
+            <line x1="47" y1="78" x2="62" y2="78" stroke={mint} strokeOpacity="0.55" strokeDasharray="2 3" />
+            <line x1="154" y1="84" x2="138" y2="84" stroke={coral} strokeOpacity="0.55" strokeDasharray="2 3" />
           </g>
         </>
       );
@@ -195,16 +180,17 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <rect x="64" y="68" width="72" height="52" rx="4" fill="#13173A" stroke="var(--iso-blue)" strokeOpacity="0.5" />
-            <path d="M64 80 L136 80" stroke={ink} strokeOpacity="0.2" />
-            <text x="72" y="76" fontSize="6" fill={ink} opacity="0.6" fontFamily="monospace">sha256</text>
-            <rect x="72" y="86" width="50" height="3" rx="1" fill={mint} />
-            <rect x="72" y="94" width="40" height="3" rx="1" fill="#3A3F8A" />
-            <rect x="72" y="102" width="56" height="3" rx="1" fill="#3A3F8A" />
+            <path d="M58 62 L142 62 L142 122 L58 122 Z" fill={blue} opacity="0.95" />
+            <path d="M58 62 L142 62 L136 70 L64 70 Z" fill="#1A1F4A" />
+            <text x="70" y="68" fontSize="6" fill={ink} opacity="0.85" fontFamily="monospace">sha256</text>
+            <rect x="70" y="80" width="54" height="4" rx="1" fill={mint} />
+            <rect x="70" y="90" width="44" height="4" rx="1" fill={ink} opacity="0.5" />
+            <rect x="70" y="100" width="60" height="4" rx="1" fill={ink} opacity="0.5" />
+            <rect x="70" y="110" width="36" height="4" rx="1" fill={coral} />
           </g>
           <g className="iso-float-slow">
-            <circle cx="140" cy="116" r="14" fill={coral} stroke={ink} strokeOpacity="0.7" />
-            <path d="M133 116 L138 121 L148 110" stroke={navy} strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="150" cy="118" r="18" fill={coral} stroke={ink} strokeOpacity="0.75" />
+            <path d="M141 118 L148 125 L160 110" stroke={navy} strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </g>
         </>
       );
@@ -213,15 +199,14 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <circle cx="86" cy="92" r="14" fill="none" stroke={mint} strokeWidth="3" />
-            <rect x="98" y="88" width="34" height="8" rx="1" fill={blue} />
-            <rect x="124" y="88" width="3" height="14" fill={blue} />
-            <rect x="116" y="88" width="3" height="14" fill={blue} />
+            <circle cx="78" cy="88" r="18" fill="none" stroke={mint} strokeWidth="4" />
+            <rect x="94" y="84" width="44" height="9" rx="1" fill={blue} />
+            <rect x="124" y="84" width="3.5" height="16" fill={blue} />
+            <rect x="114" y="84" width="3.5" height="16" fill={blue} />
           </g>
           <g className="iso-float-slow">
-            <rect x="62" y="118" width="76" height="18" rx="3" fill="#10143A" stroke={ink} strokeOpacity="0.3" />
-            <circle cx="72" cy="127" r="2" fill={mint} />
-            <text x="80" y="130" fontSize="6" fill={ink} opacity="0.7" fontFamily="monospace">local · encrypted</text>
+            <ellipse cx="100" cy="128" rx="44" ry="8" fill={coral} opacity="0.7" />
+            <text x="100" y="131" textAnchor="middle" fontSize="7" fontFamily="monospace" fill={navy}>local · encrypted</text>
           </g>
         </>
       );
@@ -230,14 +215,14 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <rect x="58" y="84" width="84" height="26" rx="5" fill={blue} />
-            <rect x="64" y="90" width="50" height="14" rx="2" fill="#0B0E26" />
-            <rect x="118" y="92" width="20" height="3" fill={mint} />
-            <rect x="118" y="100" width="14" height="3" fill={coral} />
+            <rect x="50" y="80" width="100" height="32" rx="6" fill={blue} />
+            <rect x="58" y="88" width="60" height="16" rx="2" fill="#0B0E26" />
+            <rect x="124" y="90" width="22" height="3.5" fill={mint} />
+            <rect x="124" y="100" width="16" height="3.5" fill={coral} />
           </g>
           <g className="iso-float-slow">
-            <path d="M40 96 L58 96" stroke={ink} strokeOpacity="0.5" strokeWidth="2" />
-            <circle cx="38" cy="96" r="3" fill={coral} />
+            <path d="M28 96 L50 96" stroke={ink} strokeOpacity="0.7" strokeWidth="2.5" />
+            <circle cx="26" cy="96" r="4" fill={coral} />
           </g>
         </>
       );
@@ -246,15 +231,15 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <circle cx="74" cy="86" r="14" fill={blue} />
-            <text x="74" y="89" textAnchor="middle" fontSize="7" fontWeight="700" fill={ink}>MN</text>
-            <circle cx="126" cy="86" r="14" fill={coral} />
-            <text x="126" y="89" textAnchor="middle" fontSize="7" fontWeight="700" fill={ink}>SP</text>
-            <circle cx="100" cy="116" r="14" fill={mint} />
-            <text x="100" y="119" textAnchor="middle" fontSize="7" fontWeight="700" fill={navy}>RPC</text>
-            <line x1="86" y1="92" x2="114" y2="92" stroke={ink} strokeOpacity="0.4" strokeDasharray="2 3" />
-            <line x1="80" y1="98" x2="94" y2="110" stroke={ink} strokeOpacity="0.4" strokeDasharray="2 3" />
-            <line x1="120" y1="98" x2="106" y2="110" stroke={ink} strokeOpacity="0.4" strokeDasharray="2 3" />
+            <circle cx="62" cy="78" r="18" fill={blue} />
+            <text x="62" y="82" textAnchor="middle" fontSize="9" fontWeight="800" fill={ink}>MN</text>
+            <circle cx="138" cy="78" r="18" fill={coral} />
+            <text x="138" y="82" textAnchor="middle" fontSize="9" fontWeight="800" fill={ink}>SP</text>
+            <circle cx="100" cy="120" r="18" fill={mint} />
+            <text x="100" y="124" textAnchor="middle" fontSize="9" fontWeight="800" fill={navy}>RPC</text>
+            <line x1="78" y1="86" x2="122" y2="86" stroke={ink} strokeOpacity="0.5" strokeDasharray="2 3" />
+            <line x1="72" y1="94" x2="92" y2="110" stroke={ink} strokeOpacity="0.5" strokeDasharray="2 3" />
+            <line x1="128" y1="94" x2="108" y2="110" stroke={ink} strokeOpacity="0.5" strokeDasharray="2 3" />
           </g>
         </>
       );
@@ -263,15 +248,15 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <rect x="58" y="60" width="84" height="60" rx="6" fill="#0B0F2E" stroke="var(--iso-blue)" strokeOpacity="0.6" />
-            <rect x="58" y="60" width="84" height="10" rx="6" fill="#1A1F4A" />
-            <circle cx="64" cy="65" r="1.6" fill={coral} />
-            <circle cx="69" cy="65" r="1.6" fill={mint} />
-            <circle cx="74" cy="65" r="1.6" fill={blue} />
-            <text x="64" y="84" fontSize="6" fontFamily="monospace" fill={mint}>$ starknet</text>
-            <text x="64" y="94" fontSize="6" fontFamily="monospace" fill={ink} opacity="0.85">› sign --to 0x07f…</text>
-            <text x="64" y="104" fontSize="6" fontFamily="monospace" fill={coral}>› preview: transfer()</text>
-            <text x="64" y="114" fontSize="6" fontFamily="monospace" fill={ink} opacity="0.6">› ok</text>
+            <rect x="46" y="50" width="108" height="76" rx="8" fill="#0B0F2E" stroke={blue} strokeOpacity="0.7" />
+            <rect x="46" y="50" width="108" height="12" rx="8" fill="#1A1F4A" />
+            <circle cx="54" cy="56" r="2" fill={coral} />
+            <circle cx="60" cy="56" r="2" fill={mint} />
+            <circle cx="66" cy="56" r="2" fill={blue} />
+            <text x="54" y="78" fontSize="7" fontFamily="monospace" fill={mint}>$ starknet</text>
+            <text x="54" y="90" fontSize="7" fontFamily="monospace" fill={ink} opacity="0.9">› sign --to 0x07f…</text>
+            <text x="54" y="102" fontSize="7" fontFamily="monospace" fill={coral}>› preview: transfer()</text>
+            <text x="54" y="114" fontSize="7" fontFamily="monospace" fill={ink} opacity="0.7">› ok</text>
           </g>
         </>
       );
@@ -281,15 +266,15 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
           {pedestal}
           <g className="iso-float">
             <path
-              d="M100 56 L130 70 L130 102 C130 118 100 128 100 128 C100 128 70 118 70 102 L70 70 Z"
+              d="M100 40 L138 56 L138 100 C138 120 100 132 100 132 C100 132 62 120 62 100 L62 56 Z"
               fill={blue}
             />
             <path
-              d="M100 64 L122 74 L122 100 C122 112 100 120 100 120 C100 120 78 112 78 100 L78 74 Z"
+              d="M100 50 L128 62 L128 98 C128 114 100 122 100 122 C100 122 72 114 72 98 L72 62 Z"
               fill={coral}
               opacity="0.85"
             />
-            <circle cx="100" cy="96" r="6" fill={ink} />
+            <circle cx="100" cy="92" r="8" fill={ink} />
           </g>
         </>
       );
@@ -298,15 +283,15 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <rect x="64" y="70" width="72" height="48" rx="5" fill="#10143A" stroke="var(--iso-blue)" strokeOpacity="0.5" />
-            <rect x="70" y="78" width="40" height="4" rx="2" fill={mint} />
-            <rect x="70" y="88" width="60" height="4" rx="2" fill="#3A3F8A" />
-            <rect x="70" y="98" width="48" height="4" rx="2" fill="#3A3F8A" />
-            <rect x="70" y="108" width="44" height="6" rx="2" fill={coral} />
+            <path d="M56 60 L144 60 L144 122 L56 122 Z" fill={blue} opacity="0.95" />
+            <rect x="66" y="72" width="44" height="5" rx="2" fill={mint} />
+            <rect x="66" y="84" width="64" height="5" rx="2" fill={ink} opacity="0.6" />
+            <rect x="66" y="96" width="52" height="5" rx="2" fill={ink} opacity="0.5" />
+            <rect x="66" y="108" width="48" height="7" rx="2" fill={coral} />
           </g>
           <g className="iso-float-slow">
-            <path d="M44 100 L60 100" stroke={mint} strokeWidth="2" />
-            <path d="M56 96 L60 100 L56 104" stroke={mint} strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M28 96 L50 96" stroke={mint} strokeWidth="2.5" />
+            <path d="M44 91 L50 96 L44 101" stroke={mint} strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </g>
         </>
       );
@@ -315,9 +300,9 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <path d="M60 92 C72 72 128 72 140 92 C128 112 72 112 60 92 Z" fill="none" stroke={ink} strokeWidth="2.5" />
-            <circle cx="100" cy="92" r="9" fill={coral} />
-            <line x1="56" y1="112" x2="144" y2="72" stroke={coral} strokeWidth="3" strokeLinecap="round" />
+            <path d="M52 92 C68 64 132 64 148 92 C132 120 68 120 52 92 Z" fill="none" stroke={blue} strokeWidth="3" />
+            <circle cx="100" cy="92" r="12" fill={coral} />
+            <line x1="46" y1="118" x2="154" y2="66" stroke={coral} strokeWidth="4" strokeLinecap="round" />
           </g>
         </>
       );
@@ -326,9 +311,9 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <path d="M82 76 L66 92 L82 108" stroke={mint} strokeWidth="3.5" fill="none" strokeLinecap="round" />
-            <path d="M118 76 L134 92 L118 108" stroke={mint} strokeWidth="3.5" fill="none" strokeLinecap="round" />
-            <line x1="110" y1="68" x2="92" y2="116" stroke={coral} strokeWidth="3" strokeLinecap="round" />
+            <path d="M80 64 L56 92 L80 120" stroke={mint} strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M120 64 L144 92 L120 120" stroke={mint} strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <line x1="114" y1="56" x2="86" y2="128" stroke={coral} strokeWidth="4" strokeLinecap="round" />
           </g>
         </>
       );
@@ -337,11 +322,11 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <rect x="70" y="68" width="60" height="56" rx="6" fill={blue} stroke={ink} strokeOpacity="0.5" />
-            <rect x="80" y="78" width="40" height="36" rx="3" fill="#0B0E26" />
-            <rect x="86" y="86" width="28" height="4" fill={mint} />
-            <rect x="86" y="96" width="20" height="4" fill={coral} />
-            <rect x="86" y="106" width="24" height="4" fill="#3A3F8A" />
+            <rect x="62" y="56" width="76" height="72" rx="8" fill={blue} stroke={ink} strokeOpacity="0.5" />
+            <rect x="74" y="68" width="52" height="48" rx="4" fill="#0B0E26" />
+            <rect x="82" y="78" width="36" height="5" fill={mint} />
+            <rect x="82" y="90" width="26" height="5" fill={coral} />
+            <rect x="82" y="102" width="30" height="5" fill={ink} opacity="0.5" />
           </g>
         </>
       );
@@ -350,9 +335,9 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
         <>
           {pedestal}
           <g className="iso-float">
-            <circle cx="100" cy="92" r="22" fill={coral} stroke={ink} strokeOpacity="0.6" strokeWidth="2" />
-            <rect x="98" y="78" width="4" height="14" rx="1" fill={navy} />
-            <circle cx="100" cy="102" r="2.4" fill={navy} />
+            <circle cx="100" cy="88" r="28" fill={coral} stroke={ink} strokeOpacity="0.6" strokeWidth="2" />
+            <rect x="97" y="72" width="6" height="18" rx="1.5" fill={navy} />
+            <circle cx="100" cy="102" r="3" fill={navy} />
           </g>
         </>
       );
