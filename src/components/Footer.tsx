@@ -12,12 +12,13 @@ export function Footer() {
                 aria-hidden="true"
                 className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-brand-foreground"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2L4 7v10l8 5 8-5V7l-8-5z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-                  <path d="M12 22V12M4 7l8 5 8-5" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 2.5l2.4 6.6 6.6 2.4-6.6 2.4L12 20.5 9.6 13.9 3 11.5l6.6-2.4L12 2.5z" fill="currentColor" />
                 </svg>
               </span>
-              <span className="font-bold tracking-tight text-ink">StarknetWallet</span>
+              <span className="font-bold tracking-tight text-ink">
+                Starknet<span className="text-brand">Wallet</span>
+              </span>
             </div>
             <p className="mt-4 text-sm text-ink-muted max-w-sm leading-relaxed">
               A local-first desktop wallet for Starknet. Manage STRK, preview
