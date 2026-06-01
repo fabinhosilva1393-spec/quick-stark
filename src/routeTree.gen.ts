@@ -18,6 +18,7 @@ import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as BrandGuidelinesRouteImport } from './routes/brand-guidelines'
 import { Route as AuditsRouteImport } from './routes/audits'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TermsRoute = TermsRouteImport.update({
@@ -65,6 +66,11 @@ const AuditsRoute = AuditsRouteImport.update({
   path: '/audits',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -73,6 +79,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/audits': typeof AuditsRoute
   '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
@@ -85,6 +92,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/audits': typeof AuditsRoute
   '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
@@ -98,6 +106,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/audits': typeof AuditsRoute
   '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/audits'
     | '/brand-guidelines'
     | '/changelog'
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/audits'
     | '/brand-guidelines'
     | '/changelog'
@@ -136,6 +147,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/audits'
     | '/brand-guidelines'
     | '/changelog'
@@ -149,6 +161,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   AuditsRoute: typeof AuditsRoute
   BrandGuidelinesRoute: typeof BrandGuidelinesRoute
   ChangelogRoute: typeof ChangelogRoute
@@ -225,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuditsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -237,6 +257,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   AuditsRoute: AuditsRoute,
   BrandGuidelinesRoute: BrandGuidelinesRoute,
   ChangelogRoute: ChangelogRoute,
