@@ -151,7 +151,7 @@ function FooterLink({ item }: { item: FooterItem }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-hairline bg-surface">
+    <footer id="footer" className="border-t border-hairline bg-surface">
       <div className="container-page py-14">
         <div className="mb-10 flex items-center gap-2.5">
           <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center">
