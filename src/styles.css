@@ -1059,3 +1059,40 @@ body > * { position: relative; z-index: 1; }
     0 0 0 1px color-mix(in oklab, var(--brand) 40%, transparent),
     0 6px 18px color-mix(in oklab, var(--brand) 22%, transparent);
 }
+
+/* Cosmic layer applied via SiteBackground so the ecosystem-style glow/orbit
+   visuals echo across every section that sits on the site background. */
+.site-cosmic {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.55;
+}
+.site-cosmic__glow-a {
+  position: absolute;
+  left: 8%;
+  top: 12%;
+  width: 620px;
+  height: 620px;
+}
+.site-cosmic__glow-b {
+  position: absolute;
+  right: 6%;
+  bottom: 8%;
+  width: 560px;
+  height: 560px;
+}
+.site-cosmic__orbit-a,
+.site-cosmic__orbit-b {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.site-cosmic__orbit-a { width: 140vw; aspect-ratio: 4 / 1; }
+.site-cosmic__orbit-b { width: 110vw; aspect-ratio: 5 / 1; }
+@media (prefers-reduced-motion: reduce) {
+  .site-cosmic .ecosystem-bg__glow,
+  .site-cosmic .ecosystem-bg__orbit { animation: none !important; }
+}

@@ -12,6 +12,15 @@ export function SiteBackground() {
       <span className="site-bg-orb site-bg-orb-2" />
       <span className="site-bg-orb site-bg-orb-3" />
 
+      {/* Cosmic orbit + drifting glow layer (matches ecosystem section vibe) */}
+      <div className="site-cosmic" aria-hidden="true">
+        <span className="ecosystem-bg__glow ecosystem-bg__glow--a site-cosmic__glow-a" />
+        <span className="ecosystem-bg__glow ecosystem-bg__glow--b site-cosmic__glow-b" />
+        <span className="ecosystem-bg__orbit ecosystem-bg__orbit--1 site-cosmic__orbit-a" />
+        <span className="ecosystem-bg__orbit ecosystem-bg__orbit--2 site-cosmic__orbit-b" />
+      </div>
+
+
       <div className="starfield-layer">
         <span className="starfield-nebula starfield-nebula-1" />
         <span className="starfield-nebula starfield-nebula-2" />
