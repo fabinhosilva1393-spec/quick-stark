@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
+import { openCookieSettings } from "@/lib/cookieConsent";
 
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 
 type SocialLink = {
   name: string;
@@ -68,6 +69,7 @@ type FooterItem = {
   label: string;
   href?: string;
   external?: boolean;
+  onClick?: () => void;
 };
 
 type FooterColumn = {
@@ -109,7 +111,7 @@ const COLUMNS: FooterColumn[] = [
     items: [
       { label: "Privacy", href: "/privacy" },
       { label: "Terms", href: "/terms" },
-      { label: "Cookies", href: "/cookies" },
+      { label: "Cookies", href: "/cookies", onClick: () => openCookieSettings() },
     ],
   },
 ];
@@ -119,6 +121,20 @@ const COLUMNS: FooterColumn[] = [
 
 function FooterLink({ item }: { item: FooterItem }) {
   const baseCls = "inline-flex items-center gap-1 text-sm text-ink-muted transition-colors hover:text-brand";
+
+  if (item.onClick && !item.external) {
+    const handleClick = (e: React.MouseEvent) => {
+      // Allow modifier-click / middle-click to follow href as a fallback
+      if (e.metaKey || e.ctrlKey || e.shiftKey || (e as React.MouseEvent).button === 1) return;
+      e.preventDefault();
+      item.onClick!();
+    };
+    return (
+      <a href={item.href ?? "#"} onClick={handleClick} className={baseCls}>
+        {item.label}
+      </a>
+    );
+  }
 
   if (!item.href) {
     return <span className="text-sm text-ink-muted/60 cursor-default">{item.label}</span>;

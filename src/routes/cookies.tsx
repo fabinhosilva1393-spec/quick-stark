@@ -1,8 +1,35 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
+import { openCookieSettings } from "@/lib/cookieConsent";
 
 const TITLE = "Cookies — StarknetWallet";
 const DESC = "Cookie usage on the StarknetWallet website.";
+
+function CookiesPage() {
+  return (
+    <SimplePage eyebrow="Legal" title="Cookies">
+      <p>This site uses cookies and local storage only as needed to operate.</p>
+      <p>
+        Essential storage is used to render the site and to remember your
+        cookie preferences. Optional categories — analytics, marketing, and
+        preferences — are off by default and only activated if you opt in.
+      </p>
+      <p>
+        The StarknetWallet desktop application itself does not use cookies —
+        it stores configuration locally on your device.
+      </p>
+      <div className="not-prose pt-2">
+        <button
+          type="button"
+          onClick={() => openCookieSettings()}
+          className="inline-flex items-center rounded-md bg-brand px-4 py-2 text-sm font-medium text-white hover:bg-brand/90 transition-colors"
+        >
+          Manage cookie preferences
+        </button>
+      </div>
+    </SimplePage>
+  );
+}
 
 export const Route = createFileRoute("/cookies")({
   head: () => ({
@@ -13,18 +40,5 @@ export const Route = createFileRoute("/cookies")({
       { property: "og:description", content: DESC },
     ],
   }),
-  component: () => (
-    <SimplePage eyebrow="Legal" title="Cookies">
-      <p>This site does not intentionally use tracking cookies.</p>
-      <p>
-        No third-party advertising or analytics cookies are loaded as part of
-        the marketing pages. Essential browser storage may be used by the
-        framework to render the site, but it is not used to profile visitors.
-      </p>
-      <p>
-        The StarknetWallet desktop application itself does not use cookies —
-        it stores configuration locally on your device.
-      </p>
-    </SimplePage>
-  ),
+  component: CookiesPage,
 });
