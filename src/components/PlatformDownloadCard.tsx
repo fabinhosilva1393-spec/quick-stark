@@ -17,8 +17,7 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
       }`}
       aria-label={`${item.os} download${recommended ? " (recommended for your device)" : ""}${isAvailable ? "" : " — release pending"}`}
     >
-      <header className="flex items-start justify-between gap-4">
-        <PlatformIcon os={item.key} />
+      <header className="flex items-start justify-end gap-4 min-h-[24px]">
         {recommended ? (
           <span className="recommended-badge">Recommended for your device</span>
         ) : isAvailable ? (
@@ -30,20 +29,24 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
         )}
       </header>
 
-      <div className="mt-4">
+      <div className="mt-2 flex justify-center">
+        <PlatformIcon os={item.key} />
+      </div>
+
+      <div className="mt-4 text-left">
         <h3 className="text-xl font-bold text-ink tracking-tight">
-          StarknetWallet for {item.os}
+          {item.os}
         </h3>
         <p className="mt-1 text-sm text-ink-muted">{item.fileType}</p>
       </div>
 
-      <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+      <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-left">
         <dt className="text-ink-muted">Version</dt>
         <dd className="text-ink font-medium text-right">{item.version}</dd>
         <dt className="text-ink-muted">File size</dt>
         <dd className="text-ink font-medium text-right">{item.fileSize}</dd>
       </dl>
-      <p className="mt-3 text-xs text-ink-muted leading-relaxed">
+      <p className="mt-3 text-xs text-ink-muted leading-relaxed text-left">
         {item.requirements}
       </p>
 

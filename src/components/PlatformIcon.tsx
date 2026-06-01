@@ -5,7 +5,7 @@ type Props = {
   className?: string;
 };
 
-const SIZE = 36;
+const SIZE = 72;
 
 function MacIcon() {
   return (
@@ -43,7 +43,7 @@ function LinuxIcon() {
 export function PlatformIcon({ os, className }: Props) {
   return (
     <div
-      className={`inline-flex h-12 w-12 items-center justify-center rounded-xl bg-muted text-ink border border-hairline ${className || ""}`}
+      className={`inline-flex items-center justify-center text-ink ${className || ""}`}
       aria-hidden="true"
     >
       {os === "macos" && <MacIcon />}
