@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 import { GITHUB_REPO_URL } from "@/data/downloads";
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
@@ -45,7 +45,7 @@ export function Header() {
               key={n.hash}
               to="/"
               hash={n.hash}
-              className="text-ink-muted hover:text-ink transition-colors font-medium"
+              className="nav-link text-ink-muted font-medium"
             >
               {n.label}
             </Link>
@@ -57,7 +57,7 @@ export function Header() {
             href={GITHUB_REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex text-sm text-ink-muted hover:text-ink px-3 py-2 rounded-lg transition-colors font-medium"
+            className="nav-link hidden sm:inline-flex text-sm text-ink-muted px-3 py-2 font-medium"
           >
             GitHub
           </a>
@@ -65,6 +65,7 @@ export function Header() {
             to="/download"
             className="hidden sm:inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-brand text-brand-foreground font-semibold text-sm hover:brightness-110 transition"
           >
+            <Download size={16} aria-hidden="true" />
             Download
           </Link>
           <button

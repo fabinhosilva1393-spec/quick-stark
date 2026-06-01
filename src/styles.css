@@ -697,3 +697,33 @@ body > * { position: relative; z-index: 1; }
     gap: 32px;
   }
 }
+
+/* ============= Navbar link hover ============= */
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  transition: color 200ms ease, transform 200ms ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: var(--brand);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 200ms ease;
+}
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--brand);
+  transform: translateY(-1px);
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
