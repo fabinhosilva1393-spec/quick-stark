@@ -254,11 +254,15 @@
 }
 
 .recommended-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   border-radius: 999px;
-  padding: 5px 10px;
+  padding: 5px 12px;
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -266,6 +270,7 @@
   color: var(--brand-foreground);
   background: var(--brand);
   border: 1px solid var(--brand);
+  box-shadow: 0 4px 14px color-mix(in oklab, var(--brand) 40%, transparent);
 }
 
 .latest-badge {
