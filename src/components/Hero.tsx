@@ -8,6 +8,7 @@ import {
   Apple,
   AppWindow,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { GITHUB_REPO_URL, anyReleaseAvailable } from "@/data/downloads";
 import { Demo } from "@/components/Demo";
 
@@ -57,10 +58,10 @@ export function Hero() {
               {anyReleaseAvailable ? "Download" : "View release status"}
             </a>
 
-            <a href="#verify" className="btn-ghost">
+            <Link to="/releases" className="btn-ghost">
               <ShieldCheck size={16} aria-hidden="true" />
               Verify release
-            </a>
+            </Link>
 
             <a href="#demo" className="btn-ghost">
               View demo
