@@ -77,8 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "color-scheme", content: "dark" },
-      { name: "theme-color", content: "#0c0c0f" },
+      { name: "color-scheme", content: "light" },
+      { name: "theme-color", content: "#f8f6f1" },
       { title: "StarknetWallet — Desktop Wallet for Starknet" },
       {
         name: "description",
