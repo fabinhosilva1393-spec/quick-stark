@@ -98,8 +98,9 @@ export function Hero() {
           </div>
 
           <div className="lg:col-span-5 min-w-0">
-            <HeroMockup />
+            <Demo />
           </div>
+
         </div>
       </div>
     </section>
