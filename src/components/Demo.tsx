@@ -119,7 +119,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
                       }}
                       className={`flex items-center gap-2 rounded-md px-2.5 py-2 text-sm font-medium transition ${
                         isActive
-                          ? "bg-brand/10 text-brand"
+                          ? "bg-brand/10 text-brand demo-active-pulse"
                           : "text-ink-muted hover:bg-muted hover:text-ink"
                       }`}
                     >
