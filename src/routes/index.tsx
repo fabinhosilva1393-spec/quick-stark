@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Ecosystem } from "@/components/Ecosystem";
 import { DownloadSection } from "@/components/DownloadSection";
-import { Demo } from "@/components/Demo";
+
 import { Features } from "@/components/Features";
 import { Security } from "@/components/Security";
 import { Compare } from "@/components/Compare";
@@ -58,7 +58,7 @@ function Index() {
         <Hero />
         <Ecosystem />
         <DownloadSection id="download" />
-        <Demo />
+        
         <Features />
         <Security />
         <Compare />
