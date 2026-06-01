@@ -37,8 +37,10 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
               Download StarknetWallet
             </h2>
             <p className="section-sub">
-              The site recommends the right build for your operating system.
-              You can choose another platform at any time.
+              Local-first desktop wallet for Starknet. Manage STRK, review
+              Cairo calls, and verify signed releases before installing. The
+              site recommends the right build for your operating system — you
+              can choose another platform at any time.
             </p>
           </div>
         )}
@@ -86,19 +88,21 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
             you run it.
           </p>
 
-          <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 list-none p-0">
             {[
-              { icon: DownloadIcon, t: "1. Download the installer" },
-              { icon: FileCheck2, t: "2. Download the SHA256 checksum" },
-              { icon: Lock, t: "3. Download the PGP signature" },
-              { icon: ShieldCheck, t: "4. Verify, then open the installer" },
-            ].map(({ icon: Icon, t }) => (
+              { icon: DownloadIcon, t: "Download the installer" },
+              { icon: FileCheck2, t: "Download the SHA256 checksum" },
+              { icon: Lock, t: "Download the signature" },
+              { icon: ShieldCheck, t: "Verify before opening" },
+            ].map(({ icon: Icon, t }, i) => (
               <li
                 key={t}
                 className="rounded-lg border border-hairline bg-surface-2 p-4"
               >
                 <Icon size={16} className="text-brand" aria-hidden="true" />
-                <p className="mt-2 text-sm font-semibold text-ink">{t}</p>
+                <p className="mt-2 text-sm font-semibold text-ink">
+                  {i + 1}. {t}
+                </p>
               </li>
             ))}
           </ol>
