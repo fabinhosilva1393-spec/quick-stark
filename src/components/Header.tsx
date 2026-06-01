@@ -91,6 +91,9 @@ export function Header() {
           className="md:hidden border-t border-hairline bg-background"
         >
           <nav aria-label="Mobile" className="container-page py-4 flex flex-col gap-1">
+            <div className="px-1 pb-2">
+              <SiteSearch variant="mobile" />
+            </div>
             {NAV.map((n) => (
               <Link
                 key={n.hash}
