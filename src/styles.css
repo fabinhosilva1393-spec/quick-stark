@@ -310,6 +310,12 @@
 .trust-chip svg {
   color: var(--brand);
 }
+.trust-chip-brand {
+  background: color-mix(in oklab, var(--brand) 8%, var(--surface));
+  border-color: color-mix(in oklab, var(--brand) 35%, var(--hairline));
+  color: var(--ink);
+}
+.trust-chip-brand svg { color: var(--brand); }
 
 /* ============= Subtle grid backdrop ============= */
 .bg-grid-soft {
