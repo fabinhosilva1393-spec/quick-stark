@@ -1,6 +1,13 @@
-import { AnimatedIsoIcon, type IsoVariant } from "./AnimatedIsoIcon";
+import {
+  StarknetIsoIllustration,
+  type IsoIllustrationVariant,
+} from "./StarknetIsoIllustration";
 
-const ITEMS: Array<{ variant: IsoVariant; title: string; body: string }> = [
+const ITEMS: Array<{
+  variant: IsoIllustrationVariant;
+  title: string;
+  body: string;
+}> = [
   {
     variant: "local-keys",
     title: "Local-first private keys",
@@ -13,18 +20,18 @@ const ITEMS: Array<{ variant: IsoVariant; title: string; body: string }> = [
   },
   {
     variant: "signed-release",
-    title: "Signed releases",
+    title: "Signed SHA256 / PGP releases",
     body: "Every published build ships with a SHA256 checksum and a PGP signature so you can verify before installing.",
   },
   {
-    variant: "open-source",
-    title: "Open source",
-    body: "The desktop application source is public. You can audit, build, or fork it yourself.",
+    variant: "secure-enclave",
+    title: "Secure Enclave when available",
+    body: "On supported devices, sensitive material can be protected by the platform Secure Enclave.",
   },
   {
-    variant: "secure-enclave",
-    title: "Hardware wallet support",
-    body: "Ledger over USB is supported so signing keys can stay on dedicated hardware.",
+    variant: "open-source",
+    title: "Open-source verification",
+    body: "The desktop application source is public. You can audit, build, or fork it yourself.",
   },
   {
     variant: "disclosure",
@@ -49,15 +56,25 @@ export function Security() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {ITEMS.map(({ variant, title, body }, i) => (
-            <div key={title} className="surface-card">
-              <AnimatedIsoIcon variant={variant} size={48} delay={i * 0.35} />
-              <h3 className="mt-3 text-base font-bold text-ink">{title}</h3>
-              <p className="mt-1 text-sm text-ink-muted leading-relaxed">
-                {body}
-              </p>
-            </div>
+            <article key={title} className="feature-visual-card">
+              <div className="feature-visual-card__art">
+                <StarknetIsoIllustration
+                  variant={variant}
+                  size={170}
+                  delay={i * 0.35}
+                />
+              </div>
+              <div className="mt-5">
+                <h3 className="text-lg font-bold text-ink tracking-tight">
+                  {title}
+                </h3>
+                <p className="mt-2 text-sm text-ink-muted leading-relaxed">
+                  {body}
+                </p>
+              </div>
+            </article>
           ))}
         </div>
       </div>
