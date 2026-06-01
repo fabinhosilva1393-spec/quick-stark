@@ -15,7 +15,6 @@ import { Route as SecurityRouteImport } from './routes/security'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as ReleasesRouteImport } from './routes/releases'
 import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as DownloadRouteImport } from './routes/download'
 import { Route as DocumentationRouteImport } from './routes/documentation'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -53,11 +52,6 @@ const ReleasesRoute = ReleasesRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DownloadRoute = DownloadRouteImport.update({
-  id: '/download',
-  path: '/download',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DocumentationRoute = DocumentationRouteImport.update({
@@ -110,7 +104,6 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/documentation': typeof DocumentationRoute
-  '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
@@ -127,7 +120,6 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/documentation': typeof DocumentationRoute
-  '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
@@ -145,7 +137,6 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/documentation': typeof DocumentationRoute
-  '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
   '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
@@ -164,7 +155,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/documentation'
-    | '/download'
     | '/privacy'
     | '/releases'
     | '/roadmap'
@@ -181,7 +171,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/documentation'
-    | '/download'
     | '/privacy'
     | '/releases'
     | '/roadmap'
@@ -198,7 +187,6 @@ export interface FileRouteTypes {
     | '/contact'
     | '/cookies'
     | '/documentation'
-    | '/download'
     | '/privacy'
     | '/releases'
     | '/roadmap'
@@ -216,7 +204,6 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DocumentationRoute: typeof DocumentationRoute
-  DownloadRoute: typeof DownloadRoute
   PrivacyRoute: typeof PrivacyRoute
   ReleasesRoute: typeof ReleasesRoute
   RoadmapRoute: typeof RoadmapRoute
@@ -267,13 +254,6 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/download': {
-      id: '/download'
-      path: '/download'
-      fullPath: '/download'
-      preLoaderRoute: typeof DownloadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/documentation': {
@@ -344,7 +324,6 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DocumentationRoute: DocumentationRoute,
-  DownloadRoute: DownloadRoute,
   PrivacyRoute: PrivacyRoute,
   ReleasesRoute: ReleasesRoute,
   RoadmapRoute: RoadmapRoute,
@@ -355,3 +334,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

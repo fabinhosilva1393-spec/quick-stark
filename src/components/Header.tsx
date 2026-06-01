@@ -71,7 +71,8 @@ export function Header() {
             GitHub
           </a>
           <Link
-            to="/download"
+            to="/"
+            hash="download"
             className="hidden sm:inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-brand text-brand-foreground font-semibold text-sm hover:brightness-110 transition"
           >
             <Download size={16} aria-hidden="true" />
