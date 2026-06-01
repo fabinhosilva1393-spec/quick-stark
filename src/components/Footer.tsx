@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { GITHUB_REPO_URL } from "@/data/downloads";
+
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
 import type { ReactNode } from "react";
