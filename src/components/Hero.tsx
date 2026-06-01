@@ -79,6 +79,14 @@ export function Hero() {
           </div>
 
           <ul className="mt-8 flex flex-wrap gap-2" aria-label="Trust signals">
+            <li>
+              <span className="trust-chip trust-chip-brand">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M12 2.5l2.4 6.6 6.6 2.4-6.6 2.4L12 20.5 9.6 13.9 3 11.5l6.6-2.4L12 2.5z" fill="currentColor" />
+                </svg>
+                Cairo · STRK · Smart accounts
+              </span>
+            </li>
             {TRUST.map(({ icon: Icon, label }) => (
               <li key={label}>
                 <span className="trust-chip">
