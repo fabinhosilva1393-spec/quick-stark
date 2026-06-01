@@ -81,38 +81,39 @@ const COLUMNS: FooterColumn[] = [
     items: [
       { label: "Features", href: "/#features" },
       { label: "Security", href: "/#security" },
-      { label: "Compare" },
+      { label: "Compare", href: "/#compare" },
       { label: "Documentation", href: "/#developers" },
       { label: "Download", href: "/#download" },
-      { label: "Releases" },
-      { label: "Roadmap" },
+      { label: "Releases", href: "/#download" },
+      { label: "Roadmap", href: "/#roadmap" },
     ],
   },
   {
     title: "Resources",
     items: [
-      { label: "Audits" },
-      { label: "Changelog" },
-      { label: "Brand guidelines" },
+      { label: "Audits", href: "/#security" },
+      { label: "Changelog", href: "/#download" },
+      { label: "Brand guidelines", href: "https://www.starknet.io/media-kit/", external: true },
     ],
   },
   {
     title: "Project",
     items: [
       { label: "Ecosystem", href: "/#ecosystem" },
-      { label: "About" },
-      { label: "Contact" },
+      { label: "About", href: "/#about" },
+      { label: "Contact", href: "/#footer" },
     ],
   },
   {
     title: "Legal",
     items: [
-      { label: "Privacy" },
-      { label: "Terms" },
-      { label: "Cookies" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms", href: "/terms" },
+      { label: "Cookies", href: "/cookies" },
     ],
   },
 ];
+
 
 
 function FooterLink({ item }: { item: FooterItem }) {
@@ -151,7 +152,7 @@ function FooterLink({ item }: { item: FooterItem }) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-hairline bg-surface">
+    <footer id="footer" className="border-t border-hairline bg-surface">
       <div className="container-page py-14">
         <div className="mb-10 flex items-center gap-2.5">
           <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center">

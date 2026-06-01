@@ -29,7 +29,7 @@ function CellView({ value, primary }: { value: Cell; primary: boolean }) {
 
 export function Compare() {
   return (
-    <section className="py-24">
+    <section id="compare" className="py-24">
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Why desktop</span>

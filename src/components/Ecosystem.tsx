@@ -11,7 +11,7 @@ const ECOSYSTEM = [
 
 export function Ecosystem() {
   return (
-    <section className="py-12 border-y border-hairline bg-surface">
+    <section id="ecosystem" className="py-12 border-y border-hairline bg-surface">
       <div className="container-page">
         <p className="text-center text-xs uppercase tracking-[0.18em] text-ink-muted font-semibold">
           Built for the Starknet ecosystem

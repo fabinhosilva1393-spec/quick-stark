@@ -21,7 +21,7 @@ const TRUST = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-16 pb-20 lg:pt-20 lg:pb-24">
+    <section id="about" className="relative overflow-hidden pt-16 pb-20 lg:pt-20 lg:pb-24">
       <div className="absolute inset-0 bg-grid-soft" aria-hidden="true" />
       <div className="container-page relative">
         <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] gap-12 lg:gap-12 items-center">

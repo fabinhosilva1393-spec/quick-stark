@@ -60,6 +60,7 @@ const QA: { q: string; a: React.ReactNode }[] = [
 export function FAQ() {
   return (
     <section id="faq" className="py-24">
+      <span id="roadmap" aria-hidden="true" className="block -mt-24 pt-24" />
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">FAQ</span>
