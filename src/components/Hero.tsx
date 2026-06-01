@@ -60,6 +60,11 @@ export function Hero() {
               Verify release
             </a>
 
+            <a href="#demo" className="btn-ghost">
+              View demo
+            </a>
+
+
             <a
               href={GITHUB_REPO_URL}
               target="_blank"
