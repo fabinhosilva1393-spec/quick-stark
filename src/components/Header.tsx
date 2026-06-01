@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Menu, X, Download } from "lucide-react";
 import { GITHUB_REPO_URL } from "@/data/downloads";
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
+import { SiteSearch } from "./SiteSearch";
 
 const NAV = [
   { label: "Demo", hash: "demo" },
