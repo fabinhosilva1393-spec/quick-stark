@@ -41,43 +41,12 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
   const [network, setNetwork] = useState<"Mainnet" | "Sepolia">("Mainnet");
 
   const windowEl = (
-
-    <section
-      id="demo"
-      className="relative py-24 border-b border-hairline"
-      aria-labelledby="demo-heading"
+    <div
+      className="overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
+      role="img"
+      aria-label="StarknetWallet desktop UI demo preview"
     >
-      <div className="container-page">
-        <div className="max-w-2xl">
-          <span className="eyebrow">Product demo</span>
-          <h2 id="demo-heading" className="section-title mt-4">
-            Preview transactions before you sign.
-          </h2>
-          <p className="section-sub">
-            See how StarknetWallet helps you review Cairo calls, account
-            permissions, assets, and network details in a calm desktop
-            interface.
-          </p>
-        </div>
 
-        <div className="mt-10 flex flex-wrap items-center gap-2">
-          <span className="trust-chip">
-            <ShieldCheck size={13} aria-hidden="true" /> Local preview
-          </span>
-          <span className="trust-chip">
-            <EyeOff size={13} aria-hidden="true" /> No telemetry by default
-          </span>
-          <span className="trust-chip">
-            <Cpu size={13} aria-hidden="true" /> Hardware wallet ready
-          </span>
-        </div>
-
-        {/* Window */}
-        <div
-          className="mt-8 overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
-          role="img"
-          aria-label="StarknetWallet desktop UI demo preview"
-        >
           {/* Title bar */}
           <div className="flex items-center gap-2 border-b border-hairline bg-surface-2 px-4 py-2.5">
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.7_0.18_27)]" />
