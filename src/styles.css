@@ -749,31 +749,32 @@ body > * { position: relative; z-index: 1; }
 
 /* ============= Starfield ============= */
 .starfield-layer {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  z-index: 0;
 }
 .starfield-nebula {
   position: absolute;
-  width: 720px;
-  height: 720px;
+  width: 820px;
+  height: 820px;
   border-radius: 9999px;
-  filter: blur(120px);
-  opacity: 0.14;
+  filter: blur(140px);
+  opacity: 0.22;
   will-change: transform;
 }
 .starfield-nebula-1 {
-  top: 8%;
-  left: 12%;
+  top: 6%;
+  left: 8%;
   background: radial-gradient(circle, #4f6bff 0%, transparent 65%);
   animation: starfield-nebula-drift-1 28s ease-in-out infinite;
 }
 .starfield-nebula-2 {
-  bottom: 6%;
-  right: 8%;
+  bottom: 4%;
+  right: 4%;
   background: radial-gradient(circle, #7b4dff 0%, transparent 65%);
-  opacity: 0.12;
+  opacity: 0.20;
   animation: starfield-nebula-drift-2 34s ease-in-out infinite;
 }
 @keyframes starfield-nebula-drift-1 {
@@ -785,54 +786,95 @@ body > * { position: relative; z-index: 1; }
   50% { transform: translate(-26px, -18px); }
 }
 
+/* Tiny star layers: each element is a 1-2px dot, multiplied via box-shadow */
 .starfield-stars {
   position: absolute;
-  inset: -10%;
-  background-repeat: repeat;
-  opacity: 0.55;
-  will-change: opacity, transform;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: #ffffff;
+  will-change: opacity;
 }
 .starfield-stars-a {
-  background-image:
-    radial-gradient(1px 1px at 12% 18%, #EAF0FF 50%, transparent 60%),
-    radial-gradient(1px 1px at 28% 64%, #DCE6FF 50%, transparent 60%),
-    radial-gradient(1px 1px at 41% 32%, #FFFFFF 50%, transparent 60%),
-    radial-gradient(1px 1px at 58% 81%, #C9D4FF 50%, transparent 60%),
-    radial-gradient(1px 1px at 73% 14%, #FFFFFF 50%, transparent 60%),
-    radial-gradient(1px 1px at 86% 47%, #DCE6FF 50%, transparent 60%),
-    radial-gradient(1px 1px at 93% 88%, #EAF0FF 50%, transparent 60%),
-    radial-gradient(1px 1px at 6% 92%, #FFFFFF 50%, transparent 60%);
-  background-size: 320px 320px;
-  animation: starfield-twinkle 7s ease-in-out infinite;
+  box-shadow:
+    37px 152px #ffffff, 412px 88px #eaf0ff, 781px 41px #ffffff, 1183px 196px #dce6ff,
+    96px 318px #ffffff, 524px 268px #c9d4ff, 902px 372px #ffffff, 1318px 304px #eaf0ff,
+    62px 502px #ffffff, 348px 461px #dce6ff, 712px 588px #ffffff, 1052px 522px #c9d4ff,
+    1467px 488px #ffffff, 184px 672px #eaf0ff, 596px 718px #ffffff, 988px 681px #dce6ff,
+    1392px 742px #ffffff, 224px 858px #c9d4ff, 678px 902px #ffffff, 1124px 866px #eaf0ff,
+    1538px 938px #ffffff, 142px 1044px #dce6ff, 502px 1098px #ffffff, 854px 1062px #c9d4ff,
+    1278px 1142px #ffffff, 78px 1238px #eaf0ff, 432px 1284px #ffffff, 786px 1248px #dce6ff,
+    1188px 1332px #ffffff, 1592px 1278px #c9d4ff, 256px 1428px #ffffff, 622px 1472px #eaf0ff,
+    972px 1438px #ffffff, 1342px 1518px #dce6ff, 124px 1618px #ffffff, 488px 1662px #c9d4ff,
+    846px 1628px #ffffff, 1216px 1708px #eaf0ff, 1572px 1656px #ffffff, 38px 1812px #dce6ff,
+    402px 1858px #ffffff, 758px 1822px #c9d4ff, 1136px 1902px #ffffff, 1488px 1848px #eaf0ff,
+    198px 2002px #ffffff, 566px 2048px #dce6ff, 922px 2012px #ffffff, 1298px 2092px #c9d4ff,
+    1646px 2038px #ffffff, 88px 2188px #eaf0ff, 466px 2232px #ffffff, 814px 2198px #dce6ff,
+    1186px 2278px #ffffff, 1542px 2228px #c9d4ff, 242px 2378px #ffffff, 608px 2418px #eaf0ff,
+    958px 2388px #ffffff, 1328px 2462px #dce6ff, 132px 2562px #ffffff, 502px 2606px #c9d4ff,
+    862px 2572px #ffffff, 1232px 2648px #eaf0ff, 1588px 2596px #ffffff, 52px 2752px #dce6ff,
+    418px 2798px #ffffff, 778px 2762px #c9d4ff, 1148px 2842px #ffffff, 1502px 2788px #eaf0ff,
+    212px 2942px #ffffff, 578px 2982px #dce6ff, 938px 2952px #ffffff, 1308px 3028px #c9d4ff,
+    122px 3128px #ffffff, 492px 3168px #eaf0ff, 852px 3138px #ffffff, 1218px 3212px #dce6ff,
+    1572px 3158px #ffffff, 282px 3312px #c9d4ff, 642px 3352px #ffffff, 998px 3318px #eaf0ff;
+  animation: starfield-twinkle-a 8s ease-in-out infinite;
 }
 .starfield-stars-b {
-  background-image:
-    radial-gradient(1.4px 1.4px at 22% 8%, #FFFFFF 50%, transparent 60%),
-    radial-gradient(1.4px 1.4px at 49% 53%, #B7C7FF 50%, transparent 60%),
-    radial-gradient(1.4px 1.4px at 77% 70%, #FFFFFF 50%, transparent 60%),
-    radial-gradient(1.4px 1.4px at 91% 22%, #DCE6FF 50%, transparent 60%),
-    radial-gradient(1.4px 1.4px at 16% 76%, #FFFFFF 50%, transparent 60%),
-    radial-gradient(1.4px 1.4px at 64% 36%, #C9D4FF 50%, transparent 60%);
-  background-size: 460px 460px;
-  opacity: 0.4;
-  animation: starfield-twinkle 11s ease-in-out infinite;
+  width: 2px;
+  height: 2px;
+  box-shadow:
+    188px 92px #ffffff, 612px 168px #ffffff, 1042px 122px #eaf0ff, 1462px 248px #ffffff,
+    326px 412px #ffffff, 752px 368px #ffffff, 1162px 462px #dce6ff, 88px 622px #ffffff,
+    498px 678px #ffffff, 912px 612px #eaf0ff, 1342px 698px #ffffff, 232px 858px #ffffff,
+    668px 912px #ffffff, 1098px 882px #c9d4ff, 1518px 952px #ffffff, 152px 1102px #ffffff,
+    582px 1158px #ffffff, 998px 1108px #eaf0ff, 1418px 1198px #ffffff, 308px 1358px #ffffff,
+    742px 1412px #ffffff, 1158px 1378px #ffffff, 78px 1602px #eaf0ff, 502px 1658px #ffffff,
+    922px 1622px #ffffff, 1348px 1702px #ffffff, 238px 1858px #ffffff, 672px 1912px #ffffff,
+    1102px 1878px #dce6ff, 1532px 1962px #ffffff, 158px 2122px #ffffff, 588px 2168px #ffffff,
+    1008px 2128px #ffffff, 1428px 2212px #eaf0ff, 318px 2378px #ffffff, 752px 2418px #ffffff,
+    1168px 2388px #ffffff, 88px 2602px #ffffff, 512px 2648px #ffffff, 932px 2612px #c9d4ff,
+    1352px 2702px #ffffff, 248px 2862px #ffffff, 682px 2918px #ffffff, 1112px 2878px #ffffff,
+    1542px 2962px #eaf0ff, 168px 3122px #ffffff, 598px 3168px #ffffff, 1018px 3128px #ffffff;
+  opacity: 0.85;
+  animation: starfield-twinkle-b 12s ease-in-out infinite;
   animation-delay: -3s;
 }
 .starfield-stars-c {
-  background-image:
-    radial-gradient(0.8px 0.8px at 5% 35%, #EAF0FF 50%, transparent 60%),
-    radial-gradient(0.8px 0.8px at 33% 12%, #FFFFFF 50%, transparent 60%),
-    radial-gradient(0.8px 0.8px at 52% 88%, #DCE6FF 50%, transparent 60%),
-    radial-gradient(0.8px 0.8px at 70% 26%, #FFFFFF 50%, transparent 60%),
-    radial-gradient(0.8px 0.8px at 88% 62%, #C9D4FF 50%, transparent 60%);
-  background-size: 240px 240px;
-  opacity: 0.5;
-  animation: starfield-twinkle 9s ease-in-out infinite;
-  animation-delay: -5s;
+  width: 1.5px;
+  height: 1.5px;
+  background: #b7c7ff;
+  box-shadow:
+    268px 232px #b7c7ff, 712px 312px #c9d4ff, 1132px 268px #b7c7ff, 408px 552px #c9d4ff,
+    832px 612px #b7c7ff, 1262px 568px #c9d4ff, 168px 802px #b7c7ff, 592px 862px #c9d4ff,
+    1018px 822px #b7c7ff, 1442px 902px #c9d4ff, 308px 1052px #b7c7ff, 738px 1112px #c9d4ff,
+    1162px 1072px #b7c7ff, 88px 1302px #c9d4ff, 512px 1362px #b7c7ff, 938px 1322px #c9d4ff,
+    1368px 1402px #b7c7ff, 218px 1552px #c9d4ff, 648px 1612px #b7c7ff, 1078px 1572px #c9d4ff,
+    1502px 1652px #b7c7ff, 358px 1802px #c9d4ff, 788px 1862px #b7c7ff, 1212px 1822px #c9d4ff,
+    138px 2052px #b7c7ff, 562px 2112px #c9d4ff, 988px 2072px #b7c7ff, 1418px 2152px #c9d4ff,
+    278px 2302px #b7c7ff, 708px 2362px #c9d4ff, 1138px 2322px #b7c7ff, 78px 2552px #c9d4ff,
+    498px 2612px #b7c7ff, 928px 2572px #c9d4ff, 1358px 2652px #b7c7ff, 208px 2802px #c9d4ff,
+    638px 2862px #b7c7ff, 1068px 2822px #c9d4ff, 1498px 2902px #b7c7ff, 348px 3052px #c9d4ff;
+  opacity: 0.75;
+  animation: starfield-drift 16s ease-in-out infinite, starfield-twinkle-c 10s ease-in-out infinite;
+  animation-delay: -5s, -2s;
 }
-@keyframes starfield-twinkle {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.7; }
+@keyframes starfield-twinkle-a {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 0.95; }
+}
+@keyframes starfield-twinkle-b {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+@keyframes starfield-twinkle-c {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.85; }
+}
+@keyframes starfield-drift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(12px, -8px); }
 }
 
 .starfield-sparkles {
@@ -840,19 +882,20 @@ body > * { position: relative; z-index: 1; }
   inset: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.85;
+  opacity: 1;
 }
 .sf-twinkle {
   transform-box: fill-box;
   transform-origin: center;
+  filter: drop-shadow(0 0 4px rgba(180, 200, 255, 0.85));
   will-change: opacity, transform;
 }
 .sf-twinkle-1 { animation: sf-sparkle 9s ease-in-out infinite; }
 .sf-twinkle-2 { animation: sf-sparkle 12s ease-in-out infinite; animation-delay: -2s; }
 .sf-twinkle-3 { animation: sf-sparkle 14s ease-in-out infinite; animation-delay: -5s; }
 @keyframes sf-sparkle {
-  0%, 100% { opacity: 0.25; }
-  50% { opacity: 0.95; }
+  0%, 100% { opacity: 0.45; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -860,7 +903,11 @@ body > * { position: relative; z-index: 1; }
   .starfield-stars,
   .sf-twinkle {
     animation: none !important;
+    transform: none !important;
   }
-  .starfield-stars { opacity: 0.45; }
-  .sf-twinkle { opacity: 0.7; }
+  .starfield-stars-a { opacity: 0.8; }
+  .starfield-stars-b { opacity: 0.85; }
+  .starfield-stars-c { opacity: 0.7; }
+  .sf-twinkle { opacity: 0.85; }
 }
+
