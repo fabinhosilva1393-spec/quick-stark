@@ -83,7 +83,7 @@ const COLUMNS: FooterColumn[] = [
     items: [
       { label: "Features", href: "/#features" },
       { label: "Security", href: "/security" },
-      { label: "Compare", href: "/#compare" },
+      { label: "Compare", href: "/compare" },
       { label: "Documentation", href: "/documentation" },
       { label: "Download", href: "/#download" },
       { label: "Releases", href: "/releases" },
