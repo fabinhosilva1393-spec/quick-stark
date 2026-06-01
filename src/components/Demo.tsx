@@ -36,47 +36,17 @@ const DEMO_PERMISSIONS = [
   { dapp: "Example NFT", scope: "Sign messages", status: "Revoked" },
 ];
 
-export function Demo() {
+export function Demo({ compact = false }: { compact?: boolean } = {}) {
   const [tab, setTab] = useState<Tab>("transaction");
   const [network, setNetwork] = useState<"Mainnet" | "Sepolia">("Mainnet");
 
-  return (
-    <section
-      id="demo"
-      className="relative py-24 border-b border-hairline"
-      aria-labelledby="demo-heading"
+  const windowEl = (
+    <div
+      className="overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
+      role="img"
+      aria-label="StarknetWallet desktop UI demo preview"
     >
-      <div className="container-page">
-        <div className="max-w-2xl">
-          <span className="eyebrow">Product demo</span>
-          <h2 id="demo-heading" className="section-title mt-4">
-            Preview transactions before you sign.
-          </h2>
-          <p className="section-sub">
-            See how StarknetWallet helps you review Cairo calls, account
-            permissions, assets, and network details in a calm desktop
-            interface.
-          </p>
-        </div>
 
-        <div className="mt-10 flex flex-wrap items-center gap-2">
-          <span className="trust-chip">
-            <ShieldCheck size={13} aria-hidden="true" /> Local preview
-          </span>
-          <span className="trust-chip">
-            <EyeOff size={13} aria-hidden="true" /> No telemetry by default
-          </span>
-          <span className="trust-chip">
-            <Cpu size={13} aria-hidden="true" /> Hardware wallet ready
-          </span>
-        </div>
-
-        {/* Window */}
-        <div
-          className="mt-8 overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
-          role="img"
-          aria-label="StarknetWallet desktop UI demo preview"
-        >
           {/* Title bar */}
           <div className="flex items-center gap-2 border-b border-hairline bg-surface-2 px-4 py-2.5">
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.7_0.18_27)]" />
@@ -87,7 +57,7 @@ export function Demo() {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-[220px_1fr] min-h-[520px]">
+          <div className="grid md:grid-cols-[200px_1fr]">
             {/* Sidebar */}
             <aside className="border-b md:border-b-0 md:border-r border-hairline bg-surface-2 p-3 flex flex-col gap-1">
               {/* Account selector */}
@@ -341,6 +311,48 @@ export function Demo() {
             </div>
           </div>
         </div>
+  );
+
+  if (compact) {
+    return (
+      <div id="demo" className="w-full">
+        {windowEl}
+      </div>
+    );
+  }
+
+  return (
+    <section
+      id="demo"
+      className="relative py-24 border-b border-hairline"
+      aria-labelledby="demo-heading"
+    >
+      <div className="container-page">
+        <div className="max-w-2xl">
+          <span className="eyebrow">Product demo</span>
+          <h2 id="demo-heading" className="section-title mt-4">
+            Preview transactions before you sign.
+          </h2>
+          <p className="section-sub">
+            See how StarknetWallet helps you review Cairo calls, account
+            permissions, assets, and network details in a calm desktop
+            interface.
+          </p>
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center gap-2">
+          <span className="trust-chip">
+            <ShieldCheck size={13} aria-hidden="true" /> Local preview
+          </span>
+          <span className="trust-chip">
+            <EyeOff size={13} aria-hidden="true" /> No telemetry by default
+          </span>
+          <span className="trust-chip">
+            <Cpu size={13} aria-hidden="true" /> Hardware wallet ready
+          </span>
+        </div>
+
+        <div className="mt-8">{windowEl}</div>
 
         <p className="mt-4 text-xs text-ink-muted">
           Static product preview using demo data. No real wallet, no signing,
@@ -350,3 +362,4 @@ export function Demo() {
     </section>
   );
 }
+

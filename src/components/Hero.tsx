@@ -21,11 +21,12 @@ const TRUST = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-20 pb-24">
+    <section className="relative overflow-hidden pt-16 pb-20 lg:pt-20 lg:pb-24">
       <div className="absolute inset-0 bg-grid-soft" aria-hidden="true" />
       <div className="container-page relative">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-          <div className="lg:col-span-7 min-w-0">
+        <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] gap-12 lg:gap-12 items-center">
+          <div className="min-w-0">
+
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Desktop wallet · Open source · Signed releases
@@ -97,9 +98,10 @@ export function Hero() {
           </ul>
           </div>
 
-          <div className="lg:col-span-5 min-w-0">
-            <Demo />
+          <div className="min-w-0 w-full max-w-[620px] mx-auto lg:mx-0 lg:ml-auto">
+            <Demo compact />
           </div>
+
 
         </div>
       </div>
