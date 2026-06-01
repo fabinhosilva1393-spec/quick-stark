@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { SimplePage } from "@/components/SimplePage";
 
-const TITLE = "Terms of Use — StarknetWallet";
-const DESC = "Terms governing use of the StarknetWallet desktop application.";
+const TITLE = "Terms — StarknetWallet";
+const DESC = "Terms covering use of the StarknetWallet website and desktop wallet.";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -14,38 +13,21 @@ export const Route = createFileRoute("/terms")({
       { property: "og:description", content: DESC },
     ],
   }),
-  component: TermsPage,
+  component: () => (
+    <SimplePage eyebrow="Legal" title="Terms">
+      <ul>
+        <li>This is an informational website and a desktop wallet download page.</li>
+        <li>The software is provided as-is, without warranty of any kind.</li>
+        <li>Using crypto involves risk, including total loss of funds.</li>
+        <li>
+          You are responsible for verifying downloads (checksums, signatures)
+          and for reviewing transactions before signing.
+        </li>
+        <li>
+          StarknetWallet is not affiliated with Starknet Foundation unless
+          explicitly stated.
+        </li>
+      </ul>
+    </SimplePage>
+  ),
 });
-
-function TermsPage() {
-  return (
-    <div className="min-h-screen flex flex-col bg-background">
-      <Header />
-      <main id="main" className="flex-1">
-        <section className="py-24">
-          <div className="container-page max-w-3xl">
-            <span className="eyebrow">Legal</span>
-            <h1 className="section-title mt-4">Terms of Use</h1>
-            <div className="mt-8 space-y-4 text-ink-muted leading-relaxed">
-              <p>
-                StarknetWallet is provided as open-source software, without
-                warranty of any kind. You are responsible for safeguarding your
-                seed phrase and verifying release signatures before installing.
-              </p>
-              <p>
-                StarknetWallet is not affiliated with the Starknet Foundation
-                unless explicitly stated. Ecosystem links are provided for
-                context.
-              </p>
-              <p>
-                This page is a placeholder; full terms will be published with
-                the first signed release.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
-  );
-}
