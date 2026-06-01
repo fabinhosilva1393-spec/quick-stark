@@ -3,7 +3,7 @@ import { openCookieSettings } from "@/lib/cookieConsent";
 
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
 
 type SocialLink = {
   name: string;
