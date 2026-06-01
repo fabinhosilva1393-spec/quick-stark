@@ -56,17 +56,16 @@ export function Security() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {ITEMS.map(({ variant, title, body }, i) => (
             <article key={title} className="feature-visual-card">
-              <div className="feature-visual-card__art">
-                <StarknetIsoIllustration
-                  variant={variant}
-                  size={170}
-                  delay={i * 0.35}
-                />
-              </div>
-              <div className="mt-5">
+              <StarknetIsoIllustration
+                variant={variant}
+                size={220}
+                delay={i * 0.35}
+                className="feature-visual-card__art"
+              />
+              <div className="mt-2">
                 <h3 className="text-lg font-bold text-ink tracking-tight">
                   {title}
                 </h3>

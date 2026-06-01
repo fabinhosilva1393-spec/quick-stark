@@ -70,7 +70,7 @@ export function Workflow() {
               key={s.title}
               className="surface-card flex flex-col items-start"
             >
-              <StarknetIsoIllustration variant={s.variant} size={140} delay={i * 0.4} />
+              <StarknetIsoIllustration variant={s.variant} size={200} delay={i * 0.4} />
               <span className="eyebrow mt-4">{s.eyebrow}</span>
               <h3 className="mt-3 text-lg font-bold text-ink tracking-tight">
                 {s.title}
@@ -87,7 +87,7 @@ export function Workflow() {
           <article className="surface-card flex flex-col items-start">
             <StarknetIsoIllustration
               variant={SLIDES[index].variant}
-              size={160}
+              size={200}
             />
             <span className="eyebrow mt-4">{SLIDES[index].eyebrow}</span>
             <h3 className="mt-3 text-lg font-bold text-ink tracking-tight">

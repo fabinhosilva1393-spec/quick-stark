@@ -326,21 +326,23 @@
   line-height: 0;
   filter: drop-shadow(0 6px 14px color-mix(in oklab, var(--iso-blue) 14%, transparent));
 }
+.iso-illustration { animation-delay: var(--iso-delay, 0s); }
 .iso-float {
   transform-box: fill-box;
   transform-origin: center;
   animation: iso-float 7s ease-in-out infinite;
+  animation-delay: var(--iso-delay, 0s);
 }
 .iso-float-slow {
   transform-box: fill-box;
   transform-origin: center;
-  animation: iso-float 10s ease-in-out infinite;
-  animation-delay: 1.4s;
+  animation: iso-float 11s ease-in-out infinite;
+  animation-delay: calc(var(--iso-delay, 0s) + 1.4s);
 }
 .iso-orbit {
   transform-box: fill-box;
   transform-origin: center;
-  animation: iso-orbit 12s linear infinite;
+  animation: iso-orbit 14s linear infinite;
 }
 .iso-dot { opacity: 0.7; }
 .iso-dot-a { animation: iso-pulse 5s ease-in-out infinite; }
@@ -349,11 +351,11 @@
 
 @keyframes iso-float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-7px); }
 }
 @keyframes iso-orbit {
   0% { stroke-dashoffset: 0; }
-  100% { stroke-dashoffset: -20; }
+  100% { stroke-dashoffset: -24; }
 }
 @keyframes iso-pulse {
   0%, 100% { opacity: 0.25; transform: translateY(0); }
@@ -470,97 +472,74 @@ body > * { position: relative; z-index: 1; }
 /* ============= Feature visual card ============= */
 .feature-visual-card {
   position: relative;
-  border-radius: 18px;
-  padding: 22px;
-  background: var(--surface);
-  border: 1px solid var(--hairline);
-  box-shadow: 0 1px 2px rgba(15, 17, 34, 0.04);
-  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
-  overflow: hidden;
+  padding: 8px 4px 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible;
 }
-.feature-visual-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse 60% 40% at 50% 0%,
-    color-mix(in oklab, var(--iso-blue) 8%, transparent),
-    transparent 70%
-  );
-  pointer-events: none;
-}
-.feature-visual-card:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in oklab, var(--iso-blue) 30%, var(--hairline));
-  box-shadow: 0 14px 40px -18px color-mix(in oklab, var(--iso-blue) 30%, transparent);
-}
+/* Illustration sits directly on the section bg — no panel/box wrap */
 .feature-visual-card__art {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 180px;
-  border-radius: 14px;
-  background: radial-gradient(
-    ellipse at 50% 60%,
-    color-mix(in oklab, var(--iso-purple) 14%, transparent),
-    transparent 70%
-  );
+  display: block;
+  margin-bottom: 6px;
 }
 
-/* ============= Site bg extras ============= */
-.site-bg-orb-3 {
-  /* additional mid-left orb already declared above */
+/* ============= Demo animations (visible motion, no text animation) ============= */
+.demo-stage {
+  perspective: 1400px;
 }
-
-/* ============= Demo animations ============= */
+.demo-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
+  animation: demo-tilt 11s ease-in-out infinite;
+}
 .demo-window {
-  animation: demo-float 9s ease-in-out infinite;
+  will-change: transform;
+  animation: demo-float 8s ease-in-out infinite;
+  box-shadow:
+    0 30px 80px -40px rgba(20, 30, 80, 0.30),
+    0 0 0 1px var(--hairline);
 }
-.demo-shimmer {
-  background: linear-gradient(
-    90deg,
-    var(--ink) 0%,
-    var(--ink) 40%,
-    color-mix(in oklab, var(--brand) 70%, var(--ink)) 50%,
-    var(--ink) 60%,
-    var(--ink) 100%
-  );
-  background-size: 200% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: demo-shimmer 5.5s ease-in-out infinite;
-}
-.demo-fade-rows > div {
-  opacity: 0;
-  animation: demo-row-in 0.6s ease-out forwards;
-}
-.demo-fade-rows > div:nth-child(1) { animation-delay: 0.1s; }
-.demo-fade-rows > div:nth-child(2) { animation-delay: 0.25s; }
-.demo-fade-rows > div:nth-child(3) { animation-delay: 0.4s; }
-.demo-fade-rows > div:nth-child(4) { animation-delay: 0.55s; }
 .demo-active-pulse {
   position: relative;
-  box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand) 60%, transparent);
   animation: demo-pulse 3.6s ease-in-out infinite;
+}
+
+/* Orbit decorations around the demo */
+.demo-orbit {
+  position: absolute;
+  inset: -28px;
+  border-radius: 28px;
+  border: 1px dashed color-mix(in oklab, var(--iso-purple) 35%, transparent);
+  pointer-events: none;
+  animation: demo-orbit-spin 22s linear infinite;
+  opacity: 0.55;
+}
+.demo-orbit-2 {
+  inset: -56px;
+  border-color: color-mix(in oklab, var(--iso-blue) 25%, transparent);
+  animation-duration: 34s;
+  animation-direction: reverse;
+  opacity: 0.4;
 }
 
 @keyframes demo-float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-9px); }
 }
-@keyframes demo-shimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+@keyframes demo-tilt {
+  0%, 100% { transform: rotateX(0deg) rotateY(0deg); }
+  25% { transform: rotateX(0.6deg) rotateY(-1.1deg); }
+  50% { transform: rotateX(-0.4deg) rotateY(0.4deg); }
+  75% { transform: rotateX(0.3deg) rotateY(1deg); }
 }
-@keyframes demo-row-in {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes demo-orbit-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 @keyframes demo-pulse {
   0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--brand) 30%, transparent); }
-  50% { box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 14%, transparent); }
+  50% { box-shadow: 0 0 0 5px color-mix(in oklab, var(--brand) 14%, transparent); }
 }
 
 /* ============= Reduced motion ============= */

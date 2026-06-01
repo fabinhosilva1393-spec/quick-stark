@@ -175,12 +175,12 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
                       <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
                         Example transaction
                       </p>
-                      <h3 className="mt-1 text-lg font-bold text-ink demo-shimmer">
+                      <h3 className="mt-1 text-lg font-bold text-ink">
                         Review transaction
                       </h3>
                     </div>
 
-                    <dl className="grid gap-2 rounded-lg border border-hairline bg-surface-2 p-4 text-sm demo-fade-rows">
+                    <dl className="grid gap-2 rounded-lg border border-hairline bg-surface-2 p-4 text-sm">
                       <div className="flex items-center justify-between">
                         <dt className="text-ink-muted">dApp</dt>
                         <dd className="font-medium text-ink">Example AMM</dd>
