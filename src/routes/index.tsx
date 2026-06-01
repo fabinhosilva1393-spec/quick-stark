@@ -58,8 +58,10 @@ function Index() {
       <Header />
       <main id="main" className="flex-1">
         <Hero />
+        <Demo />
         <Ecosystem />
         <DownloadSection id="download" />
+
         
         <Features />
         <Workflow />
