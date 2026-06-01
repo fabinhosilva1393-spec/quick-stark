@@ -1,29 +1,69 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
+import { Hero } from "@/components/Hero";
+import { Ecosystem } from "@/components/Ecosystem";
+import { DownloadSection } from "@/components/DownloadSection";
+import { Features } from "@/components/Features";
+import { Security } from "@/components/Security";
+import { Compare } from "@/components/Compare";
+import { Developers } from "@/components/Developers";
+import { FAQ } from "@/components/FAQ";
+
+const TITLE = "StarknetWallet — Desktop Wallet for Starknet";
+const DESC =
+  "Download a desktop wallet for Starknet. Manage STRK, preview Cairo calls, review smart-account permissions, and sign on macOS, Windows, and Linux.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Your App" },
-      { name: "description", content: "Replace this with a one-sentence description of your app." },
-      { property: "og:title", content: "Your App" },
-      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: TITLE },
+      { name: "description", content: DESC },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESC },
+      { property: "og:url", content: "/" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESC },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "SoftwareApplication",
+          name: "StarknetWallet",
+          applicationCategory: "FinanceApplication",
+          operatingSystem: "macOS, Windows, Linux",
+          offers: {
+            "@type": "Offer",
+            price: "0",
+            priceCurrency: "USD",
+          },
+          downloadUrl: "https://starknetwallet.org/download",
+        }),
+      },
     ],
   }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen flex flex-col bg-background">
+      <Header />
+      <main id="main" className="flex-1">
+        <Hero />
+        <Ecosystem />
+        <DownloadSection id="download" />
+        <Features />
+        <Security />
+        <Compare />
+        <Developers />
+        <FAQ />
+      </main>
+      <Footer />
     </div>
   );
 }
