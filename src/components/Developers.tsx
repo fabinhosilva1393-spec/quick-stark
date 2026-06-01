@@ -1,5 +1,6 @@
 import { GITHUB_REPO_URL } from "@/data/downloads";
 import { Terminal, Github } from "lucide-react";
+import { AnimatedIsoIcon } from "./AnimatedIsoIcon";
 
 export function Developers() {
   return (
@@ -8,9 +9,12 @@ export function Developers() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
             <span className="eyebrow">Developers</span>
-            <h2 className="section-title mt-4">
-              First-class tooling for Cairo builders.
-            </h2>
+            <div className="mt-4 flex items-center gap-4">
+              <AnimatedIsoIcon variant="developer-tools" size={64} />
+              <h2 className="section-title">
+                First-class tooling for Cairo builders.
+              </h2>
+            </div>
             <p className="section-sub">
               Test contract calls before deploying. Connect to local devnets.
               Inspect every entrypoint and event from a clean UI.

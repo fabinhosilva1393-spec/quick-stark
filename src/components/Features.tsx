@@ -1,33 +1,33 @@
-import { Wallet, Code2, ShieldCheck, Monitor, Eye, Layers } from "lucide-react";
+import { AnimatedIsoIcon, type IsoVariant } from "./AnimatedIsoIcon";
 
-const FEATURES = [
+const FEATURES: Array<{ variant: IsoVariant; title: string; body: string }> = [
   {
-    icon: Wallet,
+    variant: "wallet",
     title: "Native STRK management",
     body: "Send, receive, and track STRK and other Starknet assets across mainnet and sepolia from a single interface.",
   },
   {
-    icon: Code2,
+    variant: "cairo",
     title: "Cairo call preview",
     body: "Inspect every contract call before signing. See entrypoints, calldata, and the account that will execute it.",
   },
   {
-    icon: ShieldCheck,
+    variant: "permissions",
     title: "Smart-account permissions",
     body: "Review session keys, spend limits, and account-abstraction policies. Revoke any active grant.",
   },
   {
-    icon: Monitor,
+    variant: "speed",
     title: "Native desktop experience",
     body: "A focused desktop app, not a browser tab. Predictable performance, separate from your browsing session.",
   },
   {
-    icon: Eye,
+    variant: "hardware-wallet",
     title: "Hardware wallet ready",
     body: "Pair with Ledger over USB to keep keys offline while signing on Starknet.",
   },
   {
-    icon: Layers,
+    variant: "multi-network",
     title: "Multi-account, multi-network",
     body: "Manage multiple accounts across mainnet, sepolia, and custom RPC endpoints side by side.",
   },
@@ -49,11 +49,9 @@ export function Features() {
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {FEATURES.map(({ icon: Icon, title, body }) => (
+          {FEATURES.map(({ variant, title, body }, i) => (
             <div key={title} className="surface-card">
-              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-brand border border-hairline">
-                <Icon size={18} aria-hidden="true" />
-              </div>
+              <AnimatedIsoIcon variant={variant} size={56} delay={i * 0.4} />
               <h3 className="mt-4 text-lg font-bold text-ink tracking-tight">
                 {title}
               </h3>
