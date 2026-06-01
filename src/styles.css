@@ -75,6 +75,14 @@
   --border: oklch(0.16 0.01 270 / 10%);
   --input: oklch(0.16 0.01 270 / 14%);
   --ring: oklch(0.46 0.2 268);
+
+  /* Iso illustration accents */
+  --iso-blue: #0A45FF;
+  --iso-navy: #080A1F;
+  --iso-purple: #7C3AED;
+  --iso-coral: #FF7A66;
+  --iso-mint: #5DE6B5;
+  --iso-lavender: #B7B8FF;
 }
 
 @layer base {
