@@ -40,12 +40,15 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
         <p className="mt-1 text-sm text-ink-muted">{item.fileType}</p>
       </div>
 
-      <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-left">
-        <dt className="text-ink-muted">Version</dt>
-        <dd className="text-ink font-medium text-right">{item.version}</dd>
+      <p className="mt-4 text-sm font-semibold text-ink text-left">
+        Latest release · {item.version}
+      </p>
+
+      <dl className="mt-2 flex items-baseline justify-between gap-4 text-sm text-left">
         <dt className="text-ink-muted">File size</dt>
-        <dd className="text-ink font-medium text-right">{item.fileSize}</dd>
+        <dd className="text-ink font-medium">{item.fileSize}</dd>
       </dl>
+
       <p className="mt-3 text-xs text-ink-muted leading-relaxed text-left">
         {item.requirements}
       </p>
