@@ -101,7 +101,6 @@ const COLUMNS: FooterColumn[] = [
     title: "Community",
     items: [
       { label: "Events", href: "https://www.starknet.io/events/", external: true },
-      { label: "Ambassadors Program" },
       { label: "Jobs", href: "https://www.starknet.io/jobs/", external: true },
       { label: "Governance", href: "https://community.starknet.io/c/governance/", external: true },
       { label: "Roadmap", href: "https://www.starknet.io/roadmap/", external: true },
