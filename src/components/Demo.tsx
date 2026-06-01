@@ -42,10 +42,11 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
 
   const windowEl = (
     <div
-      className="demo-window overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
+      className="demo-window demo-static-text overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
       role="img"
       aria-label="StarknetWallet desktop UI demo preview"
     >
+
 
           {/* Title bar */}
           <div className="flex items-center gap-2 border-b border-hairline bg-surface-2 px-4 py-2.5">
