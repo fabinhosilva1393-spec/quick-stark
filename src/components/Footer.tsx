@@ -64,88 +64,153 @@ const SOCIALS: SocialLink[] = [
   },
 ];
 
+type FooterItem = {
+  label: string;
+  href?: string;
+  external?: boolean;
+};
+
+type FooterColumn = {
+  title: string;
+  items: FooterItem[];
+};
+
+const COLUMNS: FooterColumn[] = [
+  {
+    title: "Developers",
+    items: [
+      { label: "Developers Hub" },
+      { label: "SN Stack" },
+      { label: "Build with AI" },
+      { label: "Modular Ecosystem" },
+      { label: "Documentation", href: "https://docs.starknet.io/", external: true },
+      { label: "Cairo Book", href: "https://book.cairo-lang.org/", external: true },
+      { label: "Tutorials", href: "https://www.starknet.io/tutorials/", external: true },
+      { label: "Version Releases", href: "https://github.com/starknet-io/starknet-docs/releases", external: true },
+    ],
+  },
+  {
+    title: "Ecosystem",
+    items: [
+      { label: "Crypto Bridge", href: "https://www.starknet.io/bridges-and-onramps/", external: true },
+      { label: "Ecosystem Projects", href: "https://www.starknet.io/dapps/", external: true },
+      { label: "Crypto Wallets", href: "https://www.starknet.io/wallets/", external: true },
+      { label: "Bridges & on-ramps", href: "https://www.starknet.io/bridges-and-onramps/", external: true },
+      { label: "DeFi dApps", href: "https://www.starknet.io/dapps/", external: true },
+      { label: "Starknet Grants", href: "https://www.starknet.io/grants/", external: true },
+      { label: "Starknet Status Page", href: "https://status.starknet.io/", external: true },
+    ],
+  },
+  {
+    title: "Community",
+    items: [
+      { label: "Events", href: "https://www.starknet.io/events/", external: true },
+      { label: "Ambassadors Program" },
+      { label: "Jobs", href: "https://www.starknet.io/jobs/", external: true },
+      { label: "Governance", href: "https://community.starknet.io/c/governance/", external: true },
+      { label: "Roadmap", href: "https://www.starknet.io/roadmap/", external: true },
+      { label: "Staking", href: "https://www.starknet.io/staking/", external: true },
+      { label: "Community Forum", href: "https://community.starknet.io/", external: true },
+      { label: "Online communities", href: "https://www.starknet.io/online-communities/", external: true },
+    ],
+  },
+  {
+    title: "Resources",
+    items: [
+      { label: "Blog", href: "https://www.starknet.io/blog/", external: true },
+      { label: "Glossary", href: "https://www.starknet.io/glossary/", external: true },
+      { label: "FAQs", href: "/", external: false },
+      { label: "Media Kit", href: "https://www.starknet.io/media-kit/", external: true },
+      { label: "Account Abstraction", href: "https://www.starknet.io/account-abstraction/", external: true },
+    ],
+  },
+];
+
+function FooterLink({ item }: { item: FooterItem }) {
+  const baseCls = "inline-flex items-center gap-1 text-sm text-ink-muted transition-colors hover:text-brand";
+
+  if (!item.href) {
+    return <span className="text-sm text-ink-muted/60 cursor-default">{item.label}</span>;
+  }
+
+  if (item.external) {
+    return (
+      <a href={item.href} target="_blank" rel="noopener noreferrer" className={baseCls}>
+        {item.label}
+        <span aria-hidden="true" className="text-[0.7em] opacity-70">↗</span>
+      </a>
+    );
+  }
+
+  // Internal: FAQ is on home page hash
+  if (item.label === "FAQs") {
+    return (
+      <Link to="/" hash="faq" className={baseCls}>
+        {item.label}
+      </Link>
+    );
+  }
+
+  return (
+    <a href={item.href} className={baseCls}>
+      {item.label}
+    </a>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="border-t border-hairline bg-surface">
       <div className="container-page py-14">
-        <div className="grid gap-10 md:grid-cols-4">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <span
-                aria-hidden="true"
-                className="inline-flex h-9 w-9 items-center justify-center"
-              >
-                <img
-                  src={logoAsset.url}
-                  alt=""
-                  className="h-9 w-9 object-contain"
-                />
-              </span>
-              <span className="font-bold tracking-tight text-ink">
-                Starknet<span className="text-brand">Wallet</span>
-              </span>
-            </div>
-            <p className="mt-4 text-sm text-ink-muted max-w-sm leading-relaxed">
-              Desktop wallet for Starknet. Manage STRK, preview Cairo calls, and
-              review smart-account permissions on macOS, Windows, and Linux.
-            </p>
-            <p className="mt-3 text-xs text-ink-muted">
-              Open source · Signed releases · Local-first keys
-            </p>
+        <div className="mb-10 flex items-center gap-2.5">
+          <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center">
+            <img src={logoAsset.url} alt="" className="h-9 w-9 object-contain" />
+          </span>
+          <span className="font-bold tracking-tight text-ink">
+            Starknet<span className="text-brand">Wallet</span>
+          </span>
+        </div>
 
-            <div className="mt-6">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-ink-muted">
-                Official Starknet ecosystem links
-              </h3>
-              <ul className="mt-3 flex flex-wrap gap-2.5">
-                {SOCIALS.map((s) => (
-                  <li key={s.name}>
-                    <a
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={s.label}
-                      title={s.label}
-                      className="footer-social-icon inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink-muted transition-all duration-200 hover:-translate-y-px hover:border-brand hover:text-brand"
-                    >
-                      {s.icon}
-                    </a>
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 md:gap-0 md:divide-x md:divide-hairline">
+          {COLUMNS.map((col, idx) => (
+            <div key={col.title} className={idx === 0 ? "md:pr-8" : "md:px-8"}>
+              <h3 className="text-base font-bold text-ink">{col.title}</h3>
+              <ul className="mt-4 space-y-2.5">
+                {col.items.map((item) => (
+                  <li key={item.label}>
+                    <FooterLink item={item} />
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-ink-muted">
-              Product
-            </h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li><Link to="/download" className="text-ink hover:text-brand">Download</Link></li>
-              <li><Link to="/" hash="features" className="text-ink hover:text-brand">Features</Link></li>
-              <li><Link to="/" hash="security" className="text-ink hover:text-brand">Security</Link></li>
-              <li><Link to="/" hash="developers" className="text-ink hover:text-brand">Developers</Link></li>
-              <li><Link to="/" hash="faq" className="text-ink hover:text-brand">FAQ</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xs font-bold uppercase tracking-wider text-ink-muted">
-              Resources
-            </h3>
-            <ul className="mt-4 space-y-2 text-sm">
-              <li>
-                <Link to="/download" hash="verify" className="text-ink hover:text-brand">
-                  Verify a release
-                </Link>
-              </li>
-            </ul>
-          </div>
+          ))}
         </div>
 
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6 text-xs text-ink-muted">
+        <div className="mt-12 border-t border-hairline pt-8">
+          <ul className="flex flex-wrap gap-2.5">
+            {SOCIALS.map((s) => (
+              <li key={s.name}>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  title={s.label}
+                  className="footer-social-icon inline-flex h-9 w-9 items-center justify-center rounded-full border border-hairline text-ink-muted transition-all duration-200 hover:-translate-y-px hover:border-brand hover:text-brand"
+                >
+                  {s.icon}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6 text-xs text-ink-muted">
           <p>© {new Date().getFullYear()} StarknetWallet. Open source.</p>
-          <p>Not affiliated with Starknet Foundation unless explicitly stated.</p>
+          <div className="flex flex-col items-end gap-1 text-right">
+            <p>Not affiliated with Starknet Foundation unless explicitly stated.</p>
+            <p className="opacity-70">Starknet ecosystem links are provided for context.</p>
+          </div>
         </div>
       </div>
     </footer>
