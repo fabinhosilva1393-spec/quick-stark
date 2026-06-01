@@ -1101,3 +1101,80 @@ body > * { position: relative; z-index: 1; }
   .site-cosmic .ecosystem-bg__glow,
   .site-cosmic .ecosystem-bg__orbit { animation: none !important; }
 }
+
+/* ============= Mobile responsive safety (≤767px) ============= */
+@media (max-width: 767px) {
+  /* Prevent any element from causing horizontal page scroll */
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container-page {
+    padding-inline: 16px;
+  }
+
+  /* Headline scale down */
+  .section-title {
+    font-size: clamp(24px, 7vw, 32px);
+  }
+  .section-sub {
+    font-size: 15px;
+  }
+
+  /* Tap targets */
+  .btn-primary,
+  .btn-ghost {
+    height: 48px;
+    min-height: 48px;
+  }
+
+  /* Hero CTAs: let buttons flex so they sit nicely when wrapping */
+  .btn-primary,
+  .btn-ghost {
+    flex: 1 1 auto;
+  }
+
+  /* Demo stage: clip decorative orbits/glow so they don't overflow viewport */
+  .demo-stage {
+    overflow: hidden;
+    perspective: none;
+    border-radius: 18px;
+  }
+  .demo-orbit,
+  .demo-orbit-2 {
+    inset: -12px;
+  }
+  .demo-glow {
+    inset: -32px;
+  }
+
+  /* Ensure images and SVG illustrations scale within their containers */
+  img, svg, video, canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Background decorative orbs shouldn't add to horizontal scroll */
+  .site-bg,
+  .starfield-layer,
+  .ecosystem-bg,
+  .site-cosmic {
+    overflow: hidden;
+  }
+  .site-bg-orb {
+    width: 320px;
+    height: 320px;
+    filter: blur(70px);
+  }
+  .site-cosmic__orbit-a,
+  .site-cosmic__orbit-b {
+    width: 180vw;
+  }
+
+  /* Platform download card: a touch less padding on mobile */
+  .platform-download-card {
+    padding: 22px;
+    min-height: 320px;
+  }
+}
