@@ -11,9 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SecurityRouteImport } from './routes/security'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as ReleasesRouteImport } from './routes/releases'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as DownloadRouteImport } from './routes/download'
+import { Route as DocumentationRouteImport } from './routes/documentation'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ChangelogRouteImport } from './routes/changelog'
@@ -32,9 +35,19 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReleasesRoute = ReleasesRouteImport.update({
+  id: '/releases',
+  path: '/releases',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -45,6 +58,11 @@ const PrivacyRoute = PrivacyRouteImport.update({
 const DownloadRoute = DownloadRouteImport.update({
   id: '/download',
   path: '/download',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentationRoute = DocumentationRouteImport.update({
+  id: '/documentation',
+  path: '/documentation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookiesRoute = CookiesRouteImport.update({
@@ -91,9 +109,12 @@ export interface FileRoutesByFullPath {
   '/changelog': typeof ChangelogRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/documentation': typeof DocumentationRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
+  '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
+  '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
 }
@@ -105,9 +126,12 @@ export interface FileRoutesByTo {
   '/changelog': typeof ChangelogRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/documentation': typeof DocumentationRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
+  '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
+  '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
 }
@@ -120,9 +144,12 @@ export interface FileRoutesById {
   '/changelog': typeof ChangelogRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/documentation': typeof DocumentationRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
+  '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
+  '/security': typeof SecurityRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/terms': typeof TermsRoute
 }
@@ -136,9 +163,12 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/contact'
     | '/cookies'
+    | '/documentation'
     | '/download'
     | '/privacy'
+    | '/releases'
     | '/roadmap'
+    | '/security'
     | '/sitemap.xml'
     | '/terms'
   fileRoutesByTo: FileRoutesByTo
@@ -150,9 +180,12 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/contact'
     | '/cookies'
+    | '/documentation'
     | '/download'
     | '/privacy'
+    | '/releases'
     | '/roadmap'
+    | '/security'
     | '/sitemap.xml'
     | '/terms'
   id:
@@ -164,9 +197,12 @@ export interface FileRouteTypes {
     | '/changelog'
     | '/contact'
     | '/cookies'
+    | '/documentation'
     | '/download'
     | '/privacy'
+    | '/releases'
     | '/roadmap'
+    | '/security'
     | '/sitemap.xml'
     | '/terms'
   fileRoutesById: FileRoutesById
@@ -179,9 +215,12 @@ export interface RootRouteChildren {
   ChangelogRoute: typeof ChangelogRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
+  DocumentationRoute: typeof DocumentationRoute
   DownloadRoute: typeof DownloadRoute
   PrivacyRoute: typeof PrivacyRoute
+  ReleasesRoute: typeof ReleasesRoute
   RoadmapRoute: typeof RoadmapRoute
+  SecurityRoute: typeof SecurityRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TermsRoute: typeof TermsRoute
 }
@@ -202,11 +241,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/roadmap': {
       id: '/roadmap'
       path: '/roadmap'
       fullPath: '/roadmap'
       preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/releases': {
+      id: '/releases'
+      path: '/releases'
+      fullPath: '/releases'
+      preLoaderRoute: typeof ReleasesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -221,6 +274,13 @@ declare module '@tanstack/react-router' {
       path: '/download'
       fullPath: '/download'
       preLoaderRoute: typeof DownloadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documentation': {
+      id: '/documentation'
+      path: '/documentation'
+      fullPath: '/documentation'
+      preLoaderRoute: typeof DocumentationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cookies': {
@@ -283,9 +343,12 @@ const rootRouteChildren: RootRouteChildren = {
   ChangelogRoute: ChangelogRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
+  DocumentationRoute: DocumentationRoute,
   DownloadRoute: DownloadRoute,
   PrivacyRoute: PrivacyRoute,
+  ReleasesRoute: ReleasesRoute,
   RoadmapRoute: RoadmapRoute,
+  SecurityRoute: SecurityRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TermsRoute: TermsRoute,
 }
