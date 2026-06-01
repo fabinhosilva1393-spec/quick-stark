@@ -77,49 +77,43 @@ type FooterColumn = {
 
 const COLUMNS: FooterColumn[] = [
   {
-    title: "Developers",
+    title: "Product",
     items: [
-      { label: "Documentation", href: "https://docs.starknet.io/", external: true },
-      { label: "Cairo Book", href: "https://book.cairo-lang.org/", external: true },
-      { label: "Tutorials", href: "https://www.starknet.io/tutorials/", external: true },
-      { label: "Version Releases", href: "https://github.com/starknet-io/starknet-docs/releases", external: true },
-    ],
-  },
-  {
-    title: "Ecosystem",
-    items: [
-      { label: "Crypto Bridge", href: "https://www.starknet.io/bridges-and-onramps/", external: true },
-      { label: "Ecosystem Projects", href: "https://www.starknet.io/dapps/", external: true },
-      { label: "Crypto Wallets", href: "https://www.starknet.io/wallets/", external: true },
-      { label: "Bridges & on-ramps", href: "https://www.starknet.io/bridges-and-onramps/", external: true },
-      { label: "DeFi dApps", href: "https://www.starknet.io/dapps/", external: true },
-      { label: "Starknet Grants", href: "https://www.starknet.io/grants/", external: true },
-      { label: "Starknet Status Page", href: "https://status.starknet.io/", external: true },
-    ],
-  },
-  {
-    title: "Community",
-    items: [
-      { label: "Events", href: "https://www.starknet.io/events/", external: true },
-      { label: "Jobs", href: "https://www.starknet.io/jobs/", external: true },
-      { label: "Governance", href: "https://community.starknet.io/c/governance/", external: true },
-      { label: "Roadmap", href: "https://www.starknet.io/roadmap/", external: true },
-      { label: "Staking", href: "https://www.starknet.io/staking/", external: true },
-      { label: "Community Forum", href: "https://community.starknet.io/", external: true },
-      { label: "Online communities", href: "https://www.starknet.io/online-communities/", external: true },
+      { label: "Features", href: "/#features" },
+      { label: "Security", href: "/#security" },
+      { label: "Compare" },
+      { label: "Documentation", href: "/#developers" },
+      { label: "Download", href: "/#download" },
+      { label: "Releases" },
+      { label: "Roadmap" },
     ],
   },
   {
     title: "Resources",
     items: [
-      { label: "Blog", href: "https://www.starknet.io/blog/", external: true },
-      { label: "Glossary", href: "https://www.starknet.io/glossary/", external: true },
-      { label: "FAQs", href: "/", external: false },
-      { label: "Media Kit", href: "https://www.starknet.io/media-kit/", external: true },
-      { label: "Account Abstraction", href: "https://www.starknet.io/account-abstraction/", external: true },
+      { label: "Audits" },
+      { label: "Changelog" },
+      { label: "Brand guidelines" },
+    ],
+  },
+  {
+    title: "Project",
+    items: [
+      { label: "Ecosystem", href: "/#ecosystem" },
+      { label: "About" },
+      { label: "Contact" },
+    ],
+  },
+  {
+    title: "Legal",
+    items: [
+      { label: "Privacy" },
+      { label: "Terms" },
+      { label: "Cookies" },
     ],
   },
 ];
+
 
 function FooterLink({ item }: { item: FooterItem }) {
   const baseCls = "inline-flex items-center gap-1 text-sm text-ink-muted transition-colors hover:text-brand";
