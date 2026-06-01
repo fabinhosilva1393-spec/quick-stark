@@ -525,14 +525,17 @@ body > * { position: relative; z-index: 1; }
 .demo-stage {
   perspective: 1400px;
 }
-/* Demo frame wrappers: NO animation — animating containers that wrap text
-   causes subpixel flicker. Movement lives on decorative siblings only. */
-.demo-tilt,
+/* Outer demo shell animates; text-bearing inner content stays static
+   (protected below via .demo-static-text). */
+.demo-tilt {
+  transform-origin: center;
+  animation: demo-shell-float 8s ease-in-out infinite;
+}
 .demo-drift,
 .demo-window {
-  animation: none !important;
-  transform: none !important;
-  will-change: auto !important;
+  animation: none;
+  transform: none;
+  will-change: auto;
 }
 .demo-window {
   box-shadow:
@@ -542,6 +545,13 @@ body > * { position: relative; z-index: 1; }
 .demo-active-pulse {
   position: relative;
 }
+
+@keyframes demo-shell-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+  35%      { transform: translate3d(6px, -16px, 0) rotate(1deg) scale(1.01); }
+  70%      { transform: translate3d(-4px, 8px, 0) rotate(-0.8deg) scale(0.995); }
+}
+
 
 /* Protect all text inside the demo from any inherited animation/transform */
 .demo-static-text,
