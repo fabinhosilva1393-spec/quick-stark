@@ -1178,3 +1178,23 @@ body > * { position: relative; z-index: 1; }
     min-height: 320px;
   }
 }
+
+/* Crypto wallet rewards illustration — gentle float + soft glow pulse */
+.crypto-wallet-art {
+  background: transparent;
+  filter: drop-shadow(0 12px 28px rgba(61, 169, 255, 0.18));
+  animation: crypto-wallet-float 5.2s ease-in-out infinite,
+    crypto-wallet-glow 4.4s ease-in-out infinite;
+  will-change: transform, filter;
+}
+@keyframes crypto-wallet-float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-8px) scale(1.015); }
+}
+@keyframes crypto-wallet-glow {
+  0%, 100% { filter: drop-shadow(0 10px 22px rgba(61, 169, 255, 0.18)); }
+  50%      { filter: drop-shadow(0 16px 34px rgba(122, 92, 255, 0.32)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .crypto-wallet-art { animation: none; }
+}

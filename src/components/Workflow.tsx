@@ -4,7 +4,7 @@ import {
   StarknetIsoIllustration,
   type IsoIllustrationVariant,
 } from "./StarknetIsoIllustration";
-import { CryptoWalletHero } from "./CryptoWalletHero";
+import cryptoWalletAsset from "@/assets/crypto-wallet-rewards.png.asset.json";
 
 type Slide = {
   variant: IsoIllustrationVariant;
@@ -72,9 +72,15 @@ export function Workflow() {
               className="surface-card flex flex-col items-start"
             >
               {i === 0 ? (
-                <div className="w-full" style={{ maxWidth: 240 }}>
-                  <CryptoWalletHero />
-                </div>
+                <img
+                  src={cryptoWalletAsset.url}
+                  alt=""
+                  aria-hidden="true"
+                  className="crypto-wallet-art block w-full h-auto mx-auto"
+                  style={{ maxWidth: 260, background: "transparent" }}
+                  loading="lazy"
+                  decoding="async"
+                />
               ) : (
                 <StarknetIsoIllustration variant={s.variant} size={200} delay={i * 0.4} />
               )}
