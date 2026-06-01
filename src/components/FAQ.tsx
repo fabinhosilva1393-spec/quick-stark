@@ -27,9 +27,9 @@ const QA: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Every published build ships with a SHA256 checksum and a PGP signature.
-        See the “Verify before installing” section on the{" "}
-        <a href="/download" className="text-link">download page</a> for the
-        exact commands once a release is published.
+        See the verification commands on the{" "}
+        <a href="/releases" className="text-link">releases page</a> for the
+        exact steps once a release is published.
       </>
     ),
   },
