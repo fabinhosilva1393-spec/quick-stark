@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { openCookieSettings } from "@/lib/cookieConsent";
 
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
