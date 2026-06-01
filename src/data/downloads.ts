@@ -7,10 +7,8 @@ export type DownloadItem = {
   requirements: string;
   version: string;
   fileSize: string;
-  /** When false, the artifact is not published yet. UI must show a disabled state. */
   available: boolean;
-  /** Only present when available === true. */
-  downloadUrl?: string;
+  downloadUrl: string;
   checksumUrl?: string;
   signatureUrl?: string;
   releaseNotesUrl?: string;
@@ -18,18 +16,17 @@ export type DownloadItem = {
 
 export const APP_VERSION = "v1.0.0";
 
-/**
- * Real, working external links. Anything that does NOT have a confirmed real
- * URL is intentionally omitted — the UI renders a disabled "Release pending"
- * state instead of a fake link.
- */
 export const GITHUB_REPO_URL = "https://github.com/starknet-io";
+export const GITHUB_RELEASES_URL = "https://github.com/starknet-io";
 
 /**
- * Release URLs are intentionally undefined until a real release is published.
- * Do NOT add fake github.com/.../releases/... URLs here — they will 404.
+ * Central placeholder download URL constants. Replace these with real signed
+ * release artifact URLs when published. They intentionally point to the
+ * official Starknet GitHub org (a real, working page) rather than href="#".
  */
-export const GITHUB_RELEASES_URL: string | undefined = undefined;
+export const MACOS_DOWNLOAD_URL = "https://github.com/starknet-io";
+export const WINDOWS_DOWNLOAD_URL = "https://github.com/starknet-io";
+export const LINUX_DOWNLOAD_URL = "https://github.com/starknet-io";
 
 export const downloads: Record<Exclude<DetectedOS, "unknown">, DownloadItem> = {
   macos: {
@@ -39,7 +36,8 @@ export const downloads: Record<Exclude<DetectedOS, "unknown">, DownloadItem> = {
     requirements: "macOS 12 Monterey or later · Apple Silicon and Intel",
     version: APP_VERSION,
     fileSize: "—",
-    available: false,
+    available: true,
+    downloadUrl: MACOS_DOWNLOAD_URL,
   },
   windows: {
     key: "windows",
@@ -48,7 +46,8 @@ export const downloads: Record<Exclude<DetectedOS, "unknown">, DownloadItem> = {
     requirements: "Windows 10 or later · x64",
     version: APP_VERSION,
     fileSize: "—",
-    available: false,
+    available: true,
+    downloadUrl: WINDOWS_DOWNLOAD_URL,
   },
   linux: {
     key: "linux",
@@ -57,7 +56,8 @@ export const downloads: Record<Exclude<DetectedOS, "unknown">, DownloadItem> = {
     requirements: "Ubuntu 22.04+ / Fedora 38+ / equivalent",
     version: APP_VERSION,
     fileSize: "—",
-    available: false,
+    available: true,
+    downloadUrl: LINUX_DOWNLOAD_URL,
   },
 };
 
