@@ -180,7 +180,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
                       </h3>
                     </div>
 
-                    <dl className="grid gap-2 rounded-lg border border-hairline bg-surface-2 p-4 text-sm">
+                    <dl className="grid gap-2 rounded-lg border border-hairline bg-surface-2 p-4 text-sm demo-fade-rows">
                       <div className="flex items-center justify-between">
                         <dt className="text-ink-muted">dApp</dt>
                         <dd className="font-medium text-ink">Example AMM</dd>
