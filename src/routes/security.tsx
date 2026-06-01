@@ -82,7 +82,7 @@ export const Route = createFileRoute("/security")({
         goal is simple: review before you sign.
       </p>
 
-      <ul className="not-prose mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 list-none p-0">
+      <ul className="not-prose mt-4 grid list-none grid-cols-2 gap-3 p-0 pl-0 sm:grid-cols-4 [&>li]:list-none">
         {["Local-first keys", "No telemetry by default", "Signed releases", "Mainnet/Sepolia clarity"].map((s) => (
           <li key={s} className="rounded-lg border border-hairline bg-surface p-3 text-xs font-semibold text-ink">
             {s}
