@@ -54,10 +54,10 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
             className="btn-primary w-full"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Download StarknetWallet for ${item.os}`}
+            aria-label={`Download ${item.os} version`}
           >
             <Download size={16} aria-hidden="true" />
-            Download for {item.os}
+            Download
           </a>
         ) : (
           <button
