@@ -754,6 +754,44 @@ body > * { position: relative; z-index: 1; }
   pointer-events: none;
   overflow: hidden;
   z-index: 0;
+  opacity: 0.95;
+}
+.starfield-layer::before,
+.starfield-layer::after {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.starfield-layer::before {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.9) 0 0.9px, transparent 1.6px),
+    radial-gradient(circle at 24% 64%, rgba(234, 240, 255, 0.8) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 38% 28%, rgba(255, 255, 255, 0.72) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 52% 78%, rgba(201, 212, 255, 0.74) 0 1px, transparent 1.9px),
+    radial-gradient(circle at 67% 24%, rgba(255, 255, 255, 0.82) 0 0.9px, transparent 1.7px),
+    radial-gradient(circle at 81% 56%, rgba(220, 230, 255, 0.75) 0 1px, transparent 1.8px),
+    radial-gradient(circle at 92% 14%, rgba(255, 255, 255, 0.88) 0 0.9px, transparent 1.6px),
+    radial-gradient(circle at 8% 86%, rgba(201, 212, 255, 0.7) 0 1px, transparent 1.8px);
+  background-size: 420px 420px, 520px 520px, 460px 460px, 560px 560px, 500px 500px, 620px 620px, 540px 540px, 680px 680px;
+  background-position: 0 0, 40px 80px, 120px 20px, 160px 140px, 260px 40px, 320px 180px, 200px 100px, 80px 240px;
+  opacity: 0.88;
+  animation: starfield-pan 44s linear infinite, starfield-soft-twinkle 10s ease-in-out infinite;
+}
+.starfield-layer::after {
+  background-image:
+    radial-gradient(circle at 16% 36%, rgba(255, 255, 255, 0.92) 0 1.4px, transparent 2.6px),
+    radial-gradient(circle at 34% 12%, rgba(183, 199, 255, 0.88) 0 1.8px, transparent 3px),
+    radial-gradient(circle at 48% 58%, rgba(255, 255, 255, 0.9) 0 1.5px, transparent 2.8px),
+    radial-gradient(circle at 72% 22%, rgba(234, 240, 255, 0.86) 0 1.6px, transparent 3px),
+    radial-gradient(circle at 88% 74%, rgba(201, 212, 255, 0.86) 0 1.8px, transparent 3.2px),
+    radial-gradient(circle at 22% 82%, rgba(255, 255, 255, 0.88) 0 1.5px, transparent 2.8px);
+  background-size: 760px 760px, 920px 920px, 840px 840px, 980px 980px, 900px 900px, 860px 860px;
+  background-position: 80px 40px, 220px 160px, 340px 220px, 120px 300px, 420px 420px, 540px 120px;
+  opacity: 0.52;
+  filter: drop-shadow(0 0 6px rgba(183, 199, 255, 0.32));
+  animation: starfield-pan-reverse 60s linear infinite, starfield-soft-twinkle 14s ease-in-out infinite reverse;
 }
 .starfield-nebula {
   position: absolute;
@@ -876,6 +914,20 @@ body > * { position: relative; z-index: 1; }
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(12px, -8px); }
 }
+@keyframes starfield-pan {
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-32px, 18px, 0); }
+  100% { transform: translate3d(-64px, 0, 0); }
+}
+@keyframes starfield-pan-reverse {
+  0% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(24px, -16px, 0); }
+  100% { transform: translate3d(48px, 0, 0); }
+}
+@keyframes starfield-soft-twinkle {
+  0%, 100% { opacity: 0.52; }
+  50% { opacity: 0.95; }
+}
 
 .starfield-sparkles {
   position: absolute;
@@ -899,12 +951,16 @@ body > * { position: relative; z-index: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .starfield-layer::before,
+  .starfield-layer::after,
   .starfield-nebula,
   .starfield-stars,
   .sf-twinkle {
     animation: none !important;
     transform: none !important;
   }
+  .starfield-layer::before { opacity: 0.72; }
+  .starfield-layer::after { opacity: 0.4; }
   .starfield-stars-a { opacity: 0.8; }
   .starfield-stars-b { opacity: 0.85; }
   .starfield-stars-c { opacity: 0.7; }
