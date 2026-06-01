@@ -114,42 +114,38 @@ export function CookieConsent() {
         <div
           role="region"
           aria-label="Cookie preferences"
-          className="fixed inset-x-0 bottom-0 z-[60] pb-4 px-4 sm:px-6"
+          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[9999] w-[calc(100%-24px)] max-w-[720px]"
         >
-          <div
-            className="mx-auto max-w-4xl rounded-xl border border-hairline bg-surface/95 backdrop-blur-md p-5 sm:p-6 shadow-[0_8px_40px_-12px_rgba(80,90,255,0.35)] ring-1 ring-brand/10"
-          >
-            <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-              <div className="max-w-2xl">
-                <h2 className="text-base font-bold text-ink">Cookie preferences</h2>
-                <p className="mt-1.5 text-sm text-ink-muted leading-relaxed">
-                  We use essential cookies to keep this site working. Optional
-                  cookies help us understand usage and improve the experience.
-                  You can accept, reject, or customize your choices.
+          <div className="rounded-lg border border-hairline bg-surface/95 backdrop-blur-md px-3.5 py-3 shadow-[0_6px_24px_-10px_rgba(80,90,255,0.45)] ring-1 ring-brand/10">
+            <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+              <div className="min-w-0">
+                <p className="text-xs font-semibold text-ink leading-tight">Cookie preferences</p>
+                <p className="mt-0.5 text-xs text-ink-muted leading-snug">
+                  We use essential cookies. Optional cookies help improve the site.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-2 sm:flex-nowrap sm:shrink-0">
+              <div className="flex flex-wrap gap-1.5 sm:flex-nowrap sm:shrink-0">
                 <button
                   type="button"
                   onClick={rejectOptional}
-                  className="rounded-md border border-hairline px-3.5 py-2 text-sm text-ink-muted hover:text-ink hover:border-ink/30 transition-colors"
+                  className="rounded-md border border-hairline px-2.5 py-1 text-xs text-ink-muted hover:text-ink hover:border-ink/30 transition-colors"
                 >
-                  Reject optional
+                  Reject
                 </button>
                 <button
                   type="button"
                   onClick={openCustomize}
-                  className="rounded-md border border-hairline px-3.5 py-2 text-sm text-ink-muted hover:text-ink hover:border-ink/30 transition-colors"
+                  className="rounded-md border border-hairline px-2.5 py-1 text-xs text-ink-muted hover:text-ink hover:border-ink/30 transition-colors"
                 >
-                  Customize
+                  Settings
                 </button>
                 <button
                   ref={acceptAllRef}
                   type="button"
                   onClick={acceptAll}
-                  className="rounded-md bg-brand px-3.5 py-2 text-sm font-medium text-white hover:bg-brand/90 transition-colors shadow-[0_0_24px_-6px_rgba(80,90,255,0.6)]"
+                  className="rounded-md bg-brand px-2.5 py-1 text-xs font-medium text-white hover:bg-brand/90 transition-colors shadow-[0_0_18px_-6px_rgba(80,90,255,0.6)]"
                 >
-                  Accept all
+                  Accept
                 </button>
               </div>
             </div>
