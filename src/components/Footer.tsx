@@ -2,11 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { GITHUB_REPO_URL } from "@/data/downloads";
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
+import type { ReactNode } from "react";
+
 type SocialLink = {
   name: string;
   href: string;
   label: string;
-  icon: JSX.Element;
+  icon: ReactNode;
 };
 
 const SOCIALS: SocialLink[] = [
