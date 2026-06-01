@@ -15,6 +15,7 @@ import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as DownloadRouteImport } from './routes/download'
 import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as BrandGuidelinesRouteImport } from './routes/brand-guidelines'
 import { Route as AuditsRouteImport } from './routes/audits'
@@ -51,6 +52,11 @@ const CookiesRoute = CookiesRouteImport.update({
   path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChangelogRoute = ChangelogRouteImport.update({
   id: '/changelog',
   path: '/changelog',
@@ -83,6 +89,7 @@ export interface FileRoutesByFullPath {
   '/audits': typeof AuditsRoute
   '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
+  '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
@@ -96,6 +103,7 @@ export interface FileRoutesByTo {
   '/audits': typeof AuditsRoute
   '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
+  '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
@@ -110,6 +118,7 @@ export interface FileRoutesById {
   '/audits': typeof AuditsRoute
   '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
+  '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/download': typeof DownloadRoute
   '/privacy': typeof PrivacyRoute
@@ -125,6 +134,7 @@ export interface FileRouteTypes {
     | '/audits'
     | '/brand-guidelines'
     | '/changelog'
+    | '/contact'
     | '/cookies'
     | '/download'
     | '/privacy'
@@ -138,6 +148,7 @@ export interface FileRouteTypes {
     | '/audits'
     | '/brand-guidelines'
     | '/changelog'
+    | '/contact'
     | '/cookies'
     | '/download'
     | '/privacy'
@@ -151,6 +162,7 @@ export interface FileRouteTypes {
     | '/audits'
     | '/brand-guidelines'
     | '/changelog'
+    | '/contact'
     | '/cookies'
     | '/download'
     | '/privacy'
@@ -165,6 +177,7 @@ export interface RootRouteChildren {
   AuditsRoute: typeof AuditsRoute
   BrandGuidelinesRoute: typeof BrandGuidelinesRoute
   ChangelogRoute: typeof ChangelogRoute
+  ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DownloadRoute: typeof DownloadRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -217,6 +230,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/changelog': {
       id: '/changelog'
       path: '/changelog'
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuditsRoute: AuditsRoute,
   BrandGuidelinesRoute: BrandGuidelinesRoute,
   ChangelogRoute: ChangelogRoute,
+  ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DownloadRoute: DownloadRoute,
   PrivacyRoute: PrivacyRoute,
