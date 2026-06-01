@@ -135,16 +135,6 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
-                <a
-                  href={GITHUB_REPO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-ink hover:text-brand"
-                >
-                  GitHub
-                </a>
-              </li>
-              <li>
                 <Link to="/download" hash="verify" className="text-ink hover:text-brand">
                   Verify a release
                 </Link>
