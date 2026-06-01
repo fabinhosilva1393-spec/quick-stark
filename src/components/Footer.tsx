@@ -79,10 +79,6 @@ const COLUMNS: FooterColumn[] = [
   {
     title: "Developers",
     items: [
-      { label: "Developers Hub" },
-      { label: "SN Stack" },
-      { label: "Build with AI" },
-      { label: "Modular Ecosystem" },
       { label: "Documentation", href: "https://docs.starknet.io/", external: true },
       { label: "Cairo Book", href: "https://book.cairo-lang.org/", external: true },
       { label: "Tutorials", href: "https://www.starknet.io/tutorials/", external: true },
