@@ -87,7 +87,7 @@ export function Workflow() {
           <article className="surface-card flex flex-col items-start">
             <StarknetIsoIllustration
               variant={SLIDES[index].variant}
-              size={160}
+              size={200}
             />
             <span className="eyebrow mt-4">{SLIDES[index].eyebrow}</span>
             <h3 className="mt-3 text-lg font-bold text-ink tracking-tight">
