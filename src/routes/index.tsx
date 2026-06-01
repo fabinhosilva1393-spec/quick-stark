@@ -61,6 +61,7 @@ function Index() {
         <DownloadSection id="download" />
         
         <Features />
+        <Workflow />
         <Security />
         <Compare />
         <Developers />
