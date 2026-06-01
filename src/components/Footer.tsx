@@ -131,14 +131,16 @@ function FooterLink({ item }: { item: FooterItem }) {
     );
   }
 
-  // Internal: FAQ is on home page hash
-  if (item.label === "FAQs") {
+  // Internal hash anchor on home
+  if (item.href.startsWith("/#")) {
+    const hash = item.href.slice(2);
     return (
-      <Link to="/" hash="faq" className={baseCls}>
+      <Link to="/" hash={hash} className={baseCls}>
         {item.label}
       </Link>
     );
   }
+
 
   return (
     <a href={item.href} className={baseCls}>
