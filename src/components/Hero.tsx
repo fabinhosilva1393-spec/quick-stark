@@ -98,7 +98,11 @@ export function Hero() {
           </ul>
           </div>
 
-          <div className="min-w-0 w-full max-w-[620px] mx-auto lg:mx-0 lg:ml-auto">
+          <div className="relative min-w-0 w-full max-w-[620px] mx-auto lg:mx-0 lg:ml-auto">
+            <span className="hero-particle hero-particle-a" aria-hidden="true" />
+            <span className="hero-particle hero-particle-b" aria-hidden="true" />
+            <span className="hero-particle hero-particle-c" aria-hidden="true" />
+            <span className="hero-particle hero-particle-d" aria-hidden="true" />
             <Demo compact />
           </div>
 

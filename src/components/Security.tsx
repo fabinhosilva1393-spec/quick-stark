@@ -1,33 +1,33 @@
-import { Lock, EyeOff, FileCheck2, Github, Cpu, BugPlay } from "lucide-react";
+import { AnimatedIsoIcon, type IsoVariant } from "./AnimatedIsoIcon";
 
-const ITEMS = [
+const ITEMS: Array<{ variant: IsoVariant; title: string; body: string }> = [
   {
-    icon: Lock,
+    variant: "local-keys",
     title: "Local-first private keys",
     body: "Private keys are generated and stored on your device. They are never transmitted to any server.",
   },
   {
-    icon: EyeOff,
+    variant: "no-telemetry",
     title: "No telemetry by default",
     body: "No analytics, no usage tracking, and no remote logging unless you explicitly opt in.",
   },
   {
-    icon: FileCheck2,
+    variant: "signed-release",
     title: "Signed releases",
     body: "Every published build ships with a SHA256 checksum and a PGP signature so you can verify before installing.",
   },
   {
-    icon: Github,
+    variant: "open-source",
     title: "Open source",
     body: "The desktop application source is public. You can audit, build, or fork it yourself.",
   },
   {
-    icon: Cpu,
+    variant: "secure-enclave",
     title: "Hardware wallet support",
     body: "Ledger over USB is supported so signing keys can stay on dedicated hardware.",
   },
   {
-    icon: BugPlay,
+    variant: "disclosure",
     title: "Responsible disclosure",
     body: "Security issues should be reported privately to the maintainers via the channel listed in the public repository.",
   },
@@ -50,9 +50,9 @@ export function Security() {
         </div>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {ITEMS.map(({ icon: Icon, title, body }) => (
+          {ITEMS.map(({ variant, title, body }, i) => (
             <div key={title} className="surface-card">
-              <Icon size={18} className="text-brand" aria-hidden="true" />
+              <AnimatedIsoIcon variant={variant} size={48} delay={i * 0.35} />
               <h3 className="mt-3 text-base font-bold text-ink">{title}</h3>
               <p className="mt-1 text-sm text-ink-muted leading-relaxed">
                 {body}
