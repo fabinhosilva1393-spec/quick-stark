@@ -99,14 +99,21 @@ export function Hero() {
           </div>
 
           <div className="relative min-w-0 w-full max-w-[620px] mx-auto lg:mx-0 lg:ml-auto demo-stage">
+            <span className="demo-glow" aria-hidden="true" />
             <span className="demo-orbit" aria-hidden="true" />
             <span className="demo-orbit demo-orbit-2" aria-hidden="true" />
             <span className="hero-particle hero-particle-a" aria-hidden="true" />
             <span className="hero-particle hero-particle-b" aria-hidden="true" />
             <span className="hero-particle hero-particle-c" aria-hidden="true" />
             <span className="hero-particle hero-particle-d" aria-hidden="true" />
+            <span className="hero-particle hero-particle-e" aria-hidden="true" />
+            <span className="hero-particle hero-particle-f" aria-hidden="true" />
+            <span className="hero-particle hero-particle-g" aria-hidden="true" />
+            <span className="hero-particle hero-particle-h" aria-hidden="true" />
             <div className="demo-tilt">
-              <Demo compact />
+              <div className="demo-drift">
+                <Demo compact />
+              </div>
             </div>
           </div>
 
