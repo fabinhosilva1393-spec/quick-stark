@@ -57,7 +57,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-[220px_1fr] min-h-[520px]">
+          <div className="grid md:grid-cols-[200px_1fr]">
             {/* Sidebar */}
             <aside className="border-b md:border-b-0 md:border-r border-hairline bg-surface-2 p-3 flex flex-col gap-1">
               {/* Account selector */}
