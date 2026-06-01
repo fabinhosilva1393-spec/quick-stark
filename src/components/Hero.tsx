@@ -120,30 +120,7 @@ export function Hero() {
             <span className="hero-particle hero-particle-h" aria-hidden="true" />
             <div className="demo-tilt">
               <div className="demo-drift">
-                <div className="laptop-frame">
-                  <div className="laptop-frame__screen">
-                    <div className="laptop-frame__bezel">
-                      <span className="laptop-frame__camera" aria-hidden="true" />
-                      <div className="laptop-frame__content">
-                        <Demo compact />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="laptop-frame__hinge" aria-hidden="true" />
-                  <div className="laptop-frame__base" aria-hidden="true">
-                    <span className="laptop-frame__notch" />
-                    <span className="laptop-frame__keyboard">
-                      {Array.from({ length: 5 }).map((_, r) => (
-                        <span key={r} className="laptop-frame__keyrow">
-                          {Array.from({ length: 14 }).map((__, k) => (
-                            <span key={k} className="laptop-frame__key" />
-                          ))}
-                        </span>
-                      ))}
-                    </span>
-                    <span className="laptop-frame__trackpad" />
-                  </div>
-                </div>
+                <Demo compact />
               </div>
             </div>
           </div>

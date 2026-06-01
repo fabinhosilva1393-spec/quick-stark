@@ -37,7 +37,7 @@ const DEMO_PERMISSIONS = [
 ];
 
 export function Demo({ compact = false }: { compact?: boolean } = {}) {
-  const [tab, setTab] = useState<Tab>(compact ? "assets" : "transaction");
+  const [tab, setTab] = useState<Tab>("transaction");
   const [network, setNetwork] = useState<"Mainnet" | "Sepolia">("Mainnet");
 
   const windowEl = (
