@@ -44,44 +44,44 @@
 
 :root {
   --radius: 0.75rem;
-  /* Warm off-white base */
-  --background: oklch(0.985 0.004 85);
-  --surface: oklch(1 0 0);
-  --surface-2: oklch(0.975 0.005 85);
-  --foreground: oklch(0.18 0.01 270);
-  --ink: oklch(0.16 0.01 270);
-  --ink-muted: oklch(0.46 0.012 270);
+  /* StarknetWallet palette */
+  --background: #F7F3EA;
+  --surface: #FFFFFF;
+  --surface-2: #FBF8F1;
+  --foreground: #0A0A0F;
+  --ink: #0A0A0F;
+  --ink-muted: #5F6472;
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.01 270);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.01 270);
+  --card: #FFFFFF;
+  --card-foreground: #0A0A0F;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A0A0F;
 
-  /* Starknet-leaning institutional blue */
-  --primary: oklch(0.46 0.2 268);
-  --primary-foreground: oklch(0.99 0 0);
-  --brand: oklch(0.46 0.2 268);
-  --brand-foreground: oklch(0.99 0 0);
+  /* Starknet primary blue */
+  --primary: #0A45FF;
+  --primary-foreground: #FFFFFF;
+  --brand: #0A45FF;
+  --brand-foreground: #FFFFFF;
 
-  --secondary: oklch(0.96 0.005 270);
-  --secondary-foreground: oklch(0.18 0.01 270);
-  --muted: oklch(0.965 0.005 85);
-  --muted-foreground: oklch(0.46 0.012 270);
-  --accent: oklch(0.95 0.02 268);
-  --accent-foreground: oklch(0.2 0.05 268);
-  --destructive: oklch(0.58 0.22 27);
-  --destructive-foreground: oklch(0.99 0 0);
-  --hairline: oklch(0.16 0.01 270 / 10%);
-  --border: oklch(0.16 0.01 270 / 10%);
-  --input: oklch(0.16 0.01 270 / 14%);
-  --ring: oklch(0.46 0.2 268);
+  --secondary: #F1ECE0;
+  --secondary-foreground: #0A0A0F;
+  --muted: #F1ECE0;
+  --muted-foreground: #5F6472;
+  --accent: #E8EEFF;
+  --accent-foreground: #080A1F;
+  --destructive: #FF6B5C;
+  --destructive-foreground: #FFFFFF;
+  --hairline: #E2DED4;
+  --border: #E2DED4;
+  --input: #E2DED4;
+  --ring: #0A45FF;
 
   /* Iso illustration accents */
   --iso-blue: #0A45FF;
   --iso-navy: #080A1F;
-  --iso-purple: #7C3AED;
-  --iso-coral: #FF7A66;
-  --iso-mint: #5DE6B5;
+  --iso-purple: #6D4DFF;
+  --iso-coral: #FF6B5C;
+  --iso-mint: #52E0B6;
   --iso-lavender: #B7B8FF;
 }
 
