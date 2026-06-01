@@ -12,7 +12,7 @@ import { FAQ } from "@/components/FAQ";
 
 const TITLE = "StarknetWallet — Desktop Wallet for Starknet";
 const DESC =
-  "Download a desktop wallet for Starknet. Manage STRK, preview Cairo calls, review smart-account permissions, and sign on macOS, Windows, and Linux.";
+  "A local-first desktop wallet for Starknet. Manage STRK, preview Cairo calls, and review smart-account permissions on macOS, Windows, and Linux.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
