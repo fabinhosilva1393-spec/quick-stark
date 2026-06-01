@@ -10,7 +10,6 @@ type NavItem =
   | { label: string; to: string };
 
 const NAV: NavItem[] = [
-  { label: "Demo", hash: "demo" },
   { label: "Features", hash: "features" },
   { label: "Security", to: "/security" },
   { label: "Developers", to: "/documentation" },
