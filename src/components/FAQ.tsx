@@ -1,10 +1,14 @@
-import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { GITHUB_REPO_URL } from "@/data/downloads";
 
-const QA = [
+const QA: { q: string; a: React.ReactNode }[] = [
   {
     q: "Is StarknetWallet free?",
     a: "Yes. StarknetWallet is free and open source. There are no subscriptions, no premium tiers, and no in-app upsells.",
+  },
+  {
+    q: "Is StarknetWallet affiliated with the Starknet Foundation?",
+    a: "No. StarknetWallet is an independent project. It is not affiliated with, endorsed by, or operated by the Starknet Foundation or StarkWare unless explicitly stated.",
   },
   {
     q: "Does StarknetWallet collect my data?",
@@ -12,59 +16,74 @@ const QA = [
   },
   {
     q: "Which Starknet accounts are supported?",
-    a: "All major account abstraction implementations including Argent and Braavos, plus standard OpenZeppelin accounts.",
+    a: "Common account-abstraction implementations on Starknet, including Argent and Braavos-style accounts, as well as standard OpenZeppelin accounts.",
   },
   {
-    q: "Can I use a hardware wallet?",
-    a: "Yes. Ledger is supported over USB on all three platforms. Keep your keys offline while signing on Starknet.",
+    q: "Can I use a Ledger hardware wallet?",
+    a: "Yes. Ledger over USB is supported on all three desktop platforms so signing keys can remain on the hardware device.",
   },
   {
     q: "How do I verify a release?",
-    a: "Every build ships with a SHA256 checksum and a PGP signature. The /download page includes the verification command and our signing key fingerprint.",
+    a: (
+      <>
+        Every published build ships with a SHA256 checksum and a PGP signature.
+        See the “Verify before installing” section on the{" "}
+        <a href="/download" className="text-link">download page</a> for the
+        exact commands once a release is published.
+      </>
+    ),
+  },
+  {
+    q: "What platforms are supported?",
+    a: "macOS 12 or later (Apple Silicon and Intel), Windows 10 or later (x64), and recent Linux distributions via .AppImage or .deb.",
+  },
+  {
+    q: "Where do I report a vulnerability?",
+    a: (
+      <>
+        Please report security issues privately through the channel listed in
+        the public{" "}
+        <a
+          href={GITHUB_REPO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-link"
+        >
+          GitHub organization
+        </a>
+        . Do not open a public issue for an exploitable vulnerability.
+      </>
+    ),
   },
 ];
 
 export function FAQ() {
-  const [open, setOpen] = useState<number | null>(0);
-
   return (
-    <section id="faq" className="py-24 relative">
+    <section id="faq" className="py-24">
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">FAQ</span>
           <h2 className="section-title mt-4">Questions, answered.</h2>
         </div>
 
-        <div className="mt-10 max-w-3xl divide-y divide-white/10 border-y border-white/10">
-          {QA.map((item, i) => {
-            const isOpen = open === i;
-            return (
-              <div key={item.q}>
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="w-full flex items-center justify-between gap-4 py-5 text-left"
-                >
-                  <span className="text-base sm:text-lg font-semibold text-white">
-                    {item.q}
-                  </span>
-                  <ChevronDown
-                    size={18}
-                    className={`text-white/60 shrink-0 transition-transform ${
-                      isOpen ? "rotate-180" : ""
-                    }`}
-                    aria-hidden="true"
-                  />
-                </button>
-                {isOpen && (
-                  <p className="pb-5 -mt-1 text-sm text-white/70 leading-relaxed max-w-2xl">
-                    {item.a}
-                  </p>
-                )}
+        <div className="mt-10 max-w-3xl divide-y divide-hairline border-y border-hairline">
+          {QA.map((item) => (
+            <details key={item.q} className="group py-5">
+              <summary className="flex items-center justify-between gap-4 cursor-pointer list-none">
+                <span className="text-base sm:text-lg font-semibold text-ink">
+                  {item.q}
+                </span>
+                <ChevronDown
+                  size={18}
+                  className="text-ink-muted shrink-0 transition-transform group-open:rotate-180"
+                  aria-hidden="true"
+                />
+              </summary>
+              <div className="pt-3 text-sm text-ink-muted leading-relaxed max-w-2xl">
+                {item.a}
               </div>
-            );
-          })}
+            </details>
+          ))}
         </div>
       </div>
     </section>

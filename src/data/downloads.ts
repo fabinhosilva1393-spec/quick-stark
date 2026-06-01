@@ -7,19 +7,29 @@ export type DownloadItem = {
   requirements: string;
   version: string;
   fileSize: string;
-  downloadUrl: string;
-  checksumUrl: string;
+  /** When false, the artifact is not published yet. UI must show a disabled state. */
+  available: boolean;
+  /** Only present when available === true. */
+  downloadUrl?: string;
+  checksumUrl?: string;
   signatureUrl?: string;
-  releaseNotesUrl: string;
+  releaseNotesUrl?: string;
 };
 
 export const APP_VERSION = "v1.0.0";
-export const GITHUB_REPO_URL = "https://github.com/starknet-io";
-export const GITHUB_RELEASES_URL =
-  "https://github.com/starknet-io/starknet-wallet/releases";
 
-const RELEASE_BASE = `${GITHUB_RELEASES_URL}/download/${APP_VERSION}`;
-const RELEASE_NOTES_URL = `${GITHUB_RELEASES_URL}/tag/${APP_VERSION}`;
+/**
+ * Real, working external links. Anything that does NOT have a confirmed real
+ * URL is intentionally omitted — the UI renders a disabled "Release pending"
+ * state instead of a fake link.
+ */
+export const GITHUB_REPO_URL = "https://github.com/starknet-io";
+
+/**
+ * Release URLs are intentionally undefined until a real release is published.
+ * Do NOT add fake github.com/.../releases/... URLs here — they will 404.
+ */
+export const GITHUB_RELEASES_URL: string | undefined = undefined;
 
 export const downloads: Record<Exclude<DetectedOS, "unknown">, DownloadItem> = {
   macos: {
@@ -28,11 +38,8 @@ export const downloads: Record<Exclude<DetectedOS, "unknown">, DownloadItem> = {
     fileType: ".dmg Universal",
     requirements: "macOS 12 Monterey or later · Apple Silicon and Intel",
     version: APP_VERSION,
-    fileSize: "112 MB",
-    downloadUrl: `${RELEASE_BASE}/StarknetWallet-${APP_VERSION}-universal.dmg`,
-    checksumUrl: `${RELEASE_BASE}/StarknetWallet-${APP_VERSION}-universal.dmg.sha256`,
-    signatureUrl: `${RELEASE_BASE}/StarknetWallet-${APP_VERSION}-universal.dmg.sig`,
-    releaseNotesUrl: RELEASE_NOTES_URL,
+    fileSize: "—",
+    available: false,
   },
   windows: {
     key: "windows",
@@ -40,11 +47,8 @@ export const downloads: Record<Exclude<DetectedOS, "unknown">, DownloadItem> = {
     fileType: ".exe installer",
     requirements: "Windows 10 or later · x64",
     version: APP_VERSION,
-    fileSize: "98 MB",
-    downloadUrl: `${RELEASE_BASE}/StarknetWallet-Setup-${APP_VERSION}-x64.exe`,
-    checksumUrl: `${RELEASE_BASE}/StarknetWallet-Setup-${APP_VERSION}-x64.exe.sha256`,
-    signatureUrl: `${RELEASE_BASE}/StarknetWallet-Setup-${APP_VERSION}-x64.exe.sig`,
-    releaseNotesUrl: RELEASE_NOTES_URL,
+    fileSize: "—",
+    available: false,
   },
   linux: {
     key: "linux",
@@ -52,11 +56,8 @@ export const downloads: Record<Exclude<DetectedOS, "unknown">, DownloadItem> = {
     fileType: ".AppImage / .deb",
     requirements: "Ubuntu 22.04+ / Fedora 38+ / equivalent",
     version: APP_VERSION,
-    fileSize: "104 MB",
-    downloadUrl: `${RELEASE_BASE}/StarknetWallet-${APP_VERSION}-x86_64.AppImage`,
-    checksumUrl: `${RELEASE_BASE}/StarknetWallet-${APP_VERSION}-x86_64.AppImage.sha256`,
-    signatureUrl: `${RELEASE_BASE}/StarknetWallet-${APP_VERSION}-x86_64.AppImage.sig`,
-    releaseNotesUrl: RELEASE_NOTES_URL,
+    fileSize: "—",
+    available: false,
   },
 };
 
@@ -79,3 +80,5 @@ export function getOrderedDownloads(os: DetectedOS): DownloadItem[] {
     ...defaultDownloadOrder.filter((item) => item.key !== recommended.key),
   ];
 }
+
+export const anyReleaseAvailable = defaultDownloadOrder.some((d) => d.available);

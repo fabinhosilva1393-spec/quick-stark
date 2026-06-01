@@ -33,33 +33,48 @@
   --color-ring: var(--ring);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
-  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-hairline: var(--hairline);
+  --font-display: "Inter", "Inter Tight", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 :root {
-  --radius: 1rem;
-  --background: oklch(0.135 0.005 280);
-  --foreground: oklch(0.98 0.005 280);
-  --card: oklch(0.18 0.008 280);
-  --card-foreground: oklch(0.98 0.005 280);
-  --popover: oklch(0.18 0.008 280);
-  --popover-foreground: oklch(0.98 0.005 280);
-  --primary: oklch(0.72 0.16 32);
+  --radius: 0.75rem;
+  /* Warm off-white base */
+  --background: oklch(0.985 0.004 85);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.975 0.005 85);
+  --foreground: oklch(0.18 0.01 270);
+  --ink: oklch(0.16 0.01 270);
+  --ink-muted: oklch(0.46 0.012 270);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.01 270);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.01 270);
+
+  /* Starknet-leaning institutional blue */
+  --primary: oklch(0.46 0.2 268);
   --primary-foreground: oklch(0.99 0 0);
-  --brand: oklch(0.72 0.16 32);
+  --brand: oklch(0.46 0.2 268);
   --brand-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.24 0.01 280);
-  --secondary-foreground: oklch(0.98 0.005 280);
-  --muted: oklch(0.22 0.008 280);
-  --muted-foreground: oklch(0.7 0.02 280);
-  --accent: oklch(0.26 0.012 280);
-  --accent-foreground: oklch(0.98 0.005 280);
-  --destructive: oklch(0.62 0.22 27);
+
+  --secondary: oklch(0.96 0.005 270);
+  --secondary-foreground: oklch(0.18 0.01 270);
+  --muted: oklch(0.965 0.005 85);
+  --muted-foreground: oklch(0.46 0.012 270);
+  --accent: oklch(0.95 0.02 268);
+  --accent-foreground: oklch(0.2 0.05 268);
+  --destructive: oklch(0.58 0.22 27);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 12%);
-  --ring: oklch(0.72 0.16 32);
+  --hairline: oklch(0.16 0.01 270 / 10%);
+  --border: oklch(0.16 0.01 270 / 10%);
+  --input: oklch(0.16 0.01 270 / 14%);
+  --ring: oklch(0.46 0.2 268);
 }
 
 @layer base {
@@ -80,232 +95,25 @@
   }
 
   ::selection {
-    background: rgba(236, 121, 107, 0.4);
-    color: #fff;
+    background: color-mix(in oklab, var(--brand) 28%, transparent);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
 
-/* ============= Layout helpers ============= */
+/* ============= Layout ============= */
 .container-page {
   max-width: 1200px;
   margin-inline: auto;
   padding-inline: 24px;
 }
 
-/* ============= Background grid / aurora ============= */
-.bg-aurora {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(800px 500px at 15% -10%, rgba(236, 121, 107, 0.22), transparent 60%),
-    radial-gradient(700px 500px at 95% 0%, rgba(169, 167, 255, 0.16), transparent 60%),
-    radial-gradient(600px 400px at 50% 110%, rgba(201, 154, 191, 0.14), transparent 60%);
-}
-
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at center, #000 50%, transparent 85%);
-}
-
-/* ============= Buttons ============= */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 52px;
-  padding: 0 22px;
-  border-radius: 16px;
-  background: #ec796b;
-  color: #ffffff;
-  font-weight: 800;
-  font-size: 15px;
-  letter-spacing: 0.01em;
-  border: 1px solid #ec796b;
-  transition: background 180ms ease, border-color 180ms ease, box-shadow 220ms ease,
-    transform 180ms ease;
-}
-.btn-primary:hover {
-  background: #fe4a3c;
-  border-color: #fe4a3c;
-  box-shadow: 0 18px 48px rgba(236, 121, 107, 0.32),
-    0 1px 0 rgba(255, 255, 255, 0.18) inset;
-  transform: translateY(-1px);
-}
-.btn-primary:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 3px;
-}
-
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 52px;
-  padding: 0 22px;
-  border-radius: 16px;
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.04);
-  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
-}
-.btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.28);
-  transform: translateY(-1px);
-}
-.btn-ghost:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 3px;
-}
-
-.text-link {
-  color: rgba(255, 255, 255, 0.78);
-  text-decoration: none;
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
-  transition: color 180ms ease, border-color 180ms ease;
-}
-.text-link:hover {
-  color: #fff;
-  border-bottom-color: rgba(255, 255, 255, 0.6);
-}
-
-/* ============= Platform card ============= */
-.platform-download-card {
-  position: relative;
-  min-height: 340px;
-  padding: 32px;
-  border-radius: 32px;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 16% 4%, rgba(255, 255, 255, 0.085), transparent 30%),
-    radial-gradient(circle at 88% 8%, rgba(236, 121, 107, 0.05), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.016)),
-    #101012;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.48),
-    0 1px 0 rgba(255, 255, 255, 0.1) inset;
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.platform-download-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 1px;
-  border-radius: inherit;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.16),
-    rgba(236, 121, 107, 0.62),
-    rgba(201, 154, 191, 0.42),
-    rgba(169, 167, 255, 0.32)
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 220ms ease;
-}
-
-.platform-download-card:hover::before,
-.platform-download-card:focus-within::before {
-  opacity: 1;
-}
-
-.platform-download-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.58),
-    0 0 80px rgba(236, 121, 107, 0.075);
-}
-
-.recommended-platform-card {
-  border-color: rgba(236, 121, 107, 0.48);
-  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.58),
-    0 0 80px rgba(236, 121, 107, 0.14),
-    0 0 0 1px rgba(236, 121, 107, 0.18) inset;
-}
-
-.recommended-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border-radius: 999px;
-  padding: 7px 11px;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: #ffffff;
-  background: rgba(236, 121, 107, 0.18);
-  border: 1px solid rgba(236, 121, 107, 0.42);
-}
-
-.latest-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border-radius: 999px;
-  padding: 7px 11px;
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.78);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-/* ============= Platform icon ============= */
-.platform-icon-wrap {
-  position: relative;
-  width: 132px;
-  height: 112px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-
-.platform-icon-glow {
-  position: absolute;
-  left: -24px;
-  top: -22px;
-  width: 150px;
-  height: 150px;
-  border-radius: 999px;
-  background:
-    radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 42%),
-    radial-gradient(circle, rgba(236, 121, 107, 0.08), transparent 62%);
-  filter: blur(12px);
-  opacity: 0.72;
-  pointer-events: none;
-}
-
-/* ============= Generic surfaces ============= */
-.surface-card {
-  position: relative;
-  border-radius: 24px;
-  padding: 28px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
-    #101012;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
-}
-
+/* ============= Type ============= */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -314,42 +122,202 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.72);
-  padding: 6px 12px;
+  color: var(--ink-muted);
+  padding: 5px 10px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
 }
 
 .section-title {
-  font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.08;
-  font-weight: 800;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--ink);
 }
 
 .section-sub {
   margin-top: 14px;
   font-size: 17px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 620px;
+  color: var(--ink-muted);
+  max-width: 640px;
+}
+
+/* ============= Buttons ============= */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 20px;
+  border-radius: 10px;
+  background: var(--brand);
+  color: var(--brand-foreground);
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid var(--brand);
+  transition: filter 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset,
+    0 4px 12px color-mix(in oklab, var(--brand) 20%, transparent);
+}
+.btn-primary:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+.btn-primary:disabled,
+.btn-primary[aria-disabled="true"] {
+  background: var(--muted);
+  color: var(--ink-muted);
+  border-color: var(--hairline);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  filter: none;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 10px;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid var(--hairline);
+  background: var(--surface);
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+.btn-ghost:hover {
+  background: var(--surface-2);
+  border-color: color-mix(in oklab, var(--ink) 20%, transparent);
+}
+
+.text-link {
+  color: var(--brand);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in oklab, var(--brand) 30%, transparent);
+  transition: border-color 180ms ease, color 180ms ease;
+}
+.text-link:hover {
+  border-bottom-color: var(--brand);
+}
+
+/* ============= Cards / surfaces ============= */
+.surface-card {
+  position: relative;
+  border-radius: 14px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 1px 2px rgba(15, 17, 34, 0.04);
+}
+
+.platform-download-card {
+  position: relative;
+  min-height: 360px;
+  padding: 28px;
+  border-radius: 16px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 1px 2px rgba(15, 17, 34, 0.04);
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  display: flex;
+  flex-direction: column;
+}
+.platform-download-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in oklab, var(--ink) 18%, transparent);
+  box-shadow: 0 8px 28px rgba(15, 17, 34, 0.07);
+}
+.recommended-platform-card {
+  border-color: color-mix(in oklab, var(--brand) 50%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--brand) 40%, transparent),
+    0 8px 28px color-mix(in oklab, var(--brand) 14%, transparent);
+}
+
+.recommended-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--brand-foreground);
+  background: var(--brand);
+  border: 1px solid var(--brand);
+}
+
+.latest-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--ink-muted);
+  background: var(--muted);
+  border: 1px solid var(--hairline);
+}
+
+.pending-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: oklch(0.42 0.12 60);
+  background: oklch(0.96 0.05 80);
+  border: 1px solid oklch(0.8 0.08 70);
+}
+
+/* ============= Trust chips ============= */
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.trust-chip svg {
+  color: var(--brand);
+}
+
+/* ============= Subtle grid backdrop ============= */
+.bg-grid-soft {
+  background-image:
+    linear-gradient(rgba(15, 17, 34, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 17, 34, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 85%);
 }
 
 /* ============= Reduced motion ============= */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .platform-download-card,
-  .platform-download-card:hover,
-  .platform-icon-wrap,
-  .platform-icon-glow,
-  .btn-primary,
-  .btn-primary:hover,
-  .btn-ghost,
-  .btn-ghost:hover {
-    transition: none !important;
-    animation: none !important;
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
     transform: none !important;
   }
 }
