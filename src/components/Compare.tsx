@@ -1,55 +1,75 @@
-import { Check, X } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 
-const ROWS = [
+type Cell = true | false | "Partial" | "Varies";
+
+const ROWS: { feature: string; us: Cell; ext: Cell }[] = [
   { feature: "Native desktop app", us: true, ext: false },
-  { feature: "Cairo calldata preview", us: true, ext: false },
-  { feature: "Smart-account permission review", us: true, ext: "Partial" },
-  { feature: "Local-first, no telemetry by default", us: true, ext: false },
-  { feature: "Hardware wallet (Ledger)", us: true, ext: true },
-  { feature: "Open source, signed releases", us: true, ext: "Partial" },
+  { feature: "Cairo calldata preview", us: true, ext: "Varies" },
+  { feature: "Smart-account permission review", us: true, ext: "Varies" },
+  { feature: "Local-first, no telemetry by default", us: true, ext: "Varies" },
+  { feature: "Hardware wallet (Ledger)", us: true, ext: "Varies" },
+  { feature: "Open source, signed releases", us: true, ext: "Varies" },
 ];
+
+function CellView({ value, primary }: { value: Cell; primary: boolean }) {
+  if (value === true) {
+    return (
+      <Check
+        size={18}
+        className={primary ? "text-brand inline" : "text-ink/60 inline"}
+        aria-label="Yes"
+      />
+    );
+  }
+  if (value === false) {
+    return <Minus size={18} className="text-ink-muted inline" aria-label="No" />;
+  }
+  return <span className="text-ink-muted text-sm">{value}</span>;
+}
 
 export function Compare() {
   return (
-    <section className="py-24 relative">
+    <section className="py-24">
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Why desktop</span>
-          <h2 className="section-title mt-4">
-            A different class of wallet.
-          </h2>
+          <h2 className="section-title mt-4">A different class of wallet.</h2>
           <p className="section-sub">
             Browser extensions are convenient. A native desktop wallet is
-            faster, more transparent, and built for users who actually sign.
+            isolated from the browser, easier to verify, and built for users
+            who actually sign. Capabilities vary across extension wallets, so
+            we mark those rows as “Varies”.
           </p>
         </div>
 
-        <div className="mt-10 overflow-hidden rounded-2xl border border-white/10">
+        <div className="mt-10 overflow-hidden rounded-xl border border-hairline bg-surface">
           <div className="grid grid-cols-[1.4fr_1fr_1fr] text-sm">
-            <div className="px-5 py-4 bg-white/[0.04] font-semibold text-white/70">Capability</div>
-            <div className="px-5 py-4 bg-white/[0.06] font-bold text-white text-center">StarknetWallet</div>
-            <div className="px-5 py-4 bg-white/[0.04] font-semibold text-white/70 text-center">Browser extensions</div>
+            <div className="px-5 py-4 bg-surface-2 font-semibold text-ink-muted">
+              Capability
+            </div>
+            <div className="px-5 py-4 bg-surface-2 font-bold text-ink text-center">
+              StarknetWallet
+            </div>
+            <div className="px-5 py-4 bg-surface-2 font-semibold text-ink-muted text-center">
+              Browser extensions
+            </div>
 
             {ROWS.map((row, i) => (
               <div key={row.feature} className="contents">
-                <div className={`px-5 py-4 ${i % 2 ? "bg-white/[0.015]" : ""} text-white/85`}>
+                <div
+                  className={`px-5 py-4 border-t border-hairline ${i % 2 ? "bg-surface-2/60" : ""} text-ink`}
+                >
                   {row.feature}
                 </div>
-                <div className={`px-5 py-4 ${i % 2 ? "bg-white/[0.02]" : ""} text-center`}>
-                  {row.us === true ? (
-                    <Check size={18} className="text-emerald-400 inline" aria-label="Yes" />
-                  ) : (
-                    <span className="text-white/70 text-sm">{row.us}</span>
-                  )}
+                <div
+                  className={`px-5 py-4 border-t border-hairline ${i % 2 ? "bg-surface-2/60" : ""} text-center`}
+                >
+                  <CellView value={row.us} primary />
                 </div>
-                <div className={`px-5 py-4 ${i % 2 ? "bg-white/[0.015]" : ""} text-center`}>
-                  {row.ext === true ? (
-                    <Check size={18} className="text-white/50 inline" aria-label="Yes" />
-                  ) : row.ext === false ? (
-                    <X size={18} className="text-white/30 inline" aria-label="No" />
-                  ) : (
-                    <span className="text-white/55 text-sm">{row.ext}</span>
-                  )}
+                <div
+                  className={`px-5 py-4 border-t border-hairline ${i % 2 ? "bg-surface-2/60" : ""} text-center`}
+                >
+                  <CellView value={row.ext} primary={false} />
                 </div>
               </div>
             ))}
