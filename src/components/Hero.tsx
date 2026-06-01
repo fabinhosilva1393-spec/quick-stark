@@ -132,6 +132,16 @@ export function Hero() {
                   <div className="laptop-frame__hinge" aria-hidden="true" />
                   <div className="laptop-frame__base" aria-hidden="true">
                     <span className="laptop-frame__notch" />
+                    <span className="laptop-frame__keyboard">
+                      {Array.from({ length: 5 }).map((_, r) => (
+                        <span key={r} className="laptop-frame__keyrow">
+                          {Array.from({ length: 14 }).map((__, k) => (
+                            <span key={k} className="laptop-frame__key" />
+                          ))}
+                        </span>
+                      ))}
+                    </span>
+                    <span className="laptop-frame__trackpad" />
                   </div>
                 </div>
               </div>
