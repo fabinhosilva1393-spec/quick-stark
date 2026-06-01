@@ -1,38 +1,50 @@
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import { GITHUB_REPO_URL } from "@/data/downloads";
 
+const NAV = [
+  { label: "Features", hash: "features" },
+  { label: "Security", hash: "security" },
+  { label: "Developers", hash: "developers" },
+  { label: "FAQ", hash: "faq" },
+];
+
 export function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/60 border-b border-white/5">
+    <header className="sticky top-0 z-40 backdrop-blur-xl bg-background/85 border-b border-hairline">
       <div className="container-page flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2.5 group" aria-label="StarknetWallet home">
+        <Link
+          to="/"
+          className="flex items-center gap-2.5"
+          aria-label="StarknetWallet home"
+          onClick={() => setOpen(false)}
+        >
           <span
             aria-hidden="true"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-lg"
-            style={{
-              background:
-                "conic-gradient(from 210deg, #EC796B, #A9A7FF, #C99ABF, #EC796B)",
-              boxShadow: "0 8px 24px rgba(236,121,107,0.35)",
-            }}
+            className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-brand text-brand-foreground"
           >
-            <span className="h-3 w-3 rounded-sm bg-background" />
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L4 7v10l8 5 8-5V7l-8-5z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+              <path d="M12 22V12M4 7l8 5 8-5" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+            </svg>
           </span>
-          <span className="font-bold tracking-tight text-white">StarknetWallet</span>
+          <span className="font-bold tracking-tight text-ink">StarknetWallet</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden md:flex items-center gap-7 text-sm">
-          <Link to="/" hash="features" className="text-white/70 hover:text-white transition-colors">
-            Features
-          </Link>
-          <Link to="/" hash="security" className="text-white/70 hover:text-white transition-colors">
-            Security
-          </Link>
-          <Link to="/" hash="developers" className="text-white/70 hover:text-white transition-colors">
-            Developers
-          </Link>
-          <Link to="/" hash="faq" className="text-white/70 hover:text-white transition-colors">
-            FAQ
-          </Link>
+          {NAV.map((n) => (
+            <Link
+              key={n.hash}
+              to="/"
+              hash={n.hash}
+              className="text-ink-muted hover:text-ink transition-colors font-medium"
+            >
+              {n.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="flex items-center gap-2">
@@ -40,18 +52,65 @@ export function Header() {
             href={GITHUB_REPO_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex text-sm text-white/70 hover:text-white px-3 py-2 rounded-lg transition-colors"
+            className="hidden sm:inline-flex text-sm text-ink-muted hover:text-ink px-3 py-2 rounded-lg transition-colors font-medium"
           >
             GitHub
           </a>
           <Link
             to="/download"
-            className="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-xl bg-brand text-brand-foreground font-semibold text-sm hover:brightness-110 transition"
+            className="hidden sm:inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg bg-brand text-brand-foreground font-semibold text-sm hover:brightness-110 transition"
           >
             Download
           </Link>
+          <button
+            type="button"
+            className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg border border-hairline text-ink"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            onClick={() => setOpen((v) => !v)}
+          >
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
         </div>
       </div>
+
+      {open && (
+        <div
+          id="mobile-nav"
+          className="md:hidden border-t border-hairline bg-background"
+        >
+          <nav aria-label="Mobile" className="container-page py-4 flex flex-col gap-1">
+            {NAV.map((n) => (
+              <Link
+                key={n.hash}
+                to="/"
+                hash={n.hash}
+                onClick={() => setOpen(false)}
+                className="px-3 py-3 rounded-lg text-ink hover:bg-muted font-medium"
+              >
+                {n.label}
+              </Link>
+            ))}
+            <a
+              href={GITHUB_REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-3 rounded-lg text-ink hover:bg-muted font-medium"
+              onClick={() => setOpen(false)}
+            >
+              GitHub
+            </a>
+            <Link
+              to="/download"
+              onClick={() => setOpen(false)}
+              className="mt-2 inline-flex items-center justify-center gap-2 h-11 px-4 rounded-lg bg-brand text-brand-foreground font-semibold"
+            >
+              Download
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
