@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { GITHUB_REPO_URL } from "@/data/downloads";
 
 const NAV = [
+  { label: "Demo", hash: "demo" },
   { label: "Features", hash: "features" },
   { label: "Security", hash: "security" },
   { label: "Developers", hash: "developers" },
