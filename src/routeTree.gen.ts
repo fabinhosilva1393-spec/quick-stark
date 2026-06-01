@@ -19,6 +19,7 @@ import { Route as EcosystemRouteImport } from './routes/ecosystem'
 import { Route as DocumentationRouteImport } from './routes/documentation'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CompareRouteImport } from './routes/compare'
 import { Route as ChangelogRouteImport } from './routes/changelog'
 import { Route as BrandGuidelinesRouteImport } from './routes/brand-guidelines'
 import { Route as AuditsRouteImport } from './routes/audits'
@@ -75,6 +76,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CompareRoute = CompareRouteImport.update({
+  id: '/compare',
+  path: '/compare',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ChangelogRoute = ChangelogRouteImport.update({
   id: '/changelog',
   path: '/changelog',
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/audits': typeof AuditsRoute
   '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/documentation': typeof DocumentationRoute
@@ -124,6 +131,7 @@ export interface FileRoutesByTo {
   '/audits': typeof AuditsRoute
   '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/documentation': typeof DocumentationRoute
@@ -142,6 +150,7 @@ export interface FileRoutesById {
   '/audits': typeof AuditsRoute
   '/brand-guidelines': typeof BrandGuidelinesRoute
   '/changelog': typeof ChangelogRoute
+  '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
   '/documentation': typeof DocumentationRoute
@@ -161,6 +170,7 @@ export interface FileRouteTypes {
     | '/audits'
     | '/brand-guidelines'
     | '/changelog'
+    | '/compare'
     | '/contact'
     | '/cookies'
     | '/documentation'
@@ -178,6 +188,7 @@ export interface FileRouteTypes {
     | '/audits'
     | '/brand-guidelines'
     | '/changelog'
+    | '/compare'
     | '/contact'
     | '/cookies'
     | '/documentation'
@@ -195,6 +206,7 @@ export interface FileRouteTypes {
     | '/audits'
     | '/brand-guidelines'
     | '/changelog'
+    | '/compare'
     | '/contact'
     | '/cookies'
     | '/documentation'
@@ -213,6 +225,7 @@ export interface RootRouteChildren {
   AuditsRoute: typeof AuditsRoute
   BrandGuidelinesRoute: typeof BrandGuidelinesRoute
   ChangelogRoute: typeof ChangelogRoute
+  CompareRoute: typeof CompareRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
   DocumentationRoute: typeof DocumentationRoute
@@ -297,6 +310,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/compare': {
+      id: '/compare'
+      path: '/compare'
+      fullPath: '/compare'
+      preLoaderRoute: typeof CompareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/changelog': {
       id: '/changelog'
       path: '/changelog'
@@ -341,6 +361,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuditsRoute: AuditsRoute,
   BrandGuidelinesRoute: BrandGuidelinesRoute,
   ChangelogRoute: ChangelogRoute,
+  CompareRoute: CompareRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
   DocumentationRoute: DocumentationRoute,

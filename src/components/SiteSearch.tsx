@@ -22,6 +22,7 @@ const ITEMS: Item[] = [
   { title: "Ecosystem", category: "Page", target: { kind: "route", to: "/ecosystem" } },
   { title: "FAQ", category: "Section", target: { kind: "hash", hash: "faq" } },
   { title: "Security", category: "Page", target: { kind: "route", to: "/security" } },
+  { title: "Compare", category: "Page", target: { kind: "route", to: "/compare" } },
   { title: "Documentation", category: "Page", target: { kind: "route", to: "/documentation" } },
   { title: "Releases", category: "Page", target: { kind: "route", to: "/releases" } },
   { title: "Roadmap", category: "Page", target: { kind: "route", to: "/roadmap" } },
