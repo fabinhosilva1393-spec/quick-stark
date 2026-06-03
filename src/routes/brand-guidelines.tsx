@@ -93,13 +93,13 @@ function BrandPage() {
               <div className="rounded-2xl border border-hairline bg-background p-8 flex flex-col items-center justify-center">
                 <div className="flex items-center gap-3">
                   <img
-                    src={logoAsset.url}
+                    src="/src/assets/starknet-logomark.png"
                     alt=""
                     aria-hidden="true"
-                    className="h-10 w-10 object-contain"
+                    className="h-10 w-auto object-contain"
                   />
                   <span className="text-2xl font-bold tracking-tight text-ink">
-                    Starknet<span className="text-brand">Wallet</span>
+                    Wallet
                   </span>
                 </div>
                 <p className="mt-4 text-xs uppercase tracking-[0.18em] text-ink-muted">
