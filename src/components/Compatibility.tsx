@@ -198,10 +198,10 @@ export function Compatibility() {
             </h3>
           </div>
           <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {OS_CARDS.map((c) => (
+            {OS_CARDS.map((c, i) => (
               <CardShell
                 key={c.name}
-                icon={c.icon}
+                variant={c.variant} delay={i * 0.3}
                 name={c.name}
                 rows={c.rows}
                 badge={<StatusBadge>{c.status}</StatusBadge>}
@@ -218,10 +218,10 @@ export function Compatibility() {
             </h3>
           </div>
           <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {HW_CARDS.map((c) => (
+            {HW_CARDS.map((c, i) => (
               <CardShell
                 key={c.name}
-                icon={c.icon}
+                variant={c.variant} delay={i * 0.3}
                 name={c.name}
                 rows={c.rows}
                 badge={<StatusBadge>{c.label}</StatusBadge>}
