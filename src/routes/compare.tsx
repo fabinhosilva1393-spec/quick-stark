@@ -162,7 +162,7 @@ function ComparePage() {
             </div>
 
             <div className="mt-16 rounded-2xl border border-hairline bg-surface p-8 md:p-10 text-center">
-              <h2 className="section-title">Review before you sign.</h2>
+              <h2 className="font-display section-title font-semibold">Clarity before every approval.</h2>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link
                   to="/"
