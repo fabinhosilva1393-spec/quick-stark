@@ -709,28 +709,28 @@ function Resources() {
           rel="noopener noreferrer"
           className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors"
         >
-          <Github size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">GitHub</p>
+          <DocsArt variant="res-github" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">GitHub</p>
           <p className="mt-1 text-sm text-ink-muted">Source, releases, and verification material.</p>
         </a>
         <Link to="/docs" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
-          <BookOpen size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">Developer guides</p>
+          <DocsArt variant="res-guides" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">Developer guides</p>
           <p className="mt-1 text-sm text-ink-muted">Deeper guides for installing, verifying, and integrating.</p>
         </Link>
         <Link to="/security" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
-          <ShieldCheck size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">Security</p>
+          <DocsArt variant="res-security" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">Security</p>
           <p className="mt-1 text-sm text-ink-muted">Security model, verification flow, and disclosure.</p>
         </Link>
         <Link to="/" hash="download" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
-          <DownloadIcon size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">Download</p>
+          <DocsArt variant="res-download" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">Download</p>
           <p className="mt-1 text-sm text-ink-muted">Get the maintained build for your operating system.</p>
         </Link>
         <Link to="/contact" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block sm:col-span-2">
-          <Mail size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">Contact & support</p>
+          <DocsArt variant="res-contact" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">Contact & support</p>
           <p className="mt-1 text-sm text-ink-muted">Reach the maintainers for product or security questions.</p>
         </Link>
       </div>
