@@ -33,9 +33,9 @@ export function Header() {
             className="inline-flex h-9 w-9 items-center justify-center"
           >
             <img
-              src={logoAsset.url}
+              src="/src/assets/starknet-logomark.png"
               alt=""
-              className="h-9 w-9 object-contain"
+              className="h-9 w-auto object-contain"
             />
           </span>
           <span className="font-bold tracking-tight text-ink">
