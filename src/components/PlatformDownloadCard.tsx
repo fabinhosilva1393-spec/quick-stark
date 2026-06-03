@@ -15,7 +15,7 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
       className={`platform-download-card ${
         recommended ? "recommended-platform-card" : ""
       }`}
-      aria-label={`${item.os} download${recommended ? " (recommended for your device)" : ""}${isAvailable ? "" : " — release pending"}`}
+      aria-label={`${item.os} download${recommended ? " (recommended for your device)" : ""}${isAvailable ? "" : " — build pending"}`}
     >
       <header className="flex items-start justify-end gap-4 min-h-[24px]">
         {recommended ? (
