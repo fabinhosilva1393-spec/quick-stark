@@ -1,4 +1,6 @@
 import type { DetectedOS } from "@/lib/detectOS";
+import tuxAsset from "@/assets/tux-linux.png.asset.json";
+
 
 type Props = {
   os: Exclude<DetectedOS, "unknown">;
