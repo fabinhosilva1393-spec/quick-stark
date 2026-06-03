@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Download, Tag } from "lucide-react";
+import { Download, Tag, ShieldCheck } from "lucide-react";
 import {
   StarknetIsoIllustration,
   type IsoIllustrationVariant,
