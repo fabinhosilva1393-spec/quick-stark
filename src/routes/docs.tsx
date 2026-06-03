@@ -20,9 +20,11 @@ import {
   Boxes,
   Network,
   Eye,
-  Github,
-  Mail,
 } from "lucide-react";
+import {
+  DocsArt,
+  type DocsArtVariant,
+} from "@/components/illustrations/DocsIllustrations";
 
 const TITLE = "StarknetWallet Docs — Install, verify, and sign with clarity";
 const DESC =
@@ -332,13 +334,13 @@ function Section({ id, eyebrow, title, children }: { id: string; eyebrow?: strin
   );
 }
 
-function CardGrid({ items }: { items: { icon: typeof BookOpen; title: string; body: string }[] }) {
+function CardGrid({ items }: { items: { art: DocsArtVariant; title: string; body: string }[] }) {
   return (
     <div className="not-prose mt-2 grid gap-4 sm:grid-cols-2">
-      {items.map(({ icon: Icon, title, body }) => (
+      {items.map(({ art, title, body }) => (
         <div key={title} className="rounded-xl border border-hairline bg-surface p-5">
-          <Icon size={18} className="text-brand" aria-hidden="true" />
-          <h3 className="mt-3 text-base font-semibold text-ink">{title}</h3>
+          <DocsArt variant={art} size={120} className="-ml-2 -mt-1" />
+          <h3 className="mt-2 text-base font-semibold text-ink">{title}</h3>
           <p className="mt-1.5 text-sm text-ink-muted leading-relaxed">{body}</p>
         </div>
       ))}
@@ -374,10 +376,10 @@ function Introduction() {
       </p>
       <CardGrid
         items={[
-          { icon: Network, title: "Built for Starknet", body: "Mainnet and Sepolia, smart accounts, Cairo calls, and STRK as first-class primitives." },
-          { icon: Cpu, title: "Desktop-first workflow", body: "Native builds for macOS, Windows, and Linux with a focused signing surface." },
-          { icon: Lock, title: "Local-first account control", body: "Keys are generated and stored on your device — nothing is custodied for you." },
-          { icon: Eye, title: "Clear signing review", body: "Every approval shows dApp, network, contract, fee, and decoded calldata." },
+          { art: "intro-product", title: "Built for Starknet", body: "Mainnet and Sepolia, smart accounts, Cairo calls, and STRK as first-class primitives." },
+          { art: "intro-desktop", title: "Desktop-first workflow", body: "Native builds for macOS, Windows, and Linux with a focused signing surface." },
+          { art: "intro-local-key", title: "Local-first account control", body: "Keys are generated and stored on your device — nothing is custodied for you." },
+          { art: "intro-clear-signing", title: "Clear signing review", body: "Every approval shows dApp, network, contract, fee, and decoded calldata." },
         ]}
       />
     </Section>
@@ -446,10 +448,10 @@ function ManagingAccounts() {
     <Section id="managing-accounts" eyebrow="4. Daily use" title="Managing Accounts">
       <CardGrid
         items={[
-          { icon: Wallet, title: "Account overview", body: "See STRK balance, recent activity, and the active Starknet account at a glance." },
-          { icon: Boxes, title: "Multi-account workflows", body: "Create or import multiple Starknet accounts and switch between them cleanly." },
-          { icon: Network, title: "Network switching", body: "Move between Starknet Mainnet and Sepolia explicitly, with the network labeled on every signing surface." },
-          { icon: Lock, title: "Local-first control", body: "Account material stays on your device — StarknetWallet does not custody keys." },
+          { art: "accounts-overview", title: "Account overview", body: "See STRK balance, recent activity, and the active Starknet account at a glance." },
+          { art: "accounts-multi", title: "Multi-account workflows", body: "Create or import multiple Starknet accounts and switch between them cleanly." },
+          { art: "accounts-network", title: "Network switching", body: "Move between Starknet Mainnet and Sepolia explicitly, with the network labeled on every signing surface." },
+          { art: "accounts-local", title: "Local-first control", body: "Account material stays on your device — StarknetWallet does not custody keys." },
         ]}
       />
     </Section>
@@ -488,10 +490,10 @@ function SmartAccountPermissions() {
       </p>
       <CardGrid
         items={[
-          { icon: KeyRound, title: "Session keys", body: "Review scope, expiry, and which contracts a session key is allowed to call." },
-          { icon: ShieldCheck, title: "Spending limits", body: "See spending caps and per-token approval contexts before they are granted." },
-          { icon: Eye, title: "Signer visibility", body: "Inspect the signer set tied to a smart account and any pending changes." },
-          { icon: Boxes, title: "Approval paths", body: "Understand which approvals a transaction depends on inside an account-abstraction flow." },
+          { art: "perm-session", title: "Session keys", body: "Review scope, expiry, and which contracts a session key is allowed to call." },
+          { art: "perm-spending", title: "Spending limits", body: "See spending caps and per-token approval contexts before they are granted." },
+          { art: "perm-signer", title: "Signer visibility", body: "Inspect the signer set tied to a smart account and any pending changes." },
+          { art: "perm-approval", title: "Approval paths", body: "Understand which approvals a transaction depends on inside an account-abstraction flow." },
         ]}
       />
     </Section>
@@ -535,11 +537,11 @@ function HardwareWalletWorkflows() {
       </p>
       <CardGrid
         items={[
-          { icon: Cpu, title: "Ledger-compatible workflows", body: "Use a Ledger-compatible signing workflow where supported by your account and firmware." },
-          { icon: Cpu, title: "Trezor-compatible workflows", body: "Use a Trezor-compatible external signing workflow where supported." },
-          { icon: KeyRound, title: "Smart-account signing", body: "Pair a hardware signer with a Starknet smart account to keep approvals on a separate device." },
-          { icon: Eye, title: "External signer review", body: "Inspect what is being sent to the external signer before you confirm on the device." },
-          { icon: ShieldCheck, title: "Hardware-wallet ready architecture", body: "The signing surface is built so external signers fit cleanly into the review flow." },
+          { art: "hw-ledger", title: "Ledger-compatible workflows", body: "Use a Ledger-compatible signing workflow where supported by your account and firmware." },
+          { art: "hw-trezor", title: "Trezor-compatible workflows", body: "Use a Trezor-compatible external signing workflow where supported." },
+          { art: "hw-smart-account", title: "Smart-account signing", body: "Pair a hardware signer with a Starknet smart account to keep approvals on a separate device." },
+          { art: "hw-external-signer", title: "External signer review", body: "Inspect what is being sent to the external signer before you confirm on the device." },
+          { art: "hw-ready", title: "Hardware-wallet ready architecture", body: "The signing surface is built so external signers fit cleanly into the review flow." },
         ]}
       />
     </Section>
@@ -627,12 +629,12 @@ function AdvancedTools() {
     <Section id="advanced-tools" eyebrow="11. Power features" title="Advanced Tools">
       <CardGrid
         items={[
-          { icon: Code2, title: "Cairo calldata viewer", body: "Inspect decoded calldata for the Cairo call you are about to sign." },
-          { icon: KeyRound, title: "Permission viewer", body: "Walk through session keys, signer changes, and spending approvals tied to your smart account." },
-          { icon: FileSearch, title: "Account activity inspector", body: "Browse account activity with network, contract, and fee context." },
-          { icon: ShieldCheck, title: "Build verification panel", body: "Reference the SHA256 checksum and signature published for your build." },
-          { icon: Network, title: "Multi-network context", body: "Move between Starknet Mainnet and Sepolia with the active network clearly labeled." },
-          { icon: Cpu, title: "Hardware signer workflow status", body: "See whether an external signer is connected and ready for the next approval." },
+          { art: "tool-calldata", title: "Cairo calldata viewer", body: "Inspect decoded calldata for the Cairo call you are about to sign." },
+          { art: "tool-permission", title: "Permission viewer", body: "Walk through session keys, signer changes, and spending approvals tied to your smart account." },
+          { art: "tool-activity", title: "Account activity inspector", body: "Browse account activity with network, contract, and fee context." },
+          { art: "tool-build-verify", title: "Build verification panel", body: "Reference the SHA256 checksum and signature published for your build." },
+          { art: "tool-multi-network", title: "Multi-network context", body: "Move between Starknet Mainnet and Sepolia with the active network clearly labeled." },
+          { art: "tool-hw-status", title: "Hardware signer workflow status", body: "See whether an external signer is connected and ready for the next approval." },
         ]}
       />
     </Section>
@@ -706,28 +708,28 @@ function Resources() {
           rel="noopener noreferrer"
           className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors"
         >
-          <Github size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">GitHub</p>
+          <DocsArt variant="res-github" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">GitHub</p>
           <p className="mt-1 text-sm text-ink-muted">Source, releases, and verification material.</p>
         </a>
         <Link to="/docs" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
-          <BookOpen size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">Developer guides</p>
+          <DocsArt variant="res-guides" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">Developer guides</p>
           <p className="mt-1 text-sm text-ink-muted">Deeper guides for installing, verifying, and integrating.</p>
         </Link>
         <Link to="/security" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
-          <ShieldCheck size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">Security</p>
+          <DocsArt variant="res-security" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">Security</p>
           <p className="mt-1 text-sm text-ink-muted">Security model, verification flow, and disclosure.</p>
         </Link>
         <Link to="/" hash="download" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
-          <DownloadIcon size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">Download</p>
+          <DocsArt variant="res-download" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">Download</p>
           <p className="mt-1 text-sm text-ink-muted">Get the maintained build for your operating system.</p>
         </Link>
         <Link to="/contact" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block sm:col-span-2">
-          <Mail size={18} className="text-brand" aria-hidden="true" />
-          <p className="mt-3 text-sm font-semibold text-ink">Contact & support</p>
+          <DocsArt variant="res-contact" size={120} className="-ml-2 -mt-1" />
+          <p className="mt-2 text-sm font-semibold text-ink">Contact & support</p>
           <p className="mt-1 text-sm text-ink-muted">Reach the maintainers for product or security questions.</p>
         </Link>
       </div>
