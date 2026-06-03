@@ -59,18 +59,19 @@ function CellView({ value, primary }: { value: Cell; primary?: boolean }) {
 
 const CARDS = [
   {
-    title: "Why desktop matters",
-    body: "A desktop-native interface gives more space for transaction details, network context, and permission review before signing.",
+    title: "Why desktop environments help",
+    body: "A dedicated desktop interface gives generous room for transaction details, network context, and permission review before signing.",
   },
   {
     title: "Why Starknet context matters",
-    body: "Starknet accounts are smart contracts, so account permissions, calldata, fees, and contract context should be easy to inspect.",
+    body: "Starknet accounts are smart contracts, so account permissions, calldata, fees, and contract context deserve clear inspection.",
   },
   {
-    title: "Where browser extensions still make sense",
-    body: "Extensions are convenient for fast dApp access and lightweight everyday flows. Capabilities vary by wallet and setup.",
+    title: "Where each environment fits",
+    body: "Different wallet environments serve different needs. Many users combine surfaces depending on the workflow — fast dApp access in one, focused review in another.",
   },
 ];
+
 
 function ComparePage() {
   return (
