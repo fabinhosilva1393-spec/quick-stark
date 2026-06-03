@@ -38,7 +38,7 @@ export function Header() {
               className="h-10 w-auto object-contain"
             />
           </span>
-          <span className="font-bold tracking-tight text-ink">
+          <span className="font-bold tracking-tight text-ink text-lg">
             Wallet
           </span>
         </Link>
