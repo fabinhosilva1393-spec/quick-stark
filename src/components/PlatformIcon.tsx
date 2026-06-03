@@ -11,8 +11,8 @@ type Props = {
  * silhouettes differ (Windows = airy, Apple = dense, Tux = tall/round).
  */
 const ICON_SCALE: Record<Exclude<DetectedOS, "unknown">, string> = {
-  windows: "88%",
-  macos: "78%",
+  windows: "92%",
+  macos: "84%",
   linux: "92%",
 };
 
