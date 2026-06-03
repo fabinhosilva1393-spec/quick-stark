@@ -33,15 +33,16 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
         {!compact && (
           <div className="max-w-2xl">
             <span className="eyebrow">Download</span>
-            <h2 id="download-heading" className="section-title mt-4">
-              Download StarknetWallet
+            <h2 id="download-heading" className="font-display section-title mt-4 font-semibold">
+              Download safely.
             </h2>
             <p className="section-sub">
-              Local-first desktop wallet for Starknet. Manage STRK, review
-              Cairo calls, and verify signed releases before installing. The
-              site recommends the right build for your operating system — you
-              can choose another platform at any time.
+              Choose your operating system, verify the release details, and
+              install only from trusted links. The site recommends the right
+              build for your operating system — you can choose another
+              platform at any time.
             </p>
+
           </div>
         )}
 
