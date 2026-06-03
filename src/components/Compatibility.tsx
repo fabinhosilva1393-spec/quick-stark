@@ -1,25 +1,20 @@
-import { purpleIcon, type PurpleIconComponent } from "@/components/icons/StarknetPurpleIcons";
-
-const Apple = purpleIcon("apple");
-const Monitor = purpleIcon("monitor");
-const Terminal = purpleIcon("terminal");
-const Cpu = purpleIcon("cpu");
-const Wallet = purpleIcon("wallet");
-const ShieldCheck = purpleIcon("shield");
-const KeyRound = purpleIcon("key");
-type LucideIcon = PurpleIconComponent;
+import { Cpu, ShieldCheck } from "lucide-react";
+import {
+  StarknetIsoIllustration,
+  type IsoIllustrationVariant,
+} from "@/components/StarknetIsoIllustration";
 
 type Row = { label: string; value: string };
 
 type OSCard = {
-  icon: LucideIcon;
+  variant: IsoIllustrationVariant;
   name: string;
   rows: Row[];
   status: string;
 };
 
 type HwCard = {
-  icon: LucideIcon;
+  variant: IsoIllustrationVariant;
   name: string;
   rows: Row[];
   notes: string;
@@ -28,7 +23,7 @@ type HwCard = {
 
 const OS_CARDS: OSCard[] = [
   {
-    icon: Apple,
+    variant: "developer-tools",
     name: "macOS",
     rows: [
       { label: "Versions", value: "macOS 12 Monterey or later" },
@@ -38,7 +33,7 @@ const OS_CARDS: OSCard[] = [
     status: "Supported",
   },
   {
-    icon: Monitor,
+    variant: "transactions",
     name: "Windows",
     rows: [
       { label: "Versions", value: "Windows 10 or later" },
@@ -48,7 +43,7 @@ const OS_CARDS: OSCard[] = [
     status: "Supported",
   },
   {
-    icon: Terminal,
+    variant: "cairo-preview",
     name: "Linux",
     rows: [
       { label: "Versions", value: "Ubuntu 22.04+, Fedora 38+, or equivalent" },
@@ -61,7 +56,7 @@ const OS_CARDS: OSCard[] = [
 
 const HW_CARDS: HwCard[] = [
   {
-    icon: ShieldCheck,
+    variant: "hardware-wallet",
     name: "Ledger",
     rows: [
       { label: "Devices", value: "Nano S Plus, Nano X, Stax" },
@@ -75,7 +70,7 @@ const HW_CARDS: HwCard[] = [
     label: "Compatible workflow",
   },
   {
-    icon: KeyRound,
+    variant: "secure-enclave",
     name: "Trezor",
     rows: [
       { label: "Devices", value: "Trezor hardware wallets" },
@@ -90,7 +85,7 @@ const HW_CARDS: HwCard[] = [
     label: "Compatible workflow",
   },
   {
-    icon: Wallet,
+    variant: "wallet",
     name: "Argent",
     rows: [
       { label: "Type", value: "Starknet wallet / smart-account workflow" },
@@ -101,7 +96,7 @@ const HW_CARDS: HwCard[] = [
     label: "Ecosystem workflow",
   },
   {
-    icon: Wallet,
+    variant: "permissions",
     name: "Braavos",
     rows: [
       { label: "Type", value: "Starknet wallet / smart-account workflow" },
@@ -112,7 +107,7 @@ const HW_CARDS: HwCard[] = [
     label: "Ecosystem workflow",
   },
   {
-    icon: Wallet,
+    variant: "multi-network",
     name: "Ready",
     rows: [
       { label: "Type", value: "Starknet wallet / multisig / signing workflow" },
@@ -134,28 +129,32 @@ function StatusBadge({ children }: { children: React.ReactNode }) {
 }
 
 function CardShell({
-  icon: Icon,
+  variant,
   name,
   badge,
   rows,
   footer,
+  delay = 0,
 }: {
-  icon: LucideIcon;
+  variant: IsoIllustrationVariant;
   name: string;
   badge: React.ReactNode;
   rows: Row[];
   footer?: React.ReactNode;
+  delay?: number;
 }) {
   return (
     <article className="flex h-full flex-col rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60">
       <div className="flex items-start justify-between gap-3">
-        <Icon
-          size={56}
-          className="compat-icon text-brand h-12 w-12 sm:h-[52px] sm:w-[52px] lg:h-14 lg:w-14"
+        <StarknetIsoIllustration
+          variant={variant}
+          size={120}
+          delay={delay}
+          className="-mt-2 -ml-2"
         />
         {badge}
       </div>
-      <h4 className="mt-4 text-lg font-bold text-ink">{name}</h4>
+      <h4 className="mt-2 text-lg font-bold text-ink">{name}</h4>
       <dl className="mt-3 grid gap-2 text-sm">
         {rows.map((r) => (
           <div key={r.label} className="grid grid-cols-[110px_1fr] gap-2">
@@ -199,10 +198,10 @@ export function Compatibility() {
             </h3>
           </div>
           <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {OS_CARDS.map((c) => (
+            {OS_CARDS.map((c, i) => (
               <CardShell
                 key={c.name}
-                icon={c.icon}
+                variant={c.variant} delay={i * 0.3}
                 name={c.name}
                 rows={c.rows}
                 badge={<StatusBadge>{c.status}</StatusBadge>}
@@ -219,10 +218,10 @@ export function Compatibility() {
             </h3>
           </div>
           <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {HW_CARDS.map((c) => (
+            {HW_CARDS.map((c, i) => (
               <CardShell
                 key={c.name}
-                icon={c.icon}
+                variant={c.variant} delay={i * 0.3}
                 name={c.name}
                 rows={c.rows}
                 badge={<StatusBadge>{c.label}</StatusBadge>}

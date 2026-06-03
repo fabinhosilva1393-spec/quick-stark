@@ -2,15 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Download, BookOpen } from "lucide-react";
-import { purpleIcon, type PurpleIconComponent } from "@/components/icons/StarknetPurpleIcons";
-
-const Cpu = purpleIcon("cpu");
-const KeyRound = purpleIcon("key");
-const Network = purpleIcon("network");
-const ShieldCheck = purpleIcon("shield");
-const Coins = purpleIcon("coins");
-const Eye = purpleIcon("eye");
-type LucideIcon = PurpleIconComponent;
+import {
+  StarknetIsoIllustration,
+  type IsoIllustrationVariant,
+} from "@/components/StarknetIsoIllustration";
 
 const TITLE = "Ecosystem — StarknetWallet";
 const DESC =
@@ -52,14 +47,14 @@ const ECOSYSTEM_NAMES = [
   "JediSwap",
 ];
 
-type Card = { icon: LucideIcon; title: string; body: string };
+type Card = { variant: IsoIllustrationVariant; title: string; body: string };
 const FEATURES: Card[] = [
-  { icon: Coins, title: "STRK management", body: "View balances and send STRK with a clear, desktop-grade signing surface." },
-  { icon: Cpu, title: "Cairo call preview", body: "Decoded calldata and target contract context before you approve." },
-  { icon: KeyRound, title: "Smart-account permission review", body: "Inspect session keys, scopes, and spending approvals before signing." },
-  { icon: Network, title: "Mainnet / Sepolia clarity", body: "The active Starknet network is visible on every signing screen." },
-  { icon: Eye, title: "dApp transaction review", body: "Larger review surface for contract, calldata, network, and fee." },
-  { icon: ShieldCheck, title: "Signed desktop releases", body: "Every release ships with SHA256 checksums and PGP signatures." },
+  { variant: "wallet", title: "STRK management", body: "View balances and send STRK with a clear, desktop-grade signing surface." },
+  { variant: "cairo-preview", title: "Cairo call preview", body: "Decoded calldata and target contract context before you approve." },
+  { variant: "permissions", title: "Smart-account permission review", body: "Inspect session keys, scopes, and spending approvals before signing." },
+  { variant: "multi-network", title: "Mainnet / Sepolia clarity", body: "The active Starknet network is visible on every signing screen." },
+  { variant: "transactions", title: "dApp transaction review", body: "Larger review surface for contract, calldata, network, and fee." },
+  { variant: "signed-release", title: "Signed desktop releases", body: "Every release ships with SHA256 checksums and PGP signatures." },
 ];
 
 function EcosystemPage() {
@@ -124,15 +119,18 @@ function EcosystemPage() {
               <h2 className="section-title mt-4">Made for how Starknet actually works.</h2>
             </div>
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {FEATURES.map(({ icon: Icon, title, body }) => (
+              {FEATURES.map(({ variant, title, body }, i) => (
                 <article
                   key={title}
                   className="rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60"
                 >
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                    <Icon size={20} aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
+                  <StarknetIsoIllustration
+                    variant={variant}
+                    size={130}
+                    delay={i * 0.35}
+                    className="-mt-1 -ml-2"
+                  />
+                  <h3 className="mt-2 text-lg font-bold text-ink">{title}</h3>
                   <p className="mt-2 text-sm text-ink-muted leading-relaxed">{body}</p>
                 </article>
               ))}

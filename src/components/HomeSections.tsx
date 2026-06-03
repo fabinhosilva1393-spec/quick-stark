@@ -1,34 +1,28 @@
 import { Link } from "@tanstack/react-router";
-import { Download, Tag, type LucideIcon } from "lucide-react";
-import { purpleIcon, type PurpleIconComponent } from "@/components/icons/StarknetPurpleIcons";
+import { Download, Tag, ShieldCheck } from "lucide-react";
+import {
+  StarknetIsoIllustration,
+  type IsoIllustrationVariant,
+} from "@/components/StarknetIsoIllustration";
 
-const ShieldCheck = purpleIcon("shield");
-const Monitor = purpleIcon("monitor");
-const Eye = purpleIcon("eye");
-const HardDrive = purpleIcon("hard-drive");
-const Network = purpleIcon("network");
-const Cpu = purpleIcon("cpu");
-const KeyRound = purpleIcon("key");
-const ArrowDownToLine = purpleIcon("arrow-down");
-const BookOpen = purpleIcon("book");
-const FileText = purpleIcon("file");
-const DownloadCard = purpleIcon("download");
-
-type Card = { icon: PurpleIconComponent | LucideIcon; title: string; body: string };
+type Card = { variant: IsoIllustrationVariant; title: string; body: string };
 
 function CardGrid({ cards, cols = 3 }: { cards: Card[]; cols?: 2 | 3 }) {
   const colClass = cols === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
   return (
     <div className={`mt-10 grid gap-5 ${colClass}`}>
-      {cards.map(({ icon: Icon, title, body }) => (
+      {cards.map(({ variant, title, body }, i) => (
         <article
           key={title}
           className="rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60"
         >
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-            <Icon size={20} aria-hidden="true" />
-          </span>
-          <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
+          <StarknetIsoIllustration
+            variant={variant}
+            size={130}
+            delay={i * 0.35}
+            className="-mt-1 -ml-2"
+          />
+          <h3 className="mt-2 text-lg font-bold text-ink">{title}</h3>
           <p className="mt-2 text-sm text-ink-muted leading-relaxed">{body}</p>
         </article>
       ))}
@@ -36,14 +30,15 @@ function CardGrid({ cards, cols = 3 }: { cards: Card[]; cols?: 2 | 3 }) {
   );
 }
 
+
 export function WhyDesktop() {
   const cards: Card[] = [
-    { icon: Monitor, title: "Native desktop window", body: "A dedicated app surface — not a tab next to your dApps and search bars." },
-    { icon: Eye, title: "Larger signing surface", body: "More room to show contract, calldata, network, and fee before you sign." },
-    { icon: HardDrive, title: "Local-first storage", body: "Account material stays on your device. No remote sync by default." },
-    { icon: Network, title: "Clear Mainnet/Sepolia context", body: "The active Starknet network is visible on every signing screen." },
-    { icon: Cpu, title: "Cairo call preview", body: "Decoded calldata and target contract context before approval." },
-    { icon: KeyRound, title: "Hardware wallet ready", body: "Architected for hardware signers — planned support for popular devices." },
+    { variant: "developer-tools", title: "Native desktop window", body: "A dedicated app surface — not a tab next to your dApps and search bars." },
+    { variant: "transactions", title: "Larger signing surface", body: "More room to show contract, calldata, network, and fee before you sign." },
+    { variant: "local-keys", title: "Local-first storage", body: "Account material stays on your device. No remote sync by default." },
+    { variant: "multi-network", title: "Clear Mainnet/Sepolia context", body: "The active Starknet network is visible on every signing screen." },
+    { variant: "cairo-preview", title: "Cairo call preview", body: "Decoded calldata and target contract context before approval." },
+    { variant: "hardware-wallet", title: "Hardware wallet ready", body: "Architected for hardware signers — planned support for popular devices." },
   ];
   return (
     <section className="py-24" aria-labelledby="why-desktop-heading">
@@ -67,10 +62,10 @@ export function WhyDesktop() {
 
 export function Migration() {
   const cards: Card[] = [
-    { icon: ArrowDownToLine, title: "Import account", body: "Bring an existing Starknet account into a local desktop workflow." },
-    { icon: KeyRound, title: "Keep your accounts", body: "You control the account material. StarknetWallet does not custody keys." },
-    { icon: ShieldCheck, title: "Review permissions", body: "Inspect smart-account session keys and spending approvals before signing." },
-    { icon: Network, title: "Use Mainnet and Sepolia", body: "Switch between Starknet Mainnet and Sepolia with clear visual context." },
+    { variant: "wallet", title: "Import account", body: "Bring an existing Starknet account into a local desktop workflow." },
+    { variant: "local-keys", title: "Keep your accounts", body: "You control the account material. StarknetWallet does not custody keys." },
+    { variant: "permissions", title: "Review permissions", body: "Inspect smart-account session keys and spending approvals before signing." },
+    { variant: "multi-network", title: "Use Mainnet and Sepolia", body: "Switch between Starknet Mainnet and Sepolia with clear visual context." },
   ];
   return (
     <section className="py-24 bg-surface-2 border-y border-hairline" aria-labelledby="migration-heading">
@@ -91,13 +86,13 @@ export function Migration() {
   );
 }
 
-const DOC_LINKS = [
-  { id: "getting-started", icon: BookOpen, title: "Getting Started", body: "Install, create or import a Starknet account, and choose Mainnet or Sepolia." },
-  { id: "installation", icon: DownloadCard, title: "Installation", body: "Step-by-step installation for macOS, Windows, and Linux." },
-  { id: "verifying", icon: ShieldCheck, title: "Security", body: "Verify SHA256 and PGP signatures before opening any release." },
-  { id: "cairo-preview", icon: Cpu, title: "Cairo Preview", body: "Read decoded calldata and contract context before signing." },
-  { id: "smart-accounts", icon: KeyRound, title: "Smart Accounts", body: "Inspect session keys, scopes, and spending approvals." },
-  { id: "troubleshooting", icon: FileText, title: "Troubleshooting", body: "Common issues with installers, networks, and account imports." },
+const DOC_LINKS: { id: string; variant: IsoIllustrationVariant; title: string; body: string }[] = [
+  { id: "getting-started", variant: "open-source", title: "Getting Started", body: "Install, create or import a Starknet account, and choose Mainnet or Sepolia." },
+  { id: "installation", variant: "signed-release", title: "Installation", body: "Step-by-step installation for macOS, Windows, and Linux." },
+  { id: "verifying", variant: "security", title: "Security", body: "Verify SHA256 and PGP signatures before opening any release." },
+  { id: "cairo-preview", variant: "cairo-preview", title: "Cairo Preview", body: "Read decoded calldata and contract context before signing." },
+  { id: "smart-accounts", variant: "permissions", title: "Smart Accounts", body: "Inspect session keys, scopes, and spending approvals." },
+  { id: "troubleshooting", variant: "disclosure", title: "Troubleshooting", body: "Common issues with installers, networks, and account imports." },
 ];
 
 export function DocumentationPreview() {
@@ -115,17 +110,20 @@ export function DocumentationPreview() {
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {DOC_LINKS.map(({ id, icon: Icon, title, body }) => (
+          {DOC_LINKS.map(({ id, variant, title, body }, i) => (
             <Link
               key={id}
               to="/documentation"
               hash={id}
               className="block rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60"
             >
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                <Icon size={20} aria-hidden="true" />
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
+              <StarknetIsoIllustration
+                variant={variant}
+                size={130}
+                delay={i * 0.35}
+                className="-mt-1 -ml-2"
+              />
+              <h3 className="mt-2 text-lg font-bold text-ink">{title}</h3>
               <p className="mt-2 text-sm text-ink-muted leading-relaxed">{body}</p>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
                 Read guide →
