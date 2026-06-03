@@ -221,7 +221,7 @@ export function Footer() {
               StarknetWallet is an independent desktop wallet project for
               Starknet workflows. Not affiliated with Starknet Foundation
               unless explicitly stated. Always verify download links,
-              checksums, and release signatures before installing wallet
+              checksums, and build signatures before installing wallet
               software.
             </p>
           </div>
