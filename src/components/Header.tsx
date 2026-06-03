@@ -39,7 +39,7 @@ export function Header() {
             />
           </span>
           <span className="font-bold tracking-tight text-ink">
-            Starknet<span className="text-brand">Wallet</span>
+            Wallet
           </span>
         </Link>
 
