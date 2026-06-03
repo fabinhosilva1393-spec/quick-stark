@@ -155,16 +155,16 @@ export const Route = createFileRoute("/security")({
 
       <h2>Verify the binary you’re running.</h2>
       <p>
-        Each signed release includes a SHA256 checksum and a PGP signature.
-        When a release is published, the hash and signing key fingerprint will
-        appear on the <Link to="/releases">Releases</Link> page.
+        Each signed build includes a SHA256 checksum and a PGP signature.
+        The hash and signing key fingerprint for the current maintained
+        build are published on the <Link to="/releases">Versions</Link> page.
       </p>
 
       <h2>Built to be inspected.</h2>
       <p>
-        Read the source, verify the release, preview the Cairo call. Then
+        Read the source, verify the build, review the Cairo call. Then
         sign. See <Link to="/documentation">Documentation</Link> for how to
-        verify releases step by step.
+        verify builds step by step.
       </p>
     </SimplePage>
   ),
