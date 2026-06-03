@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
+import { RoadmapIllustration } from "@/components/illustrations/PageIllustrations";
 
 const TITLE = "Product evolution — StarknetWallet";
 const DESC =
@@ -46,7 +47,7 @@ export const Route = createFileRoute("/roadmap")({
     ],
   }),
   component: () => (
-    <SimplePage eyebrow="Direction" title="Product evolution">
+    <SimplePage eyebrow="Direction" title="Product evolution" illustration={<RoadmapIllustration />}>
       <p>
         StarknetWallet is on a maintained product track. The stages below
         describe what we are improving next across the desktop workflow,

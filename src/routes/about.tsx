@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
+import { AboutIllustration } from "@/components/illustrations/PageIllustrations";
 
 const TITLE = "About — StarknetWallet";
 const DESC = "Desktop wallet for Starknet with local-first keys and signed builds.";
@@ -14,7 +15,7 @@ export const Route = createFileRoute("/about")({
     ],
   }),
   component: () => (
-    <SimplePage eyebrow="Project" title="About StarknetWallet">
+    <SimplePage eyebrow="Project" title="About StarknetWallet" illustration={<AboutIllustration />}>
       <p>
         StarknetWallet is an independent desktop wallet project built for
         Starknet workflows. It is designed for managing STRK, reviewing Cairo

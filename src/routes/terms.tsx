@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
+import { TermsIllustration } from "@/components/illustrations/PageIllustrations";
 
 const TITLE = "Terms — StarknetWallet";
 const DESC = "Terms covering use of the StarknetWallet website and desktop wallet.";
@@ -14,7 +15,7 @@ export const Route = createFileRoute("/terms")({
     ],
   }),
   component: () => (
-    <SimplePage eyebrow="Legal" title="Terms">
+    <SimplePage eyebrow="Legal" title="Terms" illustration={<TermsIllustration />}>
       <ul>
         <li>This is an informational website and a desktop wallet download page.</li>
         <li>The software is provided as-is, without warranty of any kind.</li>
