@@ -491,10 +491,10 @@ function SmartAccountPermissions() {
       </p>
       <CardGrid
         items={[
-          { icon: KeyRound, title: "Session keys", body: "Review scope, expiry, and which contracts a session key is allowed to call." },
-          { icon: ShieldCheck, title: "Spending limits", body: "See spending caps and per-token approval contexts before they are granted." },
-          { icon: Eye, title: "Signer visibility", body: "Inspect the signer set tied to a smart account and any pending changes." },
-          { icon: Boxes, title: "Approval paths", body: "Understand which approvals a transaction depends on inside an account-abstraction flow." },
+          { art: "perm-session", title: "Session keys", body: "Review scope, expiry, and which contracts a session key is allowed to call." },
+          { art: "perm-spending", title: "Spending limits", body: "See spending caps and per-token approval contexts before they are granted." },
+          { art: "perm-signer", title: "Signer visibility", body: "Inspect the signer set tied to a smart account and any pending changes." },
+          { art: "perm-approval", title: "Approval paths", body: "Understand which approvals a transaction depends on inside an account-abstraction flow." },
         ]}
       />
     </Section>
