@@ -59,7 +59,7 @@ export function Features() {
           </h2>
           <p className="section-sub">
             Product-grade clarity for the moments that matter — accounts,
-            calls, permissions, and verified releases.
+            calls, permissions, and verified desktop builds.
           </p>
 
         </div>
