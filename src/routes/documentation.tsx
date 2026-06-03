@@ -59,10 +59,10 @@ export const Route = createFileRoute("/documentation")({
         <li>Linux — use the <code>.AppImage</code> or install the <code>.deb</code> package.</li>
       </ul>
 
-      <h2 id="verifying">Verifying releases</h2>
+      <h2 id="verifying">Verifying builds</h2>
       <ol className="list-decimal pl-6 space-y-1.5">
         <li>Download the installer for your platform.</li>
-        <li>Download the SHA256 checksum from the <Link to="/releases">Releases</Link> page.</li>
+        <li>Download the SHA256 checksum from the <Link to="/releases">Versions</Link> page.</li>
         <li>Download the PGP signature.</li>
         <li>Compare the SHA256 of your file with the published checksum, and verify the PGP signature with the published key.</li>
       </ol>
