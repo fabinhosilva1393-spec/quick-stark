@@ -42,14 +42,14 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
 
   const windowEl = (
     <div
-      className="demo-window demo-static-text overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
+      className="demo-window demo-static-text demo-shell flex flex-col overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
       role="img"
       aria-label="StarknetWallet desktop UI demo preview"
     >
 
 
           {/* Title bar */}
-          <div className="flex items-center gap-2 border-b border-hairline bg-surface-2 px-4 py-2.5">
+          <div className="flex shrink-0 items-center gap-2 border-b border-hairline bg-surface-2 px-4 py-2.5">
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.7_0.18_27)]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.82_0.15_85)]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.74_0.16_145)]" />
@@ -65,9 +65,9 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-[200px_1fr]">
+          <div className="grid flex-1 min-h-0 md:grid-cols-[200px_1fr]">
             {/* Sidebar */}
-            <aside className="border-b md:border-b-0 md:border-r border-hairline bg-surface-2 p-3 flex flex-col gap-1">
+            <aside className="border-b md:border-b-0 md:border-r border-hairline bg-surface-2 p-3 flex flex-col gap-1 min-h-0 md:overflow-y-auto demo-scroll">
               {/* Account selector */}
               <button
                 type="button"
@@ -140,12 +140,12 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
             </aside>
 
             {/* Main panel */}
-            <div className="flex flex-col">
+            <div className="flex flex-col min-h-0 min-w-0">
               {/* Tabs */}
               <div
                 role="tablist"
                 aria-label="Demo content tabs"
-                className="flex items-center gap-1 border-b border-hairline bg-surface px-4 pt-3"
+                className="flex shrink-0 items-center gap-1 border-b border-hairline bg-surface px-4 pt-3"
               >
                 {(
                   [
@@ -176,7 +176,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
                 </span>
               </div>
 
-              <div className="flex-1 p-5">
+              <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden p-5 demo-scroll">
                 {tab === "transaction" && (
                   <div className="grid gap-4">
                     <div>
