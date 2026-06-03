@@ -109,7 +109,7 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
                 rel="noopener noreferrer"
                 className="text-link inline-flex items-center gap-1.5"
               >
-                <FileText size={12} aria-hidden="true" /> Release notes
+                <FileText size={12} aria-hidden="true" /> Version notes
               </a>
             )}
           </div>
@@ -118,9 +118,9 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
             id={`pending-help-${item.key}`}
             className="text-xs text-ink-muted leading-relaxed"
           >
-            The signed {item.os} build is not yet published. Checksum,
-            signature, and release notes will appear here when the artifact is
-            uploaded to the official GitHub release.
+            The signed {item.os} build is being prepared. Checksum,
+            signature, and version notes will appear here once it is
+            published on the project's source page.
           </p>
         )}
       </div>
