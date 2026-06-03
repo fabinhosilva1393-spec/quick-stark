@@ -120,8 +120,9 @@ function ComparePage() {
                         StarknetWallet
                       </th>
                       <th className="px-5 py-4 text-center font-semibold text-ink-muted">
-                        Browser extensions
+                        Other wallet environments
                       </th>
+
                     </tr>
                   </thead>
                   <tbody>
