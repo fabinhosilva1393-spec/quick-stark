@@ -182,11 +182,11 @@ function Panel({
   children,
   stroke = "#2A2F66",
 }: {
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-  r?: number;
+  x: number | string;
+  y: number | string;
+  w: number | string;
+  h: number | string;
+  r?: number | string;
   children?: ReactNode;
   stroke?: string;
 }) {
@@ -214,10 +214,10 @@ function Bar({
   h = 2,
   color = "#2A2F66",
 }: {
-  x: number;
-  y: number;
-  w: number;
-  h?: number;
+  x: number | string;
+  y: number | string;
+  w: number | string;
+  h?: number | string;
   color?: string;
 }) {
   return <rect x={x} y={y} width={w} height={h} rx={1} fill={color} />;
