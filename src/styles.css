@@ -192,6 +192,27 @@
   font-weight: inherit;
 }
 
+/* Hero drop-cap style: each line is a block, initials slightly larger */
+.hero-title .hero-line {
+  display: block;
+}
+.hero-title .hero-line-blue {
+  color: var(--brand);
+}
+.hero-title .hero-initial {
+  display: inline-block;
+  font-size: 1.18em;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  vertical-align: baseline;
+}
+.hero-title .hero-initial-blue {
+  color: var(--brand);
+}
+@media (max-width: 640px) {
+  .hero-title .hero-initial { font-size: 1.1em; }
+}
+
 .section-sub {
   margin-top: 14px;
   font-size: 17px;
