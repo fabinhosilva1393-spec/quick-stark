@@ -33,12 +33,12 @@ function CardGrid({ cards, cols = 3 }: { cards: Card[]; cols?: 2 | 3 }) {
 
 export function WhyDesktop() {
   const cards: Card[] = [
-    { variant: "desktop-window", title: "Dedicated signing environment", body: "A focused desktop surface for reviewing Starknet transactions, separate from your browser tabs and dApp sessions." },
-    { variant: "review-eye", title: "Clearer transaction review", body: "Generous space to inspect the contract, calldata, network, and estimated fee before you approve." },
-    { variant: "vault-disk", title: "Local-first by design", body: "Account material stays on your device. Nothing is synced to a remote server unless you opt in." },
+    { variant: "desktop-window", title: "Native desktop app", body: "A dedicated app surface for Starknet account activity, signing context, and wallet review." },
+    { variant: "calldata-panel", title: "Cairo calldata preview", body: "Review decoded calldata, contract targets, and transaction details before signing." },
+    { variant: "review-eye", title: "Smart-account permission review", body: "Understand session keys, spending approvals, and smart-account permission changes with clearer context." },
+    { variant: "vault-disk", title: "Signed builds", body: "Install with a verification-first workflow using checksums and build signatures when available." },
     { variant: "network-globe", title: "Starknet network context", body: "Mainnet and Sepolia are clearly distinguished on every signing screen, so you always know what you are signing on." },
-    { variant: "calldata-panel", title: "Cairo calldata visibility", body: "Decoded calldata and contract context surface intent before approval, not after." },
-    { variant: "ledger-device", title: "Prepared for hardware signers", body: "Architected for hardware signing workflows through compatible Starknet tooling." },
+    { variant: "ledger-device", title: "Hardware-wallet compatible workflows", body: "Designed for compatible Starknet signing through external signing devices where supported." },
   ];
   return (
     <section className="py-24" aria-labelledby="why-desktop-heading">
@@ -49,9 +49,9 @@ export function WhyDesktop() {
             A focused environment for Starknet signing.
           </h2>
           <p className="section-sub">
-            StarknetWallet gives you more context before every approval —
-            a dedicated desktop interface for reviewing transactions, account
-            permissions, and network activity.
+            StarknetWallet gives users a dedicated desktop interface for
+            reviewing transactions, account permissions, network context,
+            and signing details before approval.
           </p>
         </div>
         <CardGrid cards={cards} />
@@ -63,10 +63,10 @@ export function WhyDesktop() {
 
 export function Migration() {
   const cards: Card[] = [
-    { variant: "import-arrow", title: "Import account", body: "Bring an existing Starknet account into a local desktop workflow." },
-    { variant: "key-vault", title: "Keep your accounts", body: "You control the account material. StarknetWallet does not custody keys." },
-    { variant: "policy-graph", title: "Review permissions", body: "Inspect smart-account session keys and spending approvals before signing." },
-    { variant: "network-toggle", title: "Use Mainnet and Sepolia", body: "Switch between Starknet Mainnet and Sepolia with clear visual context." },
+    { variant: "import-arrow", title: "Import account", body: "Bring an existing Starknet account into a local desktop workflow with clearer review surfaces." },
+    { variant: "key-vault", title: "Keep your accounts", body: "Account material remains under user control with a local-first wallet model." },
+    { variant: "policy-graph", title: "Review permissions", body: "Inspect smart-account permissions, session keys, and spending approvals before signing." },
+    { variant: "network-toggle", title: "Use Mainnet and Sepolia", body: "Switch between Starknet Mainnet and Sepolia with clear visual network context." },
   ];
   return (
     <section className="py-24 bg-surface-2 border-y border-hairline" aria-labelledby="migration-heading">
@@ -74,11 +74,12 @@ export function Migration() {
         <div className="max-w-2xl">
           <span className="eyebrow">Migration</span>
           <h2 id="migration-heading" className="font-display section-title mt-4 font-semibold">
-            Bring your Starknet account. Keep your keys.
+            Bring your Starknet account into a clearer desktop workflow.
           </h2>
           <p className="section-sub">
-            Import or create accounts locally, review networks clearly, and
-            move into a desktop workflow without changing what you control.
+            Use a focused desktop environment to review accounts, networks,
+            permissions, and transaction details while keeping account
+            control local.
           </p>
         </div>
         <CardGrid cards={cards} cols={2} />

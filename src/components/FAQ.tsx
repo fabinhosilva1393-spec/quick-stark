@@ -7,8 +7,8 @@ const QA: { q: string; a: React.ReactNode }[] = [
     a: "Yes. StarknetWallet is free and open source. There are no subscriptions, no premium tiers, and no in-app upsells.",
   },
   {
-    q: "Is StarknetWallet affiliated with the Starknet Foundation?",
-    a: "No. StarknetWallet is an independent project. It is not affiliated with, endorsed by, or operated by the Starknet Foundation or StarkWare unless explicitly stated.",
+    q: "What is StarknetWallet built for?",
+    a: "StarknetWallet is built for secure Starknet desktop workflows — clear transaction review, local-first key control, and transparent smart-account signing across macOS, Windows, and Linux.",
   },
   {
     q: "Does StarknetWallet collect my data?",

@@ -4,36 +4,32 @@ import { RoadmapIllustration } from "@/components/illustrations/PageIllustration
 
 const TITLE = "Product evolution — StarknetWallet";
 const DESC =
-  "Where StarknetWallet's maintained desktop workflow is heading next.";
+  "A maintained product track for StarknetWallet's desktop stability, signing clarity, compatibility, and security review workflows.";
 
 const STAGES: { stage: string; body: string }[] = [
   {
-    stage: "Product foundation",
-    body: "The maintained Starknet desktop workflow for account visibility and transaction review.",
+    stage: "Desktop workflow maturity",
+    body: "Continued refinements to account navigation, transaction review, and desktop interaction.",
   },
   {
-    stage: "Desktop workflow maturity",
-    body: "Continuous refinements to multi-account flows, navigation, and overall desktop interaction.",
+    stage: "Signing clarity",
+    body: "Clearer Cairo call decoding, calldata review, and smart-account permission context.",
   },
   {
     stage: "Compatibility expansion",
-    body: "Broader desktop compatibility coverage across macOS, Windows, and Linux.",
-  },
-  {
-    stage: "Signing workflow refinement",
-    body: "Clearer Cairo call review, decoded calldata, and smart-account permission context before signing.",
+    body: "Broader support for macOS, Windows, Linux, and compatible hardware-wallet signing workflows.",
   },
   {
     stage: "Security interface improvement",
-    body: "Ongoing improvements to local-first key messaging, verification surfaces, and safety guidance.",
+    body: "Stronger verification surfaces, checksum guidance, and build integrity messaging.",
   },
   {
     stage: "Hardware-wallet workflow support",
-    body: "Compatible signing workflows for hardware-wallet users alongside standard desktop signing.",
+    body: "Clearer compatibility paths for users who prefer external signing devices.",
   },
   {
     stage: "Long-term maintenance",
-    body: "An active maintenance cycle focused on stability, clarity, and Starknet-native workflows.",
+    body: "Ongoing improvements focused on stability, trust, and Starknet-native workflows.",
   },
 ];
 
@@ -49,10 +45,9 @@ export const Route = createFileRoute("/roadmap")({
   component: () => (
     <SimplePage eyebrow="Direction" title="Product evolution" illustration={<RoadmapIllustration />}>
       <p>
-        StarknetWallet is on a maintained product track. The stages below
-        describe what we are improving next across the desktop workflow,
-        signing surfaces, compatibility, and security interface. Priorities
-        can shift based on user feedback and ecosystem changes.
+        StarknetWallet follows a maintained product track focused on desktop
+        stability, signing clarity, compatibility, and security review
+        workflows.
       </p>
       <h2>What we are improving next</h2>
       <ul>

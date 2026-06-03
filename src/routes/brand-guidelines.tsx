@@ -194,8 +194,9 @@ function BrandPage() {
               ))}
             </ul>
             <p className="mt-6 text-sm text-ink-muted">
-              StarknetWallet is not affiliated with Starknet Foundation unless
-              explicitly stated. Ecosystem names are shown for context only.
+              Ecosystem names are shown for context only. Please use the
+              StarknetWallet brand assets as described above so the product
+              is represented clearly and consistently.
             </p>
           </div>
         </section>

@@ -59,16 +59,16 @@ function CellView({ value, primary }: { value: Cell; primary?: boolean }) {
 
 const CARDS = [
   {
-    title: "Why desktop environments help",
-    body: "A dedicated desktop interface gives generous room for transaction details, network context, and permission review before signing.",
+    title: "Choose the right environment for every approval",
+    body: "Browser wallets are useful for quick dApp access. StarknetWallet focuses on a dedicated desktop review surface for users who want more context before signing.",
   },
   {
-    title: "Why Starknet context matters",
-    body: "Starknet accounts are smart contracts, so account permissions, calldata, fees, and contract context deserve clear inspection.",
+    title: "Starknet-native signing context",
+    body: "Starknet accounts are smart contracts, so account permissions, calldata, fees, and contract context deserve clear inspection before approval.",
   },
   {
-    title: "Where each environment fits",
-    body: "Different wallet environments serve different needs. Many users combine surfaces depending on the workflow — fast dApp access in one, focused review in another.",
+    title: "A focused review surface",
+    body: "A larger desktop window provides room to inspect contracts, calldata, network details, and fee information with a calmer signing flow.",
   },
 ];
 
