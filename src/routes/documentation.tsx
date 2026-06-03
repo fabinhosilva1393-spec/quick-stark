@@ -28,8 +28,8 @@ export const Route = createFileRoute("/documentation")({
     <SimplePage eyebrow="Developers" title="Run StarknetWallet with confidence.">
       <p>
         Practical guides for installing StarknetWallet, verifying signed
-        releases, managing STRK, and reviewing Cairo calls and smart-account
-        permissions.
+        desktop builds, managing STRK, and reviewing Cairo calls and
+        smart-account permissions.
       </p>
 
       <div className="not-prose grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
