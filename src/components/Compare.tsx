@@ -2,10 +2,10 @@ import { Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 
 const HIGHLIGHTS = [
-  "Native desktop app",
-  "Cairo calldata preview",
+  "Dedicated signing environment",
+  "Cairo calldata visibility",
   "Smart-account permission review",
-  "Signed releases",
+  "Verified release workflow",
 ];
 
 export function Compare() {
@@ -13,11 +13,14 @@ export function Compare() {
     <section id="compare" className="py-24">
       <div className="container-page">
         <div className="max-w-2xl">
-          <span className="eyebrow">Why desktop</span>
-          <h2 className="section-title mt-4">A different class of wallet.</h2>
+          <span className="eyebrow">Wallet environments</span>
+          <h2 className="font-display section-title mt-4 font-semibold">
+            Built around Starknet signing workflows.
+          </h2>
           <p className="section-sub">
-            Browser extensions are convenient. A native desktop wallet gives
-            more room to review what you are signing on Starknet.
+            Different wallet environments serve different needs. StarknetWallet
+            is designed for users who want a focused desktop surface for
+            reviewing Starknet transactions and smart-account permissions.
           </p>
         </div>
 
@@ -38,7 +41,7 @@ export function Compare() {
             to="/compare"
             className="inline-flex items-center gap-1.5 rounded-full border border-hairline px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-brand hover:text-brand"
           >
-            Open full comparison <span aria-hidden="true">→</span>
+            View security comparison <span aria-hidden="true">→</span>
           </Link>
         </div>
       </div>

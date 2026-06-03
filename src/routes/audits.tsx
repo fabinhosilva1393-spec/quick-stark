@@ -2,7 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 
 const TITLE = "Audits — StarknetWallet";
-const DESC = "Independent audit status and how to verify StarknetWallet releases.";
+const DESC =
+  "Security review process, responsible disclosure, and where verified audit reports will be published.";
 
 export const Route = createFileRoute("/audits")({
   head: () => ({
@@ -16,13 +17,24 @@ export const Route = createFileRoute("/audits")({
   component: () => (
     <SimplePage eyebrow="Security" title="Audits">
       <p>
-        Independent third-party audits have not been published for
-        StarknetWallet. We will only list audits here once they exist and the
-        full reports are publicly available.
+        Security reviews and audit reports will be published here once they
+        are completed and the full reports are publicly available. Until then,
+        StarknetWallet should be treated as unaudited software — manage risk
+        accordingly.
       </p>
+      <h2>Review process</h2>
+      <ul>
+        <li>Open-source codebase available for independent review.</li>
+        <li>Reproducible builds with published SHA256 checksums and PGP signatures.</li>
+        <li>Planned independent security review prior to broader release milestones.</li>
+        <li>A dedicated area on this page is prepared for verified findings and remediations once available.</li>
+      </ul>
+      <h2>Responsible disclosure</h2>
       <p>
-        Until then, treat StarknetWallet as unaudited software. Manage risk
-        accordingly and never store more than you are comfortable with.
+        Security issues should be reported privately through the channel listed
+        in the public repository. Please do not open a public issue for an
+        exploitable vulnerability. Coordinated disclosure helps protect users
+        while a fix is prepared and released.
       </p>
       <h2>How to verify a release yourself</h2>
       <ul>
@@ -40,7 +52,7 @@ export const Route = createFileRoute("/audits")({
         <Link to="/" hash="download">
           Download
         </Link>{" "}
-        to get the latest signed release.
+        for the latest signed release.
       </p>
     </SimplePage>
   ),

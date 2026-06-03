@@ -30,19 +30,19 @@ export function Hero() {
 
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-            Desktop wallet · Open source · Signed releases
+            Secure desktop wallet for Starknet
           </span>
 
-          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-ink leading-[1.05] uppercase">
-            The desktop wallet built for{" "}
-            <span className="text-brand">Starknet</span>.
+          <h1 className="font-display mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-semibold tracking-tight text-ink leading-[1.02]">
+            StarknetWallet brings clarity to every <span className="text-brand italic">approval</span>.
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-ink-muted leading-relaxed max-w-2xl">
-            Manage STRK, preview Cairo calls, and review smart-account
-            permissions with a local-first desktop wallet for macOS, Windows,
-            and Linux.
+            Manage STRK, review Cairo calls, and understand smart-account
+            permissions from a focused desktop wallet experience built for
+            Starknet users and Cairo builders.
           </p>
+
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a

@@ -11,14 +11,15 @@ export function Developers() {
             <span className="eyebrow">Developers</span>
             <div className="mt-4 flex items-start gap-5">
               <StarknetIsoIllustration variant="developer-tools" size={200} />
-              <h2 className="section-title">
-                First-class tooling for Cairo builders.
+              <h2 className="font-display section-title font-semibold">
+                Built for Cairo builders.
               </h2>
             </div>
             <p className="section-sub">
-              Test contract calls before deploying. Connect to local devnets.
-              Inspect every entrypoint and event from a clean UI.
+              Clearer transaction context before signing, decoded calldata,
+              local devnet support, and a focused multi-account workspace.
             </p>
+
 
             <ul className="mt-6 space-y-2 text-sm text-ink-muted">
               <li>· Cairo builder tooling and call preview</li>

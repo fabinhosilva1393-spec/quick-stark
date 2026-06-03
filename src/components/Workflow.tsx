@@ -29,14 +29,15 @@ const SLIDES: Slide[] = [
     variant: "signed-release",
     eyebrow: "Step 3",
     title: "Verify the release",
-    body: "Use signed releases, SHA256 checksums, and source links before installing. Trust by verification, not by faith.",
+    body: "Confirm SHA256 checksums and PGP signatures before installing. Trust by verification, not by assumption.",
   },
   {
     variant: "wallet",
     eyebrow: "Step 4",
     title: "Manage STRK locally",
-    body: "Keep a local-first desktop workflow for STRK, accounts, and networks — no browser tab, no remote keys.",
+    body: "Keep a local-first workflow for STRK, accounts, and networks — focused, transparent, and on your device.",
   },
+
 ];
 
 export function Workflow() {
@@ -54,14 +55,15 @@ export function Workflow() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Workflow</span>
-          <h2 id="workflow-heading" className="section-title mt-4">
-            How StarknetWallet helps you sign with confidence.
+          <h2 id="workflow-heading" className="font-display section-title mt-4 font-semibold">
+            From install to signed transaction.
           </h2>
           <p className="section-sub">
-            Four steps from install to signed transaction — built for clarity
-            on every approval.
+            Four steps designed to give you clear visibility before every
+            approval on Starknet.
           </p>
         </div>
+
 
         {/* Desktop: grid of all 4 slides */}
         <div className="mt-12 hidden md:grid gap-5 md:grid-cols-2 lg:grid-cols-4">

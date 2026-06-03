@@ -20,8 +20,9 @@ const QA: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Can I use a Ledger hardware wallet?",
-    a: "Yes. Ledger over USB is supported on all three desktop platforms so signing keys can remain on the hardware device.",
+    a: "Hardware-wallet workflows are supported through compatible Starknet signing tooling. Ledger users typically sign Starknet transactions via wallets such as Argent, Braavos, or Ready. No direct native Ledger integration is claimed unless explicitly documented.",
   },
+
   {
     q: "How do I verify a release?",
     a: (
@@ -64,7 +65,7 @@ export function FAQ() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">FAQ</span>
-          <h2 className="section-title mt-4">Questions, answered.</h2>
+          <h2 className="font-display section-title mt-4 font-semibold">Questions, answered.</h2>
         </div>
 
         <div className="mt-10 max-w-3xl divide-y divide-hairline border-y border-hairline">

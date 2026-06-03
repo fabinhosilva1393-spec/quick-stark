@@ -5,7 +5,8 @@ import { Footer } from "@/components/Footer";
 
 const TITLE = "Compare — StarknetWallet";
 const DESC =
-  "How StarknetWallet, a desktop-native wallet for Starknet, compares to browser extensions across review surface, Cairo context, and release integrity.";
+  "How StarknetWallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and release verification.";
+
 
 export const Route = createFileRoute("/compare")({
   head: () => ({
@@ -58,18 +59,19 @@ function CellView({ value, primary }: { value: Cell; primary?: boolean }) {
 
 const CARDS = [
   {
-    title: "Why desktop matters",
-    body: "A desktop-native interface gives more space for transaction details, network context, and permission review before signing.",
+    title: "Why desktop environments help",
+    body: "A dedicated desktop interface gives generous room for transaction details, network context, and permission review before signing.",
   },
   {
     title: "Why Starknet context matters",
-    body: "Starknet accounts are smart contracts, so account permissions, calldata, fees, and contract context should be easy to inspect.",
+    body: "Starknet accounts are smart contracts, so account permissions, calldata, fees, and contract context deserve clear inspection.",
   },
   {
-    title: "Where browser extensions still make sense",
-    body: "Extensions are convenient for fast dApp access and lightweight everyday flows. Capabilities vary by wallet and setup.",
+    title: "Where each environment fits",
+    body: "Different wallet environments serve different needs. Many users combine surfaces depending on the workflow — fast dApp access in one, focused review in another.",
   },
 ];
+
 
 function ComparePage() {
   return (
@@ -80,14 +82,16 @@ function ComparePage() {
           <div className="container-page">
             <div className="max-w-3xl">
               <span className="eyebrow">Compare</span>
-              <h1 className="section-title mt-4">
-                The wallet built for Starknet, not adapted to it.
+              <h1 className="font-display section-title mt-4 font-semibold">
+                Built for Starknet signing, end to end.
               </h1>
               <p className="section-sub mt-5">
-                Browser extensions are convenient. StarknetWallet is designed
-                around desktop-native review, Cairo call context, STRK
-                management, and smart-account permissions.
+                StarknetWallet is designed around focused desktop review,
+                Cairo call context, STRK management, smart-account permissions,
+                and verified releases. This page compares those capabilities
+                across common wallet environments.
               </p>
+
             </div>
 
             <div className="mt-10 rounded-xl border border-hairline bg-surface/60 p-5 text-sm text-ink-muted">
@@ -116,8 +120,9 @@ function ComparePage() {
                         StarknetWallet
                       </th>
                       <th className="px-5 py-4 text-center font-semibold text-ink-muted">
-                        Browser extensions
+                        Other wallet environments
                       </th>
+
                     </tr>
                   </thead>
                   <tbody>
@@ -157,7 +162,7 @@ function ComparePage() {
             </div>
 
             <div className="mt-16 rounded-2xl border border-hairline bg-surface p-8 md:p-10 text-center">
-              <h2 className="section-title">Review before you sign.</h2>
+              <h2 className="font-display section-title font-semibold">Clarity before every approval.</h2>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Link
                   to="/"
