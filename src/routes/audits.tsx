@@ -26,7 +26,7 @@ export const Route = createFileRoute("/audits")({
       <ul>
         <li>Open-source codebase available for independent review.</li>
         <li>Reproducible builds with published SHA256 checksums and PGP signatures.</li>
-        <li>Planned independent security review prior to broader release milestones.</li>
+        <li>Planned independent security review as part of the ongoing product track.</li>
         <li>A dedicated area on this page is prepared for verified findings and remediations once available.</li>
       </ul>
       <h2>Responsible disclosure</h2>
@@ -34,11 +34,11 @@ export const Route = createFileRoute("/audits")({
         Security issues should be reported privately through the channel listed
         in the public repository. Please do not open a public issue for an
         exploitable vulnerability. Coordinated disclosure helps protect users
-        while a fix is prepared and released.
+        while a fix is prepared and shipped.
       </p>
-      <h2>How to verify a release yourself</h2>
+      <h2>How to verify a build yourself</h2>
       <ul>
-        <li>Download builds only from the official release page.</li>
+        <li>Download builds only from the official project source page.</li>
         <li>Check the SHA256 checksum of the downloaded file.</li>
         <li>Verify the PGP signature against the published signing key.</li>
         <li>If you build from source, compare your hash with the published one.</li>
@@ -52,7 +52,7 @@ export const Route = createFileRoute("/audits")({
         <Link to="/" hash="download">
           Download
         </Link>{" "}
-        for the latest signed release.
+        for the current maintained build.
       </p>
     </SimplePage>
   ),
