@@ -9,6 +9,7 @@ import { DownloadSection } from "@/components/DownloadSection";
 import { Features } from "@/components/Features";
 import { Security } from "@/components/Security";
 import { Compare } from "@/components/Compare";
+import { Compatibility } from "@/components/Compatibility";
 import { Developers } from "@/components/Developers";
 import { Workflow } from "@/components/Workflow";
 import { FAQ } from "@/components/FAQ";
@@ -71,6 +72,7 @@ function Index() {
         <Security />
         <WhyDesktop />
         <Migration />
+        <Compatibility />
         <Compare />
         <DocumentationPreview />
         <ReleasesPreview />
