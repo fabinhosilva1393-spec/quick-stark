@@ -67,7 +67,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
 
           <div className="grid flex-1 min-h-0 md:grid-cols-[200px_1fr]">
             {/* Sidebar */}
-            <aside className="border-b md:border-b-0 md:border-r border-hairline bg-surface-2 p-3 flex flex-col gap-1">
+            <aside className="border-b md:border-b-0 md:border-r border-hairline bg-surface-2 p-3 flex flex-col gap-1 min-h-0 md:overflow-y-auto demo-scroll">
               {/* Account selector */}
               <button
                 type="button"
