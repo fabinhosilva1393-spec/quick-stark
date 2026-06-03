@@ -119,15 +119,18 @@ function EcosystemPage() {
               <h2 className="section-title mt-4">Made for how Starknet actually works.</h2>
             </div>
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {FEATURES.map(({ icon: Icon, title, body }) => (
+              {FEATURES.map(({ variant, title, body }, i) => (
                 <article
                   key={title}
                   className="rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60"
                 >
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                    <Icon size={20} aria-hidden="true" />
-                  </span>
-                  <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
+                  <StarknetIsoIllustration
+                    variant={variant}
+                    size={130}
+                    delay={i * 0.35}
+                    className="-mt-1 -ml-2"
+                  />
+                  <h3 className="mt-2 text-lg font-bold text-ink">{title}</h3>
                   <p className="mt-2 text-sm text-ink-muted leading-relaxed">{body}</p>
                 </article>
               ))}
