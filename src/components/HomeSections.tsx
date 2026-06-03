@@ -115,7 +115,7 @@ export function DocumentationPreview() {
           {DOC_LINKS.map(({ id, variant, title, body }, i) => (
             <Link
               key={id}
-              to="/documentation"
+              to="/docs"
               hash={id}
               className="block rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60"
             >
