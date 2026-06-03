@@ -19,8 +19,8 @@ const PILLARS = [
     body: "Review session keys, spending approvals, and account permissions before granting or extending them.",
   },
   {
-    title: "Signed releases",
-    body: "Verify downloads with SHA256 checksums and PGP signatures when available. Builds are reproducible from open source.",
+    title: "Signed builds",
+    body: "Verify downloads with SHA256 checksums and PGP signatures. Maintained desktop builds are reproducible from open source.",
   },
   {
     title: "No telemetry by default",
