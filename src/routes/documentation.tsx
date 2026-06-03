@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 
-const TITLE = "Documentation — StarknetWallet";
+const TITLE = "Docs — StarknetWallet";
 const DESC = "How to install, verify, and use StarknetWallet on macOS, Windows, and Linux.";
 
 const CARDS = [
