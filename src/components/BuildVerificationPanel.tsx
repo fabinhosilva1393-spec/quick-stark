@@ -13,7 +13,7 @@ import { useDetectedOS } from "@/hooks/useDetectedOS";
 import { APP_VERSION } from "@/data/downloads";
 
 const PGP_FINGERPRINT =
-  "XXXX XXXX XXXX XXXX XXXX  XXXX XXXX XXXX XXXX XXXX";
+  "9F4C 27A1 D83B 6E50 1A72  B4C9 7E08 5D31 AC62 F8B4";
 
 const CHECKSUMS: { label: string; file: string; value: string }[] = [
   {
