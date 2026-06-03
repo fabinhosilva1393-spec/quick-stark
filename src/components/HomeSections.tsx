@@ -110,17 +110,20 @@ export function DocumentationPreview() {
           </p>
         </div>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {DOC_LINKS.map(({ id, icon: Icon, title, body }) => (
+          {DOC_LINKS.map(({ id, variant, title, body }, i) => (
             <Link
               key={id}
               to="/documentation"
               hash={id}
               className="block rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60"
             >
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                <Icon size={20} aria-hidden="true" />
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
+              <StarknetIsoIllustration
+                variant={variant}
+                size={130}
+                delay={i * 0.35}
+                className="-mt-1 -ml-2"
+              />
+              <h3 className="mt-2 text-lg font-bold text-ink">{title}</h3>
               <p className="mt-2 text-sm text-ink-muted leading-relaxed">{body}</p>
               <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand">
                 Read guide →
