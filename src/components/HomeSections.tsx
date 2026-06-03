@@ -210,7 +210,7 @@ export function CtaFinal() {
             </Link>
           </div>
           <ul className="mt-8 flex flex-wrap items-center justify-center gap-2">
-            {["Open source", "Signed releases", "Local-first keys"].map((l) => (
+            {["Open source", "Signed builds", "Local-first keys"].map((l) => (
               <li key={l}>
                 <span className="trust-chip">{l}</span>
               </li>
