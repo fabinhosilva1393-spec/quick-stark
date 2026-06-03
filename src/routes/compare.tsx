@@ -88,8 +88,8 @@ function ComparePage() {
               <p className="section-sub mt-5">
                 StarknetWallet is designed around focused desktop review,
                 Cairo call context, STRK management, smart-account permissions,
-                and verified releases. This page compares those capabilities
-                across common wallet environments.
+                and verified desktop builds. This page compares those
+                capabilities across common wallet environments.
               </p>
 
             </div>
