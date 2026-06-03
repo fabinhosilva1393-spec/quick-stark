@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
+import { PrivacyIllustration } from "@/components/illustrations/PageIllustrations";
 
 const TITLE = "Privacy — StarknetWallet";
 const DESC = "How StarknetWallet handles your data. Local-first by design.";
@@ -14,7 +15,7 @@ export const Route = createFileRoute("/privacy")({
     ],
   }),
   component: () => (
-    <SimplePage eyebrow="Legal" title="Privacy">
+    <SimplePage eyebrow="Legal" title="Privacy" illustration={<PrivacyIllustration />}>
       <ul>
         <li>Local-first keys — private keys never leave your device.</li>
         <li>No telemetry by default.</li>

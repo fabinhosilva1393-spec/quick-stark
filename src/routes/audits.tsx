@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
+import { AuditsIllustration } from "@/components/illustrations/PageIllustrations";
 
 const TITLE = "Audits — StarknetWallet";
 const DESC =
@@ -15,7 +16,7 @@ export const Route = createFileRoute("/audits")({
     ],
   }),
   component: () => (
-    <SimplePage eyebrow="Security" title="Audits">
+    <SimplePage eyebrow="Security" title="Audits" illustration={<AuditsIllustration />}>
       <p>
         Security reviews and audit reports will be published here once they
         are completed and the full reports are publicly available. Until then,

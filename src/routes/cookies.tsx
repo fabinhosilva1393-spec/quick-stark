@@ -1,13 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { openCookieSettings } from "@/lib/cookieConsent";
+import { CookiesIllustration } from "@/components/illustrations/PageIllustrations";
 
 const TITLE = "Cookies — StarknetWallet";
 const DESC = "Cookie usage on the StarknetWallet website.";
 
 function CookiesPage() {
   return (
-    <SimplePage eyebrow="Legal" title="Cookies">
+    <SimplePage eyebrow="Legal" title="Cookies" illustration={<CookiesIllustration />}>
       <p>This site uses cookies and local storage only as needed to operate.</p>
       <p>
         Essential storage is used to render the site and to remember your
