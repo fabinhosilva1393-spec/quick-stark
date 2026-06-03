@@ -33,25 +33,25 @@ function CardGrid({ cards, cols = 3 }: { cards: Card[]; cols?: 2 | 3 }) {
 
 export function WhyDesktop() {
   const cards: Card[] = [
-    { variant: "desktop-window", title: "Native desktop window", body: "A dedicated app surface — not a tab next to your dApps and search bars." },
-    { variant: "review-eye", title: "Larger signing surface", body: "More room to show contract, calldata, network, and fee before you sign." },
-    { variant: "vault-disk", title: "Local-first storage", body: "Account material stays on your device. No remote sync by default." },
-    { variant: "network-globe", title: "Clear Mainnet/Sepolia context", body: "The active Starknet network is visible on every signing screen." },
-    { variant: "calldata-panel", title: "Cairo call preview", body: "Decoded calldata and target contract context before approval." },
-    { variant: "ledger-device", title: "Hardware wallet ready", body: "Architected for hardware signers — planned support for popular devices." },
+    { variant: "desktop-window", title: "Dedicated signing environment", body: "A focused desktop surface for reviewing Starknet transactions, separate from your browser tabs and dApp sessions." },
+    { variant: "review-eye", title: "Clearer transaction review", body: "Generous space to inspect the contract, calldata, network, and estimated fee before you approve." },
+    { variant: "vault-disk", title: "Local-first by design", body: "Account material stays on your device. Nothing is synced to a remote server unless you opt in." },
+    { variant: "network-globe", title: "Starknet network context", body: "Mainnet and Sepolia are clearly distinguished on every signing screen, so you always know what you are signing on." },
+    { variant: "calldata-panel", title: "Cairo calldata visibility", body: "Decoded calldata and contract context surface intent before approval, not after." },
+    { variant: "ledger-device", title: "Prepared for hardware signers", body: "Architected for hardware signing workflows through compatible Starknet tooling." },
   ];
   return (
     <section className="py-24" aria-labelledby="why-desktop-heading">
       <div className="container-page">
         <div className="max-w-2xl">
-          <span className="eyebrow">Why desktop</span>
-          <h2 id="why-desktop-heading" className="section-title mt-4">
-            The browser is not a vault.
+          <span className="eyebrow">Desktop control</span>
+          <h2 id="why-desktop-heading" className="font-display section-title mt-4 font-semibold">
+            A focused environment for Starknet signing.
           </h2>
           <p className="section-sub">
-            Browser-extension wallets are convenient, but desktop wallets can
-            reduce webpage-driven approval risk and give more space for clear
-            transaction review.
+            StarknetWallet gives you more context before every approval —
+            a dedicated desktop interface for reviewing transactions, account
+            permissions, and network activity.
           </p>
         </div>
         <CardGrid cards={cards} />
@@ -59,6 +59,7 @@ export function WhyDesktop() {
     </section>
   );
 }
+
 
 export function Migration() {
   const cards: Card[] = [
