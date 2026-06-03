@@ -6,14 +6,14 @@ import {
 type Row = { label: string; value: string };
 
 type OSCard = {
-  icon: LucideIcon;
+  variant: IsoIllustrationVariant;
   name: string;
   rows: Row[];
   status: string;
 };
 
 type HwCard = {
-  icon: LucideIcon;
+  variant: IsoIllustrationVariant;
   name: string;
   rows: Row[];
   notes: string;
@@ -22,7 +22,7 @@ type HwCard = {
 
 const OS_CARDS: OSCard[] = [
   {
-    icon: Apple,
+    variant: "developer-tools",
     name: "macOS",
     rows: [
       { label: "Versions", value: "macOS 12 Monterey or later" },
@@ -32,7 +32,7 @@ const OS_CARDS: OSCard[] = [
     status: "Supported",
   },
   {
-    icon: Monitor,
+    variant: "transactions",
     name: "Windows",
     rows: [
       { label: "Versions", value: "Windows 10 or later" },
@@ -42,7 +42,7 @@ const OS_CARDS: OSCard[] = [
     status: "Supported",
   },
   {
-    icon: Terminal,
+    variant: "cairo-preview",
     name: "Linux",
     rows: [
       { label: "Versions", value: "Ubuntu 22.04+, Fedora 38+, or equivalent" },
@@ -55,7 +55,7 @@ const OS_CARDS: OSCard[] = [
 
 const HW_CARDS: HwCard[] = [
   {
-    icon: ShieldCheck,
+    variant: "hardware-wallet",
     name: "Ledger",
     rows: [
       { label: "Devices", value: "Nano S Plus, Nano X, Stax" },
@@ -69,7 +69,7 @@ const HW_CARDS: HwCard[] = [
     label: "Compatible workflow",
   },
   {
-    icon: KeyRound,
+    variant: "secure-enclave",
     name: "Trezor",
     rows: [
       { label: "Devices", value: "Trezor hardware wallets" },
@@ -84,7 +84,7 @@ const HW_CARDS: HwCard[] = [
     label: "Compatible workflow",
   },
   {
-    icon: Wallet,
+    variant: "wallet",
     name: "Argent",
     rows: [
       { label: "Type", value: "Starknet wallet / smart-account workflow" },
@@ -95,7 +95,7 @@ const HW_CARDS: HwCard[] = [
     label: "Ecosystem workflow",
   },
   {
-    icon: Wallet,
+    variant: "permissions",
     name: "Braavos",
     rows: [
       { label: "Type", value: "Starknet wallet / smart-account workflow" },
@@ -106,7 +106,7 @@ const HW_CARDS: HwCard[] = [
     label: "Ecosystem workflow",
   },
   {
-    icon: Wallet,
+    variant: "multi-network",
     name: "Ready",
     rows: [
       { label: "Type", value: "Starknet wallet / multisig / signing workflow" },
