@@ -33,7 +33,7 @@ const ROWS: { feature: string; us: Cell; ext: Cell }[] = [
   { feature: "Session key / spending approval visibility", us: "yes", ext: "varies" },
   { feature: "Local-first account data", us: "yes", ext: "varies" },
   { feature: "No telemetry by default", us: "yes", ext: "varies" },
-  { feature: "Signed desktop releases", us: "yes", ext: "none" },
+  { feature: "Signed desktop builds", us: "yes", ext: "none" },
   { feature: "SHA256 / PGP verification", us: "yes", ext: "none" },
   { feature: "Larger review surface", us: "yes", ext: "varies" },
   { feature: "Browser-tab isolation", us: "yes", ext: "none" },
