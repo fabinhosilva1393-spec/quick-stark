@@ -46,14 +46,15 @@ export function Security() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Security model</span>
-          <h2 className="section-title mt-4">
+          <h2 className="font-display section-title mt-4 font-semibold">
             Your keys. Your machine. Your rules.
           </h2>
           <p className="section-sub">
             StarknetWallet is built with a security-first architecture and
-            ships with the verification tooling you expect from a wallet that
+            ships with the verification tooling expected from a wallet that
             custodies your assets.
           </p>
+
         </div>
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
