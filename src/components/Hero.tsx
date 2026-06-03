@@ -15,7 +15,7 @@ import { Demo } from "@/components/Demo";
 
 const TRUST = [
   { icon: Github, label: "Open source" },
-  { icon: ShieldCheck, label: "Signed releases" },
+  { icon: ShieldCheck, label: "Signed builds" },
   { icon: Lock, label: "Local-first keys" },
   { icon: EyeOff, label: "No telemetry by default" },
 ];
