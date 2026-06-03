@@ -113,8 +113,8 @@ function BrandPage() {
               <DisabledAction label="Brand kit (.zip)" />
             </div>
             <p className="mt-4 text-xs text-ink-muted">
-              Downloadable brand files will be published with the first signed
-              release.
+              Brand files are available on request alongside the current
+              maintained build.
             </p>
           </div>
         </section>
