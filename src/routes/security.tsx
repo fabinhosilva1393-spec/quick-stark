@@ -109,8 +109,9 @@ export const Route = createFileRoute("/security")({
 
       <h2>Threat model</h2>
       <p>
-        A short, cautious view of risks we consider when designing review
-        flows. Statuses use plain language and avoid impossible guarantees.
+        A structured view of the scenarios we account for when designing
+        review flows. Statuses use plain language and describe how each
+        scenario is addressed in the product.
       </p>
       <div className="not-prose overflow-x-auto rounded-xl border border-hairline">
         <table className="w-full text-sm">

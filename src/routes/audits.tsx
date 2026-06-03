@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { AuditsIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "Audits — StarknetWallet";
+const TITLE = "Security reviews — StarknetWallet";
 const DESC =
-  "Security review process, responsible disclosure, and where verified audit reports will be published.";
+  "Security review process, responsible disclosure, and build verification guidance for StarknetWallet.";
 
 export const Route = createFileRoute("/audits")({
   head: () => ({
@@ -16,33 +16,27 @@ export const Route = createFileRoute("/audits")({
     ],
   }),
   component: () => (
-    <SimplePage eyebrow="Security" title="Audits" illustration={<AuditsIllustration />}>
+    <SimplePage eyebrow="Security" title="Security reviews" illustration={<AuditsIllustration />}>
       <p>
-        Security reviews and audit reports will be published here once they
-        are completed and the full reports are publicly available. Until then,
-        StarknetWallet should be treated as unaudited software — manage risk
-        accordingly.
+        StarknetWallet is designed around local-first key control,
+        transparent transaction review, and verification-first installation.
+        Security review information and validated reports will be listed here
+        as they become available.
       </p>
-      <h2>Review process</h2>
+      <h2>Security review process</h2>
       <ul>
-        <li>Open-source codebase available for independent review.</li>
-        <li>Reproducible builds with published SHA256 checksums and PGP signatures.</li>
-        <li>Planned independent security review as part of the ongoing product track.</li>
-        <li>A dedicated area on this page is prepared for verified findings and remediations once available.</li>
+        <li>Code review. The project structure is prepared for independent review and responsible disclosure.</li>
+        <li>Build verification. Users are guided to verify checksums and build signatures before installing.</li>
+        <li>Transaction clarity. Signing screens are designed to show network, calldata, fee, and permission context before approval.</li>
+        <li>Responsible disclosure. Security reports should be handled privately so issues can be reviewed and resolved safely.</li>
+        <li>Review history. Validated reports and remediation notes will be listed here when available.</li>
       </ul>
-      <h2>Responsible disclosure</h2>
-      <p>
-        Security issues should be reported privately through the channel listed
-        in the public repository. Please do not open a public issue for an
-        exploitable vulnerability. Coordinated disclosure helps protect users
-        while a fix is prepared and shipped.
-      </p>
-      <h2>How to verify a build yourself</h2>
+      <h2>How to verify a build</h2>
       <ul>
-        <li>Download builds only from the official project source page.</li>
-        <li>Check the SHA256 checksum of the downloaded file.</li>
-        <li>Verify the PGP signature against the published signing key.</li>
-        <li>If you build from source, compare your hash with the published one.</li>
+        <li>Download only from the official project source.</li>
+        <li>Compare the SHA256 checksum before installation.</li>
+        <li>Verify the build signature when signature files are available.</li>
+        <li>If building from source, compare your local hash with the published verification material.</li>
       </ul>
       <p>
         See{" "}

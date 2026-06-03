@@ -254,9 +254,9 @@ function ContactPage() {
                     ))}
                   </ul>
                   <p className="mt-4 text-xs text-ink-muted/70">
-                    Starknet ecosystem links are provided for context.
-                    StarknetWallet is not affiliated with the Starknet
-                    Foundation unless explicitly stated.
+                    Starknet ecosystem links are provided for context so
+                    users can explore the wider Starknet environment alongside
+                    the StarknetWallet desktop workflow.
                   </p>
                 </div>
               </div>

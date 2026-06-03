@@ -363,8 +363,8 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
         <div className="mt-8">{windowEl}</div>
 
         <p className="mt-4 text-xs text-ink-muted">
-          Static product preview using demo data. No real wallet, no signing,
-          no network calls.
+          Visual product preview using demo data — a static look at the
+          desktop interface, signing surfaces, and review context.
         </p>
       </div>
     </section>

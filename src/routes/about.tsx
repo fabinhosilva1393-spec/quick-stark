@@ -17,23 +17,19 @@ export const Route = createFileRoute("/about")({
   component: () => (
     <SimplePage eyebrow="Project" title="About StarknetWallet" illustration={<AboutIllustration />}>
       <p>
-        StarknetWallet is an independent desktop wallet project built for
-        Starknet workflows. It is designed for managing STRK, reviewing Cairo
-        calls before signing, and inspecting smart-account permissions on
-        macOS, Windows, and Linux.
+        StarknetWallet is a desktop wallet experience built for Starknet
+        users who want clearer transaction review, local-first key control,
+        and smart-account signing visibility across macOS, Windows, and
+        Linux.
       </p>
-      <h2>Principles</h2>
+      <h2>Product principles</h2>
       <ul>
-        <li>Local-first by design — account material stays on your device.</li>
-        <li>Open source, with public code available for independent review.</li>
-        <li>Signed builds with published SHA256 checksums and PGP signatures.</li>
-        <li>Clear, readable transaction previews before every approval.</li>
-        <li>Honest, careful product language — no overpromising.</li>
+        <li>Local-first control. Account material stays on the user's device.</li>
+        <li>Clear approval context. Transactions, permissions, and network details are easy to review before signing.</li>
+        <li>Starknet-native workflows. Built around Cairo calls, STRK activity, and smart-account permission models.</li>
+        <li>Verification-first installation. Downloads are paired with checksum and signature guidance where available.</li>
+        <li>Open product direction. The product is maintained with a focus on clarity, security, and responsible iteration.</li>
       </ul>
-      <p>
-        StarknetWallet is not affiliated with Starknet Foundation unless
-        explicitly stated. Ecosystem references are provided for context.
-      </p>
     </SimplePage>
 
   ),
