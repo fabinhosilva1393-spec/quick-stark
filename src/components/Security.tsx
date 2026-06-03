@@ -19,7 +19,7 @@ const ITEMS: Array<{
     body: "No analytics, no usage tracking, and no remote logging unless you explicitly opt in.",
   },
   {
-    variant: "signed-release",
+    variant: "checksum-hash",
     title: "Signed SHA256 / PGP releases",
     body: "Every published build ships with a SHA256 checksum and a PGP signature so you can verify before installing.",
   },
