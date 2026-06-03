@@ -7,7 +7,7 @@ const DESC = "How to install, verify, and use StarknetWallet on macOS, Windows, 
 const CARDS = [
   { id: "getting-started", label: "Getting Started" },
   { id: "installation", label: "Installation" },
-  { id: "verifying", label: "Verifying releases" },
+  { id: "verifying", label: "Verifying builds" },
   { id: "strk", label: "Managing STRK" },
   { id: "cairo-preview", label: "Previewing Cairo calls" },
   { id: "smart-accounts", label: "Reviewing smart-account permissions" },
