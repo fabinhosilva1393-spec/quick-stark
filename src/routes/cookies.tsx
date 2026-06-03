@@ -3,8 +3,8 @@ import { SimplePage } from "@/components/SimplePage";
 import { openCookieSettings } from "@/lib/cookieConsent";
 import { CookiesIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "Cookies — StarknetWallet";
-const DESC = "Cookie usage on the StarknetWallet website.";
+const TITLE = "Cookies — Wallet";
+const DESC = "Cookie usage on the Wallet website.";
 
 function CookiesPage() {
   return (
@@ -16,7 +16,7 @@ function CookiesPage() {
         preferences — are off by default and only activated if you opt in.
       </p>
       <p>
-        The StarknetWallet desktop application itself does not use cookies —
+        The Wallet desktop application itself does not use cookies —
         it stores configuration locally on your device.
       </p>
       <div className="not-prose pt-2">

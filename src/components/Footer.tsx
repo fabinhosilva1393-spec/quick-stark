@@ -215,10 +215,10 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6 text-xs text-ink-muted">
-          <p>© {new Date().getFullYear()} StarknetWallet. Open source.</p>
+          <p>© {new Date().getFullYear()} Wallet. Open source.</p>
           <div className="flex flex-col items-end gap-1 text-right max-w-xl">
             <p>
-              StarknetWallet is an independent desktop wallet project for
+              Wallet is an independent desktop wallet project for
               Starknet workflows. Not affiliated with Starknet Foundation
               unless explicitly stated. Always verify download links,
               checksums, and build signatures before installing wallet

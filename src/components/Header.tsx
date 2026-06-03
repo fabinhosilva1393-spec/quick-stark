@@ -25,7 +25,7 @@ export function Header() {
         <Link
           to="/"
           className="flex items-center gap-2.5"
-          aria-label="StarknetWallet home"
+          aria-label="Wallet home"
           onClick={() => setOpen(false)}
         >
           <span

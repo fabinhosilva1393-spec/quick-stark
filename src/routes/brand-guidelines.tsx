@@ -3,9 +3,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
-const TITLE = "Brand guidelines — StarknetWallet";
+const TITLE = "Brand guidelines — Wallet";
 const DESC =
-  "The StarknetWallet brand system: logo, colors, typography, and usage rules for writing about, integrating with, or covering StarknetWallet.";
+  "The Wallet brand system: logo, colors, typography, and usage rules for writing about, integrating with, or covering Wallet.";
 
 export const Route = createFileRoute("/brand-guidelines")({
   head: () => ({
@@ -65,11 +65,11 @@ function BrandPage() {
               Brand
             </span>
             <h1 className="font-display mt-5 text-5xl sm:text-6xl font-semibold tracking-tight text-ink leading-[1.02]">
-              The StarknetWallet brand system.
+              The Wallet brand system.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-ink-muted">
               Use these assets when writing about, integrating with, or
-              covering StarknetWallet.
+              covering Wallet.
             </p>
           </div>
         </section>
@@ -83,7 +83,7 @@ function BrandPage() {
               <div className="rounded-2xl border border-hairline bg-background p-8 flex flex-col items-center justify-center">
                 <img
                   src={logoAsset.url}
-                  alt="StarknetWallet logomark"
+                  alt="Wallet logomark"
                   className="h-24 w-24 object-contain"
                 />
                 <p className="mt-4 text-xs uppercase tracking-[0.18em] text-ink-muted">
@@ -194,7 +194,7 @@ function BrandPage() {
               ))}
             </ul>
             <p className="mt-6 text-sm text-ink-muted">
-              StarknetWallet is not affiliated with Starknet Foundation unless
+              Wallet is not affiliated with Starknet Foundation unless
               explicitly stated. Ecosystem names are shown for context only.
             </p>
           </div>
