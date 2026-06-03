@@ -17,7 +17,7 @@ export function SimplePage({ eyebrow = "StarknetWallet", title, children }: Simp
         <section className="py-20 lg:py-24">
           <div className="container-page max-w-3xl">
             <span className="eyebrow">{eyebrow}</span>
-            <h1 className="section-title mt-4">{title}</h1>
+            <h1 className="font-display section-title mt-4 font-semibold">{title}</h1>
             <div className="mt-8 space-y-4 text-ink-muted leading-relaxed [&_a]:text-brand [&_a:hover]:underline [&_h2]:text-ink [&_h2]:font-bold [&_h2]:text-lg [&_h2]:mt-8 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1.5">
               {children}
             </div>
