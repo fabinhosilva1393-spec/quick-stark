@@ -14,7 +14,7 @@ type Slide = {
 
 const SLIDES: Slide[] = [
   {
-    variant: "cairo-preview",
+    variant: "workflow-preview",
     eyebrow: "Step 1",
     title: "Preview the Cairo call",
     body: "Inspect contract calls, calldata, and intent before you approve. See exactly what will execute on Starknet.",
