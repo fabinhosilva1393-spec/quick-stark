@@ -1,21 +1,20 @@
 import { Link } from "@tanstack/react-router";
-import {
-  ShieldCheck,
-  Download,
-  Monitor,
-  Eye,
-  HardDrive,
-  Network,
-  Cpu,
-  KeyRound,
-  ArrowDownToLine,
-  BookOpen,
-  FileText,
-  Tag,
-  type LucideIcon,
-} from "lucide-react";
+import { Download, Tag, type LucideIcon } from "lucide-react";
+import { purpleIcon, type PurpleIconComponent } from "@/components/icons/StarknetPurpleIcons";
 
-type Card = { icon: LucideIcon; title: string; body: string };
+const ShieldCheck = purpleIcon("shield");
+const Monitor = purpleIcon("monitor");
+const Eye = purpleIcon("eye");
+const HardDrive = purpleIcon("hard-drive");
+const Network = purpleIcon("network");
+const Cpu = purpleIcon("cpu");
+const KeyRound = purpleIcon("key");
+const ArrowDownToLine = purpleIcon("arrow-down");
+const BookOpen = purpleIcon("book");
+const FileText = purpleIcon("file");
+const DownloadCard = purpleIcon("download");
+
+type Card = { icon: PurpleIconComponent | LucideIcon; title: string; body: string };
 
 function CardGrid({ cards, cols = 3 }: { cards: Card[]; cols?: 2 | 3 }) {
   const colClass = cols === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
@@ -94,7 +93,7 @@ export function Migration() {
 
 const DOC_LINKS = [
   { id: "getting-started", icon: BookOpen, title: "Getting Started", body: "Install, create or import a Starknet account, and choose Mainnet or Sepolia." },
-  { id: "installation", icon: Download, title: "Installation", body: "Step-by-step installation for macOS, Windows, and Linux." },
+  { id: "installation", icon: DownloadCard, title: "Installation", body: "Step-by-step installation for macOS, Windows, and Linux." },
   { id: "verifying", icon: ShieldCheck, title: "Security", body: "Verify SHA256 and PGP signatures before opening any release." },
   { id: "cairo-preview", icon: Cpu, title: "Cairo Preview", body: "Read decoded calldata and contract context before signing." },
   { id: "smart-accounts", icon: KeyRound, title: "Smart Accounts", body: "Inspect session keys, scopes, and spending approvals." },

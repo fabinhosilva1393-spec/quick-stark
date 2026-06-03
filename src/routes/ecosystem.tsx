@@ -1,17 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import {
-  Cpu,
-  KeyRound,
-  Network,
-  ShieldCheck,
-  Coins,
-  Eye,
-  Download,
-  BookOpen,
-  type LucideIcon,
-} from "lucide-react";
+import { Download, BookOpen } from "lucide-react";
+import { purpleIcon, type PurpleIconComponent } from "@/components/icons/StarknetPurpleIcons";
+
+const Cpu = purpleIcon("cpu");
+const KeyRound = purpleIcon("key");
+const Network = purpleIcon("network");
+const ShieldCheck = purpleIcon("shield");
+const Coins = purpleIcon("coins");
+const Eye = purpleIcon("eye");
+type LucideIcon = PurpleIconComponent;
 
 const TITLE = "Ecosystem — StarknetWallet";
 const DESC =
