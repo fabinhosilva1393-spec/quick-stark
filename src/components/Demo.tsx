@@ -42,14 +42,14 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
 
   const windowEl = (
     <div
-      className="demo-window demo-static-text overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
+      className="demo-window demo-static-text demo-shell flex flex-col overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
       role="img"
       aria-label="StarknetWallet desktop UI demo preview"
     >
 
 
           {/* Title bar */}
-          <div className="flex items-center gap-2 border-b border-hairline bg-surface-2 px-4 py-2.5">
+          <div className="flex shrink-0 items-center gap-2 border-b border-hairline bg-surface-2 px-4 py-2.5">
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.7_0.18_27)]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.82_0.15_85)]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.74_0.16_145)]" />
@@ -65,7 +65,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
             </span>
           </div>
 
-          <div className="grid md:grid-cols-[200px_1fr]">
+          <div className="grid flex-1 min-h-0 md:grid-cols-[200px_1fr]">
             {/* Sidebar */}
             <aside className="border-b md:border-b-0 md:border-r border-hairline bg-surface-2 p-3 flex flex-col gap-1">
               {/* Account selector */}
