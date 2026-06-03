@@ -3,7 +3,7 @@ import { SimplePage } from "@/components/SimplePage";
 
 const TITLE = "Security — StarknetWallet";
 const DESC =
-  "Local-first keys, Cairo call preview, smart-account permission review, and signed releases for StarknetWallet.";
+  "Local-first keys, Cairo call preview, smart-account permission review, and signed builds for StarknetWallet.";
 
 const PILLARS = [
   {
