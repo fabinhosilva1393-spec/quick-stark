@@ -23,7 +23,6 @@ import {
 } from "lucide-react";
 import {
   DocsArt,
-  DocsHeroArt,
   type DocsArtVariant,
 } from "@/components/illustrations/DocsIllustrations";
 
