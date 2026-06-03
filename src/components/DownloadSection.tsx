@@ -37,10 +37,11 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
               Download safely.
             </h2>
             <p className="section-sub">
-              Choose your operating system, verify the release details, and
-              install only from trusted links. The site recommends the right
-              build for your operating system — you can choose another
-              platform at any time.
+              Current maintained version on the desktop product track. Choose
+              your operating system, verify the build details, and install
+              only from trusted links. The site recommends the right build
+              for your operating system — you can choose another platform at
+              any time.
             </p>
 
           </div>
