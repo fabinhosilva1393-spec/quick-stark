@@ -2,8 +2,8 @@
 @source "../src";
 @import "tw-animate-css";
 
-/* Type system: Inter (UI/body), Inter Tight + Manrope (display fallback for Eloquia Text), IBM Plex Mono (technical) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800;900&family=Manrope:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+/* Type system: Space Grotesk (display/headings), Sora (UI/body), Martian Mono (technical), Inter (paragraph fallback) */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Sora:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
 
 
 @custom-variant dark (&:is(.dark *));
