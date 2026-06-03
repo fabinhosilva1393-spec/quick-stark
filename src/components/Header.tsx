@@ -35,7 +35,7 @@ export function Header() {
             <img
               src="/src/assets/starknet-logomark.png"
               alt=""
-              className="h-[1em] w-auto object-contain"
+              className="h-10 w-auto object-contain"
             />
           </span>
           <span className="font-bold tracking-tight text-ink">
