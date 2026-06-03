@@ -1,13 +1,13 @@
-import {
-  Apple,
-  Monitor,
-  Terminal,
-  Cpu,
-  Wallet,
-  ShieldCheck,
-  KeyRound,
-  type LucideIcon,
-} from "lucide-react";
+import { purpleIcon, type PurpleIconComponent } from "@/components/icons/StarknetPurpleIcons";
+
+const Apple = purpleIcon("apple");
+const Monitor = purpleIcon("monitor");
+const Terminal = purpleIcon("terminal");
+const Cpu = purpleIcon("cpu");
+const Wallet = purpleIcon("wallet");
+const ShieldCheck = purpleIcon("shield");
+const KeyRound = purpleIcon("key");
+type LucideIcon = PurpleIconComponent;
 
 type Row = { label: string; value: string };
 
