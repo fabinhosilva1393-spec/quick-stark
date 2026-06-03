@@ -106,7 +106,7 @@ export function DocumentationPreview() {
             Run StarknetWallet with confidence.
           </h2>
           <p className="section-sub">
-            Short, practical guides covering installation, release verification,
+            Short, practical guides covering installation, build verification,
             Cairo call previews, and smart-account permission review.
           </p>
         </div>
