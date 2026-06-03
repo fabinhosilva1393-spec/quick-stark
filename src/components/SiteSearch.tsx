@@ -39,7 +39,7 @@ const ITEMS: Item[] = [
   { title: "STRK", category: "Topic", target: { kind: "route", to: "/documentation" } },
   { title: "Starknet Mainnet", category: "Topic", target: { kind: "route", to: "/documentation" } },
   { title: "Sepolia", category: "Topic", target: { kind: "route", to: "/documentation" } },
-  { title: "Verify releases", category: "Topic", target: { kind: "route", to: "/releases" } },
+  { title: "Verify builds", category: "Topic", target: { kind: "route", to: "/releases" } },
 ];
 
 export function SiteSearch({ variant = "desktop" }: { variant?: "desktop" | "mobile" }) {
