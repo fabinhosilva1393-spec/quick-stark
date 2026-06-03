@@ -12,7 +12,7 @@ type NavItem =
 const NAV: NavItem[] = [
   { label: "Features", hash: "features" },
   { label: "Security", to: "/security" },
-  { label: "Developers", to: "/documentation" },
+  { label: "Docs", to: "/docs" },
   { label: "FAQ", hash: "faq" },
 ];
 
