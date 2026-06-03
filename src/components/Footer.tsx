@@ -175,8 +175,8 @@ export function Footer() {
           <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center">
             <img src="/src/assets/starknet-logomark.png" alt="" className="h-9 w-auto object-contain" />
           </span>
-          <span className="font-bold tracking-tight text-ink">
-            Wallet
+          <span className="font-bold tracking-tight text-ink uppercase">
+            STARKNETWALLET
           </span>
         </div>
 
