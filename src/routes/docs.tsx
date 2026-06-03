@@ -538,11 +538,11 @@ function HardwareWalletWorkflows() {
       </p>
       <CardGrid
         items={[
-          { icon: Cpu, title: "Ledger-compatible workflows", body: "Use a Ledger-compatible signing workflow where supported by your account and firmware." },
-          { icon: Cpu, title: "Trezor-compatible workflows", body: "Use a Trezor-compatible external signing workflow where supported." },
-          { icon: KeyRound, title: "Smart-account signing", body: "Pair a hardware signer with a Starknet smart account to keep approvals on a separate device." },
-          { icon: Eye, title: "External signer review", body: "Inspect what is being sent to the external signer before you confirm on the device." },
-          { icon: ShieldCheck, title: "Hardware-wallet ready architecture", body: "The signing surface is built so external signers fit cleanly into the review flow." },
+          { art: "hw-ledger", title: "Ledger-compatible workflows", body: "Use a Ledger-compatible signing workflow where supported by your account and firmware." },
+          { art: "hw-trezor", title: "Trezor-compatible workflows", body: "Use a Trezor-compatible external signing workflow where supported." },
+          { art: "hw-smart-account", title: "Smart-account signing", body: "Pair a hardware signer with a Starknet smart account to keep approvals on a separate device." },
+          { art: "hw-external-signer", title: "External signer review", body: "Inspect what is being sent to the external signer before you confirm on the device." },
+          { art: "hw-ready", title: "Hardware-wallet ready architecture", body: "The signing surface is built so external signers fit cleanly into the review flow." },
         ]}
       />
     </Section>
