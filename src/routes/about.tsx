@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 
 const TITLE = "About — StarknetWallet";
-const DESC = "Desktop wallet for Starknet with local-first keys and signed releases.";
+const DESC = "Desktop wallet for Starknet with local-first keys and signed builds.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
