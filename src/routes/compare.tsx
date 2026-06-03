@@ -5,7 +5,8 @@ import { Footer } from "@/components/Footer";
 
 const TITLE = "Compare — StarknetWallet";
 const DESC =
-  "How StarknetWallet, a desktop-native wallet for Starknet, compares to browser extensions across review surface, Cairo context, and release integrity.";
+  "How StarknetWallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and release verification.";
+
 
 export const Route = createFileRoute("/compare")({
   head: () => ({
