@@ -21,10 +21,10 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
         {recommended ? (
           <span className="recommended-badge">Recommended for your device</span>
         ) : isAvailable ? (
-          <span className="latest-badge">Latest release</span>
+          <span className="latest-badge">Current maintained build</span>
         ) : (
           <span className="pending-badge">
-            <Clock size={11} aria-hidden="true" /> Release pending
+            <Clock size={11} aria-hidden="true" /> Build pending
           </span>
         )}
       </header>
