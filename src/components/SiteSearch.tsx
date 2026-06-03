@@ -24,7 +24,7 @@ const ITEMS: Item[] = [
   { title: "Security", category: "Page", target: { kind: "route", to: "/security" } },
   { title: "Compare", category: "Page", target: { kind: "route", to: "/compare" } },
   { title: "Documentation", category: "Page", target: { kind: "route", to: "/documentation" } },
-  { title: "Releases", category: "Page", target: { kind: "route", to: "/releases" } },
+  { title: "Versions", category: "Page", target: { kind: "route", to: "/releases" } },
   { title: "Roadmap", category: "Page", target: { kind: "route", to: "/roadmap" } },
   { title: "Audits", category: "Page", target: { kind: "route", to: "/audits" } },
   { title: "Changelog", category: "Page", target: { kind: "route", to: "/changelog" } },
