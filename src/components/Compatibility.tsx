@@ -128,28 +128,32 @@ function StatusBadge({ children }: { children: React.ReactNode }) {
 }
 
 function CardShell({
-  icon: Icon,
+  variant,
   name,
   badge,
   rows,
   footer,
+  delay = 0,
 }: {
-  icon: LucideIcon;
+  variant: IsoIllustrationVariant;
   name: string;
   badge: React.ReactNode;
   rows: Row[];
   footer?: React.ReactNode;
+  delay?: number;
 }) {
   return (
     <article className="flex h-full flex-col rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60">
       <div className="flex items-start justify-between gap-3">
-        <Icon
-          size={56}
-          className="compat-icon text-brand h-12 w-12 sm:h-[52px] sm:w-[52px] lg:h-14 lg:w-14"
+        <StarknetIsoIllustration
+          variant={variant}
+          size={120}
+          delay={delay}
+          className="-mt-2 -ml-2"
         />
         {badge}
       </div>
-      <h4 className="mt-4 text-lg font-bold text-ink">{name}</h4>
+      <h4 className="mt-2 text-lg font-bold text-ink">{name}</h4>
       <dl className="mt-3 grid gap-2 text-sm">
         {rows.map((r) => (
           <div key={r.label} className="grid grid-cols-[110px_1fr] gap-2">
