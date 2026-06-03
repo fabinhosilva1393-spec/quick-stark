@@ -17,6 +17,7 @@ import { Route as ReleasesRouteImport } from './routes/releases'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as EcosystemRouteImport } from './routes/ecosystem'
 import { Route as DocumentationRouteImport } from './routes/documentation'
+import { Route as DocsRouteImport } from './routes/docs'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CompareRouteImport } from './routes/compare'
@@ -64,6 +65,11 @@ const EcosystemRoute = EcosystemRouteImport.update({
 const DocumentationRoute = DocumentationRouteImport.update({
   id: '/documentation',
   path: '/documentation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookiesRoute = CookiesRouteImport.update({
@@ -116,6 +122,7 @@ export interface FileRoutesByFullPath {
   '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/docs': typeof DocsRoute
   '/documentation': typeof DocumentationRoute
   '/ecosystem': typeof EcosystemRoute
   '/privacy': typeof PrivacyRoute
@@ -134,6 +141,7 @@ export interface FileRoutesByTo {
   '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/docs': typeof DocsRoute
   '/documentation': typeof DocumentationRoute
   '/ecosystem': typeof EcosystemRoute
   '/privacy': typeof PrivacyRoute
@@ -153,6 +161,7 @@ export interface FileRoutesById {
   '/compare': typeof CompareRoute
   '/contact': typeof ContactRoute
   '/cookies': typeof CookiesRoute
+  '/docs': typeof DocsRoute
   '/documentation': typeof DocumentationRoute
   '/ecosystem': typeof EcosystemRoute
   '/privacy': typeof PrivacyRoute
@@ -173,6 +182,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/contact'
     | '/cookies'
+    | '/docs'
     | '/documentation'
     | '/ecosystem'
     | '/privacy'
@@ -191,6 +201,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/contact'
     | '/cookies'
+    | '/docs'
     | '/documentation'
     | '/ecosystem'
     | '/privacy'
@@ -209,6 +220,7 @@ export interface FileRouteTypes {
     | '/compare'
     | '/contact'
     | '/cookies'
+    | '/docs'
     | '/documentation'
     | '/ecosystem'
     | '/privacy'
@@ -228,6 +240,7 @@ export interface RootRouteChildren {
   CompareRoute: typeof CompareRoute
   ContactRoute: typeof ContactRoute
   CookiesRoute: typeof CookiesRoute
+  DocsRoute: typeof DocsRoute
   DocumentationRoute: typeof DocumentationRoute
   EcosystemRoute: typeof EcosystemRoute
   PrivacyRoute: typeof PrivacyRoute
@@ -294,6 +307,13 @@ declare module '@tanstack/react-router' {
       path: '/documentation'
       fullPath: '/documentation'
       preLoaderRoute: typeof DocumentationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cookies': {
@@ -364,6 +384,7 @@ const rootRouteChildren: RootRouteChildren = {
   CompareRoute: CompareRoute,
   ContactRoute: ContactRoute,
   CookiesRoute: CookiesRoute,
+  DocsRoute: DocsRoute,
   DocumentationRoute: DocumentationRoute,
   EcosystemRoute: EcosystemRoute,
   PrivacyRoute: PrivacyRoute,
