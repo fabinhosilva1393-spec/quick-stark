@@ -19,8 +19,8 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
 
   const recoMessage = recommended
     ? anyReleaseAvailable
-      ? `Recommended for your system: StarknetWallet for ${recommended.os}`
-      : `We detected ${recommended.os}. Signed builds are not yet published — pick a platform below to track its status.`
+      ? `Recommended for your system: StarknetWallet for ${recommended.os} — current maintained build`
+      : `We detected ${recommended.os}. The signed build for your platform is being prepared — pick a platform below to track its status.`
     : "Choose another platform below";
 
   return (
