@@ -7,6 +7,7 @@ import {
 } from "@/data/downloads";
 import { PlatformDownloadCard } from "./PlatformDownloadCard";
 import { PlatformIcon } from "./PlatformIcon";
+import { BuildVerificationPanel } from "./BuildVerificationPanel";
 import type { DetectedOS } from "@/lib/detectOS";
 import {
   ShieldCheck,
@@ -212,6 +213,8 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
               ))}
           </div>
         </div>
+
+        <BuildVerificationPanel />
       </div>
     </section>
   );
