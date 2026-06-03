@@ -62,10 +62,10 @@ export function WhyDesktop() {
 
 export function Migration() {
   const cards: Card[] = [
-    { variant: "wallet", title: "Import account", body: "Bring an existing Starknet account into a local desktop workflow." },
-    { variant: "local-keys", title: "Keep your accounts", body: "You control the account material. StarknetWallet does not custody keys." },
-    { variant: "permissions", title: "Review permissions", body: "Inspect smart-account session keys and spending approvals before signing." },
-    { variant: "multi-network", title: "Use Mainnet and Sepolia", body: "Switch between Starknet Mainnet and Sepolia with clear visual context." },
+    { variant: "import-arrow", title: "Import account", body: "Bring an existing Starknet account into a local desktop workflow." },
+    { variant: "key-vault", title: "Keep your accounts", body: "You control the account material. StarknetWallet does not custody keys." },
+    { variant: "policy-graph", title: "Review permissions", body: "Inspect smart-account session keys and spending approvals before signing." },
+    { variant: "network-toggle", title: "Use Mainnet and Sepolia", body: "Switch between Starknet Mainnet and Sepolia with clear visual context." },
   ];
   return (
     <section className="py-24 bg-surface-2 border-y border-hairline" aria-labelledby="migration-heading">
