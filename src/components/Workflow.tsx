@@ -20,7 +20,7 @@ const SLIDES: Slide[] = [
     body: "Inspect contract calls, calldata, and intent before you approve. See exactly what will execute on Starknet.",
   },
   {
-    variant: "permissions",
+    variant: "workflow-stamp",
     eyebrow: "Step 2",
     title: "Review permissions",
     body: "See which account permissions or dApp actions are being requested. Approve, scope, or reject in one place.",
