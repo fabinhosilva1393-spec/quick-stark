@@ -121,7 +121,7 @@ function DocsPage() {
                 {/* Desktop sidebar */}
                 <nav aria-label="Docs sections" className="hidden lg:block">
                   <p className="text-xs font-semibold uppercase tracking-wider text-ink-subtle">
-                    Documentation
+                    Docs
                   </p>
                   <ul className="mt-3 space-y-0.5 list-none p-0">
                     {SECTIONS.map(({ id, label, icon: Icon }) => {
