@@ -1283,3 +1283,58 @@ body > * { position: relative; z-index: 1; }
     min-height: 320px;
   }
 }
+
+/* ============= Build Verification Panel ============= */
+.bvp-card {
+  background:
+    radial-gradient(120% 80% at 0% 0%, color-mix(in oklab, var(--brand) 10%, transparent), transparent 60%),
+    radial-gradient(80% 60% at 100% 100%, color-mix(in oklab, #7B4DFF 9%, transparent), transparent 60%),
+    var(--surface-2);
+  box-shadow: 0 30px 80px -40px rgba(47, 91, 255, 0.35);
+}
+.bvp-glow {
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 40% at 30% 0%, color-mix(in oklab, var(--brand) 18%, transparent), transparent 70%);
+  opacity: 0.55;
+}
+
+/* ============= Premium Footer ============= */
+.premium-footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid color-mix(in oklab, var(--brand) 35%, var(--hairline));
+  background:
+    radial-gradient(60% 50% at 0% 0%, color-mix(in oklab, var(--brand) 10%, transparent), transparent 70%),
+    radial-gradient(40% 40% at 100% 0%, color-mix(in oklab, #7B4DFF 8%, transparent), transparent 70%),
+    var(--surface-2);
+}
+.premium-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, color-mix(in oklab, var(--brand) 18%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: 0 0;
+  opacity: 0.14;
+  mask-image: radial-gradient(60% 50% at 20% 20%, black, transparent 70%);
+}
+.premium-footer__orbit {
+  position: absolute;
+  inset: auto -20% -60% auto;
+  width: 80%;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  border: 1px dashed color-mix(in oklab, var(--brand) 25%, transparent);
+  pointer-events: none;
+  opacity: 0.4;
+}
+.premium-footer__verify {
+  background:
+    linear-gradient(160deg, color-mix(in oklab, var(--brand) 14%, transparent), transparent 60%),
+    var(--surface);
+}
