@@ -90,7 +90,7 @@ export function Migration() {
 const DOC_LINKS: { id: string; variant: IsoIllustrationVariant; title: string; body: string }[] = [
   { id: "getting-started", variant: "getting-started-book", title: "Getting Started", body: "Install, create or import a Starknet account, and choose Mainnet or Sepolia." },
   { id: "installation", variant: "install-package", title: "Installation", body: "Step-by-step installation for macOS, Windows, and Linux." },
-  { id: "verifying", variant: "verification-shield", title: "Security", body: "Verify SHA256 and PGP signatures before opening any release." },
+  { id: "verifying", variant: "verification-shield", title: "Security", body: "Verify SHA256 and PGP signatures before opening any maintained build." },
   { id: "cairo-preview", variant: "function-nodes", title: "Cairo Preview", body: "Read decoded calldata and contract context before signing." },
   { id: "smart-accounts", variant: "smart-account-hub", title: "Smart Accounts", body: "Inspect session keys, scopes, and spending approvals." },
   { id: "troubleshooting", variant: "troubleshoot-spanner", title: "Troubleshooting", body: "Common issues with installers, networks, and account imports." },
@@ -106,7 +106,7 @@ export function DocumentationPreview() {
             Run StarknetWallet with confidence.
           </h2>
           <p className="section-sub">
-            Short, practical guides covering installation, release verification,
+            Short, practical guides covering installation, build verification,
             Cairo call previews, and smart-account permission review.
           </p>
         </div>
@@ -143,36 +143,37 @@ export function ReleasesPreview() {
       <div className="container-page">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div>
-            <span className="eyebrow">Releases</span>
+            <span className="eyebrow">Version history</span>
             <h2 id="releases-heading" className="font-display section-title mt-4 font-semibold">
-              Signed releases, clear verification.
+              Signed builds, clear verification.
             </h2>
             <p className="section-sub">
-              Every release ships with SHA256 checksums and PGP signatures, for
-              macOS, Windows, and Linux. Verify before you install.
+              Every maintained build ships with SHA256 checksums and PGP
+              signatures, for macOS, Windows, and Linux. Verify before you
+              install.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link to="/releases" className="btn-primary">
                 <Tag size={16} aria-hidden="true" />
-                View releases
+                View current version
               </Link>
               <Link to="/changelog" className="btn-ghost">
-                View changelog
+                View version history
               </Link>
             </div>
           </div>
           <div className="rounded-2xl border border-hairline bg-surface p-6">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand">Latest</span>
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-brand">Current</span>
               <span className="text-xs text-ink-muted">Desktop · macOS · Windows · Linux</span>
             </div>
-            <h3 className="mt-3 text-xl font-bold text-ink">v1.0.0 — Initial desktop release</h3>
+            <h3 className="mt-3 text-xl font-bold text-ink">v2.4.3 — Current maintained version</h3>
             <ul className="mt-4 grid gap-2 text-sm text-ink-muted">
               <li>· STRK balance management and transfers</li>
               <li>· Starknet Mainnet and Sepolia support</li>
-              <li>· Cairo call preview before signing</li>
+              <li>· Cairo call review before signing</li>
               <li>· Smart-account permission review</li>
-              <li>· SHA256 + PGP signed release flow</li>
+              <li>· SHA256 + PGP verification flow</li>
             </ul>
           </div>
         </div>
@@ -209,7 +210,7 @@ export function CtaFinal() {
             </Link>
           </div>
           <ul className="mt-8 flex flex-wrap items-center justify-center gap-2">
-            {["Open source", "Signed releases", "Local-first keys"].map((l) => (
+            {["Open source", "Signed builds", "Local-first keys"].map((l) => (
               <li key={l}>
                 <span className="trust-chip">{l}</span>
               </li>

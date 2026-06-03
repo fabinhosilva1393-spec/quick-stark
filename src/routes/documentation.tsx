@@ -7,7 +7,7 @@ const DESC = "How to install, verify, and use StarknetWallet on macOS, Windows, 
 const CARDS = [
   { id: "getting-started", label: "Getting Started" },
   { id: "installation", label: "Installation" },
-  { id: "verifying", label: "Verifying releases" },
+  { id: "verifying", label: "Verifying builds" },
   { id: "strk", label: "Managing STRK" },
   { id: "cairo-preview", label: "Previewing Cairo calls" },
   { id: "smart-accounts", label: "Reviewing smart-account permissions" },
@@ -28,8 +28,8 @@ export const Route = createFileRoute("/documentation")({
     <SimplePage eyebrow="Developers" title="Run StarknetWallet with confidence.">
       <p>
         Practical guides for installing StarknetWallet, verifying signed
-        releases, managing STRK, and reviewing Cairo calls and smart-account
-        permissions.
+        desktop builds, managing STRK, and reviewing Cairo calls and
+        smart-account permissions.
       </p>
 
       <div className="not-prose grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -59,10 +59,10 @@ export const Route = createFileRoute("/documentation")({
         <li>Linux — use the <code>.AppImage</code> or install the <code>.deb</code> package.</li>
       </ul>
 
-      <h2 id="verifying">Verifying releases</h2>
+      <h2 id="verifying">Verifying builds</h2>
       <ol className="list-decimal pl-6 space-y-1.5">
         <li>Download the installer for your platform.</li>
-        <li>Download the SHA256 checksum from the <Link to="/releases">Releases</Link> page.</li>
+        <li>Download the SHA256 checksum from the <Link to="/releases">Versions</Link> page.</li>
         <li>Download the PGP signature.</li>
         <li>Compare the SHA256 of your file with the published checksum, and verify the PGP signature with the published key.</li>
       </ol>

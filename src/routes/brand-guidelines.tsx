@@ -42,12 +42,12 @@ function DisabledAction({ label }: { label: string }) {
   return (
     <span
       aria-disabled="true"
-      title="Coming soon"
+      title="Available on request"
       className="inline-flex items-center gap-2 h-10 px-4 rounded-lg border border-hairline text-sm font-semibold text-ink-muted/70 cursor-not-allowed select-none"
     >
       {label}
       <span className="text-[10px] uppercase tracking-[0.14em] text-ink-muted/60">
-        Coming soon
+        On request
       </span>
     </span>
   );
@@ -113,8 +113,8 @@ function BrandPage() {
               <DisabledAction label="Brand kit (.zip)" />
             </div>
             <p className="mt-4 text-xs text-ink-muted">
-              Downloadable brand files will be published with the first signed
-              release.
+              Brand files are available on request alongside the current
+              maintained build.
             </p>
           </div>
         </section>

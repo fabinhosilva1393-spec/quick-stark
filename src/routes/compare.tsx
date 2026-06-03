@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 
 const TITLE = "Compare — StarknetWallet";
 const DESC =
-  "How StarknetWallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and release verification.";
+  "How StarknetWallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and build verification.";
 
 
 export const Route = createFileRoute("/compare")({
@@ -33,7 +33,7 @@ const ROWS: { feature: string; us: Cell; ext: Cell }[] = [
   { feature: "Session key / spending approval visibility", us: "yes", ext: "varies" },
   { feature: "Local-first account data", us: "yes", ext: "varies" },
   { feature: "No telemetry by default", us: "yes", ext: "varies" },
-  { feature: "Signed desktop releases", us: "yes", ext: "none" },
+  { feature: "Signed desktop builds", us: "yes", ext: "none" },
   { feature: "SHA256 / PGP verification", us: "yes", ext: "none" },
   { feature: "Larger review surface", us: "yes", ext: "varies" },
   { feature: "Browser-tab isolation", us: "yes", ext: "none" },
@@ -88,8 +88,8 @@ function ComparePage() {
               <p className="section-sub mt-5">
                 StarknetWallet is designed around focused desktop review,
                 Cairo call context, STRK management, smart-account permissions,
-                and verified releases. This page compares those capabilities
-                across common wallet environments.
+                and verified desktop builds. This page compares those
+                capabilities across common wallet environments.
               </p>
 
             </div>

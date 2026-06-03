@@ -15,16 +15,16 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
       className={`platform-download-card ${
         recommended ? "recommended-platform-card" : ""
       }`}
-      aria-label={`${item.os} download${recommended ? " (recommended for your device)" : ""}${isAvailable ? "" : " — release pending"}`}
+      aria-label={`${item.os} download${recommended ? " (recommended for your device)" : ""}${isAvailable ? "" : " — build pending"}`}
     >
       <header className="flex items-start justify-end gap-4 min-h-[24px]">
         {recommended ? (
           <span className="recommended-badge">Recommended for your device</span>
         ) : isAvailable ? (
-          <span className="latest-badge">Latest release</span>
+          <span className="latest-badge">Current maintained build</span>
         ) : (
           <span className="pending-badge">
-            <Clock size={11} aria-hidden="true" /> Release pending
+            <Clock size={11} aria-hidden="true" /> Build pending
           </span>
         )}
       </header>
@@ -43,7 +43,7 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
       </div>
 
       <p className="mt-3 text-xs font-semibold text-ink text-left leading-tight">
-        Latest release · {item.version}
+        Current maintained version · {item.version}
       </p>
 
       <dl className="mt-1 flex items-baseline justify-between gap-4 text-xs text-left leading-tight">
@@ -76,7 +76,7 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
             aria-describedby={`pending-help-${item.key}`}
           >
             <Clock size={16} aria-hidden="true" />
-            Release pending
+            Build pending
           </button>
         )}
 
@@ -109,7 +109,7 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
                 rel="noopener noreferrer"
                 className="text-link inline-flex items-center gap-1.5"
               >
-                <FileText size={12} aria-hidden="true" /> Release notes
+                <FileText size={12} aria-hidden="true" /> Version notes
               </a>
             )}
           </div>
@@ -118,9 +118,9 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
             id={`pending-help-${item.key}`}
             className="text-xs text-ink-muted leading-relaxed"
           >
-            The signed {item.os} build is not yet published. Checksum,
-            signature, and release notes will appear here when the artifact is
-            uploaded to the official GitHub release.
+            The signed {item.os} build is being prepared. Checksum,
+            signature, and version notes will appear here once it is
+            published on the project's source page.
           </p>
         )}
       </div>

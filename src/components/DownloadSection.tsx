@@ -19,8 +19,8 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
 
   const recoMessage = recommended
     ? anyReleaseAvailable
-      ? `Recommended for your system: StarknetWallet for ${recommended.os}`
-      : `We detected ${recommended.os}. Signed builds are not yet published — pick a platform below to track its status.`
+      ? `Recommended for your system: StarknetWallet for ${recommended.os} — current maintained build`
+      : `We detected ${recommended.os}. The signed build for your platform is being prepared — pick a platform below to track its status.`
     : "Choose another platform below";
 
   return (
@@ -37,10 +37,11 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
               Download safely.
             </h2>
             <p className="section-sub">
-              Choose your operating system, verify the release details, and
-              install only from trusted links. The site recommends the right
-              build for your operating system — you can choose another
-              platform at any time.
+              Current maintained version on the desktop product track. Choose
+              your operating system, verify the build details, and install
+              only from trusted links. The site recommends the right build
+              for your operating system — you can choose another platform at
+              any time.
             </p>
 
           </div>
@@ -84,9 +85,9 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
             </h3>
           </div>
           <p className="mt-2 text-sm text-ink-muted max-w-2xl">
-            Every release ships with a SHA256 checksum and a PGP signature.
-            Confirm the file you downloaded matches what was published before
-            you run it.
+            Every maintained build ships with a SHA256 checksum and a PGP
+            signature. Confirm the file you downloaded matches what was
+            published before you run it.
           </p>
 
           <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 list-none p-0">

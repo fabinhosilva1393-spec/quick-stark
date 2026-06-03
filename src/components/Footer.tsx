@@ -86,7 +86,7 @@ const COLUMNS: FooterColumn[] = [
       { label: "Compare", href: "/compare" },
       { label: "Documentation", href: "/documentation" },
       { label: "Download", href: "/#download" },
-      { label: "Releases", href: "/releases" },
+      { label: "Versions", href: "/releases" },
       { label: "Roadmap", href: "/roadmap" },
     ],
   },
@@ -94,7 +94,7 @@ const COLUMNS: FooterColumn[] = [
     title: "Resources",
     items: [
       { label: "Audits", href: "/audits" },
-      { label: "Changelog", href: "/changelog" },
+      { label: "Version history", href: "/changelog" },
       { label: "Brand guidelines", href: "/brand-guidelines" },
     ],
   },
@@ -221,7 +221,7 @@ export function Footer() {
               StarknetWallet is an independent desktop wallet project for
               Starknet workflows. Not affiliated with Starknet Foundation
               unless explicitly stated. Always verify download links,
-              checksums, and release signatures before installing wallet
+              checksums, and build signatures before installing wallet
               software.
             </p>
           </div>

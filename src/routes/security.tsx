@@ -3,7 +3,7 @@ import { SimplePage } from "@/components/SimplePage";
 
 const TITLE = "Security — StarknetWallet";
 const DESC =
-  "Local-first keys, Cairo call preview, smart-account permission review, and signed releases for StarknetWallet.";
+  "Local-first keys, Cairo call preview, smart-account permission review, and signed builds for StarknetWallet.";
 
 const PILLARS = [
   {
@@ -19,8 +19,8 @@ const PILLARS = [
     body: "Review session keys, spending approvals, and account permissions before granting or extending them.",
   },
   {
-    title: "Signed releases",
-    body: "Verify downloads with SHA256 checksums and PGP signatures when available. Builds are reproducible from open source.",
+    title: "Signed builds",
+    body: "Verify downloads with SHA256 checksums and PGP signatures. Maintained desktop builds are reproducible from open source.",
   },
   {
     title: "No telemetry by default",
@@ -37,7 +37,7 @@ const THREATS = [
   { threat: "Blind signing risk", scenario: "User signs without seeing what the call does.", mitigation: "Signing is always preceded by a structured transaction view.", status: "Mitigated" },
   { threat: "RPC tampering", scenario: "A compromised RPC returns inconsistent data.", mitigation: "Network and chain ID are validated and shown alongside every action.", status: "Monitored" },
   { threat: "Clipboard hijack", scenario: "Malware swaps an address from the clipboard.", mitigation: "Address checksums and full-address display reduce reliance on truncated views.", status: "Monitored" },
-  { threat: "Supply-chain download", scenario: "User downloads a tampered installer.", mitigation: "SHA256 checksums and PGP signatures published per release.", status: "Mitigated" },
+  { threat: "Supply-chain download", scenario: "User downloads a tampered installer.", mitigation: "SHA256 checksums and PGP signatures published for the current maintained build.", status: "Mitigated" },
   { threat: "Phishing UI", scenario: "Look-alike sites or apps imitate StarknetWallet.", mitigation: "Brand guidelines, signed builds, and verification instructions.", status: "Monitored" },
   { threat: "Session key abuse", scenario: "Granted session keys exceed user intent.", mitigation: "Smart-account permission review highlights scope and limits.", status: "Mitigated" },
   { threat: "Wrong network signing", scenario: "User signs on Mainnet thinking they are on Sepolia.", mitigation: "Mainnet and Sepolia are visually distinct in every signing surface.", status: "Mitigated" },
@@ -86,7 +86,7 @@ export const Route = createFileRoute("/security")({
         style={{ listStyle: "none", paddingLeft: 0 }}
         className="not-prose mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4"
       >
-        {["Local-first keys", "No telemetry by default", "Signed releases", "Mainnet/Sepolia clarity"].map((s) => (
+        {["Local-first keys", "No telemetry by default", "Signed builds", "Mainnet/Sepolia clarity"].map((s) => (
           <li key={s} className="rounded-lg border border-hairline bg-surface p-3 text-xs font-semibold text-ink">
             {s}
           </li>
@@ -155,16 +155,16 @@ export const Route = createFileRoute("/security")({
 
       <h2>Verify the binary you’re running.</h2>
       <p>
-        Each signed release includes a SHA256 checksum and a PGP signature.
-        When a release is published, the hash and signing key fingerprint will
-        appear on the <Link to="/releases">Releases</Link> page.
+        Each signed build includes a SHA256 checksum and a PGP signature.
+        The hash and signing key fingerprint for the current maintained
+        build are published on the <Link to="/releases">Versions</Link> page.
       </p>
 
       <h2>Built to be inspected.</h2>
       <p>
-        Read the source, verify the release, preview the Cairo call. Then
+        Read the source, verify the build, review the Cairo call. Then
         sign. See <Link to="/documentation">Documentation</Link> for how to
-        verify releases step by step.
+        verify builds step by step.
       </p>
     </SimplePage>
   ),

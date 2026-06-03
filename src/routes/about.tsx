@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 
 const TITLE = "About — StarknetWallet";
-const DESC = "Desktop wallet for Starknet with local-first keys and signed releases.";
+const DESC = "Desktop wallet for Starknet with local-first keys and signed builds.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/about")({
       <ul>
         <li>Local-first by design — account material stays on your device.</li>
         <li>Open source, with public code available for independent review.</li>
-        <li>Signed releases with published SHA256 checksums and PGP signatures.</li>
+        <li>Signed builds with published SHA256 checksums and PGP signatures.</li>
         <li>Clear, readable transaction previews before every approval.</li>
         <li>Honest, careful product language — no overpromising.</li>
       </ul>

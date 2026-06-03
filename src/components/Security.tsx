@@ -20,7 +20,7 @@ const ITEMS: Array<{
   },
   {
     variant: "checksum-hash",
-    title: "Signed SHA256 / PGP releases",
+    title: "Signed SHA256 / PGP builds",
     body: "Every published build ships with a SHA256 checksum and a PGP signature so you can verify before installing.",
   },
   {

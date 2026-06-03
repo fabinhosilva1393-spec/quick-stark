@@ -836,7 +836,7 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
           <g className="iso-float">
             <path d="M50 70 L114 70 L142 96 L114 122 L50 122 Z" fill={coral} />
             <circle cx="66" cy="96" r="5" fill={navy} />
-            <text x="86" y="100" fontSize="11" fontWeight="800" fill={navy}>v1.0.0</text>
+            <text x="86" y="100" fontSize="11" fontWeight="800" fill={navy}>v2.4.3</text>
           </g>
           <g className="iso-float-slow">
             <rect x="42" y="60" width="24" height="6" rx="1" fill={mint} />

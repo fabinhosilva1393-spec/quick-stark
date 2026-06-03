@@ -15,7 +15,7 @@ import { Demo } from "@/components/Demo";
 
 const TRUST = [
   { icon: Github, label: "Open source" },
-  { icon: ShieldCheck, label: "Signed releases" },
+  { icon: ShieldCheck, label: "Signed builds" },
   { icon: Lock, label: "Local-first keys" },
   { icon: EyeOff, label: "No telemetry by default" },
 ];
@@ -51,16 +51,16 @@ export function Hero() {
               aria-label={
                 anyReleaseAvailable
                   ? "Jump to download options"
-                  : "View release status"
+                  : "View version status"
               }
             >
               <Monitor size={16} aria-hidden="true" />
-              {anyReleaseAvailable ? "Download" : "View release status"}
+              {anyReleaseAvailable ? "Download" : "View version status"}
             </a>
 
             <Link to="/releases" className="btn-ghost">
               <ShieldCheck size={16} aria-hidden="true" />
-              Verify release
+              Verify build
             </Link>
 
             <a href="#demo" className="btn-ghost">

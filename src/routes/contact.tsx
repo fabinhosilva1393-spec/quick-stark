@@ -78,7 +78,7 @@ function EmailCaptureCard() {
     <div className="rounded-2xl border border-hairline bg-surface p-7 shadow-[0_0_0_1px_rgba(10,69,255,0.04),0_30px_60px_-30px_rgba(10,69,255,0.25)]">
       <h2 className="text-xl font-bold text-ink">Stay updated</h2>
       <p className="mt-2 text-sm text-ink-muted leading-relaxed">
-        Get release notes, security updates, and StarknetWallet product news.
+        Get version notes, security updates, and StarknetWallet product news.
       </p>
       <form onSubmit={onSubmit} noValidate className="mt-6 space-y-3">
         <label htmlFor="contact-email" className="sr-only">
