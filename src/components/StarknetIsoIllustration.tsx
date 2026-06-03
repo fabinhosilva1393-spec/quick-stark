@@ -840,6 +840,59 @@ function renderScene(v: IsoIllustrationVariant, id: string) {
           </g>
         </>
       );
+    case "workflow-preview":
+      return (
+        <>
+          {pedestal}
+          <g className="iso-float">
+            <rect x="54" y="60" width="92" height="64" rx="4" fill={blue} />
+            <rect x="62" y="72" width="60" height="4" fill={mint} />
+            <rect x="62" y="82" width="48" height="4" fill={ink} opacity="0.5" />
+            <rect x="62" y="92" width="54" height="4" fill={ink} opacity="0.5" />
+            <circle cx="128" cy="116" r="12" fill="none" stroke={coral} strokeWidth="3" />
+            <line x1="137" y1="125" x2="146" y2="134" stroke={coral} strokeWidth="3" strokeLinecap="round" />
+          </g>
+        </>
+      );
+    case "workflow-stamp":
+      return (
+        <>
+          {pedestal}
+          <g className="iso-float">
+            <circle cx="100" cy="92" r="34" fill="none" stroke={coral} strokeWidth="4" />
+            <path d="M82 92 L96 106 L122 78" stroke={mint} strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            <rect x="60" y="120" width="80" height="6" rx="2" fill={blue} />
+          </g>
+        </>
+      );
+    case "workflow-ledger":
+      return (
+        <>
+          {pedestal}
+          <g className="iso-float">
+            <rect x="54" y="58" width="92" height="68" rx="4" fill={navy} stroke={blue} />
+            <rect x="54" y="58" width="92" height="12" fill={blue} />
+            <text x="62" y="84" fontSize="6" fontFamily="monospace" fill={mint}>0x07f…c4</text>
+            <text x="62" y="96" fontSize="6" fontFamily="monospace" fill={ink} opacity="0.7">approve(1.0)</text>
+            <text x="62" y="108" fontSize="6" fontFamily="monospace" fill={coral}>› signed ✓</text>
+            <rect x="62" y="114" width="40" height="5" rx="1" fill={mint} />
+          </g>
+        </>
+      );
+    case "workflow-vault":
+      return (
+        <>
+          {pedestal}
+          <g className="iso-float">
+            <rect x="58" y="60" width="84" height="68" rx="6" fill={blue} />
+            <circle cx="100" cy="94" r="20" fill="none" stroke={mint} strokeWidth="3" />
+            <circle cx="100" cy="94" r="6" fill={coral} />
+            <rect x="98" y="94" width="4" height="14" fill={coral} />
+            <rect x="68" y="70" width="14" height="4" fill={ink} opacity="0.4" />
+            <rect x="118" y="70" width="14" height="4" fill={ink} opacity="0.4" />
+          </g>
+        </>
+      );
     default:
       return pedestal;
   }
