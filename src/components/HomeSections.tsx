@@ -1,40 +1,35 @@
 import { Link } from "@tanstack/react-router";
-import { Download, Tag, type LucideIcon } from "lucide-react";
-import { purpleIcon, type PurpleIconComponent } from "@/components/icons/StarknetPurpleIcons";
+import { Download, Tag } from "lucide-react";
+import {
+  StarknetIsoIllustration,
+  type IsoIllustrationVariant,
+} from "@/components/StarknetIsoIllustration";
 
-const ShieldCheck = purpleIcon("shield");
-const Monitor = purpleIcon("monitor");
-const Eye = purpleIcon("eye");
-const HardDrive = purpleIcon("hard-drive");
-const Network = purpleIcon("network");
-const Cpu = purpleIcon("cpu");
-const KeyRound = purpleIcon("key");
-const ArrowDownToLine = purpleIcon("arrow-down");
-const BookOpen = purpleIcon("book");
-const FileText = purpleIcon("file");
-const DownloadCard = purpleIcon("download");
-
-type Card = { icon: PurpleIconComponent | LucideIcon; title: string; body: string };
+type Card = { variant: IsoIllustrationVariant; title: string; body: string };
 
 function CardGrid({ cards, cols = 3 }: { cards: Card[]; cols?: 2 | 3 }) {
   const colClass = cols === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
   return (
     <div className={`mt-10 grid gap-5 ${colClass}`}>
-      {cards.map(({ icon: Icon, title, body }) => (
+      {cards.map(({ variant, title, body }, i) => (
         <article
           key={title}
           className="rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60"
         >
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-            <Icon size={20} aria-hidden="true" />
-          </span>
-          <h3 className="mt-4 text-lg font-bold text-ink">{title}</h3>
+          <StarknetIsoIllustration
+            variant={variant}
+            size={130}
+            delay={i * 0.35}
+            className="-mt-1 -ml-2"
+          />
+          <h3 className="mt-2 text-lg font-bold text-ink">{title}</h3>
           <p className="mt-2 text-sm text-ink-muted leading-relaxed">{body}</p>
         </article>
       ))}
     </div>
   );
 }
+
 
 export function WhyDesktop() {
   const cards: Card[] = [
