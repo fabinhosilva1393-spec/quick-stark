@@ -76,7 +76,7 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
             aria-describedby={`pending-help-${item.key}`}
           >
             <Clock size={16} aria-hidden="true" />
-            Release pending
+            Build pending
           </button>
         )}
 
