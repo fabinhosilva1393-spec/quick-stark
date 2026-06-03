@@ -377,10 +377,10 @@ function Introduction() {
       </p>
       <CardGrid
         items={[
-          { icon: Network, title: "Built for Starknet", body: "Mainnet and Sepolia, smart accounts, Cairo calls, and STRK as first-class primitives." },
-          { icon: Cpu, title: "Desktop-first workflow", body: "Native builds for macOS, Windows, and Linux with a focused signing surface." },
-          { icon: Lock, title: "Local-first account control", body: "Keys are generated and stored on your device — nothing is custodied for you." },
-          { icon: Eye, title: "Clear signing review", body: "Every approval shows dApp, network, contract, fee, and decoded calldata." },
+          { art: "intro-product", title: "Built for Starknet", body: "Mainnet and Sepolia, smart accounts, Cairo calls, and STRK as first-class primitives." },
+          { art: "intro-desktop", title: "Desktop-first workflow", body: "Native builds for macOS, Windows, and Linux with a focused signing surface." },
+          { art: "intro-local-key", title: "Local-first account control", body: "Keys are generated and stored on your device — nothing is custodied for you." },
+          { art: "intro-clear-signing", title: "Clear signing review", body: "Every approval shows dApp, network, contract, fee, and decoded calldata." },
         ]}
       />
     </Section>
