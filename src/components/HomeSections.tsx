@@ -93,7 +93,7 @@ export function Migration() {
 
 const DOC_LINKS = [
   { id: "getting-started", icon: BookOpen, title: "Getting Started", body: "Install, create or import a Starknet account, and choose Mainnet or Sepolia." },
-  { id: "installation", icon: Download, title: "Installation", body: "Step-by-step installation for macOS, Windows, and Linux." },
+  { id: "installation", icon: DownloadCard, title: "Installation", body: "Step-by-step installation for macOS, Windows, and Linux." },
   { id: "verifying", icon: ShieldCheck, title: "Security", body: "Verify SHA256 and PGP signatures before opening any release." },
   { id: "cairo-preview", icon: Cpu, title: "Cairo Preview", body: "Read decoded calldata and contract context before signing." },
   { id: "smart-accounts", icon: KeyRound, title: "Smart Accounts", body: "Inspect session keys, scopes, and spending approvals." },
