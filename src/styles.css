@@ -2,8 +2,8 @@
 @source "../src";
 @import "tw-animate-css";
 
-/* Type system: Inter (UI/body), Inter Tight + Manrope (display fallback for Eloquia Text), IBM Plex Mono (technical) */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Inter+Tight:wght@600;700;800;900&family=Manrope:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+/* Type system: Space Grotesk (display/headings), Sora (UI/body), Martian Mono (technical), Inter (paragraph fallback) */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Sora:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
 
 
 @custom-variant dark (&:is(.dark *));
@@ -42,8 +42,9 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-hairline: var(--hairline);
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Eloquia Text", "Inter Tight", "Manrope", "Inter", system-ui, sans-serif;
+  --font-sans: "Sora", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", "Sora", "Inter", system-ui, sans-serif;
+  --font-heading: "Space Grotesk", "Sora", "Inter", system-ui, sans-serif;
   --font-mono: "Martian Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
@@ -152,41 +153,43 @@
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.08;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.035em;
   color: var(--ink);
 }
 
-/* Display font usage: bold, tight neo-grotesque feel for Eloquia Text fallback chain */
+/* Display font usage: Space Grotesk, sharp technical feel */
 .font-display {
   font-family: var(--font-display);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: -0.035em;
   font-style: normal;
 }
 
-/* Hero H1 — proportional clamp sizing */
+/* Hero H1 — Space Grotesk, premium technical */
 .hero-h1 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(3.8rem, 5vw, 5rem);
-  line-height: 1.02;
-  letter-spacing: -0.035em;
+  font-size: clamp(3.6rem, 5vw, 5.1rem);
+  line-height: 1.0;
+  letter-spacing: -0.045em;
   max-width: 20ch;
 }
 @media (min-width: 1280px) {
-  .hero-h1 { font-size: clamp(4.2rem, 5.2vw, 5.6rem); }
+  .hero-h1 { font-size: clamp(4rem, 5.6vw, 5.8rem); letter-spacing: -0.05em; }
 }
 @media (max-width: 1023px) {
-  .hero-h1 { font-size: clamp(3rem, 7vw, 4.2rem); line-height: 1.04; }
+  .hero-h1 { font-size: clamp(3rem, 7vw, 4.2rem); line-height: 1.02; letter-spacing: -0.04em; }
 }
 @media (max-width: 640px) {
-  .hero-h1 { font-size: clamp(2.4rem, 11vw, 3.2rem); line-height: 1.05; max-width: 100%; }
+  .hero-h1 { font-size: clamp(2.4rem, 11vw, 3.3rem); line-height: 1.04; letter-spacing: -0.035em; max-width: 100%; }
 }
 .hero-h1 .accent {
   color: var(--brand);
   font-style: normal;
+  font-family: inherit;
+  font-weight: inherit;
 }
 
 .section-sub {
