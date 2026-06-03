@@ -178,10 +178,10 @@ function ComparePage() {
                   Read security model
                 </Link>
                 <Link
-                  to="/documentation"
+                  to="/docs"
                   className="inline-flex items-center justify-center rounded-full border border-hairline px-5 py-2.5 text-sm font-semibold text-ink hover:border-brand hover:text-brand"
                 >
-                  Read documentation
+                  Read docs
                 </Link>
               </div>
             </div>
