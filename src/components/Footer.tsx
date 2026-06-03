@@ -1,9 +1,15 @@
 import { Link } from "@tanstack/react-router";
+import { useState, type FormEvent, type ReactNode } from "react";
+import {
+  ShieldCheck,
+  KeyRound,
+  FileCheck2,
+  Cpu,
+  ArrowRight,
+} from "lucide-react";
 import { openCookieSettings } from "@/lib/cookieConsent";
-
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
-
-import type { MouseEvent, ReactNode } from "react";
+import { APP_VERSION } from "@/data/downloads";
 
 type SocialLink = {
   name: string;
@@ -72,59 +78,49 @@ type FooterItem = {
   onClick?: () => void;
 };
 
-type FooterColumn = {
-  title: string;
-  items: FooterItem[];
-};
-
-const COLUMNS: FooterColumn[] = [
-  {
-    title: "Product",
-    items: [
-      { label: "Features", href: "/#features" },
-      { label: "Security", href: "/security" },
-      { label: "Compare", href: "/compare" },
-      { label: "Docs", href: "/docs" },
-      { label: "Download", href: "/#download" },
-      { label: "Versions", href: "/releases" },
-      { label: "Roadmap", href: "/roadmap" },
-    ],
-  },
-  {
-    title: "Resources",
-    items: [
-      { label: "Audits", href: "/audits" },
-      { label: "Version history", href: "/changelog" },
-      { label: "Brand guidelines", href: "/brand-guidelines" },
-    ],
-  },
-  {
-    title: "Project",
-    items: [
-      { label: "Ecosystem", href: "/ecosystem" },
-      { label: "About", href: "/about" },
-      { label: "Contact", href: "/contact" },
-    ],
-  },
-  {
-    title: "Legal",
-    items: [
-      { label: "Privacy", href: "/privacy" },
-      { label: "Terms", href: "/terms" },
-      { label: "Cookies", href: "/cookies", onClick: () => openCookieSettings() },
-    ],
-  },
+const PRODUCT: FooterItem[] = [
+  { label: "Features", href: "/#features" },
+  { label: "Security", href: "/security" },
+  { label: "Download", href: "/#download" },
+  { label: "Compatibility", href: "/#compatibility" },
+  { label: "Compare", href: "/compare" },
 ];
 
+const RESOURCES: FooterItem[] = [
+  { label: "Docs", href: "/docs" },
+  { label: "Developers", href: "/#developers" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Version History", href: "/changelog" },
+  { label: "Support", href: "/contact" },
+];
 
+const ECOSYSTEM: FooterItem[] = [
+  { label: "Starknet", href: "/ecosystem" },
+  { label: "Cairo", href: "/ecosystem" },
+  { label: "STRK", href: "/ecosystem" },
+  { label: "Mainnet", href: "/ecosystem" },
+  { label: "Sepolia", href: "/ecosystem" },
+];
 
+const LEGAL: FooterItem[] = [
+  { label: "Privacy", href: "/privacy" },
+  { label: "Terms", href: "/terms" },
+  { label: "Cookies", href: "/cookies", onClick: () => openCookieSettings() },
+];
+
+const TRUST_PILLS = [
+  "Local-first keys",
+  "Cairo call review",
+  "Smart-account visibility",
+  "Verified builds",
+];
 
 function FooterLink({ item }: { item: FooterItem }) {
-  const baseCls = "inline-flex items-center gap-1 text-sm text-ink-muted transition-colors hover:text-brand";
+  const baseCls =
+    "inline-flex items-center gap-1 text-sm text-ink-muted transition-colors hover:text-brand";
 
   if (item.onClick && !item.external) {
     const handleClick = (e: React.MouseEvent) => {
-      // Allow modifier-click / middle-click to follow href as a fallback
       if (e.metaKey || e.ctrlKey || e.shiftKey || (e as React.MouseEvent).button === 1) return;
       e.preventDefault();
       item.onClick!();
@@ -136,9 +132,7 @@ function FooterLink({ item }: { item: FooterItem }) {
     );
   }
 
-  if (!item.href) {
-    return <span className="text-sm text-ink-muted/60 cursor-default">{item.label}</span>;
-  }
+  if (!item.href) return <span className="text-sm text-ink-muted/60">{item.label}</span>;
 
   if (item.external) {
     return (
@@ -149,16 +143,13 @@ function FooterLink({ item }: { item: FooterItem }) {
     );
   }
 
-  // Internal hash anchor on home
   if (item.href.startsWith("/#")) {
-    const hash = item.href.slice(2);
     return (
-      <Link to="/" hash={hash} className={baseCls}>
+      <Link to="/" hash={item.href.slice(2)} className={baseCls}>
         {item.label}
       </Link>
     );
   }
-
 
   return (
     <a href={item.href} className={baseCls}>
@@ -167,36 +158,146 @@ function FooterLink({ item }: { item: FooterItem }) {
   );
 }
 
+function LinkColumn({ title, items }: { title: string; items: FooterItem[] }) {
+  return (
+    <div>
+      <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-ink">{title}</h3>
+      <ul className="mt-4 space-y-2.5 list-none p-0">
+        {items.map((item) => (
+          <li key={item.label}>
+            <FooterLink item={item} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubmitted(true);
+    setEmail("");
+    window.setTimeout(() => setSubmitted(false), 2400);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="mt-3">
+      <label htmlFor="footer-email" className="sr-only">
+        Email address
+      </label>
+      <div className="flex items-center gap-2 rounded-full border border-hairline bg-surface-2 p-1 pl-4">
+        <input
+          id="footer-email"
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Please enter your email"
+          className="flex-1 min-w-0 bg-transparent text-sm text-ink placeholder:text-ink-subtle outline-none"
+        />
+        <button
+          type="submit"
+          className="rounded-full bg-brand px-4 py-2 text-xs font-semibold text-brand-foreground hover:opacity-90 transition cursor-pointer"
+        >
+          Submit
+        </button>
+      </div>
+      <p
+        className="mt-2 text-[11px] text-ink-subtle"
+        aria-live="polite"
+      >
+        {submitted ? "Thanks — you’re on the list." : "Build verification updates, release notes."}
+      </p>
+    </form>
+  );
+}
+
 export function Footer() {
   return (
-    <footer id="footer" className="border-t border-hairline bg-surface">
-      <div className="container-page py-14">
-        <div className="mb-10 flex items-center gap-2.5">
-          <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center">
-            <img src={logoAsset.url} alt="" className="h-9 w-9 object-contain" />
-          </span>
-          <span className="font-bold tracking-tight text-ink">
-            Starknet<span className="text-brand text-white">Wallet</span>
-          </span>
-        </div>
+    <footer id="footer" className="premium-footer">
+      <span aria-hidden="true" className="premium-footer__orbit" />
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-4 md:gap-0 md:divide-x md:divide-hairline">
-          {COLUMNS.map((col, idx) => (
-            <div key={col.title} className={idx === 0 ? "md:pr-8" : "md:px-8"}>
-              <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-ink">{col.title}</h3>
-              <ul className="mt-4 space-y-2.5">
-                {col.items.map((item) => (
-                  <li key={item.label}>
-                    <FooterLink item={item} />
-                  </li>
-                ))}
-              </ul>
+      <div className="container-page relative py-16">
+        {/* Top grid: brand / columns / verify+newsletter */}
+        <div className="grid gap-12 lg:grid-cols-12">
+          {/* Brand block */}
+          <div className="lg:col-span-4">
+            <div className="flex items-center gap-2.5">
+              <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center">
+                <img src={logoAsset.url} alt="" className="h-9 w-9 object-contain" />
+              </span>
+              <span className="font-bold tracking-tight text-ink text-lg">
+                Starknet<span className="text-white">Wallet</span>
+              </span>
             </div>
-          ))}
+
+            <p className="mt-4 text-sm leading-relaxed text-ink-muted max-w-sm">
+              Secure Starknet desktop workflows with clearer transaction review,
+              local-first key control, and transparent smart-account signing.
+            </p>
+
+            <ul className="mt-5 flex flex-wrap gap-1.5 list-none p-0">
+              {TRUST_PILLS.map((pill) => (
+                <li
+                  key={pill}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-surface px-2.5 py-1 text-[11px] font-medium text-ink-muted"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand" aria-hidden="true" />
+                  {pill}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Link columns */}
+          <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <LinkColumn title="Product" items={PRODUCT} />
+            <LinkColumn title="Resources" items={RESOURCES} />
+            <LinkColumn title="Ecosystem" items={ECOSYSTEM} />
+          </div>
+
+          {/* Verification + newsletter */}
+          <div className="lg:col-span-4 flex flex-col gap-6">
+            <div className="premium-footer__verify rounded-2xl border border-hairline p-5">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ink-subtle">
+                  Current maintained build
+                </p>
+                <span className="font-mono text-xs text-brand">{APP_VERSION}</span>
+              </div>
+
+              <dl className="mt-4 space-y-2.5 text-xs">
+                <Row icon={<Cpu size={12} className="text-brand" aria-hidden="true" />} k="Product track" v="Desktop" />
+                <Row icon={<KeyRound size={12} className="text-brand" aria-hidden="true" />} k="Verification" v="PGP / SHA256" />
+                <Row icon={<FileCheck2 size={12} className="text-brand" aria-hidden="true" />} k="Platforms" v="macOS · Windows · Linux" />
+              </dl>
+
+              <Link
+                to="/security"
+                className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-brand hover:underline"
+              >
+                <ShieldCheck size={13} aria-hidden="true" /> Verify build
+                <ArrowRight size={12} aria-hidden="true" />
+              </Link>
+            </div>
+
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink">
+                Stay in sync
+              </p>
+              <NewsletterForm />
+            </div>
+          </div>
         </div>
 
-        <div className="mt-12 border-t border-hairline pt-8">
-          <ul className="flex flex-wrap gap-2.5">
+        {/* Bottom row */}
+        <div className="mt-14 flex flex-col gap-6 border-t border-hairline pt-8 md:flex-row md:items-center md:justify-between">
+          <ul className="flex flex-wrap gap-2 list-none p-0">
             {SOCIALS.map((s) => (
               <li key={s.name}>
                 <a
@@ -212,22 +313,38 @@ export function Footer() {
               </li>
             ))}
           </ul>
+
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 list-none p-0">
+            {LEGAL.map((item) => (
+              <li key={item.label}>
+                <FooterLink item={item} />
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6 text-xs text-ink-muted">
+        <div className="mt-8 flex flex-col gap-3 text-xs text-ink-muted md:flex-row md:items-start md:justify-between">
           <p>© {new Date().getFullYear()} StarknetWallet. Open source.</p>
-          <div className="flex flex-col items-end gap-1 text-right max-w-xl">
-            <p>
-              StarknetWallet is built for secure Starknet desktop workflows,
-              giving users clearer transaction review, local-first key
-              control, and transparent smart-account signing. Always verify
-              downloads, checksums, and build signatures before installing
-              wallet software.
-            </p>
-          </div>
+          <p className="max-w-2xl md:text-right">
+            StarknetWallet is built for secure Starknet desktop workflows,
+            giving users clearer transaction review, local-first key control,
+            and transparent smart-account signing. Always verify downloads,
+            checksums, and build signatures before installing wallet software.
+          </p>
         </div>
-
       </div>
     </footer>
+  );
+}
+
+function Row({ icon, k, v }: { icon: ReactNode; k: string; v: string }) {
+  return (
+    <div className="flex items-center justify-between gap-3">
+      <dt className="inline-flex items-center gap-2 text-ink-muted">
+        {icon}
+        {k}
+      </dt>
+      <dd className="text-ink font-medium">{v}</dd>
+    </div>
   );
 }
