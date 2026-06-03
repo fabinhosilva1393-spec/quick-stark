@@ -25,7 +25,7 @@ export const Route = createFileRoute("/privacy")({
       <p>
         We aim to keep this short and honest rather than legal-heavy. If
         anything changes, this page will be updated alongside the relevant
-        release.
+        maintained build.
       </p>
     </SimplePage>
   ),
