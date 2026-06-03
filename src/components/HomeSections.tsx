@@ -33,12 +33,12 @@ function CardGrid({ cards, cols = 3 }: { cards: Card[]; cols?: 2 | 3 }) {
 
 export function WhyDesktop() {
   const cards: Card[] = [
-    { variant: "developer-tools", title: "Native desktop window", body: "A dedicated app surface — not a tab next to your dApps and search bars." },
-    { variant: "transactions", title: "Larger signing surface", body: "More room to show contract, calldata, network, and fee before you sign." },
-    { variant: "local-keys", title: "Local-first storage", body: "Account material stays on your device. No remote sync by default." },
-    { variant: "multi-network", title: "Clear Mainnet/Sepolia context", body: "The active Starknet network is visible on every signing screen." },
-    { variant: "cairo-preview", title: "Cairo call preview", body: "Decoded calldata and target contract context before approval." },
-    { variant: "hardware-wallet", title: "Hardware wallet ready", body: "Architected for hardware signers — planned support for popular devices." },
+    { variant: "desktop-window", title: "Native desktop window", body: "A dedicated app surface — not a tab next to your dApps and search bars." },
+    { variant: "review-eye", title: "Larger signing surface", body: "More room to show contract, calldata, network, and fee before you sign." },
+    { variant: "vault-disk", title: "Local-first storage", body: "Account material stays on your device. No remote sync by default." },
+    { variant: "network-globe", title: "Clear Mainnet/Sepolia context", body: "The active Starknet network is visible on every signing screen." },
+    { variant: "calldata-panel", title: "Cairo call preview", body: "Decoded calldata and target contract context before approval." },
+    { variant: "ledger-device", title: "Hardware wallet ready", body: "Architected for hardware signers — planned support for popular devices." },
   ];
   return (
     <section className="py-24" aria-labelledby="why-desktop-heading">
