@@ -1,3 +1,4 @@
+import { Cpu, ShieldCheck } from "lucide-react";
 import {
   StarknetIsoIllustration,
   type IsoIllustrationVariant,
