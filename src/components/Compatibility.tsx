@@ -149,9 +149,10 @@ function CardShell({
   return (
     <article className="flex h-full flex-col rounded-2xl border border-hairline bg-surface p-6 transition-colors hover:border-brand/60">
       <div className="flex items-start justify-between gap-3">
-        <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-          <Icon size={20} aria-hidden="true" />
-        </span>
+        <Icon
+          size={56}
+          className="compat-icon text-brand h-12 w-12 sm:h-[52px] sm:w-[52px] lg:h-14 lg:w-14"
+        />
         {badge}
       </div>
       <h4 className="mt-4 text-lg font-bold text-ink">{name}</h4>
