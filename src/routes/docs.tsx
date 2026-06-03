@@ -332,13 +332,13 @@ function Section({ id, eyebrow, title, children }: { id: string; eyebrow?: strin
   );
 }
 
-function CardGrid({ items }: { items: { icon: typeof BookOpen; title: string; body: string }[] }) {
+function CardGrid({ items }: { items: { art: DocsArtVariant; title: string; body: string }[] }) {
   return (
     <div className="not-prose mt-2 grid gap-4 sm:grid-cols-2">
-      {items.map(({ icon: Icon, title, body }) => (
+      {items.map(({ art, title, body }) => (
         <div key={title} className="rounded-xl border border-hairline bg-surface p-5">
-          <Icon size={18} className="text-brand" aria-hidden="true" />
-          <h3 className="mt-3 text-base font-semibold text-ink">{title}</h3>
+          <DocsArt variant={art} size={120} className="-ml-2 -mt-1" />
+          <h3 className="mt-2 text-base font-semibold text-ink">{title}</h3>
           <p className="mt-1.5 text-sm text-ink-muted leading-relaxed">{body}</p>
         </div>
       ))}
