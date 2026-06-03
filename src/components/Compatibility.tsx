@@ -180,14 +180,15 @@ export function Compatibility() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Compatibility</span>
-          <h2 id="compatibility-heading" className="section-title mt-4">
+          <h2 id="compatibility-heading" className="font-display section-title mt-4 font-semibold">
             Compatibility
           </h2>
           <p className="section-sub">
-            StarknetWallet is designed for desktop Starknet workflows across
-            major operating systems and hardware-wallet signing setups. Review
-            supported environments before installing or connecting a signer.
+            Use StarknetWallet across supported desktop environments and
+            compatible Starknet signing workflows. Review supported
+            environments before installing or connecting a signer.
           </p>
+
         </div>
 
         <div className="mt-12">
