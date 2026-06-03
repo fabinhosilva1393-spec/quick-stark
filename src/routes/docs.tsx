@@ -202,7 +202,7 @@ function DocsHero() {
       <div className="container-page py-16 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] items-center">
           <div>
-            <span className="eyebrow">Documentation</span>
+            <span className="eyebrow">Docs</span>
             <h1 className="font-display section-title mt-4 font-semibold">
               StarknetWallet Docs
             </h1>
