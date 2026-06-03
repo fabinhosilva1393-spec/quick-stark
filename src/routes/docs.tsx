@@ -240,7 +240,7 @@ function DocsHero() {
 function DocsIllustration() {
   return (
     <div className="relative mx-auto w-full max-w-[460px] aspect-square">
-      <svg viewBox="0 0 460 460" role="img" aria-label="StarknetWallet documentation illustration" className="w-full h-full">
+      <svg viewBox="0 0 460 460" role="img" aria-label="StarknetWallet docs illustration" className="w-full h-full">
         <defs>
           <linearGradient id="docGlow" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#2F5BFF" stopOpacity="0.45" />
