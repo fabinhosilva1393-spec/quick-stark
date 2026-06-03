@@ -82,9 +82,9 @@ function BrandPage() {
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               <div className="rounded-2xl border border-hairline bg-background p-8 flex flex-col items-center justify-center">
                 <img
-                  src={logoAsset.url}
+                  src="/src/assets/starknet-logomark.png"
                   alt="Wallet logomark"
-                  className="h-24 w-24 object-contain"
+                  className="h-24 w-auto object-contain"
                 />
                 <p className="mt-4 text-xs uppercase tracking-[0.18em] text-ink-muted">
                   Logomark
