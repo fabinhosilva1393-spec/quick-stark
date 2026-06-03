@@ -11,40 +11,41 @@ const FEATURES: Array<{
 }> = [
   {
     variant: "wallet",
-    title: "Native STRK management",
-    body: "Send, receive, and track STRK and other Starknet assets across mainnet and sepolia from a single interface.",
+    title: "STRK account overview",
+    body: "Track STRK and other Starknet assets across Mainnet and Sepolia from a single, focused interface.",
     chips: ["STRK", "ETH", "USDC"],
   },
   {
     variant: "cairo-preview",
     title: "Cairo call preview",
-    body: "Inspect every contract call before signing. See entrypoints, calldata, and the account that will execute it.",
+    body: "Inspect every contract call before signing — entrypoint, decoded calldata, and the account that will execute it.",
     chips: ["Calldata", "Entrypoint"],
   },
   {
     variant: "permissions",
-    title: "Smart-account permissions",
-    body: "Review session keys, spend limits, and account-abstraction policies. Revoke any active grant.",
+    title: "Smart-account permission review",
+    body: "Surface session keys, spend limits, and account-abstraction policies. Revoke an active grant the moment intent changes.",
     chips: ["Session keys", "Spend limits"],
   },
   {
     variant: "signed-release",
-    title: "Signed releases",
-    body: "Every build ships with SHA256 checksums and PGP signatures so you can verify before you install.",
+    title: "Verified release workflow",
+    body: "Every build ships with SHA256 checksums and PGP signatures so you can confirm what you install before launching it.",
     chips: ["SHA256", "PGP"],
   },
   {
     variant: "hardware-wallet",
-    title: "Hardware wallet ready",
-    body: "Pair with Ledger over USB to keep keys offline while signing on Starknet.",
-    chips: ["Ledger", "USB"],
+    title: "Hardware-signer ready",
+    body: "Prepared for hardware signing through compatible Starknet wallets and tooling.",
+    chips: ["Ledger", "Compatible"],
   },
   {
     variant: "multi-network",
     title: "Multi-account, multi-network",
-    body: "Manage multiple accounts across mainnet, sepolia, and custom RPC endpoints side by side.",
+    body: "Work across Mainnet, Sepolia, and custom RPC endpoints with clear visual context for each environment.",
     chips: ["Mainnet", "Sepolia", "Custom RPC"],
   },
+
 ];
 
 export function Features() {
