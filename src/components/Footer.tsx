@@ -218,11 +218,11 @@ export function Footer() {
           <p>© {new Date().getFullYear()} StarknetWallet. Open source.</p>
           <div className="flex flex-col items-end gap-1 text-right max-w-xl">
             <p>
-              StarknetWallet is an independent desktop wallet project for
-              Starknet workflows. Not affiliated with Starknet Foundation
-              unless explicitly stated. Always verify download links,
-              checksums, and build signatures before installing wallet
-              software.
+              StarknetWallet is built for secure Starknet desktop workflows,
+              giving users clearer transaction review, local-first key
+              control, and transparent smart-account signing. Always verify
+              downloads, checksums, and build signatures before installing
+              wallet software.
             </p>
           </div>
         </div>
