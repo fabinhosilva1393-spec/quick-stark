@@ -158,9 +158,9 @@ const CONTACT_CARDS: ContactCard[] = [
     external: true,
   },
   {
-    title: "Documentation",
+    title: "Docs",
     text: "Read setup, security, and StarknetWallet usage guides.",
-    internal: "/documentation",
+    internal: "/docs",
   },
 ];
 

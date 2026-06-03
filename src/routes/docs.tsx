@@ -26,7 +26,7 @@ import {
 
 const TITLE = "StarknetWallet Docs — Install, verify, and sign with clarity";
 const DESC =
-  "Documentation for StarknetWallet: installation, account setup, Cairo call review, smart-account permissions, hardware-wallet workflows, and developer tools.";
+  "Install, verify, set up accounts, review Cairo calls, and understand StarknetWallet workflows.";
 
 type DocSection = {
   id: string;
@@ -121,7 +121,7 @@ function DocsPage() {
                 {/* Desktop sidebar */}
                 <nav aria-label="Docs sections" className="hidden lg:block">
                   <p className="text-xs font-semibold uppercase tracking-wider text-ink-subtle">
-                    Documentation
+                    Docs
                   </p>
                   <ul className="mt-3 space-y-0.5 list-none p-0">
                     {SECTIONS.map(({ id, label, icon: Icon }) => {
@@ -202,7 +202,7 @@ function DocsHero() {
       <div className="container-page py-16 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] items-center">
           <div>
-            <span className="eyebrow">Documentation</span>
+            <span className="eyebrow">Docs</span>
             <h1 className="font-display section-title mt-4 font-semibold">
               StarknetWallet Docs
             </h1>
@@ -240,7 +240,7 @@ function DocsHero() {
 function DocsIllustration() {
   return (
     <div className="relative mx-auto w-full max-w-[460px] aspect-square">
-      <svg viewBox="0 0 460 460" role="img" aria-label="StarknetWallet documentation illustration" className="w-full h-full">
+      <svg viewBox="0 0 460 460" role="img" aria-label="StarknetWallet docs illustration" className="w-full h-full">
         <defs>
           <linearGradient id="docGlow" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="#2F5BFF" stopOpacity="0.45" />
@@ -561,7 +561,7 @@ function DeveloperWorkflows() {
         <li>Developer-friendly transaction context for QA and integration review</li>
       </ul>
       <p className="not-prose">
-        <Link to="/documentation" className="text-brand hover:underline text-sm font-semibold">
+        <Link to="/docs" className="text-brand hover:underline text-sm font-semibold">
           Open the developer guides →
         </Link>
       </p>
@@ -710,7 +710,7 @@ function Resources() {
           <p className="mt-3 text-sm font-semibold text-ink">GitHub</p>
           <p className="mt-1 text-sm text-ink-muted">Source, releases, and verification material.</p>
         </a>
-        <Link to="/documentation" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
+        <Link to="/docs" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
           <BookOpen size={18} className="text-brand" aria-hidden="true" />
           <p className="mt-3 text-sm font-semibold text-ink">Developer guides</p>
           <p className="mt-1 text-sm text-ink-muted">Deeper guides for installing, verifying, and integrating.</p>

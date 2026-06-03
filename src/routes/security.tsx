@@ -164,7 +164,7 @@ export const Route = createFileRoute("/security")({
       <h2>Built to be inspected.</h2>
       <p>
         Read the source, verify the build, review the Cairo call. Then
-        sign. See <Link to="/documentation">Documentation</Link> for how to
+        sign. See <Link to="/docs">Docs</Link> for how to
         verify builds step by step.
       </p>
     </SimplePage>

@@ -102,7 +102,7 @@ export function DocumentationPreview() {
     <section className="py-24" aria-labelledby="docs-heading">
       <div className="container-page">
         <div className="max-w-2xl">
-          <span className="eyebrow">Documentation</span>
+          <span className="eyebrow">Docs</span>
           <h2 id="docs-heading" className="font-display section-title mt-4 font-semibold">
             Run StarknetWallet with confidence.
           </h2>

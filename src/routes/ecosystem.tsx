@@ -147,9 +147,9 @@ function EcosystemPage() {
                   <Download size={16} aria-hidden="true" />
                   Download
                 </Link>
-                <Link to="/documentation" className="btn-ghost">
+                <Link to="/docs" className="btn-ghost">
                   <BookOpen size={16} aria-hidden="true" />
-                  Read documentation
+                  Read docs
                 </Link>
               </div>
             </div>

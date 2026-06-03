@@ -12,6 +12,7 @@ type Item = {
   title: string;
   category: string;
   target: Target;
+  keywords?: string[];
 };
 
 const ITEMS: Item[] = [
@@ -23,7 +24,12 @@ const ITEMS: Item[] = [
   { title: "FAQ", category: "Section", target: { kind: "hash", hash: "faq" } },
   { title: "Security", category: "Page", target: { kind: "route", to: "/security" } },
   { title: "Compare", category: "Page", target: { kind: "route", to: "/compare" } },
-  { title: "Documentation", category: "Page", target: { kind: "route", to: "/documentation" } },
+  {
+    title: "Docs",
+    category: "Page",
+    target: { kind: "route", to: "/docs" },
+    keywords: ["docs", "documentation", "guide", "guides", "setup", "install", "security", "verify"],
+  },
   { title: "Versions", category: "Page", target: { kind: "route", to: "/releases" } },
   { title: "Roadmap", category: "Page", target: { kind: "route", to: "/roadmap" } },
   { title: "Audits", category: "Page", target: { kind: "route", to: "/audits" } },
@@ -34,11 +40,11 @@ const ITEMS: Item[] = [
   { title: "Privacy", category: "Legal", target: { kind: "route", to: "/privacy" } },
   { title: "Terms", category: "Legal", target: { kind: "route", to: "/terms" } },
   { title: "Cookies", category: "Settings", target: { kind: "cookies" } },
-  { title: "Cairo preview", category: "Topic", target: { kind: "route", to: "/documentation" } },
-  { title: "Smart-account permissions", category: "Topic", target: { kind: "route", to: "/documentation" } },
-  { title: "STRK", category: "Topic", target: { kind: "route", to: "/documentation" } },
-  { title: "Starknet Mainnet", category: "Topic", target: { kind: "route", to: "/documentation" } },
-  { title: "Sepolia", category: "Topic", target: { kind: "route", to: "/documentation" } },
+  { title: "Cairo preview", category: "Topic", target: { kind: "route", to: "/docs" }, keywords: ["documentation"] },
+  { title: "Smart-account permissions", category: "Topic", target: { kind: "route", to: "/docs" }, keywords: ["documentation"] },
+  { title: "STRK", category: "Topic", target: { kind: "route", to: "/docs" }, keywords: ["documentation"] },
+  { title: "Starknet Mainnet", category: "Topic", target: { kind: "route", to: "/docs" }, keywords: ["documentation"] },
+  { title: "Sepolia", category: "Topic", target: { kind: "route", to: "/docs" }, keywords: ["documentation"] },
   { title: "Verify builds", category: "Topic", target: { kind: "route", to: "/releases" } },
 ];
 
@@ -54,7 +60,8 @@ export function SiteSearch({ variant = "desktop" }: { variant?: "desktop" | "mob
     return ITEMS.filter(
       (i) =>
         i.title.toLowerCase().includes(q) ||
-        i.category.toLowerCase().includes(q),
+        i.category.toLowerCase().includes(q) ||
+        (i.keywords?.some((k) => k.toLowerCase().includes(q)) ?? false),
     ).slice(0, 8);
   }, [query]);
 
