@@ -82,14 +82,16 @@ function ComparePage() {
           <div className="container-page">
             <div className="max-w-3xl">
               <span className="eyebrow">Compare</span>
-              <h1 className="section-title mt-4">
-                The wallet built for Starknet, not adapted to it.
+              <h1 className="font-display section-title mt-4 font-semibold">
+                Built for Starknet signing, end to end.
               </h1>
               <p className="section-sub mt-5">
-                Browser extensions are convenient. StarknetWallet is designed
-                around desktop-native review, Cairo call context, STRK
-                management, and smart-account permissions.
+                StarknetWallet is designed around focused desktop review,
+                Cairo call context, STRK management, smart-account permissions,
+                and verified releases. This page compares those capabilities
+                across common wallet environments.
               </p>
+
             </div>
 
             <div className="mt-10 rounded-xl border border-hairline bg-surface/60 p-5 text-sm text-ink-muted">
