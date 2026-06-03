@@ -38,8 +38,8 @@ export function Header() {
               className="h-10 w-auto object-contain"
             />
           </span>
-          <span className="tracking-tight text-ink font-semibold text-2xl">
-            Wallet
+          <span className="tracking-tight text-ink font-semibold text-2xl uppercase">
+            STARKNETWALLET
           </span>
         </Link>
 
