@@ -54,14 +54,15 @@ export function Workflow() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Workflow</span>
-          <h2 id="workflow-heading" className="section-title mt-4">
-            How StarknetWallet helps you sign with confidence.
+          <h2 id="workflow-heading" className="font-display section-title mt-4 font-semibold">
+            From install to signed transaction.
           </h2>
           <p className="section-sub">
-            Four steps from install to signed transaction — built for clarity
-            on every approval.
+            Four steps designed to give you clear visibility before every
+            approval on Starknet.
           </p>
         </div>
+
 
         {/* Desktop: grid of all 4 slides */}
         <div className="mt-12 hidden md:grid gap-5 md:grid-cols-2 lg:grid-cols-4">
