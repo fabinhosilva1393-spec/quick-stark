@@ -710,7 +710,7 @@ function Resources() {
           <p className="mt-3 text-sm font-semibold text-ink">GitHub</p>
           <p className="mt-1 text-sm text-ink-muted">Source, releases, and verification material.</p>
         </a>
-        <Link to="/documentation" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
+        <Link to="/docs" className="rounded-xl border border-hairline bg-surface p-5 hover:border-brand transition-colors block">
           <BookOpen size={18} className="text-brand" aria-hidden="true" />
           <p className="mt-3 text-sm font-semibold text-ink">Developer guides</p>
           <p className="mt-1 text-sm text-ink-muted">Deeper guides for installing, verifying, and integrating.</p>
