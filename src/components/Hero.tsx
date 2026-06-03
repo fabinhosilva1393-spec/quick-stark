@@ -34,7 +34,7 @@ export function Hero() {
           </span>
 
           <h1 className="hero-h1 mt-6 text-ink">
-            Approve with <span className="accent">clarity</span>.
+            Secure every Starknet approval <span className="accent">clearly</span>.
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-ink-muted leading-relaxed max-w-2xl">
