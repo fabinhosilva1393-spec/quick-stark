@@ -190,13 +190,14 @@ export function CtaFinal() {
             <span className="h-1.5 w-1.5 rounded-full bg-brand" />
             Ready when you are
           </span>
-          <h2 id="cta-final-heading" className="section-title mt-4">
-            Ready to review before you sign?
+          <h2 id="cta-final-heading" className="font-display section-title mt-4 font-semibold">
+            Review with confidence before you approve.
           </h2>
           <p className="section-sub mx-auto max-w-2xl">
-            Download StarknetWallet, manage STRK, preview Cairo calls, and
-            inspect smart-account permissions in a local-first desktop workflow.
+            Download StarknetWallet to manage STRK, inspect Cairo calls, and
+            review smart-account permissions in a local-first desktop workflow.
           </p>
+
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link to="/" hash="download" className="btn-primary">
               <Download size={16} aria-hidden="true" />
