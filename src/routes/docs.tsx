@@ -561,7 +561,7 @@ function DeveloperWorkflows() {
         <li>Developer-friendly transaction context for QA and integration review</li>
       </ul>
       <p className="not-prose">
-        <Link to="/documentation" className="text-brand hover:underline text-sm font-semibold">
+        <Link to="/docs" className="text-brand hover:underline text-sm font-semibold">
           Open the developer guides →
         </Link>
       </p>
