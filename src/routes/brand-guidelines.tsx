@@ -64,7 +64,7 @@ function BrandPage() {
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />
               Brand
             </span>
-            <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink leading-[1.05]">
+            <h1 className="font-display mt-5 text-5xl sm:text-6xl font-semibold tracking-tight text-ink leading-[1.02]">
               The StarknetWallet brand system.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-ink-muted">
