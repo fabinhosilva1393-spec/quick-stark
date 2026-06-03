@@ -54,13 +54,14 @@ export function Features() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Features</span>
-          <h2 className="section-title mt-4">
-            Everything Starknet, on your desktop.
+          <h2 className="font-display section-title mt-4 font-semibold">
+            A focused toolkit for Starknet.
           </h2>
           <p className="section-sub">
-            A focused toolkit for users and builders who need clarity over
-            their accounts, calls, and permissions.
+            Product-grade clarity for the moments that matter — accounts,
+            calls, permissions, and verified releases.
           </p>
+
         </div>
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
