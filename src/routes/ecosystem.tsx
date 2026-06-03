@@ -7,9 +7,9 @@ import {
   type IsoIllustrationVariant,
 } from "@/components/StarknetIsoIllustration";
 
-const TITLE = "Ecosystem — StarknetWallet";
+const TITLE = "Ecosystem — Wallet";
 const DESC =
-  "StarknetWallet is built for the Starknet ecosystem: STRK, Cairo, Starknet Mainnet, Sepolia, smart accounts, and account abstraction.";
+  "Wallet is built for the Starknet ecosystem: STRK, Cairo, Starknet Mainnet, Sepolia, smart accounts, and account abstraction.";
 
 export const Route = createFileRoute("/ecosystem")({
   head: () => ({
@@ -72,7 +72,7 @@ function EcosystemPage() {
               Built for the Starknet ecosystem.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-ink-muted">
-              StarknetWallet is designed around STRK, Cairo, Starknet Mainnet,
+              Wallet is designed around STRK, Cairo, Starknet Mainnet,
               Sepolia, and smart-account workflows.
             </p>
           </div>
@@ -105,7 +105,7 @@ function EcosystemPage() {
               ))}
             </ul>
             <p className="mt-6 max-w-3xl text-sm text-ink-muted">
-              Ecosystem names are shown for context only. StarknetWallet is not
+              Ecosystem names are shown for context only. Wallet is not
               affiliated with Starknet Foundation or these projects unless
               explicitly stated.
             </p>
@@ -141,7 +141,7 @@ function EcosystemPage() {
         <section className="py-20 border-t border-hairline">
           <div className="container-page">
             <div className="rounded-3xl border border-hairline bg-surface p-10 text-center lg:p-14">
-              <h2 className="section-title">Try StarknetWallet on your desktop.</h2>
+              <h2 className="section-title">Try Wallet on your desktop.</h2>
               <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
                 <Link to="/" hash="download" className="btn-primary">
                   <Download size={16} aria-hidden="true" />

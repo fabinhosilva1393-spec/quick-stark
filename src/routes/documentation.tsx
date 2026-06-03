@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 
-const TITLE = "Documentation — StarknetWallet";
-const DESC = "How to install, verify, and use StarknetWallet on macOS, Windows, and Linux.";
+const TITLE = "Documentation — Wallet";
+const DESC = "How to install, verify, and use Wallet on macOS, Windows, and Linux.";
 
 const CARDS = [
   { id: "getting-started", label: "Getting Started" },
@@ -25,9 +25,9 @@ export const Route = createFileRoute("/documentation")({
     ],
   }),
   component: () => (
-    <SimplePage eyebrow="Developers" title="Run StarknetWallet with confidence.">
+    <SimplePage eyebrow="Developers" title="Run Wallet with confidence.">
       <p>
-        Practical guides for installing StarknetWallet, verifying signed
+        Practical guides for installing Wallet, verifying signed
         desktop builds, managing STRK, and reviewing Cairo calls and
         smart-account permissions.
       </p>
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/documentation")({
 
       <h2 id="getting-started">Getting Started</h2>
       <p>
-        StarknetWallet is a local-first desktop wallet for Starknet. Install
+        Wallet is a local-first desktop wallet for Starknet. Install
         the build for your platform, choose Mainnet or Sepolia, and create or
         import a Starknet account. Keys are generated and stored on your
         device.
@@ -54,7 +54,7 @@ export const Route = createFileRoute("/documentation")({
 
       <h2 id="installation">Installation</h2>
       <ul>
-        <li>macOS — open the <code>.dmg</code> and drag StarknetWallet into Applications.</li>
+        <li>macOS — open the <code>.dmg</code> and drag Wallet into Applications.</li>
         <li>Windows — run the signed <code>.exe</code> installer.</li>
         <li>Linux — use the <code>.AppImage</code> or install the <code>.deb</code> package.</li>
       </ul>
@@ -69,14 +69,14 @@ export const Route = createFileRoute("/documentation")({
 
       <h2 id="strk">Managing STRK</h2>
       <p>
-        StarknetWallet shows your STRK balance, transaction history, and lets
+        Wallet shows your STRK balance, transaction history, and lets
         you send and receive STRK on Starknet Mainnet or Sepolia. Network
         selection is always visible.
       </p>
 
       <h2 id="cairo-preview">Previewing Cairo calls</h2>
       <p>
-        Before signing, StarknetWallet shows the dApp, network, target
+        Before signing, Wallet shows the dApp, network, target
         contract, function name, decoded calldata, and an estimated fee. If a
         call implies a permission change, that is surfaced as part of the
         preview.

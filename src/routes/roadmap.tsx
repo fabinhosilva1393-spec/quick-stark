@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { RoadmapIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "Product evolution — StarknetWallet";
+const TITLE = "Product evolution — Wallet";
 const DESC =
-  "Where StarknetWallet's maintained desktop workflow is heading next.";
+  "Where Wallet's maintained desktop workflow is heading next.";
 
 const STAGES: { stage: string; body: string }[] = [
   {
@@ -49,7 +49,7 @@ export const Route = createFileRoute("/roadmap")({
   component: () => (
     <SimplePage eyebrow="Direction" title="Product evolution" illustration={<RoadmapIllustration />}>
       <p>
-        StarknetWallet is on a maintained product track. The stages below
+        Wallet is on a maintained product track. The stages below
         describe what we are improving next across the desktop workflow,
         signing surfaces, compatibility, and security interface. Priorities
         can shift based on user feedback and ecosystem changes.

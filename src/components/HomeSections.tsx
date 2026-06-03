@@ -49,7 +49,7 @@ export function WhyDesktop() {
             A focused environment for Starknet signing.
           </h2>
           <p className="section-sub">
-            StarknetWallet gives you more context before every approval —
+            Wallet gives you more context before every approval —
             a dedicated desktop interface for reviewing transactions, account
             permissions, and network activity.
           </p>
@@ -64,7 +64,7 @@ export function WhyDesktop() {
 export function Migration() {
   const cards: Card[] = [
     { variant: "import-arrow", title: "Import account", body: "Bring an existing Starknet account into a local desktop workflow." },
-    { variant: "key-vault", title: "Keep your accounts", body: "You control the account material. StarknetWallet does not custody keys." },
+    { variant: "key-vault", title: "Keep your accounts", body: "You control the account material. Wallet does not custody keys." },
     { variant: "policy-graph", title: "Review permissions", body: "Inspect smart-account session keys and spending approvals before signing." },
     { variant: "network-toggle", title: "Use Mainnet and Sepolia", body: "Switch between Starknet Mainnet and Sepolia with clear visual context." },
   ];
@@ -103,7 +103,7 @@ export function DocumentationPreview() {
         <div className="max-w-2xl">
           <span className="eyebrow">Documentation</span>
           <h2 id="docs-heading" className="font-display section-title mt-4 font-semibold">
-            Run StarknetWallet with confidence.
+            Run Wallet with confidence.
           </h2>
           <p className="section-sub">
             Short, practical guides covering installation, build verification,
@@ -195,7 +195,7 @@ export function CtaFinal() {
             Review with confidence before you approve.
           </h2>
           <p className="section-sub mx-auto max-w-2xl">
-            Download StarknetWallet to manage STRK, inspect Cairo calls, and
+            Download Wallet to manage STRK, inspect Cairo calls, and
             review smart-account permissions in a local-first desktop workflow.
           </p>
 

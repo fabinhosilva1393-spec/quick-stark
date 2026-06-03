@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { TermsIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "Terms — StarknetWallet";
-const DESC = "Terms covering use of the StarknetWallet website and desktop wallet.";
+const TITLE = "Terms — Wallet";
+const DESC = "Terms covering use of the Wallet website and desktop wallet.";
 
 export const Route = createFileRoute("/terms")({
   head: () => ({
@@ -25,7 +25,7 @@ export const Route = createFileRoute("/terms")({
           and for reviewing transactions before signing.
         </li>
         <li>
-          StarknetWallet is not affiliated with Starknet Foundation unless
+          Wallet is not affiliated with Starknet Foundation unless
           explicitly stated.
         </li>
       </ul>

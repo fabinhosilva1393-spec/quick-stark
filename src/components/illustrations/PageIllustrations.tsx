@@ -2,7 +2,7 @@
  * PageIllustrations
  * -----------------
  * Premium, page-specific Web3 isometric SVG illustrations matching the
- * StarknetWallet visual system: purple/lavender dominant, deep violet
+ * Wallet visual system: purple/lavender dominant, deep violet
  * shadows, soft lilac highlights, subtle cyan accents, floating object
  * on a small purple platform with a radial glow, dotted particle orbit,
  * thin neon line details, transparent background.
