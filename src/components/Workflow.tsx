@@ -28,7 +28,7 @@ const SLIDES: Slide[] = [
   {
     variant: "signed-release",
     eyebrow: "Step 3",
-    title: "Verify the release",
+    title: "Verify the build",
     body: "Confirm SHA256 checksums and PGP signatures before installing. Trust by verification, not by assumption.",
   },
   {
