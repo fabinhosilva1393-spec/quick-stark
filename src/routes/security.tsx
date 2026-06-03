@@ -37,7 +37,7 @@ const THREATS = [
   { threat: "Blind signing risk", scenario: "User signs without seeing what the call does.", mitigation: "Signing is always preceded by a structured transaction view.", status: "Mitigated" },
   { threat: "RPC tampering", scenario: "A compromised RPC returns inconsistent data.", mitigation: "Network and chain ID are validated and shown alongside every action.", status: "Monitored" },
   { threat: "Clipboard hijack", scenario: "Malware swaps an address from the clipboard.", mitigation: "Address checksums and full-address display reduce reliance on truncated views.", status: "Monitored" },
-  { threat: "Supply-chain download", scenario: "User downloads a tampered installer.", mitigation: "SHA256 checksums and PGP signatures published per release.", status: "Mitigated" },
+  { threat: "Supply-chain download", scenario: "User downloads a tampered installer.", mitigation: "SHA256 checksums and PGP signatures published for the current maintained build.", status: "Mitigated" },
   { threat: "Phishing UI", scenario: "Look-alike sites or apps imitate StarknetWallet.", mitigation: "Brand guidelines, signed builds, and verification instructions.", status: "Monitored" },
   { threat: "Session key abuse", scenario: "Granted session keys exceed user intent.", mitigation: "Smart-account permission review highlights scope and limits.", status: "Mitigated" },
   { threat: "Wrong network signing", scenario: "User signs on Mainnet thinking they are on Sepolia.", mitigation: "Mainnet and Sepolia are visually distinct in every signing surface.", status: "Mitigated" },
