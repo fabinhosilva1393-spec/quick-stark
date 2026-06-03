@@ -29,14 +29,15 @@ const SLIDES: Slide[] = [
     variant: "signed-release",
     eyebrow: "Step 3",
     title: "Verify the release",
-    body: "Use signed releases, SHA256 checksums, and source links before installing. Trust by verification, not by faith.",
+    body: "Confirm SHA256 checksums and PGP signatures before installing. Trust by verification, not by assumption.",
   },
   {
     variant: "wallet",
     eyebrow: "Step 4",
     title: "Manage STRK locally",
-    body: "Keep a local-first desktop workflow for STRK, accounts, and networks — no browser tab, no remote keys.",
+    body: "Keep a local-first workflow for STRK, accounts, and networks — focused, transparent, and on your device.",
   },
+
 ];
 
 export function Workflow() {
