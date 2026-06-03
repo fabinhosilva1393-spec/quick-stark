@@ -14,7 +14,7 @@ const BookOpen = purpleIcon("book");
 const FileText = purpleIcon("file");
 const DownloadCard = purpleIcon("download");
 
-type Card = { icon: LucideIcon; title: string; body: string };
+type Card = { icon: PurpleIconComponent | LucideIcon; title: string; body: string };
 
 function CardGrid({ cards, cols = 3 }: { cards: Card[]; cols?: 2 | 3 }) {
   const colClass = cols === 2 ? "sm:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3";
