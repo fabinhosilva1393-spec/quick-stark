@@ -23,7 +23,7 @@ type HwCard = {
 
 const OS_CARDS: OSCard[] = [
   {
-    variant: "developer-tools",
+    variant: "apple-desktop",
     name: "macOS",
     rows: [
       { label: "Versions", value: "macOS 12 Monterey or later" },
@@ -33,7 +33,7 @@ const OS_CARDS: OSCard[] = [
     status: "Supported",
   },
   {
-    variant: "transactions",
+    variant: "windows-monitor",
     name: "Windows",
     rows: [
       { label: "Versions", value: "Windows 10 or later" },
@@ -43,7 +43,7 @@ const OS_CARDS: OSCard[] = [
     status: "Supported",
   },
   {
-    variant: "cairo-preview",
+    variant: "linux-terminal",
     name: "Linux",
     rows: [
       { label: "Versions", value: "Ubuntu 22.04+, Fedora 38+, or equivalent" },
@@ -56,7 +56,7 @@ const OS_CARDS: OSCard[] = [
 
 const HW_CARDS: HwCard[] = [
   {
-    variant: "hardware-wallet",
+    variant: "hardware-nano",
     name: "Ledger",
     rows: [
       { label: "Devices", value: "Nano S Plus, Nano X, Stax" },
@@ -70,7 +70,7 @@ const HW_CARDS: HwCard[] = [
     label: "Compatible workflow",
   },
   {
-    variant: "secure-enclave",
+    variant: "trezor-device",
     name: "Trezor",
     rows: [
       { label: "Devices", value: "Trezor hardware wallets" },
@@ -85,7 +85,7 @@ const HW_CARDS: HwCard[] = [
     label: "Compatible workflow",
   },
   {
-    variant: "wallet",
+    variant: "wallet-argent",
     name: "Argent",
     rows: [
       { label: "Type", value: "Starknet wallet / smart-account workflow" },
@@ -96,7 +96,7 @@ const HW_CARDS: HwCard[] = [
     label: "Ecosystem workflow",
   },
   {
-    variant: "permissions",
+    variant: "wallet-braavos",
     name: "Braavos",
     rows: [
       { label: "Type", value: "Starknet wallet / smart-account workflow" },
@@ -107,7 +107,7 @@ const HW_CARDS: HwCard[] = [
     label: "Ecosystem workflow",
   },
   {
-    variant: "multi-network",
+    variant: "wallet-ready",
     name: "Ready",
     rows: [
       { label: "Type", value: "Starknet wallet / multisig / signing workflow" },
