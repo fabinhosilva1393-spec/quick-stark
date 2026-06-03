@@ -3,15 +3,15 @@ import { GITHUB_REPO_URL } from "@/data/downloads";
 
 const QA: { q: string; a: React.ReactNode }[] = [
   {
-    q: "Is Wallet free?",
-    a: "Yes. Wallet is free and open source. There are no subscriptions, no premium tiers, and no in-app upsells.",
+    q: "Is StarknetWallet free?",
+    a: "Yes. StarknetWallet is free and open source. There are no subscriptions, no premium tiers, and no in-app upsells.",
   },
   {
-    q: "Is Wallet affiliated with the Starknet Foundation?",
-    a: "No. Wallet is an independent project. It is not affiliated with, endorsed by, or operated by the Starknet Foundation or StarkWare unless explicitly stated.",
+    q: "Is StarknetWallet affiliated with the Starknet Foundation?",
+    a: "No. StarknetWallet is an independent project. It is not affiliated with, endorsed by, or operated by the Starknet Foundation or StarkWare unless explicitly stated.",
   },
   {
-    q: "Does Wallet collect my data?",
+    q: "Does StarknetWallet collect my data?",
     a: "No telemetry is sent by default. Private keys never leave your device. You can route RPC calls through your own node for full privacy.",
   },
   {

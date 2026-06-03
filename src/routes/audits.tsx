@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { AuditsIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "Audits — Wallet";
+const TITLE = "Audits — StarknetWallet";
 const DESC =
   "Security review process, responsible disclosure, and where verified audit reports will be published.";
 
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/audits")({
       <p>
         Security reviews and audit reports will be published here once they
         are completed and the full reports are publicly available. Until then,
-        Wallet should be treated as unaudited software — manage risk
+        StarknetWallet should be treated as unaudited software — manage risk
         accordingly.
       </p>
       <h2>Review process</h2>

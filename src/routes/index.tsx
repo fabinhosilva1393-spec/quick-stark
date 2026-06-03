@@ -21,7 +21,7 @@ import {
   CtaFinal,
 } from "@/components/HomeSections";
 
-const TITLE = "Wallet — Desktop Wallet for Starknet";
+const TITLE = "StarknetWallet — Desktop Wallet for Starknet";
 const DESC =
   "A local-first desktop wallet for Starknet. Manage STRK, preview Cairo calls, and review smart-account permissions on macOS, Windows, and Linux.";
 
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
-          name: "Wallet",
+          name: "StarknetWallet",
           applicationCategory: "FinanceApplication",
           operatingSystem: "macOS, Windows, Linux",
           offers: {

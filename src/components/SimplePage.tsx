@@ -10,7 +10,7 @@ type SimplePageProps = {
   illustration?: ReactNode;
 };
 
-export function SimplePage({ eyebrow = "Wallet", title, children, illustration }: SimplePageProps) {
+export function SimplePage({ eyebrow = "StarknetWallet", title, children, illustration }: SimplePageProps) {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />

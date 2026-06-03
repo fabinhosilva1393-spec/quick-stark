@@ -173,10 +173,10 @@ export function Footer() {
       <div className="container-page py-14">
         <div className="mb-10 flex items-center gap-2.5">
           <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center">
-            <img src="/src/assets/starknet-logomark.png" alt="" className="h-9 w-auto object-contain" />
+            <img src={logoAsset.url} alt="" className="h-9 w-9 object-contain" />
           </span>
-          <span className="font-bold tracking-tight text-ink uppercase">
-            STARKNETWALLET
+          <span className="font-bold tracking-tight text-ink">
+            Starknet<span className="text-brand">Wallet</span>
           </span>
         </div>
 
@@ -215,10 +215,10 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-hairline pt-6 text-xs text-ink-muted">
-          <p>© {new Date().getFullYear()} Wallet. Open source.</p>
+          <p>© {new Date().getFullYear()} StarknetWallet. Open source.</p>
           <div className="flex flex-col items-end gap-1 text-right max-w-xl">
             <p>
-              Wallet is an independent desktop wallet project for
+              StarknetWallet is an independent desktop wallet project for
               Starknet workflows. Not affiliated with Starknet Foundation
               unless explicitly stated. Always verify download links,
               checksums, and build signatures before installing wallet

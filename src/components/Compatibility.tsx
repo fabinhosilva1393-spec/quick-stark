@@ -81,7 +81,7 @@ const HW_CARDS: HwCard[] = [
       },
     ],
     notes:
-      "Use through compatible wallet workflows. No claim of direct native Wallet integration.",
+      "Use through compatible wallet workflows. No claim of direct native StarknetWallet integration.",
     label: "Compatible workflow",
   },
   {
@@ -184,7 +184,7 @@ export function Compatibility() {
             Compatibility
           </h2>
           <p className="section-sub">
-            Use Wallet across supported desktop environments and
+            Use StarknetWallet across supported desktop environments and
             compatible Starknet signing workflows. Review supported
             environments before installing or connecting a signer.
           </p>
@@ -231,7 +231,7 @@ export function Compatibility() {
             ))}
           </div>
           <p className="mt-6 text-xs text-ink-muted max-w-3xl">
-            Hardware-wallet ready. Wallet is prepared for hardware-wallet
+            Hardware-wallet ready. StarknetWallet is prepared for hardware-wallet
             integrations through compatible Starknet signing workflows. No
             official partnership or direct native integration is claimed unless
             explicitly documented.

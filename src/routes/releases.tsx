@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { APP_VERSION, GITHUB_RELEASES_URL } from "@/data/downloads";
 
-const TITLE = "Versions — Wallet";
+const TITLE = "Versions — StarknetWallet";
 const DESC =
-  "Current maintained version, signed desktop builds, and clear verification details for Wallet.";
+  "Current maintained version, signed desktop builds, and clear verification details for StarknetWallet.";
 
 export const Route = createFileRoute("/releases")({
   head: () => ({
@@ -18,7 +18,7 @@ export const Route = createFileRoute("/releases")({
   component: () => (
     <SimplePage eyebrow="Versions" title="Signed builds, clear verification.">
       <p>
-        Wallet ships signed desktop builds for macOS, Windows, and
+        StarknetWallet ships signed desktop builds for macOS, Windows, and
         Linux on a maintained product track. Each build is published with a
         SHA256 checksum and a PGP signature so you can verify it before
         installing.

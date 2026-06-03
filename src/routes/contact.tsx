@@ -4,9 +4,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { GITHUB_REPO_URL } from "@/data/downloads";
 
-const TITLE = "Contact — Wallet";
+const TITLE = "Contact — StarknetWallet";
 const DESC =
-  "Support, security reports, ecosystem questions, or product feedback for Wallet.";
+  "Support, security reports, ecosystem questions, or product feedback for StarknetWallet.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -78,7 +78,7 @@ function EmailCaptureCard() {
     <div className="rounded-2xl border border-hairline bg-surface p-7 shadow-[0_0_0_1px_rgba(10,69,255,0.04),0_30px_60px_-30px_rgba(10,69,255,0.25)]">
       <h2 className="text-xl font-bold text-ink">Stay updated</h2>
       <p className="mt-2 text-sm text-ink-muted leading-relaxed">
-        Get version notes, security updates, and Wallet product news.
+        Get version notes, security updates, and StarknetWallet product news.
       </p>
       <form onSubmit={onSubmit} noValidate className="mt-6 space-y-3">
         <label htmlFor="contact-email" className="sr-only">
@@ -159,7 +159,7 @@ const CONTACT_CARDS: ContactCard[] = [
   },
   {
     title: "Documentation",
-    text: "Read setup, security, and Wallet usage guides.",
+    text: "Read setup, security, and StarknetWallet usage guides.",
     internal: "/documentation",
   },
 ];
@@ -218,7 +218,7 @@ function ContactPage() {
               <h1 className="section-title mt-4">Talk to a real human.</h1>
               <p className="section-sub mt-5">
                 Support, security reports, ecosystem questions, or product
-                feedback for Wallet.
+                feedback for StarknetWallet.
               </p>
             </div>
 
@@ -255,7 +255,7 @@ function ContactPage() {
                   </ul>
                   <p className="mt-4 text-xs text-ink-muted/70">
                     Starknet ecosystem links are provided for context.
-                    Wallet is not affiliated with the Starknet
+                    StarknetWallet is not affiliated with the Starknet
                     Foundation unless explicitly stated.
                   </p>
                 </div>

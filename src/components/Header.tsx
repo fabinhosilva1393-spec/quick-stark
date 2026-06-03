@@ -25,21 +25,21 @@ export function Header() {
         <Link
           to="/"
           className="flex items-center gap-2.5"
-          aria-label="Wallet home"
+          aria-label="StarknetWallet home"
           onClick={() => setOpen(false)}
         >
           <span
             aria-hidden="true"
-            className="inline-flex items-center justify-center"
+            className="inline-flex h-9 w-9 items-center justify-center"
           >
             <img
-              src="/src/assets/starknet-logomark.png"
+              src={logoAsset.url}
               alt=""
-              className="h-10 w-auto object-contain"
+              className="h-9 w-9 object-contain"
             />
           </span>
-          <span className="tracking-tight text-ink font-semibold text-2xl uppercase">
-            STARKNETWALLET
+          <span className="font-bold tracking-tight text-ink">
+            Starknet<span className="text-brand">Wallet</span>
           </span>
         </Link>
 

@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { PrivacyIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "Privacy — Wallet";
-const DESC = "How Wallet handles your data. Local-first by design.";
+const TITLE = "Privacy — StarknetWallet";
+const DESC = "How StarknetWallet handles your data. Local-first by design.";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({

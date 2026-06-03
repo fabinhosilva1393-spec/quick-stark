@@ -3,9 +3,9 @@ import { Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
-const TITLE = "Compare — Wallet";
+const TITLE = "Compare — StarknetWallet";
 const DESC =
-  "How Wallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and build verification.";
+  "How StarknetWallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and build verification.";
 
 
 export const Route = createFileRoute("/compare")({
@@ -86,7 +86,7 @@ function ComparePage() {
                 Built for Starknet signing, end to end.
               </h1>
               <p className="section-sub mt-5">
-                Wallet is designed around focused desktop review,
+                StarknetWallet is designed around focused desktop review,
                 Cairo call context, STRK management, smart-account permissions,
                 and verified desktop builds. This page compares those
                 capabilities across common wallet environments.
@@ -117,7 +117,7 @@ function ComparePage() {
                         Capability
                       </th>
                       <th className="px-5 py-4 text-center font-bold text-ink">
-                        Wallet
+                        StarknetWallet
                       </th>
                       <th className="px-5 py-4 text-center font-semibold text-ink-muted">
                         Other wallet environments
