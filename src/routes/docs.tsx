@@ -449,10 +449,10 @@ function ManagingAccounts() {
     <Section id="managing-accounts" eyebrow="4. Daily use" title="Managing Accounts">
       <CardGrid
         items={[
-          { icon: Wallet, title: "Account overview", body: "See STRK balance, recent activity, and the active Starknet account at a glance." },
-          { icon: Boxes, title: "Multi-account workflows", body: "Create or import multiple Starknet accounts and switch between them cleanly." },
-          { icon: Network, title: "Network switching", body: "Move between Starknet Mainnet and Sepolia explicitly, with the network labeled on every signing surface." },
-          { icon: Lock, title: "Local-first control", body: "Account material stays on your device — StarknetWallet does not custody keys." },
+          { art: "accounts-overview", title: "Account overview", body: "See STRK balance, recent activity, and the active Starknet account at a glance." },
+          { art: "accounts-multi", title: "Multi-account workflows", body: "Create or import multiple Starknet accounts and switch between them cleanly." },
+          { art: "accounts-network", title: "Network switching", body: "Move between Starknet Mainnet and Sepolia explicitly, with the network labeled on every signing surface." },
+          { art: "accounts-local", title: "Local-first control", body: "Account material stays on your device — StarknetWallet does not custody keys." },
         ]}
       />
     </Section>
