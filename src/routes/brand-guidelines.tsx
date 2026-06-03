@@ -99,7 +99,7 @@ function BrandPage() {
                     className="h-10 w-10 object-contain"
                   />
                   <span className="text-2xl font-bold tracking-tight text-ink">
-                    Starknet<span className="text-brand">Wallet</span>
+                    Starknet<span className="text-brand text-white">Wallet</span>
                   </span>
                 </div>
                 <p className="mt-4 text-xs uppercase tracking-[0.18em] text-ink-muted">

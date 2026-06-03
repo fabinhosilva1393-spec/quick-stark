@@ -176,7 +176,7 @@ export function Footer() {
             <img src={logoAsset.url} alt="" className="h-9 w-9 object-contain" />
           </span>
           <span className="font-bold tracking-tight text-ink">
-            Starknet<span className="text-brand">Wallet</span>
+            Starknet<span className="text-brand text-white">Wallet</span>
           </span>
         </div>
 
