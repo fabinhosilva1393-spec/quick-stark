@@ -630,12 +630,12 @@ function AdvancedTools() {
     <Section id="advanced-tools" eyebrow="11. Power features" title="Advanced Tools">
       <CardGrid
         items={[
-          { icon: Code2, title: "Cairo calldata viewer", body: "Inspect decoded calldata for the Cairo call you are about to sign." },
-          { icon: KeyRound, title: "Permission viewer", body: "Walk through session keys, signer changes, and spending approvals tied to your smart account." },
-          { icon: FileSearch, title: "Account activity inspector", body: "Browse account activity with network, contract, and fee context." },
-          { icon: ShieldCheck, title: "Build verification panel", body: "Reference the SHA256 checksum and signature published for your build." },
-          { icon: Network, title: "Multi-network context", body: "Move between Starknet Mainnet and Sepolia with the active network clearly labeled." },
-          { icon: Cpu, title: "Hardware signer workflow status", body: "See whether an external signer is connected and ready for the next approval." },
+          { art: "tool-calldata", title: "Cairo calldata viewer", body: "Inspect decoded calldata for the Cairo call you are about to sign." },
+          { art: "tool-permission", title: "Permission viewer", body: "Walk through session keys, signer changes, and spending approvals tied to your smart account." },
+          { art: "tool-activity", title: "Account activity inspector", body: "Browse account activity with network, contract, and fee context." },
+          { art: "tool-build-verify", title: "Build verification panel", body: "Reference the SHA256 checksum and signature published for your build." },
+          { art: "tool-multi-network", title: "Multi-network context", body: "Move between Starknet Mainnet and Sepolia with the active network clearly labeled." },
+          { art: "tool-hw-status", title: "Hardware signer workflow status", body: "See whether an external signer is connected and ready for the next approval." },
         ]}
       />
     </Section>
