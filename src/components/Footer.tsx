@@ -94,7 +94,7 @@ const COLUMNS: FooterColumn[] = [
     title: "Resources",
     items: [
       { label: "Audits", href: "/audits" },
-      { label: "Changelog", href: "/changelog" },
+      { label: "Version history", href: "/changelog" },
       { label: "Brand guidelines", href: "/brand-guidelines" },
     ],
   },
