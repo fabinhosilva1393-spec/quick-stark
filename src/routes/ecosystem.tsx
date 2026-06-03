@@ -47,14 +47,14 @@ const ECOSYSTEM_NAMES = [
   "JediSwap",
 ];
 
-type Card = { icon: LucideIcon; title: string; body: string };
+type Card = { variant: IsoIllustrationVariant; title: string; body: string };
 const FEATURES: Card[] = [
-  { icon: Coins, title: "STRK management", body: "View balances and send STRK with a clear, desktop-grade signing surface." },
-  { icon: Cpu, title: "Cairo call preview", body: "Decoded calldata and target contract context before you approve." },
-  { icon: KeyRound, title: "Smart-account permission review", body: "Inspect session keys, scopes, and spending approvals before signing." },
-  { icon: Network, title: "Mainnet / Sepolia clarity", body: "The active Starknet network is visible on every signing screen." },
-  { icon: Eye, title: "dApp transaction review", body: "Larger review surface for contract, calldata, network, and fee." },
-  { icon: ShieldCheck, title: "Signed desktop releases", body: "Every release ships with SHA256 checksums and PGP signatures." },
+  { variant: "wallet", title: "STRK management", body: "View balances and send STRK with a clear, desktop-grade signing surface." },
+  { variant: "cairo-preview", title: "Cairo call preview", body: "Decoded calldata and target contract context before you approve." },
+  { variant: "permissions", title: "Smart-account permission review", body: "Inspect session keys, scopes, and spending approvals before signing." },
+  { variant: "multi-network", title: "Mainnet / Sepolia clarity", body: "The active Starknet network is visible on every signing screen." },
+  { variant: "transactions", title: "dApp transaction review", body: "Larger review surface for contract, calldata, network, and fee." },
+  { variant: "signed-release", title: "Signed desktop releases", body: "Every release ships with SHA256 checksums and PGP signatures." },
 ];
 
 function EcosystemPage() {
