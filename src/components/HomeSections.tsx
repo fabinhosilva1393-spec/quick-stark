@@ -144,7 +144,7 @@ export function ReleasesPreview() {
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr] lg:items-center">
           <div>
             <span className="eyebrow">Releases</span>
-            <h2 id="releases-heading" className="section-title mt-4">
+            <h2 id="releases-heading" className="font-display section-title mt-4 font-semibold">
               Signed releases, clear verification.
             </h2>
             <p className="section-sub">
