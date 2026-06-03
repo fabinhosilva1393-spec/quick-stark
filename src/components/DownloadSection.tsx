@@ -85,9 +85,9 @@ export function DownloadSection({ id = "download", compact = false }: Props) {
             </h3>
           </div>
           <p className="mt-2 text-sm text-ink-muted max-w-2xl">
-            Every release ships with a SHA256 checksum and a PGP signature.
-            Confirm the file you downloaded matches what was published before
-            you run it.
+            Every maintained build ships with a SHA256 checksum and a PGP
+            signature. Confirm the file you downloaded matches what was
+            published before you run it.
           </p>
 
           <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 list-none p-0">
