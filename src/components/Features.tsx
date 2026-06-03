@@ -29,7 +29,7 @@ const FEATURES: Array<{
   },
   {
     variant: "signed-release",
-    title: "Verified release workflow",
+    title: "Verified build workflow",
     body: "Every build ships with SHA256 checksums and PGP signatures so you can confirm what you install before launching it.",
     chips: ["SHA256", "PGP"],
   },
