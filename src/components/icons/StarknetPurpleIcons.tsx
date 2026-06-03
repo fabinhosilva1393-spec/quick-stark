@@ -208,7 +208,7 @@ function renderShape(name: PurpleIconName) {
   }
 }
 
-export type PurpleIconComponent = React.ComponentType<{
+export type PurpleIconComponent = ComponentType<{
   size?: number;
   className?: string;
 }>;
