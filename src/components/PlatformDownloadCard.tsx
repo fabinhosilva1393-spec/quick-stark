@@ -43,7 +43,7 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
       </div>
 
       <p className="mt-3 text-xs font-semibold text-ink text-left leading-tight">
-        Latest release · {item.version}
+        Current maintained version · {item.version}
       </p>
 
       <dl className="mt-1 flex items-baseline justify-between gap-4 text-xs text-left leading-tight">
