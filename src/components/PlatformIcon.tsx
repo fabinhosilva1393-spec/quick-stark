@@ -33,25 +33,15 @@ function WindowsIcon() {
 
 function LinuxIcon() {
   return (
-    <svg viewBox="0 0 64 64" width={SIZE} height={SIZE} aria-hidden="true">
-      <g fill="currentColor">
-        {/* Head */}
-        <path d="M32 4c-6 0-10 4.8-10 11.4 0 3 .7 5.6 1.9 7.8-3.2 2.8-5.6 6.6-7.1 10.6-1.6 4.2-2.3 8.4-2.3 11.8 0 5.4 2.2 9.6 6 12.2 3.4 2.3 7.8 3.2 11.5 3.2s8.1-.9 11.5-3.2c3.8-2.6 6-6.8 6-12.2 0-3.4-.7-7.6-2.3-11.8-1.5-4-3.9-7.8-7.1-10.6 1.2-2.2 1.9-4.8 1.9-7.8C42 8.8 38 4 32 4z" />
-      </g>
-      {/* Belly */}
-      <ellipse cx="32" cy="42" rx="9" ry="13" fill="#ffffff" opacity="0.92" />
-      {/* Eyes */}
-      <ellipse cx="28.4" cy="17" rx="2.6" ry="3.2" fill="#ffffff" />
-      <ellipse cx="35.6" cy="17" rx="2.6" ry="3.2" fill="#ffffff" />
-      <ellipse cx="28.9" cy="17.6" rx="1.1" ry="1.6" fill="#0b0b18" />
-      <ellipse cx="35.1" cy="17.6" rx="1.1" ry="1.6" fill="#0b0b18" />
-      {/* Beak */}
-      <path d="M29 21.4c0-1.4 1.3-2.4 3-2.4s3 1 3 2.4-1.3 2.4-3 2.4-3-1-3-2.4z" fill="#f6c453" />
-      <path d="M30 22.1h4l-2 1.6z" fill="#d99a2b" />
-      {/* Feet */}
-      <path d="M20 55c-.6 1.2-.2 2.6 1.2 3.2 1.6.7 4.2.5 6.4-.4 1.8-.7 2.8-1.8 2.4-2.8-.4-1-2-1.6-4.2-1.4-2 .2-4.6.4-5.8 1.4z" fill="#f6c453" />
-      <path d="M44 55c.6 1.2.2 2.6-1.2 3.2-1.6.7-4.2.5-6.4-.4-1.8-.7-2.8-1.8-2.4-2.8.4-1 2-1.6 4.2-1.4 2 .2 4.6.4 5.8 1.4z" fill="#f6c453" />
-    </svg>
+    <img
+      src={tuxAsset.url}
+      alt=""
+      aria-hidden="true"
+      width={SIZE}
+      height={SIZE}
+      loading="lazy"
+      style={{ width: SIZE, height: SIZE, objectFit: "contain", display: "block" }}
+    />
   );
 }
 
