@@ -72,6 +72,7 @@ function Index() {
         <Security />
         <WhyDesktop />
         <Migration />
+        <Compatibility />
         <Compare />
         <DocumentationPreview />
         <ReleasesPreview />
