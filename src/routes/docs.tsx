@@ -26,7 +26,7 @@ import {
 
 const TITLE = "StarknetWallet Docs — Install, verify, and sign with clarity";
 const DESC =
-  "Documentation for StarknetWallet: installation, account setup, Cairo call review, smart-account permissions, hardware-wallet workflows, and developer tools.";
+  "Install, verify, set up accounts, review Cairo calls, and understand StarknetWallet workflows.";
 
 type DocSection = {
   id: string;
