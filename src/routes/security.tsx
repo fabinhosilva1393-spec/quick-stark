@@ -86,7 +86,7 @@ export const Route = createFileRoute("/security")({
         style={{ listStyle: "none", paddingLeft: 0 }}
         className="not-prose mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4"
       >
-        {["Local-first keys", "No telemetry by default", "Signed releases", "Mainnet/Sepolia clarity"].map((s) => (
+        {["Local-first keys", "No telemetry by default", "Signed builds", "Mainnet/Sepolia clarity"].map((s) => (
           <li key={s} className="rounded-lg border border-hairline bg-surface p-3 text-xs font-semibold text-ink">
             {s}
           </li>
