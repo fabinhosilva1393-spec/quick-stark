@@ -33,8 +33,8 @@ export function Hero() {
             Secure desktop wallet for Starknet
           </span>
 
-          <h1 className="font-display mt-6 text-5xl sm:text-6xl lg:text-7xl xl:text-[80px] font-semibold tracking-tight text-ink leading-[1.02]">
-            StarknetWallet brings clarity to every <span className="text-brand italic">approval</span>.
+          <h1 className="hero-h1 mt-6 text-ink">
+            StarknetWallet brings clarity to every <span className="accent">approval</span>.
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-ink-muted leading-relaxed max-w-2xl">
