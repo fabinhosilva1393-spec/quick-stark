@@ -54,7 +54,7 @@ const FEATURES: Card[] = [
   { variant: "signer-tree", title: "Smart-account permission review", body: "Inspect session keys, scopes, and spending approvals before signing." },
   { variant: "network-constellation", title: "Mainnet / Sepolia clarity", body: "The active Starknet network is visible on every signing screen." },
   { variant: "approval-path", title: "dApp transaction review", body: "Larger review surface for contract, calldata, network, and fee." },
-  { variant: "release-tag", title: "Signed desktop releases", body: "Every release ships with SHA256 checksums and PGP signatures." },
+  { variant: "release-tag", title: "Signed desktop builds", body: "Every maintained build ships with SHA256 checksums and PGP signatures." },
 ];
 
 function EcosystemPage() {
