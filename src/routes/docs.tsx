@@ -20,9 +20,12 @@ import {
   Boxes,
   Network,
   Eye,
-  Github,
-  Mail,
 } from "lucide-react";
+import {
+  DocsArt,
+  DocsHeroArt,
+  type DocsArtVariant,
+} from "@/components/illustrations/DocsIllustrations";
 
 const TITLE = "StarknetWallet Docs — Install, verify, and sign with clarity";
 const DESC =
