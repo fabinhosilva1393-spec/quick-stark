@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 
 const TITLE = "Compare — StarknetWallet";
 const DESC =
-  "How StarknetWallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and release verification.";
+  "How StarknetWallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and build verification.";
 
 
 export const Route = createFileRoute("/compare")({
