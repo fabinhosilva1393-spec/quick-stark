@@ -46,7 +46,11 @@ export type IsoIllustrationVariant =
   | "signer-tree"
   | "network-constellation"
   | "approval-path"
-  | "release-tag";
+  | "release-tag"
+  | "workflow-preview"
+  | "workflow-stamp"
+  | "workflow-ledger"
+  | "workflow-vault";
 
 type Props = {
   variant: IsoIllustrationVariant;
