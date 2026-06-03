@@ -2,15 +2,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Download, BookOpen } from "lucide-react";
-import { purpleIcon, type PurpleIconComponent } from "@/components/icons/StarknetPurpleIcons";
-
-const Cpu = purpleIcon("cpu");
-const KeyRound = purpleIcon("key");
-const Network = purpleIcon("network");
-const ShieldCheck = purpleIcon("shield");
-const Coins = purpleIcon("coins");
-const Eye = purpleIcon("eye");
-type LucideIcon = PurpleIconComponent;
+import {
+  StarknetIsoIllustration,
+  type IsoIllustrationVariant,
+} from "@/components/StarknetIsoIllustration";
 
 const TITLE = "Ecosystem — StarknetWallet";
 const DESC =
