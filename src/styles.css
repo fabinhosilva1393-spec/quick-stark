@@ -42,8 +42,9 @@
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
   --color-hairline: var(--hairline);
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-display: "Eloquia Text", "Inter Tight", "Manrope", "Inter", system-ui, sans-serif;
+  --font-sans: "Sora", "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", "Sora", "Inter", system-ui, sans-serif;
+  --font-heading: "Space Grotesk", "Sora", "Inter", system-ui, sans-serif;
   --font-mono: "Martian Mono", "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
