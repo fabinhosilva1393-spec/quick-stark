@@ -5,7 +5,7 @@ const HIGHLIGHTS = [
   "Dedicated signing environment",
   "Cairo calldata visibility",
   "Smart-account permission review",
-  "Verified release workflow",
+  "Verified build workflow",
 ];
 
 export function Compare() {
