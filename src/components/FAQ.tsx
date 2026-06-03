@@ -20,8 +20,9 @@ const QA: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Can I use a Ledger hardware wallet?",
-    a: "Yes. Ledger over USB is supported on all three desktop platforms so signing keys can remain on the hardware device.",
+    a: "Hardware-wallet workflows are supported through compatible Starknet signing tooling. Ledger users typically sign Starknet transactions via wallets such as Argent, Braavos, or Ready. No direct native Ledger integration is claimed unless explicitly documented.",
   },
+
   {
     q: "How do I verify a release?",
     a: (
