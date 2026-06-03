@@ -65,7 +65,7 @@ export function FAQ() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">FAQ</span>
-          <h2 className="section-title mt-4">Questions, answered.</h2>
+          <h2 className="font-display section-title mt-4 font-semibold">Questions, answered.</h2>
         </div>
 
         <div className="mt-10 max-w-3xl divide-y divide-hairline border-y border-hairline">
