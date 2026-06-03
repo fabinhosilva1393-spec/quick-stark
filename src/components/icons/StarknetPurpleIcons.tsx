@@ -208,9 +208,10 @@ function renderShape(name: PurpleIconName) {
   }
 }
 
-export type PurpleIconComponent = (
-  props: { size?: number; className?: string }
-) => JSX.Element;
+export type PurpleIconComponent = React.ComponentType<{
+  size?: number;
+  className?: string;
+}>;
 
 const cache = new Map<PurpleIconName, PurpleIconComponent>();
 
