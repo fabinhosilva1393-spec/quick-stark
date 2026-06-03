@@ -24,13 +24,13 @@ const QA: { q: string; a: React.ReactNode }[] = [
   },
 
   {
-    q: "How do I verify a release?",
+    q: "How do I verify a build?",
     a: (
       <>
-        Every published build ships with a SHA256 checksum and a PGP signature.
-        See the verification commands on the{" "}
-        <a href="/releases" className="text-link">releases page</a> for the
-        exact steps once a release is published.
+        Every maintained build ships with a SHA256 checksum and a PGP
+        signature. See the verification commands on the{" "}
+        <a href="/releases" className="text-link">versions page</a> for the
+        exact steps for the current maintained build.
       </>
     ),
   },
