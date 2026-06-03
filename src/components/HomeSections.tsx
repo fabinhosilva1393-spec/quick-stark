@@ -1,19 +1,18 @@
 import { Link } from "@tanstack/react-router";
-import {
-  ShieldCheck,
-  Download,
-  Monitor,
-  Eye,
-  HardDrive,
-  Network,
-  Cpu,
-  KeyRound,
-  ArrowDownToLine,
-  BookOpen,
-  FileText,
-  Tag,
-  type LucideIcon,
-} from "lucide-react";
+import { Download, Tag, type LucideIcon } from "lucide-react";
+import { purpleIcon, type PurpleIconComponent } from "@/components/icons/StarknetPurpleIcons";
+
+const ShieldCheck = purpleIcon("shield");
+const Monitor = purpleIcon("monitor");
+const Eye = purpleIcon("eye");
+const HardDrive = purpleIcon("hard-drive");
+const Network = purpleIcon("network");
+const Cpu = purpleIcon("cpu");
+const KeyRound = purpleIcon("key");
+const ArrowDownToLine = purpleIcon("arrow-down");
+const BookOpen = purpleIcon("book");
+const FileText = purpleIcon("file");
+const DownloadCard = purpleIcon("download");
 
 type Card = { icon: LucideIcon; title: string; body: string };
 
