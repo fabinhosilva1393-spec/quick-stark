@@ -73,7 +73,7 @@ export function Migration() {
       <div className="container-page">
         <div className="max-w-2xl">
           <span className="eyebrow">Migration</span>
-          <h2 id="migration-heading" className="section-title mt-4">
+          <h2 id="migration-heading" className="font-display section-title mt-4 font-semibold">
             Bring your Starknet account. Keep your keys.
           </h2>
           <p className="section-sub">
