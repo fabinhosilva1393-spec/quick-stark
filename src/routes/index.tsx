@@ -63,7 +63,19 @@ export const Route = createFileRoute("/")({
             price: "0",
             priceCurrency: "USD",
           },
-          downloadUrl: "https://starknetwallet.org/download",
+          downloadUrl: "https://quick-stark.lovable.app/#download",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQ_ITEMS.map((it) => ({
+            "@type": "Question",
+            name: it.q,
+            acceptedAnswer: { "@type": "Answer", text: it.a },
+          })),
         }),
       },
     ],
