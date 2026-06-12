@@ -26,6 +26,7 @@ const STATIC_ROUTES = [
 ];
 
 export default defineConfig({
+  nitro: false,
   tanstackStart: {
     prerender: {
       enabled: true,
