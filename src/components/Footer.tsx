@@ -323,12 +323,14 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="mt-8 flex flex-col gap-3 text-xs text-ink-muted md:flex-row md:items-start md:justify-between">
-          <p>© {new Date().getFullYear()} StarknetWallet. Open source.</p>
-          <p className="max-w-2xl md:text-right">
-            StarknetWallet is built for secure Starknet desktop workflows,
+        <div className="mt-10 border-t border-hairline pt-8 flex flex-col items-center gap-3 text-center">
+          <p className="max-w-2xl text-sm leading-relaxed text-ink-muted italic">
+            “StarknetWallet is built for secure Starknet desktop workflows,
             giving users clearer transaction review, local-first key control,
-            and transparent smart-account signing.
+            and transparent smart-account signing.”
+          </p>
+          <p className="text-xs text-ink-subtle">
+            © {new Date().getFullYear()} StarknetWallet · Open source
           </p>
         </div>
       </div>
