@@ -12,7 +12,9 @@ export const Route = createFileRoute("/privacy")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: "/privacy" },
     ],
+    links: [{ rel: "canonical", href: "/privacy" }],
   }),
   component: () => (
     <SimplePage eyebrow="Legal" title="Privacy" illustration={<PrivacyIllustration />}>

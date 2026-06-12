@@ -40,7 +40,9 @@ export const Route = createFileRoute("/roadmap")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: "/roadmap" },
     ],
+    links: [{ rel: "canonical", href: "/roadmap" }],
   }),
   component: () => (
     <SimplePage eyebrow="Direction" title="Product evolution" illustration={<RoadmapIllustration />}>

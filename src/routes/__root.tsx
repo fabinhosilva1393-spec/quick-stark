@@ -89,6 +89,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:site_name", content: "StarknetWallet" },
       { property: "og:type", content: "website" },
+      {
+        property: "og:title",
+        content: "StarknetWallet — Desktop Wallet for Starknet",
+      },
+      {
+        property: "og:description",
+        content:
+          "A local-first desktop wallet for Starknet. Manage STRK, preview Cairo calls, and review smart-account permissions on macOS, Windows, and Linux.",
+      },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -99,7 +108,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
-
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "StarknetWallet",
+          url: "https://quick-stark.lovable.app",
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "StarknetWallet",
+          url: "https://quick-stark.lovable.app",
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
