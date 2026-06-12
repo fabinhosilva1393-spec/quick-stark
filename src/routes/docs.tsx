@@ -26,7 +26,7 @@ import {
   type DocsArtVariant,
 } from "@/components/illustrations/DocsIllustrations";
 
-const TITLE = "StarknetWallet Docs — Install, verify, and sign with clarity";
+const TITLE = "StarknetWallet Docs — Install, Verify, Sign";
 const DESC =
   "Install, verify, set up accounts, review Cairo calls, and understand StarknetWallet workflows.";
 
@@ -60,6 +60,7 @@ export const Route = createFileRoute("/docs")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/docs" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
     ],

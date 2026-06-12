@@ -72,7 +72,9 @@ export const Route = createFileRoute("/security")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: "/security" },
     ],
+    links: [{ rel: "canonical", href: "/security" }],
   }),
   component: () => (
     <SimplePage eyebrow="Security" title="Verifiable security, all the way down.">

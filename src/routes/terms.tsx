@@ -12,7 +12,9 @@ export const Route = createFileRoute("/terms")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: "/terms" },
     ],
+    links: [{ rel: "canonical", href: "/terms" }],
   }),
   component: () => (
     <SimplePage eyebrow="Legal" title="Terms" illustration={<TermsIllustration />}>

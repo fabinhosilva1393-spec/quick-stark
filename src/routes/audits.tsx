@@ -13,7 +13,9 @@ export const Route = createFileRoute("/audits")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: "/audits" },
     ],
+    links: [{ rel: "canonical", href: "/audits" }],
   }),
   component: () => (
     <SimplePage eyebrow="Security" title="Security reviews" illustration={<AuditsIllustration />}>

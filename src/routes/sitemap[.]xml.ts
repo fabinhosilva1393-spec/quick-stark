@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://starknetwallet.org";
+const BASE_URL = "https://quick-stark.lovable.app";
 
 interface SitemapEntry {
   path: string;
@@ -18,6 +18,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/ecosystem", changefreq: "monthly", priority: "0.7" },
           { path: "/security", changefreq: "monthly", priority: "0.8" },
           { path: "/docs", changefreq: "weekly", priority: "0.8" },
+          { path: "/documentation", changefreq: "monthly", priority: "0.4" },
           { path: "/releases", changefreq: "weekly", priority: "0.8" },
           { path: "/compare", changefreq: "monthly", priority: "0.6" },
           { path: "/changelog", changefreq: "weekly", priority: "0.6" },
