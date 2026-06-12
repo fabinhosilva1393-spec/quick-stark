@@ -328,8 +328,7 @@ export function Footer() {
           <p className="max-w-2xl md:text-right">
             StarknetWallet is built for secure Starknet desktop workflows,
             giving users clearer transaction review, local-first key control,
-            and transparent smart-account signing. Always verify downloads,
-            checksums, and build signatures before installing wallet software.
+            and transparent smart-account signing.
           </p>
         </div>
       </div>
