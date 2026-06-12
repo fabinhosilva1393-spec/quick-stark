@@ -1,9 +1,8 @@
 @import "tailwindcss" source(none);
-@source "../src";
 @import "tw-animate-css";
+@source "../src";
 
-/* Type system: Space Grotesk (display/headings), Sora (UI/body), Martian Mono (technical), Inter (paragraph fallback) */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Sora:wght@400;500;600;700&family=Martian+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap");
+/* Type system: Space Grotesk (display/headings), Sora (UI/body), Martian Mono (technical), Inter (paragraph fallback). Fonts loaded via <link> in __root.tsx */
 
 
 @custom-variant dark (&:is(.dark *));
