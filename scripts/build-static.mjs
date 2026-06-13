@@ -1,27 +1,23 @@
 #!/usr/bin/env node
 /**
- * Post-build script that converts the TanStack Start SSR output
- * (`dist/client` + `dist/server`) into a fully static site at
- * `dist/static/` suitable for cPanel / Apache / any static host.
+ * Post-build: convert the TanStack Start SSR output into a fully static
+ * site at `dist/static/` suitable for cPanel / Apache / any static host
+ * (no Node.js runtime required after deployment).
  *
- * - Invokes the cloudflare-module SSR handler in-process (Node 22+ has
- *   fetch/Request/Response) to prerender every listed public route.
- * - Writes <route>/index.html for each route, plus sitemap.xml & robots.txt.
- * - Copies all client assets (JS / CSS / images / fonts / favicon).
- * - Generates an .htaccess for clean URL routing.
- *
- * Run automatically after `npm run build` via the `postbuild` script.
+ * The server entry path is discovered dynamically — it reads dist/nitro.json
+ * (or dist/package.json) to find the actual generated entry, and falls back
+ * to a list of well-known locations. All paths are resolved from the project
+ * root with `path.join` / `pathToFileURL` so the script works on Linux,
+ * macOS and Windows alike.
  */
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
-const clientDir = path.join(root, "dist/client");
-const serverEntry = path.join(root, "dist/server/index.mjs");
-const outDir = path.join(root, "dist/static");
+const distDir = path.join(root, "dist");
+const outDir = path.join(distDir, "static");
 
-// Every public route from src/routes/ (page routes + sitemap/robots).
 const PAGE_ROUTES = [
   "/",
   "/about",
@@ -40,13 +36,15 @@ const PAGE_ROUTES = [
   "/security",
   "/terms",
 ];
-const EXTRA_ROUTES = [
-  { path: "/sitemap.xml", file: "sitemap.xml" },
-];
+const EXTRA_ROUTES = [{ path: "/sitemap.xml", file: "sitemap.xml" }];
 
-async function rimraf(p) {
-  await fs.rm(p, { recursive: true, force: true });
+async function exists(p) {
+  try { await fs.access(p); return true; } catch { return false; }
 }
+async function readJson(p) {
+  try { return JSON.parse(await fs.readFile(p, "utf8")); } catch { return null; }
+}
+async function rimraf(p) { await fs.rm(p, { recursive: true, force: true }); }
 async function copyDir(src, dst) {
   await fs.mkdir(dst, { recursive: true });
   for (const entry of await fs.readdir(src, { withFileTypes: true })) {
@@ -57,30 +55,96 @@ async function copyDir(src, dst) {
   }
 }
 
-async function main() {
-  // Sanity check
-  for (const p of [clientDir, serverEntry]) {
-    try { await fs.access(p); }
-    catch {
-      console.error(`[build-static] Missing ${p}. Did 'vite build' run?`);
-      process.exit(1);
-    }
+async function detectClientDir() {
+  const nitro = await readJson(path.join(distDir, "nitro.json"));
+  if (nitro?.publicDir) {
+    const candidate = path.join(distDir, nitro.publicDir);
+    if (await exists(candidate)) return candidate;
+  }
+  for (const rel of ["client", "public", "../.output/public"]) {
+    const candidate = path.join(distDir, rel);
+    if (await exists(candidate)) return candidate;
+  }
+  return null;
+}
+
+async function detectServerEntry() {
+  const candidates = [];
+
+  const nitro = await readJson(path.join(distDir, "nitro.json"));
+  if (nitro?.serverEntry) candidates.push(path.join(distDir, nitro.serverEntry));
+
+  const distPkg = await readJson(path.join(distDir, "package.json"));
+  if (distPkg?.main) candidates.push(path.join(distDir, distPkg.main));
+
+  for (const rel of [
+    "server/index.mjs",
+    "server/index.js",
+    "server/server.mjs",
+    "server/server.js",
+    "server/entry.mjs",
+    "server/entry.js",
+    "../.output/server/index.mjs",
+  ]) {
+    candidates.push(path.join(distDir, rel));
   }
 
-  console.log("[build-static] Preparing dist/static/");
+  const seen = new Set();
+  for (const c of candidates) {
+    const norm = path.normalize(c);
+    if (seen.has(norm)) continue;
+    seen.add(norm);
+    if (await exists(norm)) return norm;
+  }
+
+  // Nothing found — print what we did find to help debugging.
+  const lines = ["[build-static] Could not locate the SSR server entry."];
+  lines.push("[build-static] Checked these locations:");
+  for (const c of seen) lines.push("  - " + path.relative(root, c));
+  lines.push("[build-static] Contents of dist/:");
+  try {
+    const entries = await fs.readdir(distDir, { withFileTypes: true });
+    for (const e of entries) lines.push("  - " + e.name + (e.isDirectory() ? "/" : ""));
+    if (await exists(path.join(distDir, "server"))) {
+      lines.push("[build-static] Contents of dist/server/:");
+      for (const e of await fs.readdir(path.join(distDir, "server"), { withFileTypes: true })) {
+        lines.push("  - " + e.name + (e.isDirectory() ? "/" : ""));
+      }
+    }
+  } catch {}
+  throw new Error(lines.join("\n"));
+}
+
+async function main() {
+  if (!(await exists(distDir))) {
+    console.error("[build-static] dist/ not found. Run `vite build` first.");
+    process.exit(1);
+  }
+
+  const clientDir = await detectClientDir();
+  if (!clientDir) {
+    console.error("[build-static] Could not locate client assets directory (tried dist/client, dist/public, .output/public).");
+    process.exit(1);
+  }
+  const serverEntry = await detectServerEntry();
+
+  console.log(`[build-static] Client assets: ${path.relative(root, clientDir)}`);
+  console.log(`[build-static] Server entry:  ${path.relative(root, serverEntry)}`);
+  console.log(`[build-static] Output dir:    ${path.relative(root, outDir)}`);
+
   await rimraf(outDir);
   await fs.mkdir(outDir, { recursive: true });
 
-  // 1. Copy all client assets (JS, CSS, images, fonts, favicon, robots.txt…)
   console.log("[build-static] Copying client assets…");
   await copyDir(clientDir, outDir);
-  // _headers is a Cloudflare Pages file — useless on Apache. Remove it.
-  await rimraf(path.join(outDir, "_headers"));
+  await rimraf(path.join(outDir, "_headers")); // Cloudflare-only file
 
-  // 2. Load SSR handler and prerender each route
   console.log("[build-static] Loading SSR handler…");
   const mod = await import(pathToFileURL(serverEntry).href);
   const handler = mod.default ?? mod;
+  if (typeof handler?.fetch !== "function") {
+    throw new Error(`[build-static] Server entry at ${serverEntry} does not export a { fetch } handler.`);
+  }
   const env = { ASSETS: { fetch: () => new Response(null, { status: 404 }) } };
   const ctx = { waitUntil: () => {}, passThroughOnException: () => {} };
 
@@ -96,7 +160,7 @@ async function main() {
   for (const route of PAGE_ROUTES) {
     process.stdout.write(`[build-static] Prerender ${route} … `);
     const html = await render(route);
-    const dirPath = route === "/" ? outDir : path.join(outDir, route);
+    const dirPath = route === "/" ? outDir : path.join(outDir, ...route.split("/").filter(Boolean));
     await fs.mkdir(dirPath, { recursive: true });
     await fs.writeFile(path.join(dirPath, "index.html"), html, "utf8");
     console.log("ok");
@@ -109,7 +173,6 @@ async function main() {
     console.log("ok");
   }
 
-  // 3. .htaccess for clean URLs + SPA fallback to index.html for unknown routes
   const htaccess = `# Generated by scripts/build-static.mjs
 Options -MultiViews
 DirectoryIndex index.html
@@ -117,20 +180,19 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Serve existing files/directories directly (assets, images, fonts, etc.)
+  # Serve existing files/directories directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Clean URL: /about -> /about/index.html when that file exists
+  # Clean URL: /about -> /about/index.html
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.+?)/?$ /$1/index.html [L]
 
-  # SPA fallback: anything else goes to root index.html (client router handles it)
+  # SPA fallback for unknown routes
   RewriteRule ^ /index.html [L]
 </IfModule>
 
-# Long-term cache for hashed asset bundles
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 year"
@@ -154,10 +216,10 @@ DirectoryIndex index.html
   await fs.writeFile(path.join(outDir, ".htaccess"), htaccess, "utf8");
   console.log("[build-static] Wrote .htaccess");
 
-  console.log(`\n[build-static] Done. Static site at: ${path.relative(root, outDir)}/`);
+  console.log(`\n[build-static] Done. Upload the CONTENTS of: ${path.relative(root, outDir)}/`);
 }
 
 main().catch((err) => {
-  console.error(err);
+  console.error(err.message || err);
   process.exit(1);
 });
