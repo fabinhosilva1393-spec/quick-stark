@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { GITHUB_REPO_URL, anyReleaseAvailable } from "@/data/downloads";
-import { Demo } from "@/components/Demo";
+import heroLaptop from "@/assets/hero-laptop.png.asset.json";
 
 
 const TRUST = [
