@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { GITHUB_REPO_URL, anyReleaseAvailable } from "@/data/downloads";
-import heroLaptop from "@/assets/hero-laptop.png.asset.json";
+import { Demo } from "@/components/Demo";
 
 
 const TRUST = [
@@ -110,18 +110,25 @@ export function Hero() {
           </ul>
           </div>
 
-          <div className="relative min-w-0 w-full mx-auto lg:mx-0 lg:ml-auto" style={{ width: "100%", maxWidth: "clamp(320px, 50vw, 920px)" }}>
-            <img
-              src={heroLaptop.url}
-              alt="StarknetWallet desktop wallet interface showing STRK assets, staking, transaction review and secure signing workflows"
-              width={1448}
-              height={1086}
-              loading="eager"
-              decoding="async"
-              className="block w-full h-auto object-contain"
-              style={{ objectPosition: "center" }}
-            />
+          <div className="relative min-w-0 w-full max-w-[620px] mx-auto lg:mx-0 lg:ml-auto demo-stage lg:translate-y-6 xl:translate-y-7">
+            <span className="demo-glow" aria-hidden="true" />
+            <span className="demo-orbit" aria-hidden="true" />
+            <span className="demo-orbit demo-orbit-2" aria-hidden="true" />
+            <span className="hero-particle hero-particle-a" aria-hidden="true" />
+            <span className="hero-particle hero-particle-b" aria-hidden="true" />
+            <span className="hero-particle hero-particle-c" aria-hidden="true" />
+            <span className="hero-particle hero-particle-d" aria-hidden="true" />
+            <span className="hero-particle hero-particle-e" aria-hidden="true" />
+            <span className="hero-particle hero-particle-f" aria-hidden="true" />
+            <span className="hero-particle hero-particle-g" aria-hidden="true" />
+            <span className="hero-particle hero-particle-h" aria-hidden="true" />
+            <div className="demo-tilt">
+              <div className="demo-drift">
+                <Demo compact />
+              </div>
+            </div>
           </div>
+
 
         </div>
       </div>
