@@ -121,7 +121,7 @@ export function Hero() {
               className="block w-full h-auto object-contain"
               style={{ objectPosition: "center" }}
             />
-
+          </div>
 
         </div>
       </div>
