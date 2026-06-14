@@ -71,12 +71,14 @@ export const Route = createFileRoute("/")({
           name: "StarknetWallet",
           applicationCategory: "FinanceApplication",
           operatingSystem: "macOS, Windows, Linux",
+          url: SITE_URL,
+          image: OG_IMAGE,
           offers: {
             "@type": "Offer",
             price: "0",
             priceCurrency: "USD",
           },
-          downloadUrl: "https://quick-stark.lovable.app/#download",
+          downloadUrl: "https://starknetwallet.org/#download",
         }),
       },
       {
