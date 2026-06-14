@@ -21,9 +21,12 @@ import {
   CtaFinal,
 } from "@/components/HomeSections";
 
-const TITLE = "Starknet Desktop Wallet — STRK, Cairo & Smart Accounts";
+const TITLE = "StarknetWallet — Secure desktop wallet for Starknet";
 const DESC =
-  "A local-first desktop wallet for Starknet. Manage STRK, preview Cairo calls, and review smart-account permissions on macOS, Windows, and Linux.";
+  "Manage STRK, review Cairo calls and inspect smart-account permissions from a focused desktop wallet experience.";
+const SITE_URL = "https://starknetwallet.org/";
+const OG_IMAGE = "https://starknetwallet.org/social/starknetwallet-social-card.png";
+const OG_IMAGE_ALT = "StarknetWallet — Secure desktop wallet for Starknet";
 
 const FAQ_ITEMS: { q: string; a: string }[] = [
   { q: "Is StarknetWallet free?", a: "Yes. StarknetWallet is free and open source. There are no subscriptions, no premium tiers, and no in-app upsells." },
@@ -41,14 +44,24 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { property: "og:site_name", content: "StarknetWallet" },
+      { property: "og:type", content: "website" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
-      { property: "og:url", content: "/" },
-      { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:secure_url", content: OG_IMAGE },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: OG_IMAGE_ALT },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:image:alt", content: OG_IMAGE_ALT },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: SITE_URL }],
     scripts: [
       {
         type: "application/ld+json",
@@ -58,12 +71,14 @@ export const Route = createFileRoute("/")({
           name: "StarknetWallet",
           applicationCategory: "FinanceApplication",
           operatingSystem: "macOS, Windows, Linux",
+          url: SITE_URL,
+          image: OG_IMAGE,
           offers: {
             "@type": "Offer",
             price: "0",
             priceCurrency: "USD",
           },
-          downloadUrl: "https://quick-stark.lovable.app/#download",
+          downloadUrl: "https://starknetwallet.org/#download",
         }),
       },
       {

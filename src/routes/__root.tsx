@@ -119,7 +119,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "StarknetWallet",
-          url: "https://quick-stark.lovable.app",
+          url: "https://starknetwallet.org/",
         }),
       },
       {
@@ -128,7 +128,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "Organization",
           name: "StarknetWallet",
-          url: "https://quick-stark.lovable.app",
+          url: "https://starknetwallet.org/",
+          logo: "https://starknetwallet.org/social/starknetwallet-social-card.png",
         }),
       },
     ],
