@@ -21,9 +21,12 @@ import {
   CtaFinal,
 } from "@/components/HomeSections";
 
-const TITLE = "Starknet Desktop Wallet — STRK, Cairo & Smart Accounts";
+const TITLE = "StarknetWallet — Secure desktop wallet for Starknet";
 const DESC =
-  "A local-first desktop wallet for Starknet. Manage STRK, preview Cairo calls, and review smart-account permissions on macOS, Windows, and Linux.";
+  "Manage STRK, review Cairo calls and inspect smart-account permissions from a focused desktop wallet experience.";
+const SITE_URL = "https://starknetwallet.org/";
+const OG_IMAGE = "https://starknetwallet.org/social/starknetwallet-social-card.png";
+const OG_IMAGE_ALT = "StarknetWallet — Secure desktop wallet for Starknet";
 
 const FAQ_ITEMS: { q: string; a: string }[] = [
   { q: "Is StarknetWallet free?", a: "Yes. StarknetWallet is free and open source. There are no subscriptions, no premium tiers, and no in-app upsells." },
