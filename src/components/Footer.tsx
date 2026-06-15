@@ -228,8 +228,13 @@ export function Footer() {
           {/* Brand block */}
           <div className="lg:col-span-4">
             <div className="flex items-center gap-2.5">
-              <span aria-hidden="true" className="inline-flex h-9 w-9 items-center justify-center">
-                <img src={logoAsset.url} alt="" className="h-9 w-9 object-contain" />
+              <span aria-hidden="true" className="inline-flex h-8 w-8 items-center justify-center shrink-0">
+                <img
+                  src="/starknetwallet-icon.ico"
+                  alt="StarknetWallet"
+                  className="h-8 w-8 object-contain shrink-0"
+                  style={{ background: "transparent" }}
+                />
               </span>
               <span className="font-bold tracking-tight text-ink text-lg">
                 Starknet<span className="text-white">Wallet</span>
