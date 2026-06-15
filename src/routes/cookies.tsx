@@ -39,7 +39,9 @@ export const Route = createFileRoute("/cookies")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: "https://starknetwallet.org/cookies" },
     ],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/cookies" }],
   }),
   component: CookiesPage,
 });
