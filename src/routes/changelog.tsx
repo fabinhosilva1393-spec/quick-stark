@@ -92,7 +92,9 @@ export const Route = createFileRoute("/changelog")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: "https://starknetwallet.org/changelog" },
     ],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/changelog" }],
   }),
   component: () => (
     <SimplePage eyebrow="Version history" title="Version history">
