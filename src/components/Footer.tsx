@@ -8,7 +8,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { openCookieSettings } from "@/lib/cookieConsent";
-import logoAsset from "@/assets/starknet-logomark.png.asset.json";
+
 import { APP_VERSION } from "@/data/downloads";
 
 type SocialLink = {
