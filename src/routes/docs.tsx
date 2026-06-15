@@ -60,11 +60,11 @@ export const Route = createFileRoute("/docs")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/docs" },
+      { property: "og:url", content: "https://starknetwallet.org/docs" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
     ],
-    links: [{ rel: "canonical", href: "/docs" }],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/docs" }],
   }),
   component: DocsPage,
 });

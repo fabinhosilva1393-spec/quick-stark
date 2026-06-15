@@ -18,10 +18,10 @@ export const Route = createFileRoute("/ecosystem")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
-      { property: "og:url", content: "/ecosystem" },
+      { property: "og:url", content: "https://starknetwallet.org/ecosystem" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/ecosystem" }],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/ecosystem" }],
   }),
   component: EcosystemPage,
 });

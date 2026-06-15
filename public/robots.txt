@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://quick-stark.lovable.app/sitemap.xml
+Sitemap: https://starknetwallet.org/sitemap.xml
