@@ -33,9 +33,10 @@ export function Header() {
             className="inline-flex h-9 w-9 items-center justify-center"
           >
             <img
-              src={logoAsset.url}
-              alt=""
-              className="h-9 w-9 object-contain"
+              src="/starknetwallet-icon.ico"
+              alt="StarknetWallet"
+              className="h-8 w-8 object-contain shrink-0"
+              style={{ background: "transparent" }}
             />
           </span>
           <span className="font-bold tracking-tight text-ink">
