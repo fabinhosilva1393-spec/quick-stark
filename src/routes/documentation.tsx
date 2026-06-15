@@ -22,7 +22,9 @@ export const Route = createFileRoute("/documentation")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: "https://starknetwallet.org/documentation" },
     ],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/documentation" }],
   }),
   component: () => (
     <SimplePage eyebrow="Developers" title="Run StarknetWallet with confidence.">
