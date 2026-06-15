@@ -14,10 +14,10 @@ export const Route = createFileRoute("/brand-guidelines")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
-      { property: "og:url", content: "/brand-guidelines" },
+      { property: "og:url", content: "https://starknetwallet.org/brand-guidelines" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "/brand-guidelines" }],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/brand-guidelines" }],
   }),
   component: BrandPage,
 });

@@ -12,9 +12,9 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
-      { property: "og:url", content: "/about" },
+      { property: "og:url", content: "https://starknetwallet.org/about" },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/about" }],
   }),
   component: () => (
     <SimplePage eyebrow="Project" title="About StarknetWallet" illustration={<AboutIllustration />}>

@@ -15,9 +15,9 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: "https://starknetwallet.org/contact" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/contact" }],
   }),
   component: ContactPage,
 });

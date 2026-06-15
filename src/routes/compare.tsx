@@ -16,7 +16,7 @@ export const Route = createFileRoute("/compare")({
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
     ],
-    links: [{ rel: "canonical", href: "/compare" }],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/compare" }],
   }),
   component: ComparePage,
 });
