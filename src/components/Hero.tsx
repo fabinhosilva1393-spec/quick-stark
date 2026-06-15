@@ -34,7 +34,7 @@ export function Hero() {
           </span>
 
           <h1 className="hero-h1 hero-title mt-6 text-ink">
-            Secure Starknet Desktop Wallet for STRK, Cairo &amp; Smart Accounts
+            Secure Starknet Desktop Wallet for <span className="accent">STRK, Cairo &amp; Smart Accounts</span>
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-ink-muted leading-relaxed max-w-2xl">
