@@ -13,7 +13,9 @@ export const Route = createFileRoute("/releases")({
       { name: "description", content: DESC },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
+      { property: "og:url", content: "https://starknetwallet.org/releases" },
     ],
+    links: [{ rel: "canonical", href: "https://starknetwallet.org/releases" }],
   }),
   component: () => (
     <SimplePage eyebrow="Versions" title="Signed builds, clear verification.">
