@@ -50,32 +50,32 @@
 
 :root {
   --radius: 0.75rem;
-  /* StarknetWallet dark palette */
-  --background: #070816;
-  --surface: #11142F;
-  --surface-2: #0B0D24;
-  --foreground: #F7F8FF;
-  --ink: #F7F8FF;
-  --ink-muted: #B8BED8;
-  --ink-subtle: #777F9F;
+  /* StarknetWallet dark palette — aligned with starknet.io brand */
+  --background: #0B0B0B;
+  --surface: #141422;
+  --surface-2: #0F0F1C;
+  --foreground: #FFFFFF;
+  --ink: #FFFFFF;
+  --ink-muted: #C9C9D6;
+  --ink-subtle: #85858F;
 
-  --card: #11142F;
-  --card-foreground: #F7F8FF;
-  --popover: #171A3A;
-  --popover-foreground: #F7F8FF;
+  --card: #141422;
+  --card-foreground: #FFFFFF;
+  --popover: #1B1B2E;
+  --popover-foreground: #FFFFFF;
 
-  /* Starknet primary blue */
-  --primary: #2F5BFF;
+  /* Starknet brand indigo (rgb 62,52,211) */
+  --primary: #3E34D3;
   --primary-foreground: #FFFFFF;
-  --brand: #2F5BFF;
+  --brand: #3E34D3;
   --brand-foreground: #FFFFFF;
 
-  --secondary: #171A3A;
-  --secondary-foreground: #F7F8FF;
-  --muted: #171A3A;
-  --muted-foreground: #B8BED8;
-  --accent: #1A1F4A;
-  --accent-foreground: #F7F8FF;
+  --secondary: #1B1B2E;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1B1B2E;
+  --muted-foreground: #C9C9D6;
+  --accent: #5C94FF;
+  --accent-foreground: #0B0B0B;
   --destructive: #FF4D5E;
   --destructive-foreground: #FFFFFF;
   --hairline: #252A4A;
