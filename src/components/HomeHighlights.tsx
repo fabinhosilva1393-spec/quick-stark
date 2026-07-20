@@ -2,10 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import {
   ArrowRight,
-  Download,
-  ShieldCheck,
-  Eye,
-  PenLine,
   BookOpen,
   Terminal,
   KeyRound,
@@ -13,6 +9,34 @@ import {
 } from "lucide-react";
 import { PlatformDownloadCard } from "./PlatformDownloadCard";
 import { defaultDownloadOrder, APP_VERSION, GITHUB_RELEASES_URL } from "@/data/downloads";
+
+/* ---------- illustration wrapper ---------- */
+
+function Illustration({
+  src,
+  alt,
+  eager = false,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  eager?: boolean;
+  className?: string;
+}) {
+  return (
+    <img
+      src={src}
+      alt={alt}
+      width={640}
+      height={560}
+      loading={eager ? "eager" : "lazy"}
+      decoding="async"
+      className={`block h-auto w-full select-none ${className}`}
+      style={{ aspectRatio: "640 / 560" }}
+      draggable={false}
+    />
+  );
+}
 
 /* ---------- shared bits ---------- */
 
