@@ -15,6 +15,7 @@ import { Route as SecurityRouteImport } from './routes/security'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as ReleasesRouteImport } from './routes/releases'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EcosystemRouteImport } from './routes/ecosystem'
 import { Route as DocumentationRouteImport } from './routes/documentation'
 import { Route as DocsRouteImport } from './routes/docs'
@@ -55,6 +56,11 @@ const ReleasesRoute = ReleasesRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EcosystemRoute = EcosystemRouteImport.update({
@@ -125,6 +131,7 @@ export interface FileRoutesByFullPath {
   '/docs': typeof DocsRoute
   '/documentation': typeof DocumentationRoute
   '/ecosystem': typeof EcosystemRoute
+  '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
   '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
@@ -144,6 +151,7 @@ export interface FileRoutesByTo {
   '/docs': typeof DocsRoute
   '/documentation': typeof DocumentationRoute
   '/ecosystem': typeof EcosystemRoute
+  '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
   '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
@@ -164,6 +172,7 @@ export interface FileRoutesById {
   '/docs': typeof DocsRoute
   '/documentation': typeof DocumentationRoute
   '/ecosystem': typeof EcosystemRoute
+  '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
   '/releases': typeof ReleasesRoute
   '/roadmap': typeof RoadmapRoute
@@ -185,6 +194,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/documentation'
     | '/ecosystem'
+    | '/faq'
     | '/privacy'
     | '/releases'
     | '/roadmap'
@@ -204,6 +214,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/documentation'
     | '/ecosystem'
+    | '/faq'
     | '/privacy'
     | '/releases'
     | '/roadmap'
@@ -223,6 +234,7 @@ export interface FileRouteTypes {
     | '/docs'
     | '/documentation'
     | '/ecosystem'
+    | '/faq'
     | '/privacy'
     | '/releases'
     | '/roadmap'
@@ -243,6 +255,7 @@ export interface RootRouteChildren {
   DocsRoute: typeof DocsRoute
   DocumentationRoute: typeof DocumentationRoute
   EcosystemRoute: typeof EcosystemRoute
+  FaqRoute: typeof FaqRoute
   PrivacyRoute: typeof PrivacyRoute
   ReleasesRoute: typeof ReleasesRoute
   RoadmapRoute: typeof RoadmapRoute
@@ -293,6 +306,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ecosystem': {
@@ -387,6 +407,7 @@ const rootRouteChildren: RootRouteChildren = {
   DocsRoute: DocsRoute,
   DocumentationRoute: DocumentationRoute,
   EcosystemRoute: EcosystemRoute,
+  FaqRoute: FaqRoute,
   PrivacyRoute: PrivacyRoute,
   ReleasesRoute: ReleasesRoute,
   RoadmapRoute: RoadmapRoute,
