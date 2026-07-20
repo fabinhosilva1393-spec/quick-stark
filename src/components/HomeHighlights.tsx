@@ -6,9 +6,14 @@ import {
   Terminal,
   KeyRound,
   Mail,
+  Sparkles,
+  Info,
 } from "lucide-react";
 import { PlatformDownloadCard } from "./PlatformDownloadCard";
 import { defaultDownloadOrder, APP_VERSION, GITHUB_RELEASES_URL } from "@/data/downloads";
+import { useDetectedPlatform, DESKTOP_PLATFORMS } from "@/hooks/useDetectedPlatform";
+import type { DesktopPlatform } from "@/lib/detectOS";
+
 
 /* ---------- illustration wrapper ---------- */
 
@@ -211,6 +216,19 @@ function WorkflowCard() {
 /* ---------- 4. Platform downloads ---------- */
 
 function Platforms() {
+  const platform = useDetectedPlatform();
+  const hasRecommendation = DESKTOP_PLATFORMS.has(platform);
+  const recommendedKey = hasRecommendation
+    ? (platform as "windows" | "macos" | "linux")
+    : null;
+
+  const ordered = recommendedKey
+    ? [
+        ...defaultDownloadOrder.filter((i) => i.key === recommendedKey),
+        ...defaultDownloadOrder.filter((i) => i.key !== recommendedKey),
+      ]
+    : defaultDownloadOrder;
+
   return (
     <section id="download" className="pb-24">
       <div className="container-page">
@@ -224,12 +242,14 @@ function Platforms() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {defaultDownloadOrder.map((item) => (
+        <PlatformRecommendation platform={platform} />
+
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {ordered.map((item) => (
             <PlatformDownloadCard
               key={item.key}
               item={item}
-              recommended={false}
+              recommended={item.key === recommendedKey}
             />
           ))}
         </div>
@@ -244,6 +264,50 @@ function Platforms() {
     </section>
   );
 }
+
+function PlatformRecommendation({ platform }: { platform: DesktopPlatform }) {
+  if (platform === "unknown") {
+    // Nothing detected yet (SSR / pre-hydration) — render nothing to avoid layout shift noise.
+    return null;
+  }
+
+  if (platform === "windows" || platform === "macos" || platform === "linux") {
+    const label =
+      platform === "windows" ? "Windows" : platform === "macos" ? "macOS" : "Linux";
+    return (
+      <div
+        role="status"
+        aria-live="polite"
+        className="mt-8 inline-flex items-center gap-2 rounded-full border border-hairline bg-surface px-4 py-2 text-sm text-ink"
+      >
+        <Sparkles size={14} className="text-brand" aria-hidden="true" />
+        <span>
+          Looks like you’re on <strong className="font-semibold">{label}</strong> —
+          we’ve highlighted the matching build below.
+        </span>
+      </div>
+    );
+  }
+
+  const message =
+    platform === "mobile"
+      ? "StarknetWallet is a desktop application. Open this page from a Windows, macOS, or Linux computer to install the signed build."
+      : platform === "chromeos"
+        ? "StarknetWallet doesn’t ship a native ChromeOS build. On a supported desktop (Windows, macOS, or Linux) you can install the signed build below."
+        : "We couldn’t detect your operating system. All available desktop builds are listed below.";
+
+  return (
+    <div
+      role="status"
+      aria-live="polite"
+      className="mt-8 flex items-start gap-3 rounded-2xl border border-hairline bg-surface p-4 text-sm text-ink-muted max-w-3xl"
+    >
+      <Info size={16} className="mt-0.5 text-brand shrink-0" aria-hidden="true" />
+      <p className="leading-relaxed">{message}</p>
+    </div>
+  );
+}
+
 
 /* ---------- 5. Featured release ---------- */
 

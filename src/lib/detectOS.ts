@@ -1,6 +1,19 @@
 export type DetectedOS = "macos" | "windows" | "linux" | "unknown";
 
-export function detectOS(): DetectedOS {
+export type DesktopPlatform =
+  | "windows"
+  | "macos"
+  | "linux"
+  | "mobile"
+  | "chromeos"
+  | "unknown";
+
+/**
+ * Privacy-respecting, client-side OS family detection. Returns "unknown" on
+ * the server and when the runtime cannot be identified confidently. The
+ * result is guidance — not a guaranteed device identification.
+ */
+export function detectDesktopPlatform(): DesktopPlatform {
   if (typeof window === "undefined" || typeof navigator === "undefined") {
     return "unknown";
   }
@@ -9,36 +22,57 @@ export function detectOS(): DetectedOS {
     userAgentData?: { platform?: string };
   };
 
-  const uaDataPlatform = nav.userAgentData?.platform || "";
-  const platform = navigator.platform || "";
-  const userAgent = navigator.userAgent || "";
-
-  const combined = `${uaDataPlatform} ${platform} ${userAgent}`.toLowerCase();
+  const userAgent = (navigator.userAgent || "").toLowerCase();
+  const platform = (
+    nav.userAgentData?.platform ||
+    navigator.platform ||
+    ""
+  ).toLowerCase();
 
   const isIPadOS =
-    platform === "MacIntel" &&
+    platform.includes("mac") &&
     typeof navigator.maxTouchPoints === "number" &&
     navigator.maxTouchPoints > 1;
 
-  const isAndroid = /android/.test(combined);
-  const isIOS = /iphone|ipad|ipod/.test(combined);
-  const isChromeOS = /cros\b/.test(combined);
-
-  if (isIPadOS || isAndroid || isIOS || isChromeOS) {
-    return "unknown";
+  if (
+    userAgent.includes("android") ||
+    userAgent.includes("iphone") ||
+    userAgent.includes("ipad") ||
+    userAgent.includes("ipod") ||
+    isIPadOS
+  ) {
+    return "mobile";
   }
 
-  if (/mac|macintosh|macintel|macppc|macos|darwin/.test(combined)) {
-    return "macos";
+  if (userAgent.includes("cros")) {
+    return "chromeos";
   }
 
-  if (/win32|win64|windows|win/.test(combined)) {
+  if (platform.includes("win") || userAgent.includes("windows")) {
     return "windows";
   }
 
-  if (/linux|x11|ubuntu|fedora|debian/.test(combined)) {
+  if (
+    platform.includes("mac") ||
+    userAgent.includes("macintosh") ||
+    userAgent.includes("mac os x")
+  ) {
+    return "macos";
+  }
+
+  if (platform.includes("linux") || userAgent.includes("linux")) {
     return "linux";
   }
 
+  return "unknown";
+}
+
+/**
+ * Legacy narrowed detector kept for existing consumers that only understand
+ * the three desktop targets. New code should prefer `detectDesktopPlatform`.
+ */
+export function detectOS(): DetectedOS {
+  const p = detectDesktopPlatform();
+  if (p === "windows" || p === "macos" || p === "linux") return p;
   return "unknown";
 }
