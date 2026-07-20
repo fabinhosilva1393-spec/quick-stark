@@ -185,10 +185,33 @@
   .hero-h1 { font-size: clamp(2.4rem, 11vw, 3.3rem); line-height: 1.04; letter-spacing: -0.035em; max-width: 100%; }
 }
 .hero-h1 .accent {
-  color: var(--brand);
+  background: linear-gradient(92deg, #FF7A59 0%, #F76A8A 32%, #C58BFF 62%, #6E9BFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-style: normal;
   font-family: inherit;
   font-weight: inherit;
+}
+
+/* ============= Announcement bar ============= */
+.announcement-bar {
+  position: relative;
+  background:
+    linear-gradient(90deg,
+      color-mix(in oklab, #FF7A59 14%, transparent) 0%,
+      color-mix(in oklab, #F76A8A 14%, transparent) 34%,
+      color-mix(in oklab, #C58BFF 14%, transparent) 66%,
+      color-mix(in oklab, #6E9BFF 14%, transparent) 100%),
+    var(--surface);
+  border-bottom: 1px solid var(--hairline);
+}
+.announcement-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #FF7A59, #C58BFF);
+  box-shadow: 0 0 12px color-mix(in oklab, #F76A8A 60%, transparent);
 }
 
 /* Hero drop-cap style: each line is a block, initials slightly larger */

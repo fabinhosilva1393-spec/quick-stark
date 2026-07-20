@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
+import { AnnouncementBar } from "@/components/AnnouncementBar";
 
 import { Ecosystem } from "@/components/Ecosystem";
 import { DownloadSection } from "@/components/DownloadSection";
@@ -102,6 +103,7 @@ function Index() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
+      <AnnouncementBar />
       <main id="main" className="flex-1">
         <Hero />
         <Ecosystem />
