@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" role="img" aria-labelledby="title desc">
+<title id="title">Animated signing workflow tower</title>
+<desc id="desc">An original four-layer isometric signing workflow with download, verification, review and signing represented as connected stacked modules.</desc>
+
+<defs>
+  <linearGradient id="gPinkLav" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#F1A7AF"/>
+    <stop offset="48%" stop-color="#C89CD1"/>
+    <stop offset="100%" stop-color="#8E95E8"/>
+  </linearGradient>
+  <linearGradient id="gCoral" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FFB0A9"/>
+    <stop offset="100%" stop-color="#E86F97"/>
+  </linearGradient>
+  <linearGradient id="gLav" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#C7B6FF"/>
+    <stop offset="100%" stop-color="#747DE2"/>
+  </linearGradient>
+  <linearGradient id="gMint" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#C4F1D8"/>
+    <stop offset="100%" stop-color="#6ED0B3"/>
+  </linearGradient>
+  <linearGradient id="gYellow" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#F8F0A8"/>
+    <stop offset="100%" stop-color="#D7CC55"/>
+  </linearGradient>
+  <linearGradient id="gDark" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#24244E"/>
+    <stop offset="100%" stop-color="#11142E"/>
+  </linearGradient>
+  <radialGradient id="gCoin" cx="35%" cy="25%" r="85%">
+    <stop offset="0%" stop-color="#F5B8C2"/>
+    <stop offset="55%" stop-color="#A58EE7"/>
+    <stop offset="100%" stop-color="#5C59B8"/>
+  </radialGradient>
+  <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#070713" flood-opacity="0.38"/>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="5" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.5" fill="#8D86D8" opacity=".46"/>
+  </pattern>
+  <style>
+    .line{fill:none;stroke:#756B9E;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.7}
+    .lineSoft{fill:none;stroke:#8E83BC;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:.45}
+    .node{fill:#F3B0BD;stroke:#211F47;stroke-width:2}
+    .nodeMint{fill:#8FDEBF;stroke:#211F47;stroke-width:2}
+    .nodeLav{fill:#9A93EC;stroke:#211F47;stroke-width:2}
+    .floatSlow{animation:floatSlow 5.6s ease-in-out infinite}
+    .floatMed{animation:floatMed 4.2s ease-in-out infinite}
+    .floatFast{animation:floatFast 3.3s ease-in-out infinite}
+    .pulse{transform-origin:center;animation:pulse 2.8s ease-in-out infinite}
+    .spinSlow{transform-box:fill-box;transform-origin:center;animation:spinSlow 12s linear infinite}
+    .tilt{transform-box:fill-box;transform-origin:center;animation:tilt 5.2s ease-in-out infinite}
+    .slide{animation:slide 4.6s ease-in-out infinite}
+    .blink{animation:blink 2.4s ease-in-out infinite}
+    .dash{stroke-dasharray:8 10;animation:dash 8s linear infinite}
+    @keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    @keyframes floatMed{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+    @keyframes floatFast{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
+    @keyframes spinSlow{to{transform:rotate(360deg)}}
+    @keyframes tilt{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.5deg)}}
+    @keyframes slide{0%,100%{transform:translateX(0)}50%{transform:translateX(9px)}}
+    @keyframes blink{0%,100%{opacity:.35}50%{opacity:1}}
+    @keyframes dash{to{stroke-dashoffset:-180}}
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important}
+    }
+  </style>
+</defs>
+
+
+<g filter="url(#softShadow)">
+  <path d="M167 424 320 336 476 424 321 515Z" fill="#0D1028"/>
+  <path d="M167 424 321 515 321 532 167 441Z" fill="#080A1E"/>
+  <path d="M476 424 321 515 321 532 476 441Z" fill="#181A41"/>
+  <g class="floatSlow">
+    <path d="M221 376 320 319 420 376 321 434Z" fill="#1D224B" stroke="#6064A8" stroke-width="2"/>
+    <path d="M221 376 321 434 321 469 221 411Z" fill="#11142F"/>
+    <path d="M420 376 321 434 321 469 420 411Z" fill="#2B2F63"/>
+    <circle cx="321" cy="388" r="13" fill="url(#gPinkLav)"/>
+  </g>
+  <g class="floatMed">
+    <path d="M229 312 320 259 412 312 321 365Z" fill="url(#gLav)" stroke="#E3D7FF" stroke-width="2"/>
+    <path d="M229 312 321 365 321 399 229 346Z" fill="#6B72D0"/>
+    <path d="M412 312 321 365 321 399 412 346Z" fill="#4A4FA4"/>
+    <path d="M304 304 321 321 348 286" class="line" stroke="#F7E9F1" stroke-width="7"/>
+  </g>
+  <g class="floatFast">
+    <path d="M237 248 320 200 405 248 321 297Z" fill="url(#gMint)" stroke="#ECFFF7" stroke-width="2"/>
+    <path d="M237 248 321 297 321 329 237 280Z" fill="#6FC9AE"/>
+    <path d="M405 248 321 297 321 329 405 280Z" fill="#3D9D8D"/>
+    <path d="M292 248h58M298 260h46M306 272h30" class="line" stroke="#1A3B3B" stroke-width="5"/>
+  </g>
+  <g class="floatMed">
+    <path d="M246 188 320 145 396 188 321 232Z" fill="url(#gYellow)" stroke="#FFF8BE" stroke-width="2"/>
+    <path d="M246 188 321 232 321 262 246 218Z" fill="#CFC55B"/>
+    <path d="M396 188 321 232 321 262 396 218Z" fill="#A7A042"/>
+    <path d="M321 161v45M304 190l17 16 17-16" class="line" stroke="#545324" stroke-width="7"/>
+  </g>
+  <g class="tilt">
+    <path d="M208 181 182 155 196 141 223 167" fill="#F2B1BC" stroke="#2B2B50" stroke-width="3"/>
+    <path d="M190 151 225 116 239 130 204 165Z" fill="#EEF0FC" stroke="#2B2B50" stroke-width="3"/>
+  </g>
+  <g class="floatFast">
+    <ellipse cx="138" cy="335" rx="34" ry="18" fill="#C1758D"/>
+    <ellipse cx="138" cy="329" rx="34" ry="18" fill="url(#gCoral)" stroke="#FFD5DA" stroke-width="2"/>
+    <path d="M126 329h24" class="line" stroke="#6C2E51" stroke-width="4"/>
+  </g>
+  <g class="floatMed">
+    <ellipse cx="495" cy="320" rx="34" ry="18" fill="#70B69D"/>
+    <ellipse cx="495" cy="314" rx="34" ry="18" fill="url(#gMint)" stroke="#E4FFF5" stroke-width="2"/>
+    <circle cx="495" cy="314" r="7" fill="#183B38"/>
+  </g>
+</g>
+<path d="M114 215 170 182 221 205M417 208 470 177 526 210" class="lineSoft"/>
+<path d="M122 439 66 407 66 341M516 440 574 406 574 341" class="lineSoft"/>
+<circle cx="114" cy="215" r="7" class="node"/><circle cx="170" cy="182" r="6" class="nodeMint pulse"/>
+<circle cx="221" cy="205" r="6" class="nodeLav"/><circle cx="417" cy="208" r="6" class="node blink"/>
+<circle cx="470" cy="177" r="7" class="nodeMint"/><circle cx="526" cy="210" r="7" class="nodeLav pulse"/>
+<circle cx="66" cy="341" r="7" class="node"/><circle cx="574" cy="341" r="7" class="nodeMint"/>
+<path d="M156 493C244 544 408 545 498 492" class="line dash"/>
+
+</svg>

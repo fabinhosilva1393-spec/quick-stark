@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" role="img" aria-labelledby="title desc">
+<title id="title">Animated Starknet wallet toolkit</title>
+<desc id="desc">An original isometric wallet platform with orbiting tokens, permission controls, network nodes and a central account interface.</desc>
+
+<defs>
+  <linearGradient id="gPinkLav" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#F1A7AF"/>
+    <stop offset="48%" stop-color="#C89CD1"/>
+    <stop offset="100%" stop-color="#8E95E8"/>
+  </linearGradient>
+  <linearGradient id="gCoral" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#FFB0A9"/>
+    <stop offset="100%" stop-color="#E86F97"/>
+  </linearGradient>
+  <linearGradient id="gLav" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#C7B6FF"/>
+    <stop offset="100%" stop-color="#747DE2"/>
+  </linearGradient>
+  <linearGradient id="gMint" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#C4F1D8"/>
+    <stop offset="100%" stop-color="#6ED0B3"/>
+  </linearGradient>
+  <linearGradient id="gYellow" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#F8F0A8"/>
+    <stop offset="100%" stop-color="#D7CC55"/>
+  </linearGradient>
+  <linearGradient id="gDark" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#24244E"/>
+    <stop offset="100%" stop-color="#11142E"/>
+  </linearGradient>
+  <radialGradient id="gCoin" cx="35%" cy="25%" r="85%">
+    <stop offset="0%" stop-color="#F5B8C2"/>
+    <stop offset="55%" stop-color="#A58EE7"/>
+    <stop offset="100%" stop-color="#5C59B8"/>
+  </radialGradient>
+  <filter id="softShadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#070713" flood-opacity="0.38"/>
+  </filter>
+  <filter id="tinyGlow" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="5" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.5" fill="#8D86D8" opacity=".46"/>
+  </pattern>
+  <style>
+    .line{fill:none;stroke:#756B9E;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;opacity:.7}
+    .lineSoft{fill:none;stroke:#8E83BC;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;opacity:.45}
+    .node{fill:#F3B0BD;stroke:#211F47;stroke-width:2}
+    .nodeMint{fill:#8FDEBF;stroke:#211F47;stroke-width:2}
+    .nodeLav{fill:#9A93EC;stroke:#211F47;stroke-width:2}
+    .floatSlow{animation:floatSlow 5.6s ease-in-out infinite}
+    .floatMed{animation:floatMed 4.2s ease-in-out infinite}
+    .floatFast{animation:floatFast 3.3s ease-in-out infinite}
+    .pulse{transform-origin:center;animation:pulse 2.8s ease-in-out infinite}
+    .spinSlow{transform-box:fill-box;transform-origin:center;animation:spinSlow 12s linear infinite}
+    .tilt{transform-box:fill-box;transform-origin:center;animation:tilt 5.2s ease-in-out infinite}
+    .slide{animation:slide 4.6s ease-in-out infinite}
+    .blink{animation:blink 2.4s ease-in-out infinite}
+    .dash{stroke-dasharray:8 10;animation:dash 8s linear infinite}
+    @keyframes floatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+    @keyframes floatMed{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+    @keyframes floatFast{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
+    @keyframes spinSlow{to{transform:rotate(360deg)}}
+    @keyframes tilt{0%,100%{transform:rotate(-1.2deg)}50%{transform:rotate(1.5deg)}}
+    @keyframes slide{0%,100%{transform:translateX(0)}50%{transform:translateX(9px)}}
+    @keyframes blink{0%,100%{opacity:.35}50%{opacity:1}}
+    @keyframes dash{to{stroke-dashoffset:-180}}
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important}
+    }
+  </style>
+</defs>
+
+
+<g filter="url(#softShadow)">
+  <path d="M132 350 320 245 514 350 321 463Z" fill="#0D1028"/>
+  <path d="M132 350 321 463 321 493 132 380Z" fill="#080A1E"/>
+  <path d="M514 350 321 463 321 493 514 380Z" fill="#181A42"/>
+  <g class="floatSlow">
+    <path d="M170 324 318 240 472 324 319 412Z" fill="url(#gPinkLav)" stroke="#F4B8C7" stroke-width="2"/>
+    <path d="M189 313 318 240 454 313 319 391Z" fill="#20244E" opacity=".96"/>
+    <ellipse cx="320" cy="316" rx="54" ry="31" fill="#0F1230" stroke="#EAB4C9" stroke-width="3"/>
+    <path d="M292 318c16-29 42-29 58 0-13 24-46 24-58 0Z" fill="#C89CD1"/>
+    <circle cx="320" cy="316" r="10" fill="#F4D0D7"/>
+  </g>
+  <g class="floatMed">
+    <path d="M220 205 257 184 295 205 257 227Z" fill="#16193A"/>
+    <ellipse cx="257" cy="200" rx="38" ry="22" fill="url(#gCoin)" stroke="#F3C3DD" stroke-width="2"/>
+    <path d="M244 201c8-13 20-13 28 0-6 11-22 11-28 0Z" fill="#15183B"/>
+  </g>
+  <g class="floatFast">
+    <ellipse cx="438" cy="238" rx="33" ry="19" fill="#7D74D0"/>
+    <ellipse cx="438" cy="232" rx="33" ry="19" fill="#E9F1FF" stroke="#6A69C7" stroke-width="2"/>
+    <path d="M428 232h20M438 222v20" class="line" stroke="#6A69C7" stroke-width="4"/>
+  </g>
+  <g class="floatMed">
+    <ellipse cx="476" cy="397" rx="34" ry="18" fill="#B46E88"/>
+    <ellipse cx="476" cy="391" rx="34" ry="18" fill="url(#gCoral)" stroke="#FFD2D5" stroke-width="2"/>
+    <path d="M464 391h24" class="line" stroke="#702A55" stroke-width="4"/>
+  </g>
+  <g class="floatFast">
+    <ellipse cx="175" cy="402" rx="34" ry="18" fill="#6CB399"/>
+    <ellipse cx="175" cy="396" rx="34" ry="18" fill="url(#gMint)" stroke="#E4FFF5" stroke-width="2"/>
+    <circle cx="175" cy="396" r="7" fill="#183B38"/>
+  </g>
+  <g class="tilt">
+    <path d="M492 295 540 268 560 280 511 308Z" fill="#D9D6F7" stroke="#2A294E" stroke-width="2"/>
+    <path d="M511 308 560 280 560 304 511 332Z" fill="#6F77D6"/>
+    <path d="M512 331h28v17h-28Z" fill="#23264D"/>
+    <path d="M540 319h33v12h-33Z" fill="#A6B5EB"/>
+  </g>
+  <g class="floatFast">
+    <path d="M121 266v-20c0-13 10-22 22-22s22 9 22 22v20" class="line" stroke="#F0B7C0" stroke-width="6"/>
+    <rect x="114" y="260" width="58" height="44" rx="10" fill="url(#gCoral)" stroke="#282A51" stroke-width="3"/>
+    <circle cx="143" cy="281" r="6" fill="#5E2946"/>
+  </g>
+</g>
+<path d="M107 174 176 132 246 174M246 174 320 132 391 174M391 174 478 218M107 438 64 412 64 330" class="lineSoft"/>
+<path d="M485 443 574 392 574 311" class="lineSoft"/>
+<circle cx="107" cy="174" r="7" class="node pulse"/><circle cx="176" cy="132" r="6" class="nodeMint"/>
+<circle cx="246" cy="174" r="6" class="nodeLav blink"/><circle cx="320" cy="132" r="7" class="node"/>
+<circle cx="391" cy="174" r="6" class="nodeMint"/><circle cx="478" cy="218" r="7" class="nodeLav pulse"/>
+<circle cx="64" cy="330" r="7" class="node"/><circle cx="574" cy="311" r="7" class="nodeMint"/>
+<path d="M150 480C246 535 413 531 500 474" class="line dash"/>
+
+</svg>
