@@ -3,24 +3,8 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { AnnouncementBar } from "@/components/AnnouncementBar";
-
 import { Ecosystem } from "@/components/Ecosystem";
-import { DownloadSection } from "@/components/DownloadSection";
-
-import { Features } from "@/components/Features";
-import { Security } from "@/components/Security";
-import { Compare } from "@/components/Compare";
-import { Compatibility } from "@/components/Compatibility";
-import { Developers } from "@/components/Developers";
-import { Workflow } from "@/components/Workflow";
-import { FAQ } from "@/components/FAQ";
-import {
-  WhyDesktop,
-  Migration,
-  DocumentationPreview,
-  ReleasesPreview,
-  CtaFinal,
-} from "@/components/HomeSections";
+import { HomeHighlights } from "@/components/HomeHighlights";
 
 const TITLE = "StarknetWallet — Secure desktop wallet for Starknet";
 const DESC =
@@ -107,19 +91,7 @@ function Index() {
       <main id="main" className="flex-1">
         <Hero />
         <Ecosystem />
-        <DownloadSection id="download" />
-        <Features />
-        <Security />
-        <WhyDesktop />
-        <Migration />
-        <Compatibility />
-        <Compare />
-        <DocumentationPreview />
-        <ReleasesPreview />
-        <Workflow />
-        <Developers />
-        <FAQ />
-        <CtaFinal />
+        <HomeHighlights />
       </main>
       <Footer />
     </div>
