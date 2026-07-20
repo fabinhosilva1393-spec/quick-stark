@@ -49,49 +49,59 @@
 
 
 :root {
-  --radius: 0.75rem;
-  /* StarknetWallet palette — matches starknet.io reference */
-  --background: #000000;
-  --surface: #0E0E0E;
-  --surface-2: #161616;
+  --radius: 0.5rem;
+  /* StarknetWallet palette — neutral black/charcoal with restrained pink/lavender accents */
+  --background: #0B0B0B;
+  --surface: #1B1B1B;
+  --surface-2: #0E0E0E;
   --foreground: #FFFFFF;
   --ink: #FFFFFF;
-  --ink-muted: #B8B8C0;
-  --ink-subtle: #7A7A85;
+  --ink-muted: #D2D2D2;
+  --ink-subtle: #777777;
 
-  --card: #0E0E0E;
+  --card: #1B1B1B;
   --card-foreground: #FFFFFF;
-  --popover: #161616;
+  --popover: #1B1B1B;
   --popover-foreground: #FFFFFF;
 
-  /* Starknet signature orange-red */
-  --primary: #EC6A26;
-  --primary-foreground: #FFFFFF;
-  --brand: #EC6A26;
-  --brand-foreground: #FFFFFF;
+  /* Brand token = soft lavender accent (used sparingly) */
+  --primary: #9595E2;
+  --primary-foreground: #161544;
+  --brand: #9595E2;
+  --brand-foreground: #161544;
 
-  --secondary: #161616;
+  --secondary: #121212;
   --secondary-foreground: #FFFFFF;
-  --muted: #161616;
-  --muted-foreground: #B8B8C0;
-  --accent: #6E62E6;
-  --accent-foreground: #FFFFFF;
+  --muted: #121212;
+  --muted-foreground: #A0A0A0;
+  --accent: #C9A4CE;
+  --accent-foreground: #161544;
   --destructive: #FF4D5E;
   --destructive-foreground: #FFFFFF;
-  --hairline: #252A4A;
-  --border: #252A4A;
-  --input: #343B68;
-  --ring: #2F5BFF;
+  --hairline: #292929;
+  --border: #292929;
+  --input: #353535;
+  --ring: #9595E2;
 
-  /* Iso illustration accents */
-  --iso-blue: #2F5BFF;
-  --iso-navy: #070816;
-  --iso-purple: #A855F7;
-  --iso-violet: #7B4DFF;
-  --iso-coral: #FF6B5F;
-  --iso-mint: #4FE3B2;
-  --iso-amber: #FFB020;
-  --iso-success: #35D399;
+  /* Link colors — blue reserved for text links */
+  --link: #3F8CFE;
+  --link-hover: #6BA5FF;
+
+  /* Soft accents */
+  --accent-pink: #EDACB1;
+  --accent-mauve: #C9A4CE;
+  --accent-lavender: #9595E2;
+  --accent-icon: #96759F;
+
+  /* Iso illustration accents (illustration palette only, not page palette) */
+  --iso-blue: #6BA5FF;
+  --iso-navy: #161544;
+  --iso-purple: #C9A4CE;
+  --iso-violet: #9595E2;
+  --iso-coral: #EDACB1;
+  --iso-mint: #B7D4C6;
+  --iso-amber: #F0D9A8;
+  --iso-success: #B7D4C6;
   --iso-lavender: #B7B8FF;
 }
 
@@ -185,7 +195,7 @@
   display: block;
 }
 .hero-h1 .accent {
-  background: linear-gradient(92deg, #FF7A59 0%, #F76A8A 35%, #C58BFF 70%, #A48BFF 100%);
+  background: linear-gradient(90deg, #EDACB1 0%, #C9A4CE 48%, #9595E2 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -197,21 +207,16 @@
 /* ============= Announcement bar ============= */
 .announcement-bar {
   position: relative;
-  background:
-    linear-gradient(90deg,
-      color-mix(in oklab, #FF7A59 14%, transparent) 0%,
-      color-mix(in oklab, #F76A8A 14%, transparent) 34%,
-      color-mix(in oklab, #C58BFF 14%, transparent) 66%,
-      color-mix(in oklab, #6E9BFF 14%, transparent) 100%),
-    var(--surface);
+  background: linear-gradient(90deg, #5D3253 0%, #452864 32%, #2B1D76 62%, #12104E 100%);
   border-bottom: 1px solid var(--hairline);
+  color: #FFFFFF;
 }
 .announcement-dot {
   width: 6px;
   height: 6px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #FF7A59, #C58BFF);
-  box-shadow: 0 0 12px color-mix(in oklab, #F76A8A 60%, transparent);
+  background: linear-gradient(135deg, #EDACB1, #9595E2);
+  box-shadow: 0 0 10px color-mix(in oklab, #C9A4CE 60%, transparent);
 }
 
 
@@ -229,20 +234,18 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 46px;
+  height: 44px;
   padding: 0 20px;
-  border-radius: 10px;
-  background: var(--brand);
-  color: var(--brand-foreground);
+  border-radius: 8px;
+  background: linear-gradient(90deg, #EDACB1 0%, #C9A4CE 48%, #9595E2 100%);
+  color: #161544;
   font-weight: 600;
   font-size: 15px;
-  border: 1px solid var(--brand);
-  transition: filter 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset,
-    0 4px 12px color-mix(in oklab, var(--brand) 20%, transparent);
+  border: 1px solid transparent;
+  transition: filter 180ms ease, transform 180ms ease;
 }
 .btn-primary:hover {
-  filter: brightness(1.06);
+  filter: brightness(1.05);
   transform: translateY(-1px);
 }
 .btn-primary:disabled,
@@ -251,7 +254,6 @@
   color: var(--ink-muted);
   border-color: var(--hairline);
   cursor: not-allowed;
-  box-shadow: none;
   transform: none;
   filter: none;
 }
@@ -261,29 +263,30 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 46px;
+  height: 44px;
   padding: 0 18px;
-  border-radius: 10px;
+  border-radius: 8px;
   color: var(--ink);
   font-weight: 600;
   font-size: 15px;
-  border: 1px solid var(--hairline);
-  background: var(--surface);
-  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #121212;
+  transition: background 180ms ease, border-color 180ms ease;
 }
 .btn-ghost:hover {
-  background: var(--surface-2);
-  border-color: color-mix(in oklab, var(--ink) 20%, transparent);
+  background: #1B1B1B;
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 .text-link {
-  color: var(--brand);
+  color: var(--link);
   text-decoration: none;
-  border-bottom: 1px solid color-mix(in oklab, var(--brand) 30%, transparent);
+  border-bottom: 1px solid color-mix(in oklab, var(--link) 30%, transparent);
   transition: border-color 180ms ease, color 180ms ease;
 }
 .text-link:hover {
-  border-bottom-color: var(--brand);
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
 }
 
 /* ============= Cards / surfaces ============= */
