@@ -52,24 +52,41 @@ function CardLink({ to, children }: { to: string; children: React.ReactNode }) {
   );
 }
 
-/* ---------- 1. Main horizontal card ---------- */
+/* ---------- 1. Main horizontal card — Signing Station ---------- */
 
 function AnchorCard() {
   return (
     <section className="py-24">
       <div className="container-page">
-        <article className="rounded-[22px] border border-hairline bg-surface p-8 md:p-14">
-          <span className="eyebrow">Desktop wallet</span>
-          <h2 className="font-display section-title mt-4 font-semibold max-w-3xl">
-            Anchor your Starknet signing.
-          </h2>
-          <p className="section-sub max-w-2xl">
-            A focused desktop environment for Starknet account management,
-            Cairo transaction review, and clear smart-account permission
-            visibility — with local-first control of your keys.
-          </p>
-          <div className="mt-6">
-            <CardLink to="/docs">Explore the desktop wallet</CardLink>
+        <article
+          className="rounded-[22px] border border-hairline bg-surface p-[26px] sm:p-10 md:p-14 lg:p-16"
+          style={{ minHeight: 440 }}
+        >
+          <div className="grid gap-10 md:gap-14 lg:grid-cols-[auto_1fr] lg:items-center">
+            <div
+              className="mx-auto w-full max-w-[420px] lg:mx-0 lg:max-w-none"
+              style={{ width: "clamp(340px, 44vw, 500px)", padding: "30px 0" }}
+            >
+              <Illustration
+                src="/assets/home/signing-station.svg"
+                alt="Animated Starknet desktop signing station"
+                eager
+              />
+            </div>
+            <div>
+              <span className="eyebrow">Desktop wallet</span>
+              <h2 className="font-display section-title mt-4 font-semibold">
+                Anchor your Starknet signing.
+              </h2>
+              <p className="section-sub max-w-2xl">
+                A focused desktop environment for Starknet account management,
+                Cairo transaction review, and clear smart-account permission
+                visibility — with local-first control of your keys.
+              </p>
+              <div className="mt-6">
+                <CardLink to="/docs">Explore the desktop wallet</CardLink>
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -82,9 +99,16 @@ function AnchorCard() {
 function TwoFeatureCards() {
   return (
     <section id="features" className="pb-24">
-      <div className="container-page grid gap-6 md:grid-cols-2">
-        <article className="rounded-[22px] border border-hairline bg-surface p-8 md:p-12">
-          <span className="eyebrow">Product</span>
+      <div className="container-page grid gap-6 md:grid-cols-2 md:items-stretch">
+        <article className="rounded-[22px] border border-hairline bg-surface p-[26px] sm:p-10 md:p-12 flex flex-col">
+          <div className="mx-auto flex w-full items-center justify-center" style={{ height: "clamp(280px, 30vw, 330px)" }}>
+            <Illustration
+              src="/assets/home/starknet-toolkit.svg"
+              alt="Animated Starknet wallet toolkit"
+              className="!h-full !w-auto max-w-full"
+            />
+          </div>
+          <span className="eyebrow mt-8">Product</span>
           <h2 className="font-display mt-4 text-3xl md:text-4xl font-semibold text-ink tracking-tight">
             A focused Starknet toolkit.
           </h2>
@@ -98,13 +122,20 @@ function TwoFeatureCards() {
             Bring an existing Starknet account into a clearer local desktop
             workflow.
           </p>
-          <div className="mt-6">
+          <div className="mt-6 mt-auto pt-6">
             <CardLink to="/docs">Explore features</CardLink>
           </div>
         </article>
 
-        <article className="rounded-[22px] border border-hairline bg-surface p-8 md:p-12">
-          <span className="eyebrow">Security</span>
+        <article className="rounded-[22px] border border-hairline bg-surface p-[26px] sm:p-10 md:p-12 flex flex-col">
+          <div className="mx-auto flex w-full items-center justify-center" style={{ height: "clamp(280px, 30vw, 330px)" }}>
+            <Illustration
+              src="/assets/home/local-security.svg"
+              alt="Animated local wallet security system"
+              className="!h-full !w-auto max-w-full"
+            />
+          </div>
+          <span className="eyebrow mt-8">Security</span>
           <h2 className="font-display mt-4 text-3xl md:text-4xl font-semibold text-ink tracking-tight">
             Your keys. Your machine.
           </h2>
@@ -117,7 +148,7 @@ function TwoFeatureCards() {
           <p className="mt-6 text-sm text-ink-muted">
             Signed builds can be verified before installation.
           </p>
-          <div className="mt-6">
+          <div className="mt-6 mt-auto pt-6">
             <CardLink to="/security">Explore security</CardLink>
           </div>
         </article>
@@ -126,47 +157,50 @@ function TwoFeatureCards() {
   );
 }
 
-/* ---------- 3. Workflow ---------- */
-
-const STEPS = [
-  { icon: Download, label: "Download", body: "Get the signed build for your OS." },
-  { icon: ShieldCheck, label: "Verify", body: "Check SHA256 and PGP signature." },
-  { icon: Eye, label: "Review", body: "Inspect Cairo calls and permissions." },
-  { icon: PenLine, label: "Sign", body: "Confirm from your local device." },
-];
+/* ---------- 3. Workflow — Signing Workflow ---------- */
 
 function WorkflowCard() {
   return (
     <section className="pb-24">
       <div className="container-page">
-        <article className="rounded-[22px] border border-hairline bg-surface p-8 md:p-14">
-          <span className="eyebrow">Workflow</span>
-          <h2 className="font-display section-title mt-4 font-semibold max-w-3xl">
-            From download to signed transaction.
-          </h2>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {STEPS.map(({ icon: Icon, label, body }, i) => (
-              <li
-                key={label}
-                className="rounded-2xl border border-hairline bg-surface-2 p-6"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-background text-brand border border-hairline">
-                    <Icon size={18} aria-hidden="true" />
-                  </span>
-                  <span className="text-xs font-semibold text-ink-subtle tracking-wider">
-                    STEP {i + 1}
-                  </span>
-                </div>
-                <h3 className="mt-4 text-lg font-bold text-ink">{label}</h3>
-                <p className="mt-2 text-sm text-ink-muted leading-relaxed">
-                  {body}
-                </p>
-              </li>
-            ))}
-          </ol>
-          <div className="mt-8">
-            <CardLink to="/docs">See how it works</CardLink>
+        <article
+          className="rounded-[22px] border border-hairline bg-surface p-[26px] sm:p-10 md:p-14 lg:p-16"
+          style={{ minHeight: 440 }}
+        >
+          <div className="grid gap-10 md:gap-14 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <span className="eyebrow">Workflow</span>
+              <h2 className="font-display section-title mt-4 font-semibold">
+                From download to signed transaction.
+              </h2>
+              <p className="section-sub max-w-xl">
+                A predictable path for every signed action on Starknet.
+              </p>
+              <p className="mt-6 text-lg font-semibold text-ink">
+                Download <span className="text-ink-muted" aria-hidden="true">→</span>{" "}
+                Verify <span className="text-ink-muted" aria-hidden="true">→</span>{" "}
+                Review <span className="text-ink-muted" aria-hidden="true">→</span>{" "}
+                Sign
+              </p>
+              <ul className="mt-6 space-y-2 text-ink-muted text-[15px] leading-relaxed">
+                <li>· Get the signed build for your OS.</li>
+                <li>· Check SHA256 and PGP signature.</li>
+                <li>· Inspect Cairo calls and permissions.</li>
+                <li>· Confirm from your local device.</li>
+              </ul>
+              <div className="mt-8">
+                <CardLink to="/docs">See how it works</CardLink>
+              </div>
+            </div>
+            <div
+              className="mx-auto w-full max-w-[420px] lg:mx-0 lg:max-w-none order-first lg:order-last"
+              style={{ width: "clamp(340px, 44vw, 500px)", padding: "30px 0" }}
+            >
+              <Illustration
+                src="/assets/home/signing-workflow.svg"
+                alt="Animated workflow from download to signing"
+              />
+            </div>
           </div>
         </article>
       </div>
