@@ -1,27 +1,79 @@
-import { Download, ShieldCheck, FileText, KeyRound, Clock } from "lucide-react";
+import { Download, FileText, KeyRound, Clock, Star, ShieldCheck } from "lucide-react";
 import type { DownloadItem } from "@/data/downloads";
-import { PlatformIcon } from "./PlatformIcon";
 
 type Props = {
   item: DownloadItem;
   recommended: boolean;
 };
 
+const VISUALS: Record<
+  DownloadItem["key"],
+  { base: string; icon: string; iconClass: string }
+> = {
+  windows: {
+    base: "/assets/download/windows-animated-base.svg",
+    icon: "/assets/download/windows-icon-user.png",
+    iconClass: "platform-icon platform-icon--windows",
+  },
+  macos: {
+    base: "/assets/download/macos-animated-base.svg",
+    icon: "/assets/download/macos-icon-user.png",
+    iconClass: "platform-icon platform-icon--macos",
+  },
+  linux: {
+    base: "/assets/download/linux-animated-base.svg",
+    icon: "/assets/download/linux-icon-clean.png",
+    iconClass: "platform-icon platform-icon--linux",
+  },
+};
+
+function specRows(item: DownloadItem) {
+  // Best-effort split of fileType into package + architecture
+  const ft = item.fileType;
+  let pkg = ft;
+  let arch = "—";
+  if (item.key === "macos") {
+    pkg = ".dmg";
+    arch = "Universal (Apple Silicon + Intel)";
+  } else if (item.key === "windows") {
+    pkg = ".exe installer";
+    arch = "x64";
+  } else if (item.key === "linux") {
+    pkg = ".AppImage / .deb";
+    arch = "x86_64";
+  }
+  return [
+    { label: "Version", value: item.version },
+    { label: "Architecture", value: arch },
+    { label: "Package", value: pkg },
+    { label: "Requires", value: item.requirements },
+    { label: "File size", value: item.fileSize },
+  ];
+}
+
 export function PlatformDownloadCard({ item, recommended }: Props) {
   const isAvailable = item.available;
+  const visual = VISUALS[item.key];
+  const label =
+    item.key === "windows" ? "Windows" : item.key === "macos" ? "macOS" : "Linux";
 
   return (
     <article
       className={`platform-download-card ${
         recommended ? "recommended-platform-card" : ""
       }`}
-      aria-label={`${item.os} download${recommended ? " (recommended for your device)" : ""}${isAvailable ? "" : " — build pending"}`}
+      aria-label={`${item.os} download${
+        recommended ? " (recommended for this device)" : ""
+      }${isAvailable ? "" : " — build pending"}`}
     >
-      <header className="flex items-start justify-end gap-4 min-h-[24px]">
+      <header className="platform-card-header">
         {recommended ? (
-          <span className="recommended-badge">Recommended for your device</span>
+          <span className="recommended-badge">
+            <Star size={11} aria-hidden="true" strokeWidth={2.4} />
+            Recommended for this device
+          </span>
         ) : isAvailable ? (
-          <span className="latest-badge">Current maintained build</span>
+          <span className="latest-badge">Current build</span>
         ) : (
           <span className="pending-badge">
             <Clock size={11} aria-hidden="true" /> Build pending
@@ -29,31 +81,42 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
         )}
       </header>
 
-      <div className="mt-2 flex justify-center">
-        <PlatformIcon os={item.key} />
+      <div className="platform-visual" aria-hidden="true">
+        <img
+          className="platform-base"
+          src={visual.base}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+        />
+        <img
+          className={visual.iconClass}
+          src={visual.icon}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+        />
       </div>
 
-      <div className="mt-5 text-left">
+      <div className="mt-4 text-left">
         <h3 className="text-lg font-bold text-ink tracking-tight leading-tight">
           {item.os}
         </h3>
-        <p className="mt-0.5 text-xs text-ink-muted leading-tight">
+        <p className="mt-1 text-xs text-ink-muted leading-tight">
           {item.fileType}
         </p>
       </div>
 
-      <p className="mt-3 text-xs font-semibold text-ink text-left leading-tight">
-        Current maintained version · {item.version}
-      </p>
-
-      <dl className="mt-1 flex items-baseline justify-between gap-4 text-xs text-left leading-tight">
-        <dt className="text-ink-muted">File size</dt>
-        <dd className="text-ink font-medium">{item.fileSize}</dd>
+      <dl className="platform-spec-list">
+        {specRows(item).map((row) => (
+          <div key={row.label} className="platform-spec-row">
+            <dt>{row.label}</dt>
+            <dd>{row.value}</dd>
+          </div>
+        ))}
       </dl>
-
-      <p className="mt-2 text-[11px] text-ink-muted leading-snug text-left">
-        {item.requirements}
-      </p>
 
       <div className="mt-auto pt-6 flex flex-col gap-3">
         {isAvailable && item.downloadUrl ? (
@@ -65,7 +128,7 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
             aria-label={`Download ${item.os} version`}
           >
             <Download size={16} aria-hidden="true" />
-            Download
+            Download for {label}
           </a>
         ) : (
           <button
@@ -81,37 +144,31 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
         )}
 
         {isAvailable ? (
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
-            {item.checksumUrl && (
-              <a
-                href={item.checksumUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-link inline-flex items-center gap-1.5"
-              >
-                <ShieldCheck size={12} aria-hidden="true" /> Verify checksum
-              </a>
-            )}
-            {item.signatureUrl && (
-              <a
-                href={item.signatureUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-link inline-flex items-center gap-1.5"
-              >
-                <KeyRound size={12} aria-hidden="true" /> Signature
-              </a>
-            )}
-            {item.releaseNotesUrl && (
-              <a
-                href={item.releaseNotesUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-link inline-flex items-center gap-1.5"
-              >
-                <FileText size={12} aria-hidden="true" /> Version notes
-              </a>
-            )}
+          <div className="platform-verify-links">
+            <a
+              href={item.checksumUrl || item.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
+              <ShieldCheck size={12} aria-hidden="true" /> SHA256
+            </a>
+            <a
+              href={item.signatureUrl || item.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
+              <KeyRound size={12} aria-hidden="true" /> PGP signature
+            </a>
+            <a
+              href={item.releaseNotesUrl || item.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-link"
+            >
+              <FileText size={12} aria-hidden="true" /> Release notes
+            </a>
           </div>
         ) : (
           <p
@@ -119,8 +176,8 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
             className="text-xs text-ink-muted leading-relaxed"
           >
             The signed {item.os} build is being prepared. Checksum,
-            signature, and version notes will appear here once it is
-            published on the project's source page.
+            signature, and release notes will appear here once it is
+            published.
           </p>
         )}
       </div>
