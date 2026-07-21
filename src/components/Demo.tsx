@@ -1,49 +1,10 @@
 import { useState } from "react";
-import {
-  Wallet,
-  Network,
-  Coins,
-  Activity,
-  KeyRound,
-  Settings,
-  ShieldCheck,
-  Cpu,
-  ChevronDown,
-  ArrowRightLeft,
-  Check,
-  EyeOff,
-  LineChart,
-} from "lucide-react";
+import { ShieldCheck, Cpu, EyeOff } from "lucide-react";
 import { StarknetMarketView } from "@/components/wallet/StarknetMarketView";
 
-type Tab = "market" | "transaction" | "assets" | "activity" | "permissions" | "settings";
+type Tab = "market" | "transaction";
 
-const SIDEBAR: { id: Tab; label: string; icon: typeof Coins }[] = [
-  { id: "market", label: "Market", icon: LineChart },
-  { id: "assets", label: "Assets", icon: Coins },
-  { id: "transaction", label: "Transaction", icon: ArrowRightLeft },
-  { id: "activity", label: "Activity", icon: Activity },
-  { id: "permissions", label: "Permissions", icon: KeyRound },
-  { id: "settings", label: "Settings", icon: Settings },
-];
 
-const DEMO_ASSETS = [
-  { sym: "STRK", name: "Starknet Token", amount: "1,250.00", value: "$612.50" },
-  { sym: "ETH", name: "Ether", amount: "0.42", value: "$1,318.20" },
-  { sym: "USDC", name: "USD Coin", amount: "320.00", value: "$320.00" },
-];
-
-const DEMO_PERMISSIONS = [
-  { dapp: "Example AMM", scope: "Swap STRK ↔ ETH", status: "Active" },
-  { dapp: "Example Lending", scope: "Read balances", status: "Active" },
-  { dapp: "Example NFT", scope: "Sign messages", status: "Revoked" },
-];
-
-const DEMO_ACTIVITY = [
-  { title: "Swap 50 STRK → USDC", meta: "Example AMM · 2h ago", state: "Confirmed" },
-  { title: "Approve spending", meta: "Example Lending · 1d ago", state: "Confirmed" },
-  { title: "Sign message", meta: "Example NFT · 3d ago", state: "Signed" },
-];
 
 export function Demo({ compact = false }: { compact?: boolean } = {}) {
   const [tab, setTab] = useState<Tab>("market");
