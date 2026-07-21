@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FAQ } from "@/components/FAQ";
+import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
+import { ReadingProgress } from "@/components/ReadingProgress";
 
 const TITLE = "FAQ — StarknetWallet";
 const DESC =
@@ -25,19 +27,23 @@ export const Route = createFileRoute("/faq")({
 
 function FAQPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background content-page">
+      <ReadingProgress />
       <Header />
       <main id="main" className="flex-1">
-        <div className="container-page pt-16 pb-6">
-          <span className="eyebrow">Support</span>
-          <h1 className="font-display section-title mt-4 font-semibold">
-            Frequently asked questions
-          </h1>
-          <p className="section-sub max-w-2xl">
-            Everything you need to know about installing, verifying, and using
-            StarknetWallet on desktop.
-          </p>
-        </div>
+        <section className="relative pt-16 pb-6">
+          <PageHeroBackdrop src="/assets/pages/faq-background.svg" />
+          <div className="relative container-page">
+            <span className="eyebrow">Support</span>
+            <h1 className="font-display section-title mt-4 font-semibold">
+              Frequently asked questions
+            </h1>
+            <p className="section-sub max-w-2xl">
+              Everything you need to know about installing, verifying, and using
+              StarknetWallet on desktop.
+            </p>
+          </div>
+        </section>
         <FAQ />
       </main>
       <Footer />

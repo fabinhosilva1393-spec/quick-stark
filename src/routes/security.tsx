@@ -80,6 +80,7 @@ export const Route = createFileRoute("/security")({
     <SimplePage
       eyebrow="Security"
       title="Verifiable security, all the way down."
+      heroBackground="/assets/pages/security-hero.svg"
       description="StarknetWallet is designed around local-first keys, clear transaction review, Cairo call previews, and smart-account permission checks. The goal is simple: review before you sign."
       sections={[
         { id: "pillars", label: "Six pillars" },

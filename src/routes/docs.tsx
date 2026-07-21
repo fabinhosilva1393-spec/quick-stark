@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
+import { ReadingProgress } from "@/components/ReadingProgress";
 import {
   BookOpen,
   Download as DownloadIcon,
@@ -84,10 +86,12 @@ function DocsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background content-page">
+      <ReadingProgress />
       <Header />
       <main id="main" className="flex-1">
         <DocsHero />
+
 
         <section className="border-t border-hairline bg-background">
           <div className="container-page py-12 lg:py-16">
@@ -196,7 +200,8 @@ function DocsPage() {
 function DocsHero() {
   return (
     <section className="relative">
-      <div className="container-page py-16 lg:py-24">
+      <PageHeroBackdrop src="/assets/pages/docs-background.svg" />
+      <div className="relative container-page py-16 lg:py-24">
         <div className="max-w-3xl">
           <span className="eyebrow">Docs</span>
           <h1 className="font-display section-title mt-4 font-semibold">

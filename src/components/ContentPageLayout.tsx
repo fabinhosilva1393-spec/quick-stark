@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 import { Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
+import { ReadingProgress } from "@/components/ReadingProgress";
 
 export type ContentSection = { id: string; label: string };
 
@@ -21,6 +23,7 @@ type ContentPageLayoutProps = {
   sections?: ContentSection[];
   actions?: ContentAction[];
   illustration?: ReactNode;
+  heroBackground?: string;
   children: ReactNode;
 };
 
@@ -61,16 +64,19 @@ export function ContentPageLayout({
   sections,
   actions,
   illustration,
+  heroBackground,
   children,
 }: ContentPageLayoutProps) {
   const hasToc = sections && sections.length > 0;
 
   return (
     <div className="min-h-screen flex flex-col bg-background content-page">
+      <ReadingProgress />
       <Header />
       <main id="main" className="flex-1">
-        <section className="pt-16 pb-24 lg:pt-20 lg:pb-28">
-          <div className="container-page">
+        <section className="relative pt-16 pb-24 lg:pt-20 lg:pb-28">
+          {heroBackground && <PageHeroBackdrop src={heroBackground} />}
+          <div className="relative container-page">
             {/* Header block */}
             <div
               className={
