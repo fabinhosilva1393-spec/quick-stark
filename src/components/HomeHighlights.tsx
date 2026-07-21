@@ -531,8 +531,8 @@ export function HomeHighlights() {
       <FeaturedRelease />
       <Resources />
       <FaqShortcuts />
-      <Newsletter />
     </>
   );
 }
+
 
