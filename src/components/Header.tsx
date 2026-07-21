@@ -14,7 +14,6 @@ const NAV: NavItem[] = [
   { label: "Security", to: "/security" },
   { label: "Docs", to: "/docs" },
   { label: "FAQ", hash: "faq" },
-  { label: "Ecosystem", to: "/ecosystem" },
 ];
 
 export function Header() {
@@ -48,12 +47,7 @@ export function Header() {
         <nav aria-label="Primary" className="hidden md:flex items-center gap-7 text-sm">
           {NAV.map((n) =>
             "to" in n ? (
-              <Link
-                key={n.label}
-                to={n.to}
-                className="nav-link text-ink-muted font-medium"
-                activeProps={{ className: "nav-link nav-link--active font-medium" }}
-              >
+              <Link key={n.label} to={n.to} className="nav-link text-ink-muted font-medium">
                 {n.label}
               </Link>
             ) : (
