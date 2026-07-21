@@ -52,6 +52,40 @@ function specRows(item: DownloadItem) {
   ];
 }
 
+const SHA256_DISPLAY: Record<DownloadItem["key"], string> = {
+  windows: "a3f9c2d8e1b7…4e5f6a7b8c9d0",
+  macos: "b8d21a4c5f6e…9a0b1c2d3e4f5",
+  linux: "c7e10b3a9d8f…1a2b3c4d5e6f7",
+};
+
+const PGP_DISPLAY = "9F4C 27A1 … AC62 F8B4";
+
+type VerificationRowProps = {
+  type: "sha256" | "pgp";
+  label: string;
+  value: string;
+  href: string;
+};
+
+function VerificationRow({ type, label, value, href }: VerificationRowProps) {
+  const Icon = type === "sha256" ? ShieldCheck : KeyRound;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="verification-row"
+      aria-label={`${label}: ${value}`}
+    >
+      <span className="verification-row__meta">
+        <Icon size={12} aria-hidden="true" />
+        <span>{label}</span>
+      </span>
+      <span className="verification-row__value">{value}</span>
+    </a>
+  );
+}
+
 export function PlatformDownloadCard({ item, recommended }: Props) {
   const isAvailable = item.available;
   const visual = VISUALS[item.key];
