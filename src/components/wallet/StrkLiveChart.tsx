@@ -166,7 +166,11 @@ export function StrkLiveChart({
     if (!chart || !baseline) return;
 
     if (compareActive) {
+      // Hide AND clear baseline data so it does not constrain the shared
+      // price scale to the STRK absolute-price range while we render
+      // percent-change lines.
       baseline.applyOptions({ visible: false, priceLineVisible: false, lastValueVisible: false });
+      try { baseline.setData([]); } catch { /* noop */ }
       if (baselineLineRef.current) {
         try {
           baseline.removePriceLine(baselineLineRef.current);
@@ -212,7 +216,6 @@ export function StrkLiveChart({
         });
       }
     } else {
-      baseline.applyOptions({ visible: true, priceLineVisible: true, lastValueVisible: true });
       if (zeroLineRef.current && mainPctRef.current) {
         try {
           mainPctRef.current.removePriceLine(zeroLineRef.current);
@@ -229,8 +232,10 @@ export function StrkLiveChart({
         try { chart.removeSeries(comparePctRef.current); } catch { /* noop */ }
         comparePctRef.current = null;
       }
+      baseline.applyOptions({ visible: true, priceLineVisible: true, lastValueVisible: true });
     }
   }, [compareActive]);
+
 
   // Load data
   useEffect(() => {
