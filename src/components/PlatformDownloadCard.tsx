@@ -1,6 +1,6 @@
 import { Download, FileText, KeyRound, Clock, Star, ShieldCheck } from "lucide-react";
 import type { DownloadItem } from "@/data/downloads";
-import linuxIconAsset from "@/assets/linux-icon-clean-2.png.asset.json";
+import linuxIconAsset from "@/assets/linux-icon-clean-3.png.asset.json";
 
 type Props = {
   item: DownloadItem;
