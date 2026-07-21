@@ -121,11 +121,11 @@ export function StrkLiveChart({
       }
       baselineLineRef.current = series.createPriceLine({
         price: baselinePrice,
-        color: "rgba(188, 165, 255, 0.45)",
+        color: "rgba(188, 165, 255, 0.30)",
         lineWidth: 1,
         lineStyle: LineStyle.Dashed,
-        axisLabelVisible: true,
-        title: "Open",
+        axisLabelVisible: false,
+        title: "",
       });
     }
   }, [baselinePrice]);
