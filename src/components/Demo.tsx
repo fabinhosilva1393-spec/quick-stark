@@ -65,9 +65,15 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
         <span className="h-2 w-2 rounded-full bg-[oklch(0.82_0.15_85)] opacity-70" />
         <span className="h-2 w-2 rounded-full bg-[oklch(0.74_0.16_145)] opacity-70" />
         <span className="ml-3 inline-flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: "#F6F3F8" }}>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 2.5l2.4 6.6 6.6 2.4-6.6 2.4L12 20.5 9.6 13.9 3 11.5l6.6-2.4L12 2.5z" fill="#BCA5FF" />
-          </svg>
+          <img
+            src="/starknetwallet-icon.ico"
+            alt=""
+            aria-hidden="true"
+            width={14}
+            height={14}
+            className="rounded-[3px]"
+            style={{ display: "block" }}
+          />
           StarknetWallet
           <span className="ml-1.5 font-medium capitalize" style={{ color: "#817789" }}>{tab}</span>
         </span>

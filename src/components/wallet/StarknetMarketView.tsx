@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeftRight, Maximize2, RefreshCw } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 import { useStrkBinanceMarket } from "@/hooks/useStrkBinanceMarket";
 import {
   formatCompactVolume,
@@ -8,10 +8,7 @@ import {
   formatSignedPrice,
 } from "@/lib/binance/strkMarket";
 import type { StrkRange } from "@/types/strkMarket";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { StrkLiveChart } from "./StrkLiveChart";
-import { StrkComparePopover } from "./StrkComparePopover";
-import { StrkExpandedChart } from "./StrkExpandedChart";
 
 const RANGES: StrkRange[] = ["24h", "1W", "1M", "3M", "1Y", "All"];
 
@@ -20,8 +17,6 @@ export function StarknetMarketView() {
   useEffect(() => setMounted(true), []);
 
   const market = useStrkBinanceMarket("1W");
-  const [expanded, setExpanded] = useState(false);
-  const [compareOpen, setCompareOpen] = useState(false);
 
   const {
     range,
@@ -107,7 +102,7 @@ export function StarknetMarketView() {
           </div>
         </div>
 
-        <div className="strk-market-toolbar" role="toolbar" aria-label="Range and chart tools">
+        <div className="strk-market-toolbar" role="toolbar" aria-label="Time range">
           <div className="strk-range-group" role="group" aria-label="Time range">
             {RANGES.map((r) => (
               <button
@@ -121,41 +116,6 @@ export function StarknetMarketView() {
               </button>
             ))}
           </div>
-          <div className="strk-toolbar-spacer" />
-          <Popover open={compareOpen} onOpenChange={setCompareOpen}>
-            <PopoverTrigger asChild>
-              <button
-                type="button"
-                className="strk-tool-btn"
-                aria-expanded={compareOpen}
-                aria-controls="strk-usdt-compare-panel"
-                aria-label="Compare STRK and USDT"
-              >
-                <ArrowLeftRight size={13} aria-hidden="true" />
-                <span>Compare</span>
-              </button>
-            </PopoverTrigger>
-            <PopoverContent
-              align="end"
-              sideOffset={8}
-              className="strk-compare-popover-content p-0 border-0 bg-transparent shadow-none"
-            >
-              <StrkComparePopover
-                currentPrice={currentPrice}
-                percentageChange={percentageChange}
-                range={range}
-              />
-            </PopoverContent>
-          </Popover>
-          <button
-            type="button"
-            className="strk-tool-btn strk-tool-btn--icon"
-            title="Expand STRK chart"
-            aria-label="Open large Starknet market chart"
-            onClick={() => setExpanded(true)}
-          >
-            <Maximize2 size={14} aria-hidden="true" />
-          </button>
         </div>
 
         <div className="strk-market-chart-wrap">
@@ -203,17 +163,6 @@ export function StarknetMarketView() {
           </div>
         </div>
       </div>
-
-      <StrkExpandedChart
-        open={expanded}
-        onOpenChange={setExpanded}
-        candles={candles}
-        currentPrice={currentPrice}
-        baselinePrice={baselinePrice}
-        absoluteChange={absoluteChange}
-        percentageChange={percentageChange}
-        range={range}
-      />
     </div>
   );
 }
