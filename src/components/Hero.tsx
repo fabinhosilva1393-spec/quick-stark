@@ -5,7 +5,6 @@ import { Demo } from "@/components/Demo";
 export function Hero() {
   return (
     <section id="about" className="relative overflow-hidden pt-16 pb-20 lg:pt-20 lg:pb-24">
-      <div className="absolute inset-0 bg-grid-soft" aria-hidden="true" />
       <div className="container-page relative">
         <div className="grid lg:grid-cols-[minmax(0,42fr)_minmax(650px,58fr)] gap-12 lg:gap-10 items-center">
           <div className="min-w-0 max-w-[620px]">

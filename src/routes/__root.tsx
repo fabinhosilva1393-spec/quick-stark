@@ -160,10 +160,12 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+  const isHome = router.state.location.pathname === "/";
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteBackground />
+      <SiteBackground hideGrid={isHome} />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
       <CookieConsent />

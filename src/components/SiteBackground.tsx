@@ -5,12 +5,12 @@
  * by faint Cairo-inspired hex traces. Pointer-events: none; sits behind
  * content; respects prefers-reduced-motion via CSS.
  */
-export function SiteBackground() {
+export function SiteBackground({ hideGrid = false }: { hideGrid?: boolean }) {
   return (
     <div className="site-bg" aria-hidden="true">
       {/* Recursive trace grid (STARK AIR columns) */}
-      <div className="stark-bg-grid" />
-      <div className="stark-bg-grid stark-bg-grid--fine" />
+      {!hideGrid && <div className="stark-bg-grid" />}
+      {!hideGrid && <div className="stark-bg-grid stark-bg-grid--fine" />}
 
       {/* Brand glows */}
       <span className="stark-bg-glow stark-bg-glow--orange" />
