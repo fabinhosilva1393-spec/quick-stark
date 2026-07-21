@@ -37,36 +37,36 @@ export function StrkLiveChart({
       autoSize: true,
       layout: {
         background: { color: "transparent" },
-        textColor: "#817789",
+        textColor: "#777287",
         attributionLogo: false,
         fontFamily:
           "'Sora', ui-sans-serif, system-ui, -apple-system, sans-serif",
       },
       grid: {
-        horzLines: { color: "rgba(204, 178, 230, 0.08)" },
-        vertLines: { color: "rgba(204, 178, 230, 0.035)" },
+        horzLines: { color: "rgba(167, 163, 184, 0.08)" },
+        vertLines: { color: "rgba(167, 163, 184, 0.04)" },
       },
       rightPriceScale: {
-        borderColor: "rgba(204, 178, 230, 0.10)",
+        borderColor: "rgba(167, 163, 184, 0.10)",
         scaleMargins: { top: 0.12, bottom: 0.08 },
       },
       timeScale: {
-        borderColor: "rgba(204, 178, 230, 0.10)",
+        borderColor: "rgba(167, 163, 184, 0.10)",
         timeVisible: true,
         secondsVisible: false,
       },
       crosshair: {
         vertLine: {
-          color: "rgba(188, 165, 255, 0.35)",
+          color: "rgba(167, 163, 184, 0.30)",
           width: 1,
           style: LineStyle.Dotted,
-          labelBackgroundColor: "#17141A",
+          labelBackgroundColor: "#0E0E34",
         },
         horzLine: {
-          color: "rgba(188, 165, 255, 0.35)",
+          color: "rgba(167, 163, 184, 0.30)",
           width: 1,
           style: LineStyle.Dotted,
-          labelBackgroundColor: "#17141A",
+          labelBackgroundColor: "#0E0E34",
         },
       },
       handleScale: false,
@@ -78,7 +78,7 @@ export function StrkLiveChart({
       topLineColor: "#22D39A",
       topFillColor1: "rgba(34, 211, 154, 0.28)",
       topFillColor2: "rgba(34, 211, 154, 0.03)",
-      bottomLineColor: "#F05D78",
+      bottomLineColor: "#E06C75",
       bottomFillColor1: "rgba(240, 93, 120, 0.03)",
       bottomFillColor2: "rgba(240, 93, 120, 0.26)",
       lineWidth: 2,
@@ -87,7 +87,7 @@ export function StrkLiveChart({
       crosshairMarkerVisible: true,
       crosshairMarkerRadius: 3,
       priceLineVisible: true,
-      priceLineColor: "rgba(188, 165, 255, 0.55)",
+      priceLineColor: "rgba(167, 163, 184, 0.45)",
       priceLineWidth: 1,
       priceLineStyle: LineStyle.Dotted,
       lastValueVisible: true,
@@ -122,7 +122,7 @@ export function StrkLiveChart({
       }
       baselineLineRef.current = series.createPriceLine({
         price: baselinePrice,
-        color: "rgba(188, 165, 255, 0.30)",
+        color: "rgba(167, 163, 184, 0.25)",
         lineWidth: 1,
         lineStyle: LineStyle.Dashed,
         axisLabelVisible: false,
