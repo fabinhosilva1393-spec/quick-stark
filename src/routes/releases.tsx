@@ -33,7 +33,7 @@ export const Route = createFileRoute("/releases")({
       ]}
     >
 
-      <h2>Current maintained version: {APP_VERSION}</h2>
+      <h2 id="current-version">Current maintained version: {APP_VERSION}</h2>
       <ul>
         <li>Product track: Desktop · Actively maintained</li>
         <li>macOS · .dmg Universal · Apple Silicon and Intel</li>
@@ -58,7 +58,7 @@ export const Route = createFileRoute("/releases")({
         </div>
       </div>
 
-      <h2>What's in the current build</h2>
+      <h2 id="whats-in-build">What's in the current build</h2>
       <ul>
         <li>STRK balance management and transfers.</li>
         <li>Starknet Mainnet and Starknet Sepolia support.</li>
@@ -67,7 +67,7 @@ export const Route = createFileRoute("/releases")({
         <li>Signed verification flow with SHA256 and PGP.</li>
       </ul>
 
-      <h2>Source</h2>
+      <h2 id="source">Source</h2>
       <p>
         Browse the project source at{" "}
         <a href={GITHUB_RELEASES_URL} target="_blank" rel="noopener noreferrer">
