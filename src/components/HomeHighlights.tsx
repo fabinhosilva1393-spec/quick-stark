@@ -419,22 +419,18 @@ function FeaturedRelease() {
 
 const RESOURCES = [
   {
-    icon: BookOpen,
     title: "Documentation",
     body: "Install, set up accounts and get familiar with the desktop wallet.",
     to: "/docs",
     cta: "Read the docs",
   },
   {
-    icon: Terminal,
     title: "Developer resources",
     body: "Integrate with Cairo tooling and build Starknet-native workflows.",
     to: "/docs",
     cta: "Read the docs",
   },
-
   {
-    icon: KeyRound,
     title: "Security & verification",
     body: "How signed builds, SHA256 checksums and PGP verification work.",
     to: "/security",
@@ -453,22 +449,27 @@ function Resources() {
           </h2>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {RESOURCES.map(({ icon: Icon, title, body, to, cta }) => (
+          {RESOURCES.map(({ title, body, to, cta }) => (
             <article
               key={title}
-              className="rounded-2xl border border-hairline bg-surface p-8 flex flex-col"
+              className="resource-card rounded-2xl border border-hairline bg-surface p-8 flex flex-col"
             >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-surface-2 text-brand border border-hairline">
-                <Icon size={20} aria-hidden="true" />
-              </span>
-              <h3 className="mt-5 text-xl font-bold text-ink tracking-tight">
-                {title}
-              </h3>
-              <p className="mt-2 text-sm text-ink-muted leading-relaxed">
-                {body}
-              </p>
-              <div className="mt-6">
-                <CardLink to={to}>{cta}</CardLink>
+              <div className="resource-card__content">
+                <h3 className="resource-card__title text-xl font-bold text-ink tracking-tight">
+                  {title}
+                </h3>
+                <p className="resource-card__description mt-2 text-sm text-ink-muted leading-relaxed">
+                  {body}
+                </p>
+                <div className="mt-6">
+                  <Link
+                    to={to}
+                    className="resource-card__link inline-flex items-center gap-1.5 text-link font-semibold text-sm"
+                  >
+                    {cta}
+                    <ArrowRight size={14} aria-hidden="true" />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
