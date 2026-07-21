@@ -55,7 +55,7 @@ export function StrkComparePopover({
 
   const strkPct = selectedRangeChangePercent;
   const relPos = (strkPct ?? 0) >= 0;
-  const barPct = Math.min(50, Math.abs(strkPct ?? 0) * 5); // 10% -> 50% of half-bar
+  const barPct = Math.min(50, Math.abs(strkPct ?? 0) * 5);
 
   const reconnecting =
     connectionStatus === "reconnecting" || connectionStatus === "connecting";
@@ -68,7 +68,7 @@ export function StrkComparePopover({
       className="strk-compare-panel"
     >
       <div className="strk-compare-panel-head">
-        <div>
+        <div className="strk-compare-panel-head__title">
           <div className="strk-compare-header">STRK / USDT Comparison</div>
           <div className="strk-compare-subheader">
             {reconnecting ? "Reconnecting…" : "Live Binance Spot conversion"}
@@ -90,13 +90,13 @@ export function StrkComparePopover({
       ) : (
         <>
           <div className="strk-compare-rates">
-            <div>
+            <div className="strk-compare-rate">
               <div className="strk-compare-eyebrow">STARKNET</div>
               <div className="strk-compare-ticker">STRK</div>
               <div className="strk-compare-label">1 STRK</div>
               <div className="strk-compare-value">{formatSmart(strkInUsdt, "USDT")}</div>
             </div>
-            <div>
+            <div className="strk-compare-rate">
               <div className="strk-compare-eyebrow">TETHER</div>
               <div className="strk-compare-ticker">USDT</div>
               <div className="strk-compare-label">1 USDT</div>
@@ -105,9 +105,10 @@ export function StrkComparePopover({
           </div>
 
           <div className="strk-compare-converter">
-            <label className="strk-compare-field">
-              <span>STRK amount</span>
+            <div className="strk-compare-field">
+              <label htmlFor="strk-cmp-strk-in">STRK amount</label>
               <input
+                id="strk-cmp-strk-in"
                 type="text"
                 inputMode="decimal"
                 value={computedStrk}
@@ -119,7 +120,7 @@ export function StrkComparePopover({
                   }
                 }}
               />
-            </label>
+            </div>
             <button
               type="button"
               className="strk-compare-swap"
@@ -128,9 +129,10 @@ export function StrkComparePopover({
             >
               <ArrowLeftRight size={14} aria-hidden="true" />
             </button>
-            <label className="strk-compare-field">
-              <span>USDT value</span>
+            <div className="strk-compare-field">
+              <label htmlFor="strk-cmp-usdt-in">USDT value</label>
               <input
+                id="strk-cmp-usdt-in"
                 type="text"
                 inputMode="decimal"
                 value={computedUsdt}
@@ -142,22 +144,22 @@ export function StrkComparePopover({
                   }
                 }}
               />
-            </label>
+            </div>
           </div>
 
           <div className="strk-compare-perf">
-            <div>
+            <div className="strk-compare-perf-row">
               <div className="strk-compare-label">STRK performance</div>
               <div className={`strk-compare-value ${relPos ? "is-pos" : "is-neg"}`}>
                 {formatSignedPct(strkPct)}{" "}
                 <span className="strk-compare-range">· {selectedRange}</span>
               </div>
             </div>
-            <div>
+            <div className="strk-compare-perf-row">
               <div className="strk-compare-label">USDT quote benchmark</div>
               <div className="strk-compare-value">0.00%</div>
             </div>
-            <div>
+            <div className="strk-compare-perf-row strk-compare-perf-row--wrap">
               <div className="strk-compare-label">Relative performance</div>
               <div className={`strk-compare-value ${relPos ? "is-pos" : "is-neg"}`}>
                 STRK {formatSignedPct(strkPct)} vs USDT
