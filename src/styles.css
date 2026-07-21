@@ -399,13 +399,14 @@
   object-fit: contain;
   animation: platformIconFloat 4.6s ease-in-out infinite;
 }
-.platform-icon--windows { width: 140px; --icon-top: 24px; }
-.platform-icon--macos   { width: 135px; --icon-top: 20px; }
-.platform-icon--linux   { width: 120px; --icon-top: 10px; }
+.platform-icon { background: transparent; }
+.platform-icon--windows { width: 92px; --icon-top: 46px; }
+.platform-icon--macos   { width: 84px; --icon-top: 44px; }
+.platform-icon--linux   { width: 80px; --icon-top: 40px; }
 
 @keyframes platformIconFloat {
   0%, 100% { transform: translate(-50%, 0); }
-  50%      { transform: translate(-50%, -8px); }
+  50%      { transform: translate(-50%, -6px); }
 }
 
 @media (max-width: 900px) {
@@ -413,9 +414,9 @@
 }
 @media (max-width: 650px) {
   .platform-visual { height: 220px; }
-  .platform-icon--windows { width: 112px; }
-  .platform-icon--macos   { width: 112px; }
-  .platform-icon--linux   { width: 100px; }
+  .platform-icon--windows { width: 78px; --icon-top: 38px; }
+  .platform-icon--macos   { width: 72px; --icon-top: 36px; }
+  .platform-icon--linux   { width: 68px; --icon-top: 34px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .platform-icon { animation: none; }
