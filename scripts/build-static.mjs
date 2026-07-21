@@ -15,8 +15,23 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 
 const root = process.cwd();
-const distDir = path.join(root, "dist");
-const outDir = path.join(distDir, "static");
+
+// The Nitro/TanStack Start build may land in either `dist/` (cloudflare-module preset)
+// or `.output/` (default node-server preset). Detect whichever exists.
+async function resolveBuildDir() {
+  const candidates = [
+    path.join(root, "dist"),
+    path.join(root, ".output"),
+    path.join(root, "build"),
+  ];
+  for (const c of candidates) {
+    try { await fs.access(c); return c; } catch {}
+  }
+  return null;
+}
+
+let distDir = path.join(root, "dist"); // will be reassigned in main()
+let outDir = path.join(distDir, "static");
 
 const PAGE_ROUTES = [
   "/",
