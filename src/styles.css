@@ -301,32 +301,33 @@
 
 .platform-download-card {
   position: relative;
-  min-height: 360px;
-  padding: 28px;
-  border-radius: 16px;
-  background: var(--surface);
-  border: 1px solid var(--hairline);
-  box-shadow: 0 1px 2px rgba(15, 17, 34, 0.04);
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  min-height: 620px;
+  padding: 18px 18px 24px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #15161B 0%, #101116 100%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: border-color 220ms ease, transform 220ms ease;
 }
-.platform-download-card:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in oklab, var(--ink) 18%, transparent);
-  box-shadow: 0 8px 28px rgba(15, 17, 34, 0.07);
-}
+
 .recommended-platform-card {
-  border-color: color-mix(in oklab, var(--brand) 50%, transparent);
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--brand) 40%, transparent),
-    0 8px 28px color-mix(in oklab, var(--brand) 14%, transparent);
+  border-color: color-mix(in oklab, #C9A4CE 55%, transparent);
+  transform: translateY(-4px);
+}
+@media (max-width: 650px) {
+  .recommended-platform-card { transform: none; }
+}
+
+.platform-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 24px;
 }
 
 .recommended-badge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -336,10 +337,9 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--brand-foreground);
-  background: var(--brand);
-  border: 1px solid var(--brand);
-  box-shadow: 0 4px 14px color-mix(in oklab, var(--brand) 40%, transparent);
+  color: #0B1030;
+  background: linear-gradient(90deg, #EDACB1 0%, #C9A4CE 48%, #9595E2 100%);
+  border: 1px solid transparent;
 }
 
 .latest-badge {
@@ -353,8 +353,8 @@
   text-transform: uppercase;
   font-weight: 700;
   color: var(--ink-muted);
-  background: var(--muted);
-  border: 1px solid var(--hairline);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 .pending-badge {
@@ -367,10 +367,103 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 700;
-  color: oklch(0.42 0.12 60);
-  background: oklch(0.96 0.05 80);
-  border: 1px solid oklch(0.8 0.08 70);
+  color: #E9C46A;
+  background: rgba(233, 196, 106, 0.08);
+  border: 1px solid rgba(233, 196, 106, 0.30);
 }
+
+/* ---- Layered platform visual (base + OS icon) ---- */
+.platform-visual {
+  position: relative;
+  width: 100%;
+  height: clamp(245px, 26vw, 270px);
+  margin-top: 6px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.platform-base {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.platform-icon {
+  position: absolute;
+  left: 50%;
+  top: var(--icon-top, 22px);
+  transform: translateX(-50%);
+  z-index: 2;
+  object-fit: contain;
+  animation: platformIconFloat 4.6s ease-in-out infinite;
+}
+.platform-icon--windows { width: 140px; --icon-top: 24px; }
+.platform-icon--macos   { width: 135px; --icon-top: 20px; }
+.platform-icon--linux   { width: 120px; --icon-top: 10px; }
+
+@keyframes platformIconFloat {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, -8px); }
+}
+
+@media (max-width: 900px) {
+  .platform-visual { height: 235px; }
+}
+@media (max-width: 650px) {
+  .platform-visual { height: 220px; }
+  .platform-icon--windows { width: 112px; }
+  .platform-icon--macos   { width: 112px; }
+  .platform-icon--linux   { width: 100px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .platform-icon { animation: none; }
+}
+
+/* ---- Spec rows ---- */
+.platform-spec-list {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.platform-spec-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 12.5px;
+  line-height: 1.35;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.platform-spec-row:first-child { border-top: 0; }
+.platform-spec-row dt {
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+.platform-spec-row dd {
+  color: var(--ink);
+  font-weight: 600;
+  text-align: right;
+  max-width: 62%;
+}
+
+/* ---- Verification links row ---- */
+.platform-verify-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 18px;
+  font-size: 12px;
+}
+.platform-verify-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
 
 /* ============= Trust chips ============= */
 .trust-chip {
