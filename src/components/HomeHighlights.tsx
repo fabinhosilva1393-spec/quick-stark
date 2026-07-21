@@ -128,7 +128,8 @@ function TwoFeatureCards() {
             workflow.
           </p>
           <div className="mt-6 mt-auto pt-6">
-            <CardLink to="/docs">Explore features</CardLink>
+            <CardLink to="/docs">Read product docs</CardLink>
+
           </div>
         </article>
 
