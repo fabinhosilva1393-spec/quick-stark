@@ -594,6 +594,7 @@ export function HomeHighlights() {
       <TwoFeatureCards />
       <WorkflowCard />
       <Platforms />
+      <CompatibilityCompact />
       <FeaturedRelease />
       <Resources />
       <FaqShortcuts />
@@ -601,3 +602,4 @@ export function HomeHighlights() {
     </>
   );
 }
+
