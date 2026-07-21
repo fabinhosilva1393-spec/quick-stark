@@ -254,12 +254,18 @@ function Platforms() {
           ))}
         </div>
 
-        <p className="mt-6 text-sm text-ink-muted">
-          Need checksums, fingerprints and previous versions?{" "}
-          <Link to="/releases" className="text-link font-semibold">
-            View releases and verification →
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 rounded-2xl border border-hairline bg-surface px-5 py-4 text-xs text-ink-muted">
+          <span className="font-semibold text-ink">Verify every release before installation.</span>
+          <span>Signed builds</span>
+          <span aria-hidden="true">·</span>
+          <span>SHA256 checksums</span>
+          <span aria-hidden="true">·</span>
+          <span>PGP signatures</span>
+          <Link to="/releases" className="ml-auto text-link font-semibold inline-flex items-center gap-1.5">
+            View all releases <ArrowRight size={14} aria-hidden="true" />
           </Link>
-        </p>
+        </div>
+
       </div>
     </section>
   );
