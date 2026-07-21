@@ -7,7 +7,7 @@ export function Hero() {
     <section id="about" className="relative overflow-hidden pt-16 pb-20 lg:pt-20 lg:pb-24">
       <div className="absolute inset-0 bg-grid-soft" aria-hidden="true" />
       <div className="container-page relative">
-        <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] gap-12 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-[minmax(0,42fr)_minmax(650px,58fr)] gap-12 lg:gap-10 items-center">
           <div className="min-w-0 max-w-[620px]">
             <span className="eyebrow">
               <span className="h-1.5 w-1.5 rounded-full bg-brand" />
@@ -41,7 +41,7 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="relative min-w-0 w-full max-w-[780px] mx-auto lg:mx-0 lg:ml-auto demo-stage lg:translate-y-6 xl:translate-y-7">
+          <div className="relative min-w-0 w-full max-w-[820px] mx-auto lg:mx-0 lg:ml-auto demo-stage lg:translate-y-4 xl:translate-y-5">
             <span className="demo-glow" aria-hidden="true" />
             <span className="demo-orbit" aria-hidden="true" />
             <span className="demo-orbit demo-orbit-2" aria-hidden="true" />
