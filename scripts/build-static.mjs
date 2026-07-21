@@ -233,14 +233,18 @@ async function localizeLovableAssets(outRoot) {
 
 
 async function main() {
-  if (!(await exists(distDir))) {
-    console.error("[build-static] dist/ not found. Run `vite build` first.");
+  const detected = await resolveBuildDir();
+  if (!detected) {
+    console.error("[build-static] No build output found. Looked for dist/, .output/, build/. Run `vite build` first.");
     process.exit(1);
   }
+  distDir = detected;
+  outDir = path.join(distDir, "static");
+  console.log(`[build-static] Build dir:     ${path.relative(root, distDir) || "."}`);
 
   const clientDir = await detectClientDir();
   if (!clientDir) {
-    console.error("[build-static] Could not locate client assets directory (tried dist/client, dist/public, .output/public).");
+    console.error(`[build-static] Could not locate client assets directory inside ${path.relative(root, distDir)}.`);
     process.exit(1);
   }
   const serverEntry = await detectServerEntry();
