@@ -67,8 +67,6 @@ export function ContentPageLayout({
   heroBackground,
   children,
 }: ContentPageLayoutProps) {
-  const hasToc = sections && sections.length > 0;
-
   return (
     <div className="min-h-screen flex flex-col bg-background content-page">
       <ReadingProgress />
@@ -108,38 +106,9 @@ export function ContentPageLayout({
               )}
             </div>
 
-            {/* Body + optional sticky TOC */}
-            <div
-              className={
-                hasToc
-                  ? "mt-12 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,220px)] gap-10 lg:gap-14 items-start"
-                  : "mt-12"
-              }
-            >
-              <div className="min-w-0 max-w-3xl content-prose space-y-4 text-ink-muted leading-relaxed">
-                {children}
-              </div>
-              {hasToc && (
-                <aside className="hidden lg:block sticky top-24 self-start">
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-ink-muted mb-3">
-                    On this page
-                  </p>
-                  <nav>
-                    <ul className="space-y-2 border-l border-hairline pl-4">
-                      {sections!.map((s) => (
-                        <li key={s.id}>
-                          <a
-                            href={`#${s.id}`}
-                            className="block text-sm text-ink-muted hover:text-brand transition-colors"
-                          >
-                            {s.label}
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </nav>
-                </aside>
-              )}
+            {/* Body */}
+            <div className="mt-12 min-w-0 max-w-3xl content-prose space-y-4 text-ink-muted leading-relaxed">
+              {children}
             </div>
 
             <div className="mt-16 pt-8 border-t border-hairline max-w-3xl">
