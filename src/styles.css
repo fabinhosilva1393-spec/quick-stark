@@ -761,18 +761,18 @@ body > * { position: relative; z-index: 1; }
 /* Locked outer demo shell — content scrolls internally, frame does not grow */
 .demo-shell {
   width: 100%;
-  height: 540px;
-  max-height: calc(100vh - 160px);
+  height: 590px;
+  max-height: calc(100vh - 140px);
   flex-shrink: 0;
 }
 @media (max-width: 1279px) {
-  .demo-shell { height: 520px; }
+  .demo-shell { height: 570px; }
 }
 @media (max-width: 1023px) {
-  .demo-shell { height: 500px; }
+  .demo-shell { height: 540px; }
 }
 @media (max-width: 767px) {
-  .demo-shell { height: 460px; max-height: 80vh; }
+  .demo-shell { height: 500px; max-height: 82vh; }
 }
 
 /* Subtle internal scrollbar */
