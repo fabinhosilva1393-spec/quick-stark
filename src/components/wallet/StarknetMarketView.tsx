@@ -241,6 +241,17 @@ export function StarknetMarketView() {
               </div>
             ) : null}
           </div>
+          <button
+            type="button"
+            className="strk-tool-btn"
+            aria-label="Expand chart"
+            aria-expanded={expanded}
+            aria-controls="expanded-market-chart"
+            onClick={() => setExpanded(true)}
+          >
+            <Maximize2 size={13} aria-hidden="true" />
+            <span>Expand</span>
+          </button>
         </div>
 
         {compareActive ? (
