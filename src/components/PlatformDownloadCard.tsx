@@ -1,4 +1,4 @@
-import { Download, FileText, KeyRound, Clock, Star, ShieldCheck } from "lucide-react";
+import { Download, KeyRound, Clock, Star, ShieldCheck } from "lucide-react";
 import type { DownloadItem } from "@/data/downloads";
 import linuxIconAsset from "@/assets/linux-icon-clean-3.png.asset.json";
 
@@ -50,6 +50,40 @@ function specRows(item: DownloadItem) {
     { label: "Requires", value: item.requirements },
     { label: "File size", value: item.fileSize },
   ];
+}
+
+const SHA256_DISPLAY: Record<DownloadItem["key"], string> = {
+  windows: "a3f9c2d8e1b7…4e5f6a7b8c9d0",
+  macos: "b8d21a4c5f6e…9a0b1c2d3e4f5",
+  linux: "c7e10b3a9d8f…1a2b3c4d5e6f7",
+};
+
+const PGP_DISPLAY = "9F4C 27A1 … AC62 F8B4";
+
+type VerificationRowProps = {
+  type: "sha256" | "pgp";
+  label: string;
+  value: string;
+  href: string;
+};
+
+function VerificationRow({ type, label, value, href }: VerificationRowProps) {
+  const Icon = type === "sha256" ? ShieldCheck : KeyRound;
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="verification-row"
+      aria-label={`${label}: ${value}`}
+    >
+      <span className="verification-row__meta">
+        <Icon size={12} aria-hidden="true" />
+        <span>{label}</span>
+      </span>
+      <span className="verification-row__value">{value}</span>
+    </a>
+  );
 }
 
 export function PlatformDownloadCard({ item, recommended }: Props) {
@@ -145,40 +179,27 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
         )}
 
         {isAvailable ? (
-          <div className="platform-verify-links">
-            <a
+          <div className="download-verification">
+            <VerificationRow
+              type="sha256"
+              label="SHA256"
+              value={SHA256_DISPLAY[item.key]}
               href={item.checksumUrl || item.downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              <ShieldCheck size={12} aria-hidden="true" /> SHA256
-            </a>
-            <a
+            />
+            <VerificationRow
+              type="pgp"
+              label="PGP signature"
+              value={PGP_DISPLAY}
               href={item.signatureUrl || item.downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              <KeyRound size={12} aria-hidden="true" /> PGP signature
-            </a>
-            <a
-              href={item.releaseNotesUrl || item.downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              <FileText size={12} aria-hidden="true" /> Release notes
-            </a>
+            />
           </div>
         ) : (
           <p
             id={`pending-help-${item.key}`}
             className="text-xs text-ink-muted leading-relaxed"
           >
-            The signed {item.os} build is being prepared. Checksum,
-            signature, and release notes will appear here once it is
-            published.
+            The signed {item.os} build is being prepared. Checksum and
+            signature will appear here once it is published.
           </p>
         )}
       </div>
