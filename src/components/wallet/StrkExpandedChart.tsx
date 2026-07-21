@@ -33,15 +33,22 @@ export function StrkExpandedChart({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="strk-expanded-dialog max-w-5xl">
         <DialogHeader>
-          <DialogTitle className="flex items-center justify-between gap-4">
-            <span>Starknet · STRK / USDT · Binance Spot</span>
-            <span className="strk-price-inline">
-              ${formatPrice(currentPrice)}{" "}
-              <span className={pos ? "is-pos" : "is-neg"}>
-                {formatSignedPrice(absoluteChange)} ·{" "}
-                {formatSignedPct(percentageChange)} · {range}
+          <DialogTitle asChild>
+            <div className="strk-expanded-header">
+              <span className="strk-expanded-header__title">
+                Starknet · STRK / USDT · Binance Spot
               </span>
-            </span>
+              <span className="strk-expanded-header__metrics">
+                <span>${formatPrice(currentPrice)}</span>
+                <span className={pos ? "is-pos" : "is-neg"}>
+                  {formatSignedPrice(absoluteChange)}
+                </span>
+                <span className={pos ? "is-pos" : "is-neg"}>
+                  {formatSignedPct(percentageChange)} · {range}
+                </span>
+              </span>
+              <span className="strk-expanded-header__close-spacer" aria-hidden="true" />
+            </div>
           </DialogTitle>
         </DialogHeader>
         <div className="strk-expanded-chart">
