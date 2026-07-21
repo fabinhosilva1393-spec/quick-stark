@@ -215,7 +215,7 @@
   display: block;
 }
 .hero-h1 .accent {
-  background: linear-gradient(90deg, #EDACB1 0%, #C9A4CE 48%, #9595E2 100%);
+  background: var(--brand-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -227,7 +227,7 @@
 /* ============= Announcement bar ============= */
 .announcement-bar {
   position: relative;
-  background: linear-gradient(90deg, #5D3253 0%, #452864 32%, #2B1D76 62%, #12104E 100%);
+  background: linear-gradient(90deg, #15142F 0%, #25245D 40%, #4A2E7A 70%, #7068EF 100%);
   border-bottom: 1px solid var(--hairline);
   color: #FFFFFF;
 }
@@ -235,8 +235,8 @@
   width: 6px;
   height: 6px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #EDACB1, #9595E2);
-  box-shadow: 0 0 10px color-mix(in oklab, #C9A4CE 60%, transparent);
+  background: linear-gradient(135deg, #FF705E, #7068EF);
+  box-shadow: 0 0 10px color-mix(in oklab, #815DE8 65%, transparent);
 }
 
 
@@ -257,8 +257,8 @@
   height: 44px;
   padding: 0 20px;
   border-radius: 8px;
-  background: linear-gradient(90deg, #EDACB1 0%, #C9A4CE 48%, #9595E2 100%);
-  color: #161544;
+  background: var(--brand-gradient);
+  color: #FFFFFF;
   font-weight: 600;
   font-size: 15px;
   border: 1px solid transparent;
@@ -333,7 +333,7 @@
 }
 
 .recommended-platform-card {
-  border-color: color-mix(in oklab, #C9A4CE 55%, transparent);
+  border-color: color-mix(in oklab, #7068EF 55%, transparent);
   transform: translateY(-4px);
 }
 @media (max-width: 650px) {
@@ -357,8 +357,8 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-weight: 700;
-  color: #0B1030;
-  background: linear-gradient(90deg, #EDACB1 0%, #C9A4CE 48%, #9595E2 100%);
+  color: #FFFFFF;
+  background: var(--brand-gradient);
   border: 1px solid transparent;
 }
 
