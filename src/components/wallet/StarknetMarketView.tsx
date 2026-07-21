@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { RefreshCw, GitCompareArrows, X, Check } from "lucide-react";
+import { RefreshCw, GitCompareArrows, X, Check, Maximize2 } from "lucide-react";
+import { StrkExpandedChart } from "./StrkExpandedChart";
 import { useStrkBinanceMarket } from "@/hooks/useStrkBinanceMarket";
 import {
   fetchKlinesForSymbol,
@@ -56,6 +57,7 @@ export function StarknetMarketView() {
 
   // Compare state
   const [compareOpen, setCompareOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [compareAsset, setCompareAsset] = useState<CompareAsset | null>(null);
   const [compareCandles, setCompareCandles] = useState<StrkCandle[] | null>(null);
   const [compareLoading, setCompareLoading] = useState(false);
@@ -239,6 +241,17 @@ export function StarknetMarketView() {
               </div>
             ) : null}
           </div>
+          <button
+            type="button"
+            className="strk-tool-btn"
+            aria-label="Expand chart"
+            aria-expanded={expanded}
+            aria-controls="expanded-market-chart"
+            onClick={() => setExpanded(true)}
+          >
+            <Maximize2 size={13} aria-hidden="true" />
+            <span>Expand</span>
+          </button>
         </div>
 
         {compareActive ? (
@@ -314,6 +327,16 @@ export function StarknetMarketView() {
           </div>
         </div>
       </div>
+      <StrkExpandedChart
+        open={expanded}
+        onOpenChange={setExpanded}
+        candles={candles}
+        currentPrice={currentPrice}
+        baselinePrice={baselinePrice}
+        absoluteChange={absoluteChange}
+        percentageChange={percentageChange}
+        range={range}
+      />
     </div>
   );
 }
