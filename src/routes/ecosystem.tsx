@@ -57,31 +57,59 @@ const FEATURES: Card[] = [
   { variant: "release-tag", title: "Signed desktop builds", body: "Every maintained build ships with SHA256 checksums and PGP signatures." },
 ];
 
+const ECOSYSTEM_LABELS = [
+  { label: "Cairo", className: "label--cairo" },
+  { label: "STRK", className: "label--strk" },
+  { label: "Mainnet", className: "label--mainnet" },
+  { label: "Sepolia", className: "label--sepolia" },
+  { label: "Smart accounts", className: "label--smart-accounts" },
+  { label: "Account abstraction", className: "label--account-abstraction" },
+];
+
 function EcosystemPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <main id="main" className="flex-1">
-        <section className="py-20 lg:py-24">
-          <div className="container-page max-w-4xl">
-            <span className="eyebrow">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-              Ecosystem
-            </span>
-            <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold tracking-tight text-ink leading-[1.05]">
-              Built for the Starknet ecosystem.
-            </h1>
-            <p className="mt-5 max-w-2xl text-lg text-ink-muted">
-              StarknetWallet is designed around STRK, Cairo, Starknet Mainnet,
-              Sepolia, and smart-account workflows.
-            </p>
+        <section className="ecosystem-hero">
+          <div className="ecosystem-hero__visual" aria-hidden="true">
+            <img src="/assets/pages/ecosystem-hero-visual.svg" alt="" />
+            {ECOSYSTEM_LABELS.map((l) => (
+              <span
+                key={l.label}
+                className={`ecosystem-visual-label ${l.className}`}
+              >
+                {l.label}
+              </span>
+            ))}
+          </div>
+          <div className="ecosystem-hero__overlay" aria-hidden="true" />
+          <div className="ecosystem-hero__container">
+            <div className="ecosystem-hero__content">
+              <span className="ecosystem-hero__eyebrow">Ecosystem</span>
+              <h1 className="ecosystem-hero__title">
+                Built for the <span>Starknet ecosystem.</span>
+              </h1>
+              <p className="ecosystem-hero__description">
+                StarknetWallet is designed around STRK, Cairo, Starknet Mainnet,
+                Sepolia and smart-account workflows.
+              </p>
+              <div className="ecosystem-hero__actions">
+                <a href="#ecosystem-content" className="btn-primary">
+                  Explore the ecosystem
+                </a>
+                <Link to="/docs" className="btn-ghost">
+                  Read the docs
+                </Link>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="py-16 border-t border-hairline bg-surface">
+        <section id="ecosystem-content" className="py-16 border-t border-hairline bg-surface scroll-mt-24">
           <div className="container-page">
             <span className="eyebrow">Ecosystem context</span>
-            <h2 className="section-title mt-4">The terms behind the wallet.</h2>
+            <h2 className="section-title mt-4">How the ecosystem fits together.</h2>
             <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {CONTEXT.map((c) => (
                 <article key={c.term} className="rounded-2xl border border-hairline bg-background p-6">
