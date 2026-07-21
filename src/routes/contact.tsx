@@ -2,6 +2,8 @@ import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
+import { ReadingProgress } from "@/components/ReadingProgress";
 import { GITHUB_REPO_URL } from "@/data/downloads";
 
 const TITLE = "Contact — StarknetWallet";
@@ -209,11 +211,13 @@ function ContactCardView({ card }: { card: ContactCard }) {
 
 function ContactPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background content-page">
+      <ReadingProgress />
       <Header />
       <main id="main" className="flex-1">
-        <section className="py-20 lg:py-28">
-          <div className="container-page">
+        <section className="relative py-20 lg:py-28">
+          <PageHeroBackdrop src="/assets/pages/support-hero.svg" />
+          <div className="relative container-page">
             <div className="max-w-3xl">
               <span className="eyebrow">Contact</span>
               <h1 className="section-title mt-4">Talk to a real human.</h1>

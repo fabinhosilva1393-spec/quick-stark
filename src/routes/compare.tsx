@@ -2,6 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
+import { ReadingProgress } from "@/components/ReadingProgress";
 
 const TITLE = "Compare — StarknetWallet";
 const DESC =
@@ -75,11 +77,13 @@ const CARDS = [
 
 function ComparePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background content-page">
+      <ReadingProgress />
       <Header />
       <main id="main" className="flex-1">
-        <section className="py-20 lg:py-28">
-          <div className="container-page">
+        <section className="relative py-20 lg:py-28">
+          <PageHeroBackdrop src="/assets/pages/compare-hero.svg" />
+          <div className="relative container-page">
             <div className="max-w-3xl">
               <span className="eyebrow">Compare</span>
               <h1 className="font-display section-title mt-4 font-semibold">
