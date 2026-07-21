@@ -76,7 +76,7 @@ async function detectClientDir() {
     const candidate = path.join(distDir, nitro.publicDir);
     if (await exists(candidate)) return candidate;
   }
-  for (const rel of ["client", "public", "../.output/public"]) {
+  for (const rel of ["client", "public", "../.output/public", "../dist/client"]) {
     const candidate = path.join(distDir, rel);
     if (await exists(candidate)) return candidate;
   }
