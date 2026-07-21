@@ -77,12 +77,23 @@ export const Route = createFileRoute("/security")({
     links: [{ rel: "canonical", href: "https://starknetwallet.org/security" }],
   }),
   component: () => (
-    <SimplePage eyebrow="Security" title="Verifiable security, all the way down.">
-      <p>
-        StarknetWallet is designed around local-first keys, clear transaction
-        review, Cairo call previews, and smart-account permission checks. The
-        goal is simple: review before you sign.
-      </p>
+    <SimplePage
+      eyebrow="Security"
+      title="Verifiable security, all the way down."
+      description="StarknetWallet is designed around local-first keys, clear transaction review, Cairo call previews, and smart-account permission checks. The goal is simple: review before you sign."
+      sections={[
+        { id: "pillars", label: "Six pillars" },
+        { id: "threat-model", label: "Threat model" },
+        { id: "custody", label: "Layered custody" },
+        { id: "cairo-context", label: "Cairo context" },
+        { id: "verify", label: "Verify the binary" },
+        { id: "inspect", label: "Built to be inspected" },
+      ]}
+      actions={[
+        { label: "Read docs", to: "/docs", variant: "primary" },
+        { label: "View versions", to: "/releases" },
+      ]}
+    >
 
       <ul
         style={{ listStyle: "none", paddingLeft: 0 }}
