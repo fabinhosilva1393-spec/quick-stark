@@ -35,19 +35,19 @@ export function SiteBackground() {
       >
         <defs>
           <linearGradient id="stark-edge" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#EC6A26" stopOpacity="0" />
-            <stop offset="50%" stopColor="#EC6A26" stopOpacity="0.55" />
-            <stop offset="100%" stopColor="#6E62E6" stopOpacity="0" />
+            <stop offset="0%" stopColor="#EC7B69" stopOpacity="0" />
+            <stop offset="50%" stopColor="#EC7B69" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="#1E1D48" stopOpacity="0" />
           </linearGradient>
           <radialGradient id="stark-node" cx="0.5" cy="0.5" r="0.5">
-            <stop offset="0%" stopColor="#EC6A26" stopOpacity="0.9" />
-            <stop offset="60%" stopColor="#EC6A26" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#EC6A26" stopOpacity="0" />
+            <stop offset="0%" stopColor="#EC7B69" stopOpacity="0.9" />
+            <stop offset="60%" stopColor="#EC7B69" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#EC7B69" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="stark-node-indigo" cx="0.5" cy="0.5" r="0.5">
-            <stop offset="0%" stopColor="#6E62E6" stopOpacity="0.85" />
-            <stop offset="60%" stopColor="#6E62E6" stopOpacity="0.15" />
-            <stop offset="100%" stopColor="#6E62E6" stopOpacity="0" />
+            <stop offset="0%" stopColor="#1E1D48" stopOpacity="0.85" />
+            <stop offset="60%" stopColor="#1E1D48" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#1E1D48" stopOpacity="0" />
           </radialGradient>
           <symbol id="stark-hex" viewBox="-12 -12 24 24">
             <polygon
@@ -80,14 +80,14 @@ export function SiteBackground() {
         </g>
 
         {/* Cairo hexes — Starknet geometric motif */}
-        <g className="stark-hexes" color="#EC6A26">
+        <g className="stark-hexes" color="#EC7B69">
           <use href="#stark-hex" x="180" y="110" />
           <use href="#stark-hex" x="540" y="260" transform="scale(1.6) translate(-200 -100)" />
           <use href="#stark-hex" x="880" y="160" />
           <use href="#stark-hex" x="300" y="640" transform="scale(1.3) translate(-70 -150)" />
           <use href="#stark-hex" x="980" y="640" />
         </g>
-        <g className="stark-hexes stark-hexes--indigo" color="#6E62E6">
+        <g className="stark-hexes stark-hexes--indigo" color="#1E1D48">
           <use href="#stark-hex" x="460" y="80" />
           <use href="#stark-hex" x="760" y="460" transform="scale(1.4) translate(-220 -130)" />
           <use href="#stark-hex" x="120" y="380" />
