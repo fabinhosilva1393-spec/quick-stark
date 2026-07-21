@@ -100,6 +100,7 @@ export const Route = createFileRoute("/changelog")({
     <SimplePage
       eyebrow="Version history"
       title="Version history"
+      heroBackground="/assets/pages/version-history-hero.svg"
       description="A maintained product track for StarknetWallet on macOS, Windows, and Linux. The list below reflects continuous improvements across the desktop workflow, signing surfaces, compatibility, and security interface."
       sections={HISTORY.map((h) => ({
         id: `v-${h.version.replace(/[^\w]/g, "-")}`,

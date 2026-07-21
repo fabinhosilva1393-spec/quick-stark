@@ -12,6 +12,7 @@ type SimplePageProps = {
   sections?: ContentSection[];
   actions?: ContentAction[];
   illustration?: ReactNode;
+  heroBackground?: string;
   children: ReactNode;
 };
 

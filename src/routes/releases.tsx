@@ -21,6 +21,7 @@ export const Route = createFileRoute("/releases")({
     <SimplePage
       eyebrow="Versions"
       title="Signed builds, clear verification."
+      heroBackground="/assets/pages/releases-hero.svg"
       description="StarknetWallet ships signed desktop builds for macOS, Windows, and Linux on a maintained product track. Each build is published with a SHA256 checksum and a PGP signature so you can verify it before installing."
       sections={[
         { id: "current-version", label: "Current version" },
