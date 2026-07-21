@@ -661,8 +661,9 @@
   50% { transform: translate(20px, -30px); }
 }
 
-/* Ensure page content stacks above the fixed background */
-body > * { position: relative; z-index: 1; }
+/* Ensure page content stacks above the fixed background. Scope to the app
+   shell only so Radix portals (dialogs, popovers) keep their own positioning. */
+body > .min-h-screen { position: relative; z-index: 1; }
 
 /* ============= Hero floating particles ============= */
 .hero-particle {
