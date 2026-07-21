@@ -57,6 +57,7 @@ export function StarknetMarketView() {
 
   // Compare state
   const [compareOpen, setCompareOpen] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [compareAsset, setCompareAsset] = useState<CompareAsset | null>(null);
   const [compareCandles, setCompareCandles] = useState<StrkCandle[] | null>(null);
   const [compareLoading, setCompareLoading] = useState(false);
