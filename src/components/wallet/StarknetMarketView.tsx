@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { RefreshCw, GitCompareArrows, X, Check } from "lucide-react";
+import { RefreshCw, GitCompareArrows, X, Check, Maximize2 } from "lucide-react";
+import { StrkExpandedChart } from "./StrkExpandedChart";
 import { useStrkBinanceMarket } from "@/hooks/useStrkBinanceMarket";
 import {
   fetchKlinesForSymbol,
