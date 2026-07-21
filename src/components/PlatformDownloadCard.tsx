@@ -22,7 +22,7 @@ const VISUALS: Record<
   },
   linux: {
     base: "/assets/download/linux-animated-base.svg",
-    icon: "/assets/download/linux-icon-clean-transparent.png",
+    icon: "/assets/download/linux-icon-clean.svg",
     iconClass: "platform-icon platform-icon--linux",
   },
 };
