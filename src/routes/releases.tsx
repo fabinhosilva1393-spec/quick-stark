@@ -18,15 +18,22 @@ export const Route = createFileRoute("/releases")({
     links: [{ rel: "canonical", href: "https://starknetwallet.org/releases" }],
   }),
   component: () => (
-    <SimplePage eyebrow="Versions" title="Signed builds, clear verification.">
-      <p>
-        StarknetWallet ships signed desktop builds for macOS, Windows, and
-        Linux on a maintained product track. Each build is published with a
-        SHA256 checksum and a PGP signature so you can verify it before
-        installing.
-      </p>
+    <SimplePage
+      eyebrow="Versions"
+      title="Signed builds, clear verification."
+      description="StarknetWallet ships signed desktop builds for macOS, Windows, and Linux on a maintained product track. Each build is published with a SHA256 checksum and a PGP signature so you can verify it before installing."
+      sections={[
+        { id: "current-version", label: "Current version" },
+        { id: "whats-in-build", label: "What's in the build" },
+        { id: "source", label: "Source" },
+      ]}
+      actions={[
+        { label: "Download", to: "/", hash: "download", variant: "primary" },
+        { label: "Version history", to: "/changelog" },
+      ]}
+    >
 
-      <h2>Current maintained version: {APP_VERSION}</h2>
+      <h2 id="current-version">Current maintained version: {APP_VERSION}</h2>
       <ul>
         <li>Product track: Desktop · Actively maintained</li>
         <li>macOS · .dmg Universal · Apple Silicon and Intel</li>
@@ -51,7 +58,7 @@ export const Route = createFileRoute("/releases")({
         </div>
       </div>
 
-      <h2>What's in the current build</h2>
+      <h2 id="whats-in-build">What's in the current build</h2>
       <ul>
         <li>STRK balance management and transfers.</li>
         <li>Starknet Mainnet and Starknet Sepolia support.</li>
@@ -60,7 +67,7 @@ export const Route = createFileRoute("/releases")({
         <li>Signed verification flow with SHA256 and PGP.</li>
       </ul>
 
-      <h2>Source</h2>
+      <h2 id="source">Source</h2>
       <p>
         Browse the project source at{" "}
         <a href={GITHUB_RELEASES_URL} target="_blank" rel="noopener noreferrer">

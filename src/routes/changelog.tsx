@@ -97,16 +97,22 @@ export const Route = createFileRoute("/changelog")({
     links: [{ rel: "canonical", href: "https://starknetwallet.org/changelog" }],
   }),
   component: () => (
-    <SimplePage eyebrow="Version history" title="Version history">
-      <p>
-        A maintained product track for StarknetWallet on macOS, Windows, and
-        Linux. The list below reflects continuous improvements across the
-        desktop workflow, signing surfaces, compatibility, and security
-        interface.
-      </p>
+    <SimplePage
+      eyebrow="Version history"
+      title="Version history"
+      description="A maintained product track for StarknetWallet on macOS, Windows, and Linux. The list below reflects continuous improvements across the desktop workflow, signing surfaces, compatibility, and security interface."
+      sections={HISTORY.map((h) => ({
+        id: `v-${h.version.replace(/[^\w]/g, "-")}`,
+        label: `${h.version} — ${h.label}`,
+      }))}
+      actions={[
+        { label: "Download", to: "/", hash: "download", variant: "primary" },
+        { label: "Signed builds", to: "/releases" },
+      ]}
+    >
       {HISTORY.map((entry) => (
         <section key={entry.version}>
-          <h2>
+          <h2 id={`v-${entry.version.replace(/[^\w]/g, "-")}`}>
             {entry.version} — {entry.label}
           </h2>
           <p>{entry.description}</p>
@@ -124,3 +130,4 @@ export const Route = createFileRoute("/changelog")({
     </SimplePage>
   ),
 });
+

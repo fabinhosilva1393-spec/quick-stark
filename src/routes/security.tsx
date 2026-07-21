@@ -77,12 +77,23 @@ export const Route = createFileRoute("/security")({
     links: [{ rel: "canonical", href: "https://starknetwallet.org/security" }],
   }),
   component: () => (
-    <SimplePage eyebrow="Security" title="Verifiable security, all the way down.">
-      <p>
-        StarknetWallet is designed around local-first keys, clear transaction
-        review, Cairo call previews, and smart-account permission checks. The
-        goal is simple: review before you sign.
-      </p>
+    <SimplePage
+      eyebrow="Security"
+      title="Verifiable security, all the way down."
+      description="StarknetWallet is designed around local-first keys, clear transaction review, Cairo call previews, and smart-account permission checks. The goal is simple: review before you sign."
+      sections={[
+        { id: "pillars", label: "Six pillars" },
+        { id: "threat-model", label: "Threat model" },
+        { id: "custody", label: "Layered custody" },
+        { id: "cairo-context", label: "Cairo context" },
+        { id: "verify", label: "Verify the binary" },
+        { id: "inspect", label: "Built to be inspected" },
+      ]}
+      actions={[
+        { label: "Read docs", to: "/docs", variant: "primary" },
+        { label: "View versions", to: "/releases" },
+      ]}
+    >
 
       <ul
         style={{ listStyle: "none", paddingLeft: 0 }}
@@ -95,7 +106,7 @@ export const Route = createFileRoute("/security")({
         ))}
       </ul>
 
-      <h2>Six pillars, one rule: review before you sign.</h2>
+      <h2 id="pillars">Six pillars, one rule: review before you sign.</h2>
       <p>
         StarknetWallet treats networks, dApps, contracts, and clipboard data as
         inputs to verify — not assumptions to trust.
@@ -109,7 +120,7 @@ export const Route = createFileRoute("/security")({
         ))}
       </div>
 
-      <h2>Threat model</h2>
+      <h2 id="threat-model">Threat model</h2>
       <p>
         A structured view of the scenarios we account for when designing
         review flows. Statuses use plain language and describe how each
@@ -138,7 +149,7 @@ export const Route = createFileRoute("/security")({
         </table>
       </div>
 
-      <h2>Layered custody, local by default.</h2>
+      <h2 id="custody">Layered custody, local by default.</h2>
       <div className="not-prose grid gap-3">
         {TIERS.map((t) => (
           <div key={t.tier} className="flex flex-col gap-1 rounded-lg border border-hairline bg-surface p-4 sm:flex-row sm:items-center sm:gap-4">
@@ -149,21 +160,21 @@ export const Route = createFileRoute("/security")({
         ))}
       </div>
 
-      <h2>Readable Cairo context before signing.</h2>
+      <h2 id="cairo-context">Readable Cairo context before signing.</h2>
       <p>
         Every signing surface aims to show: the dApp, the network, the target
         contract, the function and decoded calldata, an estimated fee, and any
         permission changes implied by the call.
       </p>
 
-      <h2>Verify the binary you’re running.</h2>
+      <h2 id="verify">Verify the binary you’re running.</h2>
       <p>
         Each signed build includes a SHA256 checksum and a PGP signature.
         The hash and signing key fingerprint for the current maintained
         build are published on the <Link to="/releases">Versions</Link> page.
       </p>
 
-      <h2>Built to be inspected.</h2>
+      <h2 id="inspect">Built to be inspected.</h2>
       <p>
         Read the source, verify the build, review the Cairo call. Then
         sign. See <Link to="/docs">Docs</Link> for how to
