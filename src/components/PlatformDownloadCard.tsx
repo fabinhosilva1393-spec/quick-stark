@@ -179,40 +179,27 @@ export function PlatformDownloadCard({ item, recommended }: Props) {
         )}
 
         {isAvailable ? (
-          <div className="platform-verify-links">
-            <a
+          <div className="download-verification">
+            <VerificationRow
+              type="sha256"
+              label="SHA256"
+              value={SHA256_DISPLAY[item.key]}
               href={item.checksumUrl || item.downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              <ShieldCheck size={12} aria-hidden="true" /> SHA256
-            </a>
-            <a
+            />
+            <VerificationRow
+              type="pgp"
+              label="PGP signature"
+              value={PGP_DISPLAY}
               href={item.signatureUrl || item.downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              <KeyRound size={12} aria-hidden="true" /> PGP signature
-            </a>
-            <a
-              href={item.releaseNotesUrl || item.downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-link"
-            >
-              <FileText size={12} aria-hidden="true" /> Release notes
-            </a>
+            />
           </div>
         ) : (
           <p
             id={`pending-help-${item.key}`}
             className="text-xs text-ink-muted leading-relaxed"
           >
-            The signed {item.os} build is being prepared. Checksum,
-            signature, and release notes will appear here once it is
-            published.
+            The signed {item.os} build is being prepared. Checksum and
+            signature will appear here once it is published.
           </p>
         )}
       </div>
