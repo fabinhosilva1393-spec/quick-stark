@@ -1924,7 +1924,10 @@ body > .min-h-screen { position: relative; z-index: 1; }
   margin-top: 8px; background: var(--surface); border-radius: 10px;
   border: 1px solid var(--border-subtle);
   padding: 8px;
+  height: min(70vh, 620px);
+  display: flex;
 }
+.strk-expanded-chart > div { flex: 1; min-height: 0; }
 .strk-price-inline {
   font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums;
   color: var(--lilac);
