@@ -12,17 +12,17 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
 
   const windowEl = (
     <div
-      className="demo-window demo-shell flex flex-col overflow-hidden rounded-2xl border border-hairline shadow-[0_30px_80px_-40px_rgba(20,30,80,0.35)]"
+      className="demo-window demo-shell flex flex-col overflow-hidden rounded-2xl border border-hairline shadow-[0_30px_80px_-40px_rgba(0,0,0,0.35)]"
       role="img"
       aria-label="StarknetWallet desktop UI preview"
-      style={{ background: "#0C0B0E" }}
+      style={{ background: "var(--canvas)" }}
     >
       {/* Title bar */}
       <div
         className="flex shrink-0 items-center gap-2 border-b border-hairline px-3.5 py-2"
-        style={{ background: "#121014", borderColor: "rgba(207,168,255,0.08)" }}
+        style={{ background: "var(--surface)", borderColor: "var(--border-subtle)" }}
       >
-        <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: "#F6F3F8" }}>
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: "var(--lilac)" }}>
           <img
             src="/starknetwallet-icon.ico"
             alt=""
@@ -33,7 +33,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
             style={{ display: "block" }}
           />
           StarknetWallet
-          <span className="ml-1.5 font-medium capitalize" style={{ color: "#817789" }}>{tab}</span>
+          <span className="ml-1.5 font-medium capitalize" style={{ color: "var(--text-muted)" }}>{tab}</span>
         </span>
         <span
           className="ml-auto inline-flex items-center gap-1.5 rounded-md px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
@@ -45,7 +45,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
       </div>
 
       {/* Main panel */}
-      <div className="flex flex-1 min-h-0 min-w-0 flex-col" style={{ background: "#0C0B0E" }}>
+      <div className="flex flex-1 min-h-0 min-w-0 flex-col" style={{ background: "var(--canvas)" }}>
         <div
           className="flex-1 min-h-0 min-w-0"
           style={tab === "market" ? { overflow: "hidden" } : { overflowY: "auto", overflowX: "hidden" }}
