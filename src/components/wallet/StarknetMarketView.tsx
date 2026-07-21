@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowLeftRight, Maximize2, RefreshCw } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 import { useStrkBinanceMarket } from "@/hooks/useStrkBinanceMarket";
 import {
   formatCompactVolume,
@@ -8,10 +8,7 @@ import {
   formatSignedPrice,
 } from "@/lib/binance/strkMarket";
 import type { StrkRange } from "@/types/strkMarket";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { StrkLiveChart } from "./StrkLiveChart";
-import { StrkComparePopover } from "./StrkComparePopover";
-import { StrkExpandedChart } from "./StrkExpandedChart";
 
 const RANGES: StrkRange[] = ["24h", "1W", "1M", "3M", "1Y", "All"];
 
@@ -20,8 +17,6 @@ export function StarknetMarketView() {
   useEffect(() => setMounted(true), []);
 
   const market = useStrkBinanceMarket("1W");
-  const [expanded, setExpanded] = useState(false);
-  const [compareOpen, setCompareOpen] = useState(false);
 
   const {
     range,
