@@ -163,17 +163,6 @@ export function StarknetMarketView() {
           </div>
         </div>
       </div>
-
-      <StrkExpandedChart
-        open={expanded}
-        onOpenChange={setExpanded}
-        candles={candles}
-        currentPrice={currentPrice}
-        baselinePrice={baselinePrice}
-        absoluteChange={absoluteChange}
-        percentageChange={percentageChange}
-        range={range}
-      />
     </div>
   );
 }
