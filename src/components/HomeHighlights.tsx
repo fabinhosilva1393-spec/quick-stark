@@ -316,7 +316,76 @@ function PlatformRecommendation({ platform }: { platform: DesktopPlatform }) {
 }
 
 
+/* ---------- Compatibility (compact) ---------- */
+
+const COMPAT_OS = [
+  { name: "macOS", detail: "12 Monterey or later · Apple Silicon & Intel" },
+  { name: "Windows", detail: "Windows 10 or later · x64" },
+  { name: "Linux", detail: "Ubuntu 22.04+, Fedora 38+ · AppImage / .deb" },
+];
+
+const COMPAT_HW = [
+  "Ledger (via Argent, Braavos, Ready)",
+  "Argent smart accounts",
+  "Braavos smart accounts",
+  "OpenZeppelin accounts",
+];
+
+function CompatibilityCompact() {
+  return (
+    <section id="compatibility" className="pb-24" aria-labelledby="compat-heading">
+      <div className="container-page">
+        <div className="max-w-2xl">
+          <span className="eyebrow">Compatibility</span>
+          <h2 id="compat-heading" className="font-display section-title mt-4 font-semibold">
+            Works with your desktop and signer.
+          </h2>
+          <p className="section-sub">
+            Supported desktop environments and Starknet signing workflows at a glance.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <article className="rounded-2xl border border-hairline bg-surface p-6">
+            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-brand">
+              Desktop operating systems
+            </h3>
+            <ul className="mt-4 space-y-3 list-none p-0">
+              {COMPAT_OS.map((o) => (
+                <li key={o.name} className="flex items-baseline justify-between gap-4 border-b border-hairline pb-3 last:border-0 last:pb-0">
+                  <span className="text-sm font-semibold text-ink">{o.name}</span>
+                  <span className="text-xs text-ink-muted text-right">{o.detail}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="rounded-2xl border border-hairline bg-surface p-6">
+            <h3 className="text-sm font-bold uppercase tracking-[0.18em] text-brand">
+              Signers & accounts
+            </h3>
+            <ul className="mt-4 grid gap-2.5 list-none p-0">
+              {COMPAT_HW.map((h) => (
+                <li key={h} className="text-sm text-ink-muted">
+                  <span className="text-brand mr-2" aria-hidden="true">·</span>{h}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-xs text-ink-muted">
+              Hardware-wallet signing is available through compatible Starknet
+              wallets.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 /* ---------- 5. Featured release ---------- */
+
+
 
 function FeaturedRelease() {
   return (
