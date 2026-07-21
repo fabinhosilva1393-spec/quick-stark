@@ -1990,3 +1990,32 @@ body > .min-h-screen { position: relative; z-index: 1; }
   color: var(--lilac-muted);
 }
 .strk-compare-legend-range { color: var(--text-muted); font-size: 11px; }
+
+/* Compare popover — extended */
+.strk-compare-popover-content { width: 380px !important; padding: 0 !important; background: transparent !important; border: none !important; box-shadow: none !important; }
+.strk-compare-panel { background: rgba(20,17,23,0.99); border: 1px solid rgba(205,171,255,0.20); box-shadow: 0 20px 60px rgba(0,0,0,0.44); border-radius: 14px; padding: 16px; }
+.strk-compare-panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.strk-compare-subheader { margin-top: 2px; font-size: 11px; color: var(--lilac-muted); font-weight: 500; letter-spacing: 0.02em; text-transform: none; }
+.strk-compare-close { height: 28px; width: 28px; border-radius: 7px; border: 1px solid var(--border-subtle); background: transparent; color: var(--lilac-muted); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+.strk-compare-close:hover { color: var(--lilac); background: var(--navy-soft); }
+.strk-compare-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; color: #A69DAC; text-transform: uppercase; }
+.strk-compare-ticker { font-size: 15px; font-weight: 700; color: #F7F4FA; letter-spacing: 0.02em; margin-bottom: 6px; }
+.strk-compare-empty { padding: 24px 8px; text-align: center; color: var(--lilac-muted); font-size: 12px; }
+.strk-compare-bar { position: relative; margin-top: 4px; height: 6px; width: 100%; background: rgba(205,171,255,0.10); border-radius: 999px; overflow: hidden; }
+.strk-compare-bar-center { position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(205,171,255,0.30); }
+.strk-compare-bar-fill { position: absolute; top: 0; bottom: 0; border-radius: 999px; }
+.strk-compare-bar-fill.is-pos { background: #22D39A; }
+.strk-compare-bar-fill.is-neg { background: #F05D78; }
+
+/* Compare toolbar button */
+.strk-compare-trigger { background: rgba(188,165,255,0.06); border-color: rgba(188,165,255,0.18); color: #DED5E8; }
+.strk-compare-trigger:hover { background: rgba(188,165,255,0.12); }
+.strk-compare-trigger.is-open { background: rgba(140,101,219,0.30); border-color: rgba(188,165,255,0.36); color: #FFFFFF; }
+.strk-compare-trigger svg { color: #F0A3B6; }
+
+@media (max-width: 480px) {
+  .strk-compare-popover-content { width: calc(100vw - 24px) !important; }
+  .strk-compare-rates { grid-template-columns: 1fr; }
+  .strk-compare-converter { grid-template-columns: 1fr; }
+  .strk-compare-swap { justify-self: center; }
+}
