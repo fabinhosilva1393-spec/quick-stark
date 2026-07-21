@@ -18,13 +18,20 @@ export const Route = createFileRoute("/releases")({
     links: [{ rel: "canonical", href: "https://starknetwallet.org/releases" }],
   }),
   component: () => (
-    <SimplePage eyebrow="Versions" title="Signed builds, clear verification.">
-      <p>
-        StarknetWallet ships signed desktop builds for macOS, Windows, and
-        Linux on a maintained product track. Each build is published with a
-        SHA256 checksum and a PGP signature so you can verify it before
-        installing.
-      </p>
+    <SimplePage
+      eyebrow="Versions"
+      title="Signed builds, clear verification."
+      description="StarknetWallet ships signed desktop builds for macOS, Windows, and Linux on a maintained product track. Each build is published with a SHA256 checksum and a PGP signature so you can verify it before installing."
+      sections={[
+        { id: "current-version", label: "Current version" },
+        { id: "whats-in-build", label: "What's in the build" },
+        { id: "source", label: "Source" },
+      ]}
+      actions={[
+        { label: "Download", to: "/", hash: "download", variant: "primary" },
+        { label: "Version history", to: "/changelog" },
+      ]}
+    >
 
       <h2>Current maintained version: {APP_VERSION}</h2>
       <ul>
