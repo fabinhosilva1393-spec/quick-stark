@@ -82,25 +82,24 @@ const PRODUCT: FooterItem[] = [
   { label: "Features", href: "/#features" },
   { label: "Security", href: "/security" },
   { label: "Download", href: "/#download" },
-  { label: "Compatibility", href: "/#compatibility" },
   { label: "Compare", href: "/compare" },
 ];
 
 const RESOURCES: FooterItem[] = [
   { label: "Docs", href: "/docs" },
-  { label: "Developers", href: "/#developers" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "FAQ", href: "/faq" },
   { label: "Version History", href: "/changelog" },
+  { label: "Releases", href: "/releases" },
   { label: "Support", href: "/contact" },
 ];
 
 const ECOSYSTEM: FooterItem[] = [
-  { label: "Starknet", href: "/ecosystem" },
-  { label: "Cairo", href: "/ecosystem" },
-  { label: "STRK", href: "/ecosystem" },
-  { label: "Mainnet", href: "/ecosystem" },
-  { label: "Sepolia", href: "/ecosystem" },
+  { label: "Starknet ecosystem", href: "/ecosystem" },
+  { label: "Starknet.io", href: "https://www.starknet.io", external: true },
+  { label: "Cairo language", href: "https://www.cairo-lang.org", external: true },
+  { label: "Starknet on GitHub", href: "https://github.com/starknet-io", external: true },
 ];
+
 
 const LEGAL: FooterItem[] = [
   { label: "Privacy", href: "/privacy" },
