@@ -41,7 +41,7 @@ export function Hero() {
             </p>
           </div>
 
-          <div className="relative min-w-0 w-full max-w-[620px] mx-auto lg:mx-0 lg:ml-auto demo-stage lg:translate-y-6 xl:translate-y-7">
+          <div className="relative min-w-0 w-full max-w-[780px] mx-auto lg:mx-0 lg:ml-auto demo-stage lg:translate-y-6 xl:translate-y-7">
             <span className="demo-glow" aria-hidden="true" />
             <span className="demo-orbit" aria-hidden="true" />
             <span className="demo-orbit demo-orbit-2" aria-hidden="true" />

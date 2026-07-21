@@ -51,68 +51,56 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
 
   const windowEl = (
     <div
-      className="demo-window demo-shell flex flex-col overflow-hidden rounded-2xl border border-hairline bg-surface shadow-[0_30px_80px_-40px_rgba(20,30,80,0.25)]"
+      className="demo-window demo-shell flex flex-col overflow-hidden rounded-2xl border border-hairline shadow-[0_30px_80px_-40px_rgba(20,30,80,0.35)]"
       role="img"
       aria-label="StarknetWallet desktop UI preview"
+      style={{ background: "#0C0B0E" }}
     >
       {/* Title bar */}
-      <div className="flex shrink-0 items-center gap-2 border-b border-hairline bg-surface-2 px-4 py-2.5">
-        <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.7_0.18_27)]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.82_0.15_85)]" />
-        <span className="h-2.5 w-2.5 rounded-full bg-[oklch(0.74_0.16_145)]" />
-        <span className="ml-3 inline-flex items-center gap-1.5 text-xs font-medium text-ink-muted">
+      <div
+        className="flex shrink-0 items-center gap-2 border-b border-hairline px-3.5 py-2"
+        style={{ background: "#121014", borderColor: "rgba(207,168,255,0.08)" }}
+      >
+        <span className="h-2 w-2 rounded-full bg-[oklch(0.7_0.18_27)] opacity-70" />
+        <span className="h-2 w-2 rounded-full bg-[oklch(0.82_0.15_85)] opacity-70" />
+        <span className="h-2 w-2 rounded-full bg-[oklch(0.74_0.16_145)] opacity-70" />
+        <span className="ml-3 inline-flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: "#F6F3F8" }}>
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M12 2.5l2.4 6.6 6.6 2.4-6.6 2.4L12 20.5 9.6 13.9 3 11.5l6.6-2.4L12 2.5z" fill="currentColor" className="text-brand" />
+            <path d="M12 2.5l2.4 6.6 6.6 2.4-6.6 2.4L12 20.5 9.6 13.9 3 11.5l6.6-2.4L12 2.5z" fill="#BCA5FF" />
           </svg>
-          StarknetWallet — {tab === "market" ? "Market" : "Demo"}
+          StarknetWallet
+          <span className="ml-1.5 font-medium capitalize" style={{ color: "#817789" }}>{tab}</span>
         </span>
-        <span className="ml-auto inline-flex items-center gap-1 rounded-md border border-hairline bg-surface px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-ink-muted">
-          <span className="h-1.5 w-1.5 rounded-full bg-[oklch(0.66_0.17_150)]" />
+        <span
+          className="ml-auto inline-flex items-center gap-1.5 rounded-md px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider"
+          style={{ background: "rgba(34,211,154,0.08)", color: "#8AD9BB", border: "1px solid rgba(34,211,154,0.18)" }}
+        >
+          <span className="h-1.5 w-1.5 rounded-full" style={{ background: "#22D39A", boxShadow: "0 0 6px rgba(34,211,154,0.6)" }} />
           {network}
         </span>
       </div>
 
-      <div className="grid flex-1 min-h-0 md:grid-cols-[145px_1fr]">
-        {/* Sidebar */}
-        <aside className="border-b md:border-b-0 md:border-r border-hairline bg-surface-2 p-3 flex flex-col gap-1 min-h-0 md:overflow-y-auto demo-scroll">
+      <div className="grid flex-1 min-h-0" style={{ gridTemplateColumns: "84px 1fr" }}>
+        {/* Compact navigation rail */}
+        <aside
+          className="flex flex-col min-h-0 border-r"
+          style={{ background: "#121014", borderColor: "rgba(207,168,255,0.08)" }}
+          aria-label="Wallet sections"
+        >
           <button
             type="button"
-            className="w-full flex items-center justify-between gap-2 rounded-lg border border-hairline bg-surface px-2.5 py-2 text-left hover:border-ink/20 transition"
-            aria-label="Demo account selector"
+            className="mx-2 mt-3 flex flex-col items-center gap-1 rounded-lg px-1.5 py-2 transition"
+            style={{ background: "rgba(188,165,255,0.06)", border: "1px solid rgba(207,168,255,0.10)" }}
+            aria-label="Demo account 0x04…f3a2"
+            title="Demo account · 0x04…f3a2"
           >
-            <span className="flex items-center gap-2 min-w-0">
-              <span className="grid h-6 w-6 place-items-center rounded-md bg-brand/10 text-brand">
-                <Wallet size={12} aria-hidden="true" />
-              </span>
-              <span className="min-w-0">
-                <span className="block text-[11px] font-semibold text-ink truncate">
-                  Demo account
-                </span>
-                <span className="block text-[10px] font-mono text-ink-muted truncate">
-                  0x04…f3a2
-                </span>
-              </span>
+            <span className="grid h-7 w-7 place-items-center rounded-full" style={{ background: "linear-gradient(135deg,#F2A3B8,#BCA5FF)", color: "#0C0B0E" }}>
+              <Wallet size={13} aria-hidden="true" />
             </span>
-            <ChevronDown size={12} className="text-ink-muted" aria-hidden="true" />
+            <span className="text-[9px] font-mono" style={{ color: "#817789" }}>0x04…f3a2</span>
           </button>
 
-          <div className="mt-3 rounded-lg border border-hairline bg-surface p-1 grid grid-cols-2 text-[10px] font-semibold">
-            {(["Mainnet", "Sepolia"] as const).map((n) => (
-              <button
-                key={n}
-                type="button"
-                onClick={() => setNetwork(n)}
-                aria-pressed={network === n}
-                className={`rounded-md px-1.5 py-1 transition ${
-                  network === n ? "bg-ink text-background" : "text-ink-muted hover:text-ink"
-                }`}
-              >
-                {n}
-              </button>
-            ))}
-          </div>
-
-          <nav className="mt-3 flex flex-col gap-0.5" aria-label="Wallet sections">
+          <nav className="mt-3 flex flex-col gap-0.5 px-2">
             {SIDEBAR.map(({ id, label, icon: Icon }) => {
               const isActive = tab === id;
               return (
@@ -121,31 +109,46 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setTab(id)}
-                  className={`flex items-center gap-2 rounded-md px-2 py-1.5 text-[12px] font-medium transition ${
+                  title={label}
+                  className="group flex flex-col items-center gap-1 rounded-lg py-2 text-[10px] font-semibold transition"
+                  style={
                     isActive
-                      ? "bg-brand/10 text-brand"
-                      : "text-ink-muted hover:bg-muted hover:text-ink"
-                  }`}
+                      ? { background: "rgba(140,99,232,0.18)", color: "#F6F3F8", border: "1px solid rgba(188,165,255,0.22)" }
+                      : { background: "transparent", color: "#817789", border: "1px solid transparent" }
+                  }
                 >
-                  <Icon size={12} aria-hidden="true" />
-                  {label}
+                  <Icon size={15} aria-hidden="true" style={{ color: isActive ? "#F2A3B8" : "#817789" }} />
+                  <span>{label}</span>
                 </button>
               );
             })}
           </nav>
+
+          <div className="mt-auto mx-2 mb-3 grid grid-cols-2 gap-0.5 rounded-md p-0.5 text-[9.5px] font-semibold"
+            style={{ background: "rgba(20,18,22,0.6)", border: "1px solid rgba(207,168,255,0.10)" }}>
+            {(["Mainnet", "Sepolia"] as const).map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => setNetwork(n)}
+                aria-pressed={network === n}
+                className="rounded px-1 py-1 transition"
+                style={network === n
+                  ? { background: "#F6F3F8", color: "#0C0B0E" }
+                  : { background: "transparent", color: "#817789" }}
+              >
+                {n}
+              </button>
+            ))}
+          </div>
         </aside>
 
         {/* Main panel */}
-        <div className="flex flex-col min-h-0 min-w-0">
-          <div className="flex shrink-0 items-center gap-2 border-b border-hairline bg-surface px-4 py-2">
-            <span className="text-xs font-semibold text-ink capitalize">{tab}</span>
-            <span className="ml-auto flex items-center gap-1.5 text-[11px] text-ink-muted">
-              <Network size={11} aria-hidden="true" />
-              Starknet {network}
-            </span>
-          </div>
-
-          <div className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden demo-scroll">
+        <div className="flex flex-col min-h-0 min-w-0" style={{ background: "#0C0B0E" }}>
+          <div
+            className="flex-1 min-h-0 min-w-0"
+            style={tab === "market" ? { overflow: "hidden" } : { overflowY: "auto", overflowX: "hidden" }}
+          >
             {tab === "market" && <StarknetMarketView />}
 
             {tab === "transaction" && (
