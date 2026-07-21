@@ -1888,7 +1888,7 @@ body > * { position: relative; z-index: 1; }
 }
 .strk-compare-field > span {
   font-size: 10px; font-weight: 600; text-transform: uppercase;
-  color: #817789; letter-spacing: 0.06em;
+  color: #777287; letter-spacing: 0.06em;
 }
 .strk-compare-field input {
   background: var(--section);
