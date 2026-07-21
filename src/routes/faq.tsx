@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FAQ } from "@/components/FAQ";
-import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
 import { ReadingProgress } from "@/components/ReadingProgress";
 
 const TITLE = "FAQ — StarknetWallet";
@@ -31,18 +30,27 @@ function FAQPage() {
       <ReadingProgress />
       <Header />
       <main id="main" className="flex-1">
-        <section className="relative pt-16 pb-6">
-          <PageHeroBackdrop src="/assets/pages/faq-background.svg" />
-          <div className="relative container-page">
-            <span className="eyebrow">Support</span>
-            <h1 className="font-display section-title mt-4 font-semibold">
-              Frequently asked questions
-            </h1>
-            <p className="section-sub max-w-2xl">
-              Everything you need to know about installing, verifying, and using
-              StarknetWallet on desktop.
-            </p>
+        <section className="faq-hero">
+          <div className="faq-hero__container">
+            <div className="faq-hero__content">
+              <span className="faq-hero__eyebrow">FAQ</span>
+              <h1 className="faq-hero__title">
+                Frequently asked questions
+              </h1>
+              <p className="faq-hero__description">
+                Everything you need to know about installing, verifying and using
+                StarknetWallet on desktop.
+              </p>
+            </div>
+            <div className="faq-hero__visual" aria-hidden="true">
+              <img
+                src="/assets/pages/faq-background.svg"
+                alt=""
+                decoding="async"
+              />
+            </div>
           </div>
+          <div className="faq-hero__background-glow" aria-hidden="true" />
         </section>
         <FAQ />
       </main>
