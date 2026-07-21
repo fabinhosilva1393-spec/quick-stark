@@ -14,6 +14,7 @@ const NAV: NavItem[] = [
   { label: "Security", to: "/security" },
   { label: "Docs", to: "/docs" },
   { label: "FAQ", hash: "faq" },
+  { label: "Ecosystem", to: "/ecosystem" },
 ];
 
 export function Header() {
