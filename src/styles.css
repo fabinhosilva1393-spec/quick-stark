@@ -1377,9 +1377,9 @@ body > * { position: relative; z-index: 1; }
 
   /* Platform download card: a touch less padding on mobile */
   .platform-download-card {
-    padding: 22px;
-    min-height: 320px;
+    padding: 16px 16px 22px;
   }
+
 }
 
 /* ============= Build Verification Panel ============= */
