@@ -95,7 +95,6 @@ const RESOURCES: FooterItem[] = [
 
 const ECOSYSTEM: FooterItem[] = [
   { label: "Starknet ecosystem", href: "/ecosystem" },
-  { label: "Starknet.io", href: "https://www.starknet.io", external: true },
   { label: "Cairo language", href: "https://www.cairo-lang.org", external: true },
   { label: "Starknet on GitHub", href: "https://github.com/starknet-io", external: true },
 ];
