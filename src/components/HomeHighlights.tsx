@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
-import { ArrowRight, Mail, Sparkles, Info } from "lucide-react";
+import { ArrowRight, Sparkles, Info } from "lucide-react";
 import { PlatformDownloadCard } from "./PlatformDownloadCard";
 import { defaultDownloadOrder, APP_VERSION, GITHUB_RELEASES_URL } from "@/data/downloads";
 import { useDetectedPlatform, DESKTOP_PLATFORMS } from "@/hooks/useDetectedPlatform";
