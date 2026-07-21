@@ -47,7 +47,7 @@ const DEMO_ACTIVITY = [
 
 export function Demo({ compact = false }: { compact?: boolean } = {}) {
   const [tab, setTab] = useState<Tab>("market");
-  const [network, setNetwork] = useState<"Mainnet" | "Sepolia">("Mainnet");
+  const [network] = useState<"Mainnet" | "Sepolia">("Sepolia");
 
   const windowEl = (
     <div
@@ -61,10 +61,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
         className="flex shrink-0 items-center gap-2 border-b border-hairline px-3.5 py-2"
         style={{ background: "#121014", borderColor: "rgba(207,168,255,0.08)" }}
       >
-        <span className="h-2 w-2 rounded-full bg-[oklch(0.7_0.18_27)] opacity-70" />
-        <span className="h-2 w-2 rounded-full bg-[oklch(0.82_0.15_85)] opacity-70" />
-        <span className="h-2 w-2 rounded-full bg-[oklch(0.74_0.16_145)] opacity-70" />
-        <span className="ml-3 inline-flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: "#F6F3F8" }}>
+        <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold" style={{ color: "#F6F3F8" }}>
           <img
             src="/starknetwallet-icon.ico"
             alt=""
@@ -86,248 +83,65 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
         </span>
       </div>
 
-      <div className="grid flex-1 min-h-0" style={{ gridTemplateColumns: "84px 1fr" }}>
-        {/* Compact navigation rail */}
-        <aside
-          className="flex flex-col min-h-0 border-r"
-          style={{ background: "#121014", borderColor: "rgba(207,168,255,0.08)" }}
-          aria-label="Wallet sections"
+      {/* Main panel */}
+      <div className="flex flex-1 min-h-0 min-w-0 flex-col" style={{ background: "#0C0B0E" }}>
+        <div
+          className="flex-1 min-h-0 min-w-0"
+          style={tab === "market" ? { overflow: "hidden" } : { overflowY: "auto", overflowX: "hidden" }}
         >
-          <button
-            type="button"
-            className="mx-2 mt-3 flex flex-col items-center gap-1 rounded-lg px-1.5 py-2 transition"
-            style={{ background: "rgba(188,165,255,0.06)", border: "1px solid rgba(207,168,255,0.10)" }}
-            aria-label="Demo account 0x04…f3a2"
-            title="Demo account · 0x04…f3a2"
-          >
-            <span className="grid h-7 w-7 place-items-center rounded-full" style={{ background: "linear-gradient(135deg,#F2A3B8,#BCA5FF)", color: "#0C0B0E" }}>
-              <Wallet size={13} aria-hidden="true" />
-            </span>
-            <span className="text-[9px] font-mono" style={{ color: "#817789" }}>0x04…f3a2</span>
-          </button>
+          {tab === "market" && <StarknetMarketView />}
 
-          <nav className="mt-3 flex flex-col gap-0.5 px-2">
-            {SIDEBAR.map(({ id, label, icon: Icon }) => {
-              const isActive = tab === id;
-              return (
+          {tab === "transaction" && (
+            <div className="grid gap-4 p-5">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
+                  Example transaction
+                </p>
+                <h3 className="mt-1 text-lg font-bold text-ink">Review transaction</h3>
+              </div>
+
+              <dl className="grid gap-2 rounded-lg border border-hairline bg-surface-2 p-4 text-sm">
+                <div className="flex items-center justify-between">
+                  <dt className="text-ink-muted">dApp</dt>
+                  <dd className="font-medium text-ink">Example AMM</dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-ink-muted">Network</dt>
+                  <dd className="font-medium text-ink">Starknet {network}</dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-ink-muted">Contract</dt>
+                  <dd className="font-mono text-xs text-ink">0x049d…b71c</dd>
+                </div>
+                <div className="flex items-center justify-between">
+                  <dt className="text-ink-muted">Estimated fee</dt>
+                  <dd className="font-medium text-ink">0.00021 ETH</dd>
+                </div>
+              </dl>
+
+              <div className="mt-2 flex flex-wrap justify-end gap-2">
                 <button
-                  key={id}
                   type="button"
-                  aria-pressed={isActive}
-                  onClick={() => setTab(id)}
-                  title={label}
-                  className="group flex flex-col items-center gap-1 rounded-lg py-2 text-[10px] font-semibold transition"
-                  style={
-                    isActive
-                      ? { background: "rgba(140,99,232,0.18)", color: "#F6F3F8", border: "1px solid rgba(188,165,255,0.22)" }
-                      : { background: "transparent", color: "#817789", border: "1px solid transparent" }
-                  }
+                  className="inline-flex h-10 items-center justify-center rounded-lg border border-hairline bg-surface px-4 text-sm font-semibold text-ink hover:bg-muted transition"
                 >
-                  <Icon size={15} aria-hidden="true" style={{ color: isActive ? "#F2A3B8" : "#817789" }} />
-                  <span>{label}</span>
+                  Reject
                 </button>
-              );
-            })}
-          </nav>
-
-          <div className="mt-auto mx-2 mb-3 grid grid-cols-2 gap-0.5 rounded-md p-0.5 text-[9.5px] font-semibold"
-            style={{ background: "rgba(20,18,22,0.6)", border: "1px solid rgba(207,168,255,0.10)" }}>
-            {(["Mainnet", "Sepolia"] as const).map((n) => (
-              <button
-                key={n}
-                type="button"
-                onClick={() => setNetwork(n)}
-                aria-pressed={network === n}
-                className="rounded px-1 py-1 transition"
-                style={network === n
-                  ? { background: "#F6F3F8", color: "#0C0B0E" }
-                  : { background: "transparent", color: "#817789" }}
-              >
-                {n}
-              </button>
-            ))}
-          </div>
-        </aside>
-
-        {/* Main panel */}
-        <div className="flex flex-col min-h-0 min-w-0" style={{ background: "#0C0B0E" }}>
-          <div
-            className="flex-1 min-h-0 min-w-0"
-            style={tab === "market" ? { overflow: "hidden" } : { overflowY: "auto", overflowX: "hidden" }}
-          >
-            {tab === "market" && <StarknetMarketView />}
-
-            {tab === "transaction" && (
-              <div className="grid gap-4 p-5">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
-                    Example transaction
-                  </p>
-                  <h3 className="mt-1 text-lg font-bold text-ink">Review transaction</h3>
-                </div>
-
-                <dl className="grid gap-2 rounded-lg border border-hairline bg-surface-2 p-4 text-sm">
-                  <div className="flex items-center justify-between">
-                    <dt className="text-ink-muted">dApp</dt>
-                    <dd className="font-medium text-ink">Example AMM</dd>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <dt className="text-ink-muted">Network</dt>
-                    <dd className="font-medium text-ink">Starknet {network}</dd>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <dt className="text-ink-muted">Contract</dt>
-                    <dd className="font-mono text-xs text-ink">0x049d…b71c</dd>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <dt className="text-ink-muted">Estimated fee</dt>
-                    <dd className="font-medium text-ink">0.00021 ETH</dd>
-                  </div>
-                </dl>
-
-                <div className="rounded-lg border border-hairline bg-[oklch(0.16_0.01_270)] p-4 font-mono text-[12px] leading-relaxed text-[oklch(0.92_0.02_85)] overflow-x-auto">
-                  <div className="text-[oklch(0.78_0.14_268)]">// Cairo call preview</div>
-                  <div>
-                    <span className="text-[oklch(0.85_0.14_85)]">call</span>{" "}
-                    AMM.swap_exact_tokens_for_tokens(
-                  </div>
-                  <div className="pl-4">amount_in: 100_000000000000000000,</div>
-                  <div className="pl-4">min_amount_out: 48_500000,</div>
-                  <div className="pl-4">path: [STRK, USDC],</div>
-                  <div className="pl-4">to: 0x04…f3a2,</div>
-                  <div>);</div>
-                </div>
-
-                <div className="rounded-lg border border-hairline bg-surface-2 p-4 text-sm">
-                  <p className="font-semibold text-ink">Permission changes</p>
-                  <ul className="mt-2 space-y-1 text-ink-muted">
-                    <li className="flex items-center gap-2">
-                      <Check size={14} className="text-brand" aria-hidden="true" />
-                      Approve STRK spending up to 100 STRK for Example AMM
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check size={14} className="text-brand" aria-hidden="true" />
-                      Session valid for this transaction only
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="mt-2 flex flex-wrap justify-end gap-2">
-                  <button
-                    type="button"
-                    className="inline-flex h-10 items-center justify-center rounded-lg border border-hairline bg-surface px-4 text-sm font-semibold text-ink hover:bg-muted transition"
-                  >
-                    Reject
-                  </button>
-                  <button
-                    type="button"
-                    className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-brand px-4 text-sm font-semibold text-brand-foreground hover:brightness-110 transition"
-                  >
-                    <ShieldCheck size={14} aria-hidden="true" />
-                    Sign transaction
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-brand px-4 text-sm font-semibold text-brand-foreground hover:brightness-110 transition"
+                  onClick={() => setTab("market")}
+                >
+                  <ShieldCheck size={14} aria-hidden="true" />
+                  Sign transaction
+                </button>
               </div>
-            )}
-
-            {tab === "assets" && (
-              <div className="p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">Demo data</p>
-                <h3 className="mt-1 text-lg font-bold text-ink">Assets</h3>
-                <ul className="mt-4 divide-y divide-hairline rounded-lg border border-hairline bg-surface-2">
-                  {DEMO_ASSETS.map((a) => (
-                    <li key={a.sym} className="flex items-center justify-between gap-4 px-4 py-3">
-                      <div className="flex items-center gap-3">
-                        <span className="grid h-9 w-9 place-items-center rounded-md bg-brand/10 text-brand text-xs font-bold">
-                          {a.sym.slice(0, 2)}
-                        </span>
-                        <div>
-                          <p className="text-sm font-semibold text-ink">{a.sym}</p>
-                          <p className="text-xs text-ink-muted">{a.name}</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm font-semibold text-ink">{a.amount}</p>
-                        <p className="text-xs text-ink-muted">{a.value}</p>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {tab === "activity" && (
-              <div className="p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">Demo data</p>
-                <h3 className="mt-1 text-lg font-bold text-ink">Activity</h3>
-                <ul className="mt-4 divide-y divide-hairline rounded-lg border border-hairline bg-surface-2">
-                  {DEMO_ACTIVITY.map((a) => (
-                    <li key={a.title} className="flex items-center justify-between gap-4 px-4 py-3">
-                      <div>
-                        <p className="text-sm font-semibold text-ink">{a.title}</p>
-                        <p className="text-xs text-ink-muted">{a.meta}</p>
-                      </div>
-                      <span className="text-xs font-semibold px-2 py-1 rounded-md bg-brand/10 text-brand">
-                        {a.state}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {tab === "permissions" && (
-              <div className="p-5">
-                <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">Demo data</p>
-                <h3 className="mt-1 text-lg font-bold text-ink">Connected dApps</h3>
-                <ul className="mt-4 divide-y divide-hairline rounded-lg border border-hairline bg-surface-2">
-                  {DEMO_PERMISSIONS.map((p) => (
-                    <li key={p.dapp} className="flex items-center justify-between gap-4 px-4 py-3">
-                      <div>
-                        <p className="text-sm font-semibold text-ink">{p.dapp}</p>
-                        <p className="text-xs text-ink-muted">{p.scope}</p>
-                      </div>
-                      <span
-                        className={`text-xs font-semibold px-2 py-1 rounded-md ${
-                          p.status === "Active"
-                            ? "bg-brand/10 text-brand"
-                            : "bg-muted text-ink-muted"
-                        }`}
-                      >
-                        {p.status}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {tab === "settings" && (
-              <div className="p-5 space-y-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-ink-muted">Preferences</p>
-                  <h3 className="mt-1 text-lg font-bold text-ink">Settings</h3>
-                </div>
-                <ul className="divide-y divide-hairline rounded-lg border border-hairline bg-surface-2 text-sm">
-                  {[
-                    ["Telemetry", "Disabled"],
-                    ["Custom RPC", "Off"],
-                    ["Hardware wallet", "Ready"],
-                    ["Local key storage", "Encrypted"],
-                  ].map(([k, v]) => (
-                    <li key={k} className="flex items-center justify-between px-4 py-3">
-                      <span className="text-ink-muted">{k}</span>
-                      <span className="font-medium text-ink">{v}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
+
 
   if (compact) {
     return (
