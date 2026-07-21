@@ -1,4 +1,4 @@
-import { Download, FileText, KeyRound, Clock, Star, ShieldCheck } from "lucide-react";
+import { Download, KeyRound, Clock, Star, ShieldCheck } from "lucide-react";
 import type { DownloadItem } from "@/data/downloads";
 import linuxIconAsset from "@/assets/linux-icon-clean-3.png.asset.json";
 
