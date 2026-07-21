@@ -366,11 +366,12 @@ const RESOURCES = [
   },
   {
     icon: Terminal,
-    title: "Developer guides",
+    title: "Developer resources",
     body: "Integrate with Cairo tooling and build Starknet-native workflows.",
     to: "/docs",
-    cta: "Open developer guides",
+    cta: "Read the docs",
   },
+
   {
     icon: KeyRound,
     title: "Security & verification",
