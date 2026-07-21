@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
-import { ArrowRight, Mail, Sparkles, Info } from "lucide-react";
+import { ArrowRight, Sparkles, Info } from "lucide-react";
 import { PlatformDownloadCard } from "./PlatformDownloadCard";
 import { defaultDownloadOrder, APP_VERSION, GITHUB_RELEASES_URL } from "@/data/downloads";
 import { useDetectedPlatform, DESKTOP_PLATFORMS } from "@/hooks/useDetectedPlatform";
@@ -519,65 +518,6 @@ function FaqShortcuts() {
   );
 }
 
-/* ---------- 8. Newsletter ---------- */
-
-function Newsletter() {
-  const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
-
-  function submit(e: FormEvent) {
-    e.preventDefault();
-    if (!email) return;
-    setSent(true);
-  }
-
-  return (
-    <section className="pb-24">
-      <div className="container-page">
-        <article className="rounded-[22px] border border-hairline bg-surface p-8 md:p-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div className="max-w-xl">
-            <span className="eyebrow">Newsletter</span>
-            <h2 className="font-display mt-4 text-2xl md:text-3xl font-semibold text-ink tracking-tight">
-              Release notes in your inbox.
-            </h2>
-            <p className="mt-2 text-ink-muted text-sm">
-              Occasional updates on signed builds, security notes and
-              Starknet ecosystem changes. No spam.
-            </p>
-          </div>
-          <form
-            onSubmit={submit}
-            className="flex flex-col sm:flex-row gap-3 w-full md:w-auto md:min-w-[380px]"
-          >
-            <label className="sr-only" htmlFor="nl-email">
-              Email
-            </label>
-            <div className="relative flex-1">
-              <Mail
-                size={16}
-                aria-hidden="true"
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-ink-muted"
-              />
-              <input
-                id="nl-email"
-                type="email"
-                required
-                placeholder="you@domain.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full h-11 pl-9 pr-3 rounded-lg bg-surface-2 border border-hairline text-ink placeholder:text-ink-subtle text-sm focus:outline-none focus:border-brand"
-              />
-            </div>
-            <button type="submit" className="btn-primary">
-              {sent ? "Subscribed" : "Subscribe"}
-            </button>
-          </form>
-        </article>
-      </div>
-    </section>
-  );
-}
-
 /* ---------- Combined export ---------- */
 
 export function HomeHighlights() {
@@ -591,8 +531,8 @@ export function HomeHighlights() {
       <FeaturedRelease />
       <Resources />
       <FaqShortcuts />
-      <Newsletter />
     </>
   );
 }
+
 
