@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07071D"/>
+      <stop offset="68%" stop-color="#07071D"/>
+      <stop offset="100%" stop-color="#0A0A2D"/>
+    </linearGradient>
+    <radialGradient id="navyGlow" cx="76%" cy="48%" r="48%">
+      <stop offset="0%" stop-color="#131365" stop-opacity=".68"/>
+      <stop offset="46%" stop-color="#131365" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#07071D" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="apricotGlow" cx="74%" cy="48%" r="25%">
+      <stop offset="0%" stop-color="#EC7B69" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#EC7B69" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="leftFade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#07071D" stop-opacity="1"/>
+      <stop offset="34%" stop-color="#07071D" stop-opacity=".98"/>
+      <stop offset="58%" stop-color="#07071D" stop-opacity=".52"/>
+      <stop offset="100%" stop-color="#07071D" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#E8E8F7" stroke-opacity=".025" stroke-width="1"/>
+    </pattern>
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="tinyGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect width="1600" height="900" fill="url(#navyGlow)"/>
+  <rect width="1600" height="900" fill="url(#apricotGlow)"/>
+
+  <!-- technical dotted field -->
+  <g fill="#E8E8F7" fill-opacity=".26">
+    <circle cx="1450" cy="150" r="2"/><circle cx="1510" cy="195" r="2"/><circle cx="1412" cy="235" r="1.7"/>
+    <circle cx="1505" cy="300" r="1.8"/><circle cx="1458" cy="352" r="2"/><circle cx="1530" cy="415" r="1.6"/>
+    <circle cx="1460" cy="480" r="2"/><circle cx="1515" cy="545" r="1.8"/><circle cx="1432" cy="610" r="2"/>
+  </g>
+
+  <!-- orbit system -->
+  <g fill="none" transform="rotate(-2 1120 430)">
+    <ellipse cx="1120" cy="430" rx="395" ry="245" stroke="#A7A3B8" stroke-opacity=".34" stroke-width="1.4"/>
+    <ellipse cx="1120" cy="430" rx="315" ry="190" stroke="#A7A3B8" stroke-opacity=".28" stroke-width="1.2"/>
+    <ellipse cx="1120" cy="430" rx="230" ry="135" stroke="#131365" stroke-opacity=".75" stroke-width="2"/>
+    <path d="M780 375 C900 180 1200 110 1455 270" stroke="#EC7B69" stroke-opacity=".68" stroke-width="1.8"/>
+    <path d="M815 535 C955 720 1220 730 1450 565" stroke="#A7A3B8" stroke-opacity=".34" stroke-width="1.4"/>
+  </g>
+
+  <!-- active connections -->
+  <g fill="none" stroke="#EC7B69" stroke-opacity=".72" stroke-width="1.8">
+    <path d="M1120,335 L1120,190"/>
+    <path d="M1206,410 L1338,300"/>
+    <path d="M1190,502 L1296,578"/>
+    <path d="M1048,504 L902,578"/>
+    <path d="M1032,420 L872,305"/>
+  </g>
+
+  <!-- central node -->
+  <g filter="url(#softGlow)">
+    <path d="M1120,310 L1224,370 L1224,490 L1120,550
+             L1016,490 L1016,370 Z"
+          fill="#11113D" stroke="#EC7B69" stroke-width="3"/>
+    <path d="M1120,342 L1196,386 L1196,474 L1120,518
+             L1044,474 L1044,386 Z"
+          fill="#0E0E34" stroke="#131365" stroke-width="3"/>
+    <circle cx="1120" cy="430" r="32" fill="#131365" fill-opacity=".72" stroke="#E8E8F7" stroke-opacity=".34"/>
+    <path d="M1098,436 C1112,456 1142,448 1148,426
+             C1130,436 1114,434 1098,436 Z"
+          fill="#EC7B69" fill-opacity=".92"/>
+    <circle cx="1138" cy="412" r="4.5" fill="#E8E8F7"/>
+  </g>
+
+  <!-- outer nodes -->
+  
+      <g filter="url(#tinyGlow)">
+        <circle cx="1120" cy="155" r="code" fill="#11113D" stroke="#EC7B69" stroke-width="3"/>
+        
+      </g>
+    
+  
+      <g filter="url(#tinyGlow)">
+        <circle cx="1370" cy="280" r="globe" fill="#0E0E34" stroke="rgba(232,232,247,.16)" stroke-width="2"/>
+        
+      </g>
+    
+  
+      <g filter="url(#tinyGlow)">
+        <circle cx="1325" cy="600" r="user" fill="#0E0E34" stroke="rgba(232,232,247,.16)" stroke-width="2"/>
+        
+      </g>
+    
+  
+      <g filter="url(#tinyGlow)">
+        <circle cx="875" cy="600" r="cube" fill="#0E0E34" stroke="rgba(232,232,247,.16)" stroke-width="2"/>
+        
+      </g>
+    
+  
+      <g filter="url(#tinyGlow)">
+        <circle cx="840" cy="285" r="token" fill="#0E0E34" stroke="rgba(232,232,247,.16)" stroke-width="2"/>
+        
+      </g>
+    
+
+  <!-- account abstraction layer marker -->
+  <g transform="translate(1120 745)" opacity=".85">
+    <path d="M-18 0 L0 -10 L18 0 L0 10 Z M-18 10 L0 20 L18 10"
+          fill="none" stroke="#A7A3B8" stroke-width="2.2" stroke-linejoin="round"/>
+  </g>
+
+  <!-- moving/active dots -->
+  <g fill="#EC7B69" filter="url(#tinyGlow)">
+    <circle cx="790" cy="370" r="5"/>
+    <circle cx="1010" cy="210" r="4"/>
+    <circle cx="1275" cy="170" r="4"/>
+    <circle cx="1450" cy="315" r="5"/>
+    <circle cx="1415" cy="590" r="4"/>
+    <circle cx="1120" cy="680" r="5"/>
+    <circle cx="885" cy="610" r="4"/>
+  </g>
+
+  <!-- supporting lilac dots -->
+  <g fill="#E8E8F7" fill-opacity=".72">
+    <circle cx="765" cy="455" r="3"/><circle cx="855" cy="180" r="2.6"/><circle cx="1310" cy="145" r="2.6"/>
+    <circle cx="1480" cy="400" r="3"/><circle cx="1375" cy="680" r="2.8"/><circle cx="920" cy="710" r="2.5"/>
+  </g>
+
+  <!-- preserve clean text zone -->
+  <rect x="0" y="0" width="770" height="900" fill="url(#leftFade)"/>
+</svg>
