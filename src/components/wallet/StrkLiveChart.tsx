@@ -38,6 +38,7 @@ export function StrkLiveChart({
       layout: {
         background: { color: "transparent" },
         textColor: "#817789",
+        attributionLogo: false,
         fontFamily:
           "'Sora', ui-sans-serif, system-ui, -apple-system, sans-serif",
       },
