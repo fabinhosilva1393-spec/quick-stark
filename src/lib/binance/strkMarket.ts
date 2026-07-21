@@ -87,14 +87,15 @@ function dedupeAndSort(candles: StrkCandle[]): StrkCandle[] {
   return Array.from(map.values()).sort((a, b) => a.timeMs - b.timeMs);
 }
 
-export async function fetchKlines(
+export async function fetchKlinesForSymbol(
+  symbol: string,
   interval: BinanceSpotInterval,
   limit: number,
   signal?: AbortSignal,
   startTime?: number
 ): Promise<StrkCandle[]> {
   const url = new URL(`${BASE}/api/v3/klines`);
-  url.searchParams.set("symbol", SYMBOL);
+  url.searchParams.set("symbol", symbol);
   url.searchParams.set("interval", interval);
   url.searchParams.set("limit", String(limit));
   if (startTime) url.searchParams.set("startTime", String(startTime));
@@ -109,6 +110,16 @@ export async function fetchKlines(
   }
   return dedupeAndSort(out);
 }
+
+export async function fetchKlines(
+  interval: BinanceSpotInterval,
+  limit: number,
+  signal?: AbortSignal,
+  startTime?: number
+): Promise<StrkCandle[]> {
+  return fetchKlinesForSymbol(SYMBOL, interval, limit, signal, startTime);
+}
+
 
 export async function fetchAllDailyKlines(
   signal?: AbortSignal
