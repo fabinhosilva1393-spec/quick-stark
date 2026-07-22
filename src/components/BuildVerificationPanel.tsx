@@ -72,7 +72,7 @@ export function BuildVerificationPanel() {
 
   const allText = useMemo(() => {
     const lines = [
-      `StarknetWallet ${APP_VERSION} — Current maintained build`,
+      `Starknet Wallet ${APP_VERSION} — Current maintained build`,
       "",
       "PGP fingerprint:",
       PGP_FINGERPRINT,
@@ -114,7 +114,7 @@ export function BuildVerificationPanel() {
               id="build-verification-heading"
               className="font-display text-xl font-semibold text-ink"
             >
-              StarknetWallet{" "}
+              Starknet Wallet{" "}
               <span className="font-mono text-brand">{APP_VERSION}</span>
             </h3>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-hairline bg-surface px-2.5 py-1 text-[11px] font-medium text-ink-muted">

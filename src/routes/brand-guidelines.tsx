@@ -3,9 +3,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import logoAsset from "@/assets/starknet-logomark.png.asset.json";
 
-const TITLE = "Brand guidelines — StarknetWallet";
+const TITLE = "Brand guidelines — Starknet Wallet";
 const DESC =
-  "The StarknetWallet brand system: logo, colors, typography, and usage rules for writing about, integrating with, or covering StarknetWallet.";
+  "The Starknet Wallet brand system: logo, colors, typography, and usage rules for writing about, integrating with, or covering Starknet Wallet.";
 
 export const Route = createFileRoute("/brand-guidelines")({
   head: () => ({
@@ -65,11 +65,11 @@ function BrandPage() {
               Brand
             </span>
             <h1 className="font-display mt-5 text-5xl sm:text-6xl font-semibold tracking-tight text-ink leading-[1.02]">
-              The StarknetWallet brand system.
+              The Starknet Wallet brand system.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-ink-muted">
               Use these assets when writing about, integrating with, or
-              covering StarknetWallet.
+              covering Starknet Wallet.
             </p>
           </div>
         </section>
@@ -83,7 +83,7 @@ function BrandPage() {
               <div className="rounded-2xl border border-hairline bg-background p-8 flex flex-col items-center justify-center">
                 <img
                   src={logoAsset.url}
-                  alt="StarknetWallet logomark"
+                  alt="Starknet Wallet logomark"
                   className="h-24 w-24 object-contain"
                 />
                 <p className="mt-4 text-xs uppercase tracking-[0.18em] text-ink-muted">
@@ -195,7 +195,7 @@ function BrandPage() {
             </ul>
             <p className="mt-6 text-sm text-ink-muted">
               Ecosystem names are shown for context only. Please use the
-              StarknetWallet brand assets as described above so the product
+              Starknet Wallet brand assets as described above so the product
               is represented clearly and consistently.
             </p>
           </div>

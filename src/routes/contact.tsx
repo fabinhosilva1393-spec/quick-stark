@@ -6,9 +6,9 @@ import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { GITHUB_REPO_URL } from "@/data/downloads";
 
-const TITLE = "Contact — StarknetWallet";
+const TITLE = "Contact — Starknet Wallet";
 const DESC =
-  "Support, security reports, ecosystem questions, or product feedback for StarknetWallet.";
+  "Support, security reports, ecosystem questions, or product feedback for Starknet Wallet.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -81,7 +81,7 @@ function EmailCaptureCard() {
     <div className="rounded-2xl border border-hairline bg-surface p-7 shadow-[0_0_0_1px_rgba(10,69,255,0.04),0_30px_60px_-30px_rgba(10,69,255,0.25)]">
       <h2 className="text-xl font-bold text-ink">Stay updated</h2>
       <p className="mt-2 text-sm text-ink-muted leading-relaxed">
-        Get version notes, security updates, and StarknetWallet product news.
+        Get version notes, security updates, and Starknet Wallet product news.
       </p>
       <form onSubmit={onSubmit} noValidate className="mt-6 space-y-3">
         <label htmlFor="contact-email" className="sr-only">
@@ -162,7 +162,7 @@ const CONTACT_CARDS: ContactCard[] = [
   },
   {
     title: "Docs",
-    text: "Read setup, security, and StarknetWallet usage guides.",
+    text: "Read setup, security, and Starknet Wallet usage guides.",
     internal: "/docs",
   },
 ];
@@ -223,7 +223,7 @@ function ContactPage() {
               <h1 className="section-title mt-4">Talk to a real human.</h1>
               <p className="section-sub mt-5">
                 Support, security reports, ecosystem questions, or product
-                feedback for StarknetWallet.
+                feedback for Starknet Wallet.
               </p>
             </div>
 
@@ -261,7 +261,7 @@ function ContactPage() {
                   <p className="mt-4 text-xs text-ink-muted/70">
                     Starknet ecosystem links are provided for context so
                     users can explore the wider Starknet environment alongside
-                    the StarknetWallet desktop workflow.
+                    the Starknet Wallet desktop workflow.
                   </p>
                 </div>
               </div>

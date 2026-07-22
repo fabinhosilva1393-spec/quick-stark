@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { RoadmapIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "Product evolution — StarknetWallet";
+const TITLE = "Product evolution — Starknet Wallet";
 const DESC =
-  "A maintained product track for StarknetWallet's desktop stability, signing clarity, compatibility, and security review workflows.";
+  "A maintained product track for Starknet Wallet's desktop stability, signing clarity, compatibility, and security review workflows.";
 
 const STAGES: { stage: string; body: string }[] = [
   {
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/roadmap")({
   component: () => (
     <SimplePage eyebrow="Direction" title="Product evolution" illustration={<RoadmapIllustration />}>
       <p>
-        StarknetWallet follows a maintained product track focused on desktop
+        Starknet Wallet follows a maintained product track focused on desktop
         stability, signing clarity, compatibility, and security review
         workflows.
       </p>

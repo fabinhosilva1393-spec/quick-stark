@@ -1,16 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 
-const TITLE = "Version History — StarknetWallet";
+const TITLE = "Version History — Starknet Wallet";
 const DESC =
-  "Maintenance history and version milestones for the StarknetWallet desktop application.";
+  "Maintenance history and version milestones for the Starknet Wallet desktop application.";
 
 const HISTORY: { version: string; label: string; description: string; items: string[] }[] = [
   {
     version: "v2.4.3",
     label: "Current maintained version",
     description:
-      "The current desktop build for StarknetWallet's maintained product track.",
+      "The current desktop build for Starknet Wallet's maintained product track.",
     items: [
       "Refined account overview and transaction history surfaces.",
       "Improved Cairo call review for common dApp interactions.",
@@ -54,7 +54,7 @@ const HISTORY: { version: string; label: string; description: string; items: str
     version: "v2.0.0",
     label: "Desktop product milestone",
     description:
-      "Consolidated the main StarknetWallet desktop experience, account overview, transaction review, and permissions model.",
+      "Consolidated the main Starknet Wallet desktop experience, account overview, transaction review, and permissions model.",
     items: [
       "Unified desktop product surface across platforms.",
       "Consolidated account overview and transaction review.",
@@ -76,7 +76,7 @@ const HISTORY: { version: string; label: string; description: string; items: str
     version: "v1.5.2",
     label: "Starknet workflow foundation",
     description:
-      "Established the first maintained StarknetWallet desktop workflow for account visibility and transaction review.",
+      "Established the first maintained Starknet Wallet desktop workflow for account visibility and transaction review.",
     items: [
       "Baseline desktop workflow for Starknet accounts.",
       "Initial Cairo call visibility surface.",
@@ -101,7 +101,7 @@ export const Route = createFileRoute("/changelog")({
       eyebrow="Version history"
       title="Version history"
       heroBackground="/assets/pages/version-history-hero.svg"
-      description="A maintained product track for StarknetWallet on macOS, Windows, and Linux. The list below reflects continuous improvements across the desktop workflow, signing surfaces, compatibility, and security interface."
+      description="A maintained product track for Starknet Wallet on macOS, Windows, and Linux. The list below reflects continuous improvements across the desktop workflow, signing surfaces, compatibility, and security interface."
       sections={HISTORY.map((h) => ({
         id: `v-${h.version.replace(/[^\w]/g, "-")}`,
         label: `${h.version} — ${h.label}`,

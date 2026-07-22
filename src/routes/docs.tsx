@@ -22,9 +22,9 @@ import {
   Eye,
 } from "lucide-react";
 
-const TITLE = "StarknetWallet Docs — Install, Verify, Sign";
+const TITLE = "Starknet Wallet Docs — Install, Verify, Sign";
 const DESC =
-  "Install, verify, set up accounts, review Cairo calls, and understand StarknetWallet workflows.";
+  "Install, verify, set up accounts, review Cairo calls, and understand Starknet Wallet workflows.";
 
 type DocSection = {
   id: string;
@@ -205,11 +205,11 @@ function DocsHero() {
         <div className="max-w-3xl">
           <span className="eyebrow">Docs</span>
           <h1 className="font-display section-title mt-4 font-semibold">
-            StarknetWallet Docs
+            Starknet Wallet Docs
           </h1>
           <p className="section-sub max-w-2xl">
             Everything users and developers need to understand
-            StarknetWallet — from installation and account setup to Cairo
+            Starknet Wallet — from installation and account setup to Cairo
             call review, smart-account permissions, hardware-wallet
             workflows, and secure signing on Starknet.
           </p>
@@ -281,7 +281,7 @@ function Introduction() {
   return (
     <Section id="introduction" eyebrow="1. Overview" title="Introduction">
       <p>
-        StarknetWallet is a desktop wallet built for secure Starknet
+        Starknet Wallet is a desktop wallet built for secure Starknet
         workflows. It helps users manage STRK, review Cairo calls, inspect
         smart-account permissions, and approve transactions with clearer
         signing context.
@@ -339,7 +339,7 @@ function FirstSetup() {
   return (
     <Section id="first-setup" eyebrow="3. Get started" title="First Setup">
       <p>
-        Launch StarknetWallet and walk through the onboarding flow. The
+        Launch Starknet Wallet and walk through the onboarding flow. The
         product is designed so each decision is explicit and reversible.
       </p>
       <StepList
@@ -363,7 +363,7 @@ function ManagingAccounts() {
           { title: "Account overview", body: "See STRK balance, recent activity, and the active Starknet account at a glance." },
           { title: "Multi-account workflows", body: "Create or import multiple Starknet accounts and switch between them cleanly." },
           { title: "Network switching", body: "Move between Starknet Mainnet and Sepolia explicitly, with the network labeled on every signing surface." },
-          { title: "Local-first control", body: "Account material stays on your device — StarknetWallet does not custody keys." },
+          { title: "Local-first control", body: "Account material stays on your device — Starknet Wallet does not custody keys." },
         ]}
       />
     </Section>
@@ -374,7 +374,7 @@ function TransactionReview() {
   return (
     <Section id="transaction-review" eyebrow="5. Signing" title="Transaction Review">
       <p>
-        StarknetWallet focuses on showing clearer transaction context before
+        Starknet Wallet focuses on showing clearer transaction context before
         approval. Review before signing. Approve only when the transaction
         context is clear.
       </p>
@@ -396,7 +396,7 @@ function SmartAccountPermissions() {
   return (
     <Section id="smart-account-permissions" eyebrow="6. Account abstraction" title="Smart-Account Permissions">
       <p>
-        Starknet is built around smart accounts. StarknetWallet helps users
+        Starknet is built around smart accounts. Starknet Wallet helps users
         review permissions, session keys, spending approvals, and signer
         context before they apply.
       </p>
@@ -416,7 +416,7 @@ function SecurityPractices() {
   return (
     <Section id="security-practices" eyebrow="7. Security" title="Security Practices">
       <p>
-        StarknetWallet is designed around local-first key control,
+        Starknet Wallet is designed around local-first key control,
         verification-first installation, and clear signing context. The
         practices below help you get the full benefit of that model.
       </p>
@@ -443,7 +443,7 @@ function HardwareWalletWorkflows() {
   return (
     <Section id="hardware-wallet-workflows" eyebrow="8. External signing" title="Hardware Wallet Workflows">
       <p>
-        StarknetWallet is designed to support compatible external signing
+        Starknet Wallet is designed to support compatible external signing
         workflows where available, so you can keep signing material on a
         dedicated device.
       </p>
@@ -464,7 +464,7 @@ function DeveloperWorkflows() {
   return (
     <Section id="developer-workflows" eyebrow="9. Build on Starknet" title="dApp & Developer Workflows">
       <p>
-        For Cairo builders and Starknet developers, StarknetWallet provides
+        For Cairo builders and Starknet developers, Starknet Wallet provides
         clearer transaction context before signing, making it easier to
         debug integrations end-to-end.
       </p>
@@ -513,7 +513,7 @@ function Troubleshooting() {
     {
       problem: "Hardware signer not detected",
       cause: "Cable, firmware, or device app not in the expected state.",
-      fix: "Reconnect the device, update its firmware, and re-launch StarknetWallet.",
+      fix: "Reconnect the device, update its firmware, and re-launch Starknet Wallet.",
     },
     {
       problem: "dApp connection issue",
@@ -556,7 +556,7 @@ function AdvancedTools() {
 function FAQSection() {
   const qa: { q: string; a: string }[] = [
     {
-      q: "Does StarknetWallet store keys online?",
+      q: "Does Starknet Wallet store keys online?",
       a: "No. Keys are generated and stored on your device. They are not transmitted to any server.",
     },
     {
@@ -569,7 +569,7 @@ function FAQSection() {
     },
     {
       q: "Does it support STRK?",
-      a: "Yes. StarknetWallet treats STRK as a first-class asset with balance, activity, and signing context.",
+      a: "Yes. Starknet Wallet treats STRK as a first-class asset with balance, activity, and signing context.",
     },
     {
       q: "Can I review Cairo calls before signing?",
@@ -577,7 +577,7 @@ function FAQSection() {
     },
     {
       q: "Does it support hardware wallets?",
-      a: "StarknetWallet is designed to support compatible external signing workflows where available, including Ledger- and Trezor-compatible flows.",
+      a: "Starknet Wallet is designed to support compatible external signing workflows where available, including Ledger- and Trezor-compatible flows.",
     },
     {
       q: "How do I verify downloads?",

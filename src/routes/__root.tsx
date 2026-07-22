@@ -81,17 +81,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "color-scheme", content: "light" },
       { name: "theme-color", content: "#f8f6f1" },
-      { title: "StarknetWallet — Desktop Wallet for Starknet" },
+      { title: "Starknet Wallet — Desktop Wallet for Starknet" },
       {
         name: "description",
         content:
           "Download a desktop wallet for Starknet. Manage STRK, preview Cairo calls, review smart-account permissions, and sign on macOS, Windows, and Linux.",
       },
-      { property: "og:site_name", content: "StarknetWallet" },
+      { property: "og:site_name", content: "Starknet Wallet" },
       { property: "og:type", content: "website" },
       {
         property: "og:title",
-        content: "StarknetWallet — Desktop Wallet for Starknet",
+        content: "Starknet Wallet — Desktop Wallet for Starknet",
       },
       {
         property: "og:description",
@@ -122,7 +122,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "StarknetWallet",
+          name: "Starknet Wallet",
           url: "https://starknetwallet.org/",
         }),
       },
@@ -131,7 +131,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "StarknetWallet",
+          name: "Starknet Wallet",
           url: "https://starknetwallet.org/",
           logo: "https://starknetwallet.org/social/starknetwallet-social-card.png",
         }),

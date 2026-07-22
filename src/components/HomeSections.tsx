@@ -49,7 +49,7 @@ export function WhyDesktop() {
             A focused environment for Starknet signing.
           </h2>
           <p className="section-sub">
-            StarknetWallet gives users a dedicated desktop interface for
+            Starknet Wallet gives users a dedicated desktop interface for
             reviewing transactions, account permissions, network context,
             and signing details before approval.
           </p>
@@ -104,7 +104,7 @@ export function DocumentationPreview() {
         <div className="max-w-2xl">
           <span className="eyebrow">Docs</span>
           <h2 id="docs-heading" className="font-display section-title mt-4 font-semibold">
-            Run StarknetWallet with confidence.
+            Run Starknet Wallet with confidence.
           </h2>
           <p className="section-sub">
             Short, practical guides covering installation, build verification,
@@ -196,7 +196,7 @@ export function CtaFinal() {
             Review with confidence before you approve.
           </h2>
           <p className="section-sub mx-auto max-w-2xl">
-            Download StarknetWallet to manage STRK, inspect Cairo calls, and
+            Download Starknet Wallet to manage STRK, inspect Cairo calls, and
             review smart-account permissions in a local-first desktop workflow.
           </p>
 

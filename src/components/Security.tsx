@@ -50,7 +50,7 @@ export function Security() {
             Your keys. Your machine. Your rules.
           </h2>
           <p className="section-sub">
-            StarknetWallet is built with a security-first architecture and
+            Starknet Wallet is built with a security-first architecture and
             ships with the verification tooling expected from a wallet that
             custodies your assets.
           </p>

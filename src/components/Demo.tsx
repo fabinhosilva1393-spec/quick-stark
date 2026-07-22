@@ -14,7 +14,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
     <div
       className="demo-window demo-shell flex flex-col overflow-hidden rounded-2xl border border-hairline shadow-[0_30px_80px_-40px_rgba(0,0,0,0.35)]"
       role="img"
-      aria-label="StarknetWallet desktop UI preview"
+      aria-label="Starknet Wallet desktop UI preview"
       style={{ background: "var(--canvas)" }}
     >
       {/* Title bar */}
@@ -32,7 +32,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
             className="rounded-[3px]"
             style={{ display: "block" }}
           />
-          StarknetWallet
+          Starknet Wallet
           <span className="ml-1.5 font-medium capitalize" style={{ color: "var(--text-muted)" }}>{tab}</span>
         </span>
         <span
@@ -121,7 +121,7 @@ export function Demo({ compact = false }: { compact?: boolean } = {}) {
             Preview transactions before you sign.
           </h2>
           <p className="section-sub">
-            See how StarknetWallet helps you review Cairo calls, account permissions, assets, and network details in a calm desktop interface.
+            See how Starknet Wallet helps you review Cairo calls, account permissions, assets, and network details in a calm desktop interface.
           </p>
         </div>
 

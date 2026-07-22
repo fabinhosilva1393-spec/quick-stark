@@ -18,7 +18,7 @@ export function Compare() {
             Built around Starknet signing workflows.
           </h2>
           <p className="section-sub">
-            Different wallet environments serve different needs. StarknetWallet
+            Different wallet environments serve different needs. Starknet Wallet
             is designed for users who want a focused desktop surface for
             reviewing Starknet transactions and smart-account permissions.
           </p>

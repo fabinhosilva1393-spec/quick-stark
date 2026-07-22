@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { PrivacyIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "Privacy — StarknetWallet";
-const DESC = "Local-first privacy principles for the StarknetWallet desktop workflow.";
+const TITLE = "Privacy — Starknet Wallet";
+const DESC = "Local-first privacy principles for the Starknet Wallet desktop workflow.";
 
 export const Route = createFileRoute("/privacy")({
   head: () => ({
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/privacy")({
   component: () => (
     <SimplePage eyebrow="Legal" title="Privacy" illustration={<PrivacyIllustration />}>
       <p>
-        StarknetWallet is designed with local-first privacy principles. The
+        Starknet Wallet is designed with local-first privacy principles. The
         website and desktop workflow minimize data exposure while giving
         users clear control over wallet activity and signing context.
       </p>
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/privacy")({
       </ul>
       <p>
         Privacy and security information is maintained alongside the product
-        so users can understand how StarknetWallet handles data, downloads,
+        so users can understand how Starknet Wallet handles data, downloads,
         and signing context.
       </p>
     </SimplePage>

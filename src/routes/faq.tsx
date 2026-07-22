@@ -5,9 +5,9 @@ import { FAQ } from "@/components/FAQ";
 import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
 import { ReadingProgress } from "@/components/ReadingProgress";
 
-const TITLE = "FAQ — StarknetWallet";
+const TITLE = "FAQ — Starknet Wallet";
 const DESC =
-  "Answers about StarknetWallet: pricing, verification, supported accounts, hardware wallets, platforms, and responsible disclosure.";
+  "Answers about Starknet Wallet: pricing, verification, supported accounts, hardware wallets, platforms, and responsible disclosure.";
 const URL = "https://starknetwallet.org/faq";
 
 export const Route = createFileRoute("/faq")({
@@ -40,7 +40,7 @@ function FAQPage() {
             </h1>
             <p className="section-sub max-w-2xl">
               Everything you need to know about installing, verifying, and using
-              StarknetWallet on desktop.
+              Starknet Wallet on desktop.
             </p>
           </div>
         </section>

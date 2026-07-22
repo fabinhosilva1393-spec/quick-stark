@@ -6,17 +6,17 @@ import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { Ecosystem } from "@/components/Ecosystem";
 import { HomeHighlights } from "@/components/HomeHighlights";
 
-const TITLE = "StarknetWallet — Secure desktop wallet for Starknet";
+const TITLE = "Starknet Wallet — Secure desktop wallet for Starknet";
 const DESC =
   "Manage STRK, review Cairo calls and inspect smart-account permissions from a focused desktop wallet experience.";
 const SITE_URL = "https://starknetwallet.org/";
 const OG_IMAGE = "https://starknetwallet.org/social/starknetwallet-social-card.png";
-const OG_IMAGE_ALT = "StarknetWallet — Secure desktop wallet for Starknet";
+const OG_IMAGE_ALT = "Starknet Wallet — Secure desktop wallet for Starknet";
 
 const FAQ_ITEMS: { q: string; a: string }[] = [
-  { q: "Is StarknetWallet free?", a: "Yes. StarknetWallet is free and open source. There are no subscriptions, no premium tiers, and no in-app upsells." },
-  { q: "What is StarknetWallet built for?", a: "StarknetWallet is built for secure Starknet desktop workflows — clear transaction review, local-first key control, and transparent smart-account signing across macOS, Windows, and Linux." },
-  { q: "Does StarknetWallet collect my data?", a: "No telemetry is sent by default. Private keys never leave your device. You can route RPC calls through your own node for full privacy." },
+  { q: "Is Starknet Wallet free?", a: "Yes. Starknet Wallet is free and open source. There are no subscriptions, no premium tiers, and no in-app upsells." },
+  { q: "What is Starknet Wallet built for?", a: "Starknet Wallet is built for secure Starknet desktop workflows — clear transaction review, local-first key control, and transparent smart-account signing across macOS, Windows, and Linux." },
+  { q: "Does Starknet Wallet collect my data?", a: "No telemetry is sent by default. Private keys never leave your device. You can route RPC calls through your own node for full privacy." },
   { q: "Which Starknet accounts are supported?", a: "Common account-abstraction implementations on Starknet, including Argent and Braavos-style accounts, as well as standard OpenZeppelin accounts." },
   { q: "Can I use a Ledger hardware wallet?", a: "Hardware-wallet workflows are supported through compatible Starknet signing tooling. Ledger users typically sign Starknet transactions via wallets such as Argent, Braavos, or Ready." },
   { q: "How do I verify a build?", a: "Every maintained build ships with a SHA256 checksum and a PGP signature. See the verification commands on the versions page for the exact steps for the current maintained build." },
@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
-      { property: "og:site_name", content: "StarknetWallet" },
+      { property: "og:site_name", content: "Starknet Wallet" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "SoftwareApplication",
-          name: "StarknetWallet",
+          name: "Starknet Wallet",
           applicationCategory: "FinanceApplication",
           operatingSystem: "macOS, Windows, Linux",
           url: SITE_URL,

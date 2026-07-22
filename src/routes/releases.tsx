@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { APP_VERSION, GITHUB_RELEASES_URL } from "@/data/downloads";
 
-const TITLE = "Versions — StarknetWallet";
+const TITLE = "Versions — Starknet Wallet";
 const DESC =
-  "Current maintained version, signed desktop builds, and clear verification details for StarknetWallet.";
+  "Current maintained version, signed desktop builds, and clear verification details for Starknet Wallet.";
 
 export const Route = createFileRoute("/releases")({
   head: () => ({
@@ -22,7 +22,7 @@ export const Route = createFileRoute("/releases")({
       eyebrow="Versions"
       title="Signed builds, clear verification."
       heroBackground="/assets/pages/releases-hero.svg"
-      description="StarknetWallet ships signed desktop builds for macOS, Windows, and Linux on a maintained product track. Each build is published with a SHA256 checksum and a PGP signature so you can verify it before installing."
+      description="Starknet Wallet ships signed desktop builds for macOS, Windows, and Linux on a maintained product track. Each build is published with a SHA256 checksum and a PGP signature so you can verify it before installing."
       sections={[
         { id: "current-version", label: "Current version" },
         { id: "whats-in-build", label: "What's in the build" },
