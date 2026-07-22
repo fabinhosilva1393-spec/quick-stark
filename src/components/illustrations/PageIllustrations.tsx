@@ -362,7 +362,7 @@ export function AboutIllustration({ className }: Props) {
           <circle cx="34" cy="17" r="5" fill="#f5d76e" />
           <circle cx="50" cy="17" r="5" fill="#7ef0ff" />
           <rect x="140" y="9" width="100" height="16" rx="4" fill="#0c0820" stroke="#a78bfa" strokeOpacity="0.5" />
-          <text x="190" y="20" textAnchor="middle" fontSize="9" fill="#c4b5fd" fontFamily="ui-monospace, monospace">starknetwallet</text>
+          <text x="190" y="20" textAnchor="middle" fontSize="9" fill="#c4b5fd" fontFamily="ui-monospace, monospace">starknet wallet</text>
 
           {/* sidebar */}
           <rect x="0" y="34" width="100" height="226" fill="#171041" />
