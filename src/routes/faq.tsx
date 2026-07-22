@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { FAQ } from "@/components/FAQ";
 import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
 import { ReadingProgress } from "@/components/ReadingProgress";
+import { FAQ_ITEMS } from "@/data/faqItems";
 
 const TITLE = "FAQ — Starknet Wallet";
 const DESC =
@@ -21,9 +22,24 @@ export const Route = createFileRoute("/faq")({
       { property: "og:type", content: "website" },
     ],
     links: [{ rel: "canonical", href: URL }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: FAQ_ITEMS.map((it) => ({
+            "@type": "Question",
+            name: it.q,
+            acceptedAnswer: { "@type": "Answer", text: it.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: FAQPage,
 });
+
 
 function FAQPage() {
   return (
