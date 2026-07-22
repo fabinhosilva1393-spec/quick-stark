@@ -25,7 +25,7 @@ export function Header() {
         <Link
           to="/"
           className="flex items-center gap-2.5"
-          aria-label="StarknetWallet home"
+          aria-label="Starknet Wallet home"
           onClick={() => setOpen(false)}
         >
           <span
@@ -34,7 +34,7 @@ export function Header() {
           >
             <img
               src="/starknetwallet-icon.ico"
-              alt="StarknetWallet"
+              alt="Starknet Wallet"
               className="h-8 w-8 object-contain shrink-0"
               style={{ background: "transparent" }}
             />

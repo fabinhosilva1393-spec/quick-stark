@@ -7,7 +7,7 @@ export function AnnouncementBar() {
       <div className="container-page flex items-center justify-center gap-3 py-2 text-[13px]">
         <span className="announcement-dot" aria-hidden="true" />
         <span className="text-ink/90 font-medium">
-          StarknetWallet v2.4.3 — Current maintained desktop build
+          Starknet Wallet v2.4.3 — Current maintained desktop build
         </span>
         <Link
           to="/releases"

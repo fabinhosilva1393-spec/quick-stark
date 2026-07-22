@@ -229,7 +229,7 @@ export function Footer() {
               <span aria-hidden="true" className="inline-flex h-8 w-8 items-center justify-center shrink-0">
                 <img
                   src="/starknetwallet-icon.ico"
-                  alt="StarknetWallet"
+                  alt="Starknet Wallet"
                   className="h-8 w-8 object-contain shrink-0"
                   style={{ background: "transparent" }}
                 />
@@ -327,9 +327,9 @@ export function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col items-center gap-3 text-center text-xs text-ink-muted">
-          <p>© {new Date().getFullYear()} StarknetWallet. Open source.</p>
+          <p>© {new Date().getFullYear()} Starknet Wallet. Open source.</p>
           <p className="max-w-2xl">
-            StarknetWallet is built for secure Starknet desktop workflows,
+            Starknet Wallet is built for secure Starknet desktop workflows,
             giving users clearer transaction review, local-first key control,
             and transparent smart-account signing.
           </p>

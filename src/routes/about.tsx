@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { AboutIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "About — StarknetWallet";
+const TITLE = "About — Starknet Wallet";
 const DESC = "Desktop wallet for Starknet with local-first keys and signed builds.";
 
 export const Route = createFileRoute("/about")({
@@ -17,9 +17,9 @@ export const Route = createFileRoute("/about")({
     links: [{ rel: "canonical", href: "https://starknetwallet.org/about" }],
   }),
   component: () => (
-    <SimplePage eyebrow="Project" title="About StarknetWallet" illustration={<AboutIllustration />}>
+    <SimplePage eyebrow="Project" title="About Starknet Wallet" illustration={<AboutIllustration />}>
       <p>
-        StarknetWallet is a desktop wallet experience built for Starknet
+        Starknet Wallet is a desktop wallet experience built for Starknet
         users who want clearer transaction review, local-first key control,
         and smart-account signing visibility across macOS, Windows, and
         Linux.

@@ -5,9 +5,9 @@ import { Footer } from "@/components/Footer";
 import { PageHeroBackdrop } from "@/components/PageHeroBackdrop";
 import { ReadingProgress } from "@/components/ReadingProgress";
 
-const TITLE = "Compare — StarknetWallet";
+const TITLE = "Compare — Starknet Wallet";
 const DESC =
-  "How StarknetWallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and build verification.";
+  "How Starknet Wallet's desktop environment supports Starknet signing across review surface, Cairo context, smart-account permissions, and build verification.";
 
 
 export const Route = createFileRoute("/compare")({
@@ -62,7 +62,7 @@ function CellView({ value, primary }: { value: Cell; primary?: boolean }) {
 const CARDS = [
   {
     title: "Choose the right environment for every approval",
-    body: "Browser wallets are useful for quick dApp access. StarknetWallet focuses on a dedicated desktop review surface for users who want more context before signing.",
+    body: "Browser wallets are useful for quick dApp access. Starknet Wallet focuses on a dedicated desktop review surface for users who want more context before signing.",
   },
   {
     title: "Starknet-native signing context",
@@ -90,7 +90,7 @@ function ComparePage() {
                 Built for Starknet signing, end to end.
               </h1>
               <p className="section-sub mt-5">
-                StarknetWallet is designed around focused desktop review,
+                Starknet Wallet is designed around focused desktop review,
                 Cairo call context, STRK management, smart-account permissions,
                 and verified desktop builds. This page compares those
                 capabilities across common wallet environments.
@@ -121,7 +121,7 @@ function ComparePage() {
                         Capability
                       </th>
                       <th className="px-5 py-4 text-center font-bold text-ink">
-                        StarknetWallet
+                        Starknet Wallet
                       </th>
                       <th className="px-5 py-4 text-center font-semibold text-ink-muted">
                         Other wallet environments

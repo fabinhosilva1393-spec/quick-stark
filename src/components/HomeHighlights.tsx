@@ -227,7 +227,7 @@ function Platforms() {
         <div className="max-w-2xl">
           <span className="eyebrow">Download</span>
           <h2 className="font-display section-title mt-4 font-semibold">
-            Download StarknetWallet
+            Download Starknet Wallet
           </h2>
           <p className="section-sub">
             Signed builds for macOS, Windows and Linux. Verify before installing.
@@ -289,9 +289,9 @@ function PlatformRecommendation({ platform }: { platform: DesktopPlatform }) {
 
   const message =
     platform === "mobile"
-      ? "StarknetWallet is a desktop application. Open this page from a Windows, macOS, or Linux computer to install the signed build."
+      ? "Starknet Wallet is a desktop application. Open this page from a Windows, macOS, or Linux computer to install the signed build."
       : platform === "chromeos"
-        ? "StarknetWallet doesn’t ship a native ChromeOS build. On a supported desktop (Windows, macOS, or Linux) you can install the signed build below."
+        ? "Starknet Wallet doesn’t ship a native ChromeOS build. On a supported desktop (Windows, macOS, or Linux) you can install the signed build below."
         : "We couldn’t detect your operating system. All available desktop builds are listed below.";
 
   return (
@@ -386,7 +386,7 @@ function FeaturedRelease() {
           <div className="max-w-2xl">
             <span className="eyebrow">Latest release</span>
             <h2 className="font-display mt-4 text-3xl md:text-4xl font-semibold text-ink tracking-tight">
-              StarknetWallet {APP_VERSION}
+              Starknet Wallet {APP_VERSION}
             </h2>
             <p className="mt-4 text-ink-muted leading-relaxed">
               Current maintained desktop build with refined Cairo call review,
@@ -482,7 +482,7 @@ function Resources() {
 
 const FAQ_SHORTCUTS = [
   { q: "View all questions", to: "/faq" as const },
-  { q: "Is StarknetWallet free?", to: "/faq" as const },
+  { q: "Is Starknet Wallet free?", to: "/faq" as const },
   { q: "How do I verify a build?", to: "/faq" as const },
   { q: "Which platforms are supported?", to: "/faq" as const },
 ];

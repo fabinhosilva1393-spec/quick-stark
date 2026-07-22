@@ -1,16 +1,16 @@
-# StarknetWallet
+# Starknet Wallet
 
 > A local-first desktop wallet for Starknet. Manage STRK, preview Cairo calls, and review smart-account permissions on macOS, Windows, and Linux.
 
 ## Pages
 
 - [Home](/): Product overview, features, security, and download.
-- [Docs](/docs): Install, verify, set up accounts, review Cairo calls, and understand StarknetWallet workflows.
+- [Docs](/docs): Install, verify, set up accounts, review Cairo calls, and understand Starknet Wallet workflows.
 - [Security](/security): Local-first keys, Cairo call preview, smart-account permissions, signed builds.
 - [Releases](/releases): Current maintained desktop build and verification details.
 - [Changelog](/changelog): Version history for the desktop application.
 - [Roadmap](/roadmap): Product direction and maintained tracks.
-- [Compare](/compare): How StarknetWallet differs from other Starknet wallet options.
+- [Compare](/compare): How Starknet Wallet differs from other Starknet wallet options.
 - [Ecosystem](/ecosystem): Starknet ecosystem context.
 - [Security reviews](/audits): Review process and responsible disclosure.
 - [About](/about): Project principles.

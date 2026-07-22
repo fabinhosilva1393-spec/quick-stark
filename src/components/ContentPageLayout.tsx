@@ -58,7 +58,7 @@ function ActionButton({ action }: { action: ContentAction }) {
 }
 
 export function ContentPageLayout({
-  eyebrow = "StarknetWallet",
+  eyebrow = "Starknet Wallet",
   title,
   description,
   sections,

@@ -2,9 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SimplePage } from "@/components/SimplePage";
 import { AuditsIllustration } from "@/components/illustrations/PageIllustrations";
 
-const TITLE = "Security reviews — StarknetWallet";
+const TITLE = "Security reviews — Starknet Wallet";
 const DESC =
-  "Security review process, responsible disclosure, and build verification guidance for StarknetWallet.";
+  "Security review process, responsible disclosure, and build verification guidance for Starknet Wallet.";
 
 export const Route = createFileRoute("/audits")({
   head: () => ({
@@ -20,7 +20,7 @@ export const Route = createFileRoute("/audits")({
   component: () => (
     <SimplePage eyebrow="Security" title="Security reviews" illustration={<AuditsIllustration />}>
       <p>
-        StarknetWallet is designed around local-first key control,
+        Starknet Wallet is designed around local-first key control,
         transparent transaction review, and verification-first installation.
         Security review information and validated reports will be listed here
         as they become available.
