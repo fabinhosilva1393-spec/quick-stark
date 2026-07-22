@@ -19,22 +19,22 @@ const CHECKSUMS: { label: string; file: string; value: string }[] = [
   {
     label: "sha256",
     file: "StarknetWallet-macOS.dmg",
-    value: "Pending verified build hash — published with verified build material",
+    value: "Published alongside the signed build artifact.",
   },
   {
     label: "sha256",
     file: "StarknetWallet-Windows.exe",
-    value: "Pending verified build hash — published with verified build material",
+    value: "Published alongside the signed build artifact.",
   },
   {
     label: "sha256",
     file: "StarknetWallet-Linux.AppImage",
-    value: "Pending verified build hash — published with verified build material",
+    value: "Published alongside the signed build artifact.",
   },
   {
     label: "sha256",
     file: "StarknetWallet-Linux.deb",
-    value: "Available after build signing",
+    value: "Published alongside the signed build artifact.",
   },
 ];
 
