@@ -435,8 +435,8 @@ export function AuditsIllustration({ className }: Props) {
           <rect x="0" y="0" width="260" height="320" rx="14" fill={`url(#${id}-body)`} stroke="url(#pi-audits-edge)" strokeWidth="2" />
           <rect x="0" y="0" width="260" height="44" rx="14" fill="#241968" />
           <text x="20" y="28" fontSize="12" fontWeight="800" fill="#c4b5fd" fontFamily="ui-monospace, monospace" letterSpacing="2">AUDIT REPORT</text>
-          <rect x="200" y="14" width="46" height="20" rx="4" fill="#0c0820" stroke="#a78bfa" strokeOpacity="0.7" />
-          <text x="223" y="28" textAnchor="middle" fontSize="9" fontWeight="700" fill="#a78bfa" fontFamily="ui-monospace, monospace">DRAFT</text>
+          <rect x="196" y="14" width="54" height="20" rx="4" fill="#0c0820" stroke="#a78bfa" strokeOpacity="0.7" />
+          <text x="223" y="28" textAnchor="middle" fontSize="9" fontWeight="700" fill="#a78bfa" fontFamily="ui-monospace, monospace">SIGNED</text>
 
           {/* checksum block */}
           <g transform="translate(18 60)">

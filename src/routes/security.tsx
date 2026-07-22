@@ -44,8 +44,8 @@ const THREATS = [
 ];
 
 const TIERS = [
-  { tier: "Tier 0", name: "Hardware wallet / secure signer", note: "When available — planned support for popular hardware signers." },
-  { tier: "Tier 1", name: "OS keychain / Secure Enclave", note: "When available on the host operating system." },
+  { tier: "Tier 0", name: "Hardware wallet / secure signer", note: "External signing device support for users who prefer hardware-based key custody." },
+  { tier: "Tier 1", name: "OS keychain / Secure Enclave", note: "Uses the host operating system's secure storage where it is provided." },
   { tier: "Tier 2", name: "Argon2id session key", note: "Derived from a user passphrase, held only in memory for the session." },
   { tier: "Tier 3", name: "Encrypted local keystore", note: "Account material is encrypted at rest on disk." },
   { tier: "Tier 4", name: "Account metadata & network preferences", note: "Non-sensitive configuration kept locally." },
