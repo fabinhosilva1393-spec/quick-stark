@@ -235,7 +235,7 @@ export function Footer() {
                 />
               </span>
               <span className="font-bold tracking-tight text-ink text-lg">
-                Starknet<span className="text-white">Wallet</span>
+                Starknet&nbsp;<span className="text-white">Wallet</span>
               </span>
             </div>
 
